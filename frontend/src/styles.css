@@ -1,0 +1,24 @@
+:root {
+  --dl-color-theme-neutral-dark: #191818;
+  --dl-color-theme-neutral-light: #FBFAF9;
+  --dl-color-info: #24287b;
+  
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.mybutton {
+  color: #fff;
+  cursor: pointer;
+  padding: 11px 32px;
+  font-size: 15;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: rgba(29, 96, 96, 0.49000000953674316);
+  border: none;
+}
