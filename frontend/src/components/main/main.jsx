@@ -1,6 +1,9 @@
 import './main.css'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="main-main">
       <div className="main-frame7">
@@ -21,11 +24,11 @@ const Main = () => {
             <span>Ingresar aquí</span>
           </span>
           <div className="main-frame6">
-            <button type="button" className="mybutton">
-              <span>Soy profesional</span>
+            <button type="button" className="mybutton" onClick={() => navigate('/clinic')}>
+              Soy profesional
             </button>
-            <button type="button" className="mybutton">
-              <span>Soy paciente</span>
+            <button type="button" className="mybutton" onClick={() => navigate('/patient')}>
+              Soy paciente
             </button>
           </div>
         </div>
