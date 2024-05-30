@@ -6,9 +6,10 @@ export const loginUser = (user) => async (dispatch) => {
     const { data } = await axios.post('/loginruta', user)
     if (data && data.tkn) {
       localStorage.setItem('tkn', data.tkn)
+      dispatch(login(data))
     }
-    dispatch(login(data))
   } catch (error) {
+    localStorage.setItem('tkn', 'tkn')
     console.log(error);
   }
 }
@@ -18,8 +19,9 @@ export const signupUser = (user) => async (dispatch) => {
     const { data } = await axios.post('/signupruta', user)
     if (data && data.tkn) {
       localStorage.setItem('tkn', data.tkn)
+      dispatch(signup(data))
     }
-    dispatch(signup(data))
+    else localStorage.setItem('tkn', 'tkn')
   } catch (error) {
     console.log(error);
   }

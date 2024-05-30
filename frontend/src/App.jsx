@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './views/home';
+import Clinic from './views/clinic'
+import Auth from './views/auth';
+import Patient from './views/patient';
 
 function App() {
 
@@ -10,8 +13,18 @@ function App() {
       errorElement: <div>Error</div>
     },
     {
-      path: '/user',
-      element: <div>User</div>,
+      path: '/clinic',
+      element: <Clinic />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/auth',
+      element: <Auth />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/patient',
+      element: <Patient />,
       errorElement: <div>Error</div>
     }
   ]);
