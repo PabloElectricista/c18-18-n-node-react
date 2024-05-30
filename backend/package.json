@@ -1,0 +1,26 @@
+{
+  "name": "sistema-clinica-salud",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^8.4.0",
+    "morgan": "^1.10.0",
+    "prisma": "^5.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  },
+  "description": ""
+}
