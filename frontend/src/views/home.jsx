@@ -1,26 +1,17 @@
+import React from 'react'
 import './home.css'
-import { Helmet } from 'react-helmet'
-
-import Header from '../components/header/header'
-import Main from '../components/main/main'
-import Services from '../components/services/services'
-import Footer from '../components/footer/footer'
+import Footer from '../components/footer/Footer'
+import Navbar from '../components/navbar/Navbar'
+import Main from "../components/main/main"
 
 const Home = () => {
-  return (
-    <div className="home-container">
-      <Helmet>
-        <title>AgendaSalud - Home</title>
-        <meta property="og:title" content="AgendaSalud - Home" />
-      </Helmet>
-      <Header />
-      <div className='home-background'>
-        <Main />
-        <Services />
-      </div>
-      <Footer />
-    </div>
-  )
+    return (
+        <div className='containerGral'>
+            <Navbar />
+            <Main />
+            <Footer />
+        </div>
+    )
 }
 
 export default Home

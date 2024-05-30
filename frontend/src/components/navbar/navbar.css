@@ -1,0 +1,37 @@
+.navbar{
+    /* background-color: #58BACF; color definido por ux */
+    background-color: #1d616171;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.nav-links{
+    display: flex;
+    gap: 40px;
+    margin-right: 100px;
+    align-items: center;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #1a1919;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Krona One", sans-serif;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.nav-link:hover{
+    color: #1d6161d3
+}
+
+.nav-logo{
+    margin-left: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    object-fit: cover;
+}

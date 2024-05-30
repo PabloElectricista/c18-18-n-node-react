@@ -1,0 +1,39 @@
+.containerServices{
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-around;
+}
+
+.bloqueAtitleServices {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 20px;
+    text-align: end;
+}
+
+.bloqueServices {
+    margin-top: 100px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+
+.bloqueservicesInt {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    font-family: "Inter", sans-serif;
+}
+
+.imgMain {
+    width: 300px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.spanServices{
+    max-width: 400px;
+}
