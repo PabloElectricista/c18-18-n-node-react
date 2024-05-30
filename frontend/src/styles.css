@@ -9,6 +9,12 @@ body {
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .mybutton {
   color: #fff;
   cursor: pointer;
