@@ -1,0 +1,16 @@
+.ButtonAcc{
+    border-radius: 35px;
+    border: none;
+    background-color: #1d616171;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    font-family: "Inter", sans-serif;
+}
+
+.ButtonAcc:hover{
+    transform: scale(1.1);
+}

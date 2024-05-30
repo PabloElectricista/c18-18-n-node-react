@@ -1,43 +1,42 @@
 import './main.css'
-import { useNavigate } from 'react-router-dom'
+import ButtonAccessPacienteProfesional from '../buttons/ButtonAccessPacienteProfesional'
+import img2 from "../../assets/main/img2.png"
+import Services from './services/services'
 
 const Main = () => {
-  const navigate = useNavigate()
-
-  return (
-    <div className="main-main">
-      <div className="main-frame7">
-        <div className="main-frame8">
-          <span className="main-text">
-            Agenda Salud
-          </span>
-          <span className="main-text02">
-            Facilitando tu acceso a la Salud
-          </span>
+    return (
+        <div className="container-main">
+            <div className='subContainer-main'>
+                <div className='bloqueAmain'>
+                    <div className='bloqueAtitulos'>
+                        <h1 className="tituloMain animated fadeInDown">
+                            Agenda Salud
+                        </h1>
+                        <h3 className="subTituloMain ">
+                            Facilitando tu acceso a la Salud
+                        </h3>
+                    </div>
+                    <div className='bloqueAIngreso'>
+                        <h4 className='subTituloBotones'>Ingresar aqui</h4>
+                        <div className='bloqueABotonesIng'>
+                            <ButtonAccessPacienteProfesional titleButton="Soy paciente" redireccionar="patient"  />
+                            <ButtonAccessPacienteProfesional titleButton="Soy profesional" redireccionar="clinic" />
+                        </div>
+                    </div>
+                </div>
+                <div className='bloqueBmain'>
+                    <div className="bloqueBsubMain">
+                        <img src={img2} alt="img medico" className='imgMainPrincipal' />
+                        <span className="bloqueBtext">
+                        Nuestra misión es brindarte el mejor servicio para vos y tu familia
+                        facilitando tu acceso a la salud
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <Services />
         </div>
-        <span className="main-text04">
-          Nuestra misión es brindarte el mejor servicio para vos y tu familia
-          facilitando tu acceso a la salud
-        </span>
-        <div className="main-frame5">
-          <span className="main-text06">
-            <span>Ingresar aquí</span>
-          </span>
-          <div className="main-frame6">
-            <button type="button" className="mybutton" onClick={() => navigate('/clinic')}>
-              Soy profesional
-            </button>
-            <button type="button" className="mybutton" onClick={() => navigate('/patient')}>
-              Soy paciente
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="main-frame9">
-        <img alt="Hero Image" src="/heroimg-400h.png" className="main-foto1" />
-      </div>
-    </div>
-  )
+    )
 }
 
 export default Main
