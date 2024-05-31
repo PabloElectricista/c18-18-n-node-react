@@ -3,6 +3,7 @@ import Home from './views/home';
 import Clinic from './views/clinic'
 import Login from './views/login';
 import Patient from './views/patient';
+import Cartillas from './views/cartillas'
 import ProtectedRoutes from './components/protected';
 
 function App() {
@@ -32,6 +33,11 @@ function App() {
           errorElement: <div>Error</div>
         },
       ]
+    },
+    {
+      path: '/cartillas',
+      element: <Cartillas />,
+      errorElement: <div>Error</div>
     },
   ]);
 
