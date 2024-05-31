@@ -1,0 +1,332 @@
+.main-patient-main-patient {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-patient-patient-hero {
+  width: 100%;
+  height: auto;
+}
+
+.main-patient-patient {
+  gap: 59px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 24px;
+  justify-content: space-around;
+  background-color: rgba(36, 40, 123, 0.8999999761581421);
+}
+
+.main-patient-text {
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-button {
+  display: flex;
+  padding: 17px 103px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-image: radial-gradient(#fff, #F8ECEFAC);
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-patient-services {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 32px;
+  position: relative;
+  align-items: center;
+  flex-shrink: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-patient-container {
+  gap: 32px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.main-patient-text04 {
+  fill: var(--dl-color-nuestras-color-info);
+  color: var(--dl-color-nuestras-color-info);
+  width: auto;
+  height: auto;
+  font-size: 24px;
+  font-style: Medium;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-frame7 {
+  gap: 96px;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: flex-start;
+}
+
+.main-patient-service-card {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-image: url("/pediatria.png");
+}
+
+.main-patient-rectangle18 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text06 {
+  color: rgba(38, 45, 45, 1);
+  width: 57px;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-service-card1 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/cardiologia.png");
+  background-position: center;
+}
+
+.main-patient-rectangle181 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text08 {
+  color: rgb(38, 45, 45);
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-service-card2 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/ginecologia.png");
+  background-position: center;
+}
+
+.main-patient-rectangle182 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text09 {
+  color: rgb(38, 45, 45);
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-service-card3 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/clinica.png");
+  background-position: center;
+}
+
+.main-patient-rectangle183 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text10 {
+  color: rgb(38, 45, 45);
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-service-card4 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/traumatologia.png");
+  background-position: center;
+}
+
+.main-patient-rectangle184 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text13 {
+  color: rgb(38, 45, 45);
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.main-patient-service-card5 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/nutricion.png");
+  background-position: center;
+}
+
+.main-patient-rectangle185 {
+  width: 250px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d999;
+}
+
+.main-patient-text16 {
+  color: rgb(38, 45, 45);
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  font-style: Regular;
+  text-align: center;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+@media(max-width: 1200px) {
+  .main-patient-main-patient {
+    height: auto;
+  }
+
+  .main-patient-frame7 {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 991px) {
+  .main-patient-container {
+    width: 100%;
+  }
+  .main-patient-frame7 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 479px) {
+  .main-patient-patient {
+    flex-direction: column;
+  }
+
+  .main-patient-container {
+    width: 100%;
+  }
+}
