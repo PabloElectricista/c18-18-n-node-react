@@ -36,7 +36,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if(credentials.email.length === 0 || credentials.password === 0) {
+    if(credentials.email.length === 0 || credentials.password.length === 0) {
       toast.error('Debes llenar los campos', {
         toastId: 'error2',
         position: 'bottom-left',
@@ -64,6 +64,7 @@ const Login = () => {
                 id='loginEmail'
                 value={credentials.email}
                 placeholder='Ingresá tu email'
+                autoComplete='off'
                 onChange={handleChange}
               />
             </div>
