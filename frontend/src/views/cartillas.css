@@ -1,0 +1,19 @@
+.containerCartilla {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+.cartillasInt{
+    width: 100%;
+}
+
+.imgCartilla{
+    width: 100%;
+}
