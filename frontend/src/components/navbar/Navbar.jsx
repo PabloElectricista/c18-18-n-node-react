@@ -1,14 +1,12 @@
 import './navbar.css'
 import { Link } from 'react-router-dom'
-import logo from "../../assets/logonew.png"
-
 
 const Navbar = () => {
     return (
         <div className="navbar">
             <img
                 alt="logo Agenda Salud"
-                src={logo}
+                src="/logonew.png"
                 className="nav-logo"
             />
             <nav className="nav-links">

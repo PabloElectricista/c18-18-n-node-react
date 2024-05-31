@@ -14,8 +14,8 @@ const Login = () => {
   const navigate = useNavigate()
   
   useEffect(() => {
-    if (auth.user?.role) {
-      navigate(`/${auth.user.role}`)
+    if (auth.user) {
+      navigate("/patient")//navigate(`/${auth.user.role}`)
     } else if (auth?.error) {
       toast.error(auth.error, {
         toastId: 'error1',
@@ -23,7 +23,7 @@ const Login = () => {
         transition: Bounce,
       })
     }
-  }, [auth.user, auth.error, navigate])
+  }, [auth.user, auth.error])
 
   const handleChange = (e) => {
     const { name, value } = e.target
