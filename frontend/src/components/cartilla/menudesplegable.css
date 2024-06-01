@@ -1,0 +1,57 @@
+/* Estilos para el contenedor del menú desplegable */
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para el botón del menú */
+.dropbtn {
+    background-color: transparent;
+    color:rgba(0, 0, 0, 0.39);
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.308);
+    text-align: start;
+}
+
+/* Contenedor del contenido desplegable (oculto por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Estilos para los enlaces del menú desplegable */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilos para los enlaces del menú cuando se pasa el ratón por encima */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Agrega la clase .show para mostrar el contenido desplegable */
+.show {
+    display: block;
+}
+
+.opcionesDesplegable{
+    display: flex;
+    flex-direction: column;
+}
+
+.opcionesButton{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
