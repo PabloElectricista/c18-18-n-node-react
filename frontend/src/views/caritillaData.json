@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "title": "title1",
+        "desplegable": [
+            {
+                "id": 1,
+                "menuTitle":"subTituloA",
+                "opciones":["opcionesA","opcionesB","opcionesC"]
+            },
+            {
+                "id": 2,
+                "menuTitle":"subTituloB",
+                "opciones":["opcionesD","opcionesE","opcionesF"]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "title2",
+        "desplegable": [
+            {
+                "id": 1,
+                "menuTitle":"subTituloC",
+                "opciones":["opcionesA123","opcionesB123","opcionesC123"]
+            },
+            {
+                "id": 2,
+                "menuTitle":"subTituloD",
+                "opciones":["opcionesD123","opcionesE123"]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "title3",
+        "desplegable": [
+            {
+                "id": 1,
+                "menuTitle":"subTituloE",
+                "opciones":["opcionesA567","opcionesB567","opcionesC567"]
+            },
+            {
+                "id": 2,
+                "menuTitle":"subTituloF",
+                "opciones":["opcionesD567","opcionesE567","opcionesF567"]
+            },
+            {
+                "id": 3,
+                "menuTitle":"subTituloG",
+                "opciones":["opcionesG","opcionesH","opcionesI"]
+            }
+        ]
+    }
+]
