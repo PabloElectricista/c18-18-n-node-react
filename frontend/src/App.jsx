@@ -5,6 +5,7 @@ import Login from './views/login';
 import Patient from './views/patient';
 import Cartillas from './views/cartillas'
 import ProtectedRoutes from './components/protected';
+import PasswordRecovery from './views/passRecovery';
 
 function App() {
 
@@ -17,6 +18,11 @@ function App() {
     {
       path: '/login',
       element: <Login />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/recover-password',
+      element: <PasswordRecovery />,
       errorElement: <div>Error</div>
     },
     {
