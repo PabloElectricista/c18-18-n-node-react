@@ -5,24 +5,29 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "prisma:push": "prisma db push --schema ./src/infrastructure/prisma/schema.prisma"
+  },
+  "prisma": {
+    "schema": "./src/infrastructure/prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^9.0.1",
     "@prisma/client": "^5.14.0",
-    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "fastify": "^4.27.0",
     "jsonwebtoken": "^9.0.2",
-    "mongo": "^0.1.0",
-    "mongoose": "^8.4.0",
-    "morgan": "^1.10.0",
-    "prisma": "^5.14.0"
+    "prisma": "^5.14.0",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
     "nodemon": "^3.1.1"
   },
   "description": ""

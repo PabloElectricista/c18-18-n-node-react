@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Patients {
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  last_name    String
+  patient_dni  String         @unique
+  phone        String         @unique
+  email        String         @unique
+  role         Role?          @default(PATIENT)
+  appointments Appointments[]
+  created_at   String
+
+  @@map("patient")
+}
+
+model Doctors {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  clinic_id    String       @db.ObjectId
+  clinic       Clinic?      @relation(fields: [clinic_id], references: [id])
+  name         String
+  last_name    String
+  patient_dni  String       @unique
+  phone        String       @unique
+  email        String       @unique
+  role         Role?        @default(DOCTOR)
+  schedule     Scheduler[]
+  specialty    Specialties? @relation(fields: [specialty_id], references: [id])
+  specialty_id String       @db.ObjectId
+  created_at   String
+
+  @@map("doctor")
+}
+
+model Clinic {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name_clinic String
+  room_number String
+  doctors     Doctors[]
+
+  @@map("clinic")
+}
+
+model Specialties {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  doctors     Doctors[]      @relation
+  name        String
+  appointment Appointments[]
+
+  @@map("specialties")
+}
+
+model Appointments {
+  id               String       @id @default(auto()) @map("_id") @db.ObjectId
+  clinic_id        String
+  doctor_id        String
+  specialty_id     String       @db.ObjectId
+  Specialties      Specialties? @relation(fields: [specialty_id], references: [id])
+  specialties_name String
+  Patients         Patients?    @relation(fields: [patients_id], references: [id])
+  patients_id      String       @db.ObjectId
+  room_number      String
+  status           Status?      @default(RESERVED)
+  reserved_at      String
+
+  @@map("appointments")
+}
+
+model Scheduler {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  doctor       Doctors @relation(fields: [doctor_id], references: [id])
+  doctor_id    String  @db.ObjectId
+  appointments Json
+  created_at   String
+
+  @@map("scheduler")
+}
+
+enum Role {
+  DOCTOR
+  PATIENT
+}
+
+enum Status {
+  RESERVED
+  DELETED
+}
