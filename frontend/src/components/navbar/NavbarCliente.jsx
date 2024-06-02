@@ -20,7 +20,7 @@ const NavbarCliente = () => {
         className="nav-logo"
       />
       <nav className="nav-links">
-        <Link className="nav-link">
+        <Link className="nav-link" to='/contact'>
           Contacto
         </Link>
         <div className="nav-link-perfil">

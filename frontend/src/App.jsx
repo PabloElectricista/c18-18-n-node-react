@@ -7,6 +7,7 @@ import Cartillas from './views/cartillas'
 import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';
+import Contact from './views/contact';
 
 function App() {
 
@@ -42,14 +43,17 @@ function App() {
         {
           path: '/profile',
           element: <PatientProfile />,
-        }
+        },
+        {
+          path: '/cartillas',
+          element: <Cartillas />
+        },
       ]
     },
     {
-      path: '/cartillas',
-      element: <Cartillas />,
-      errorElement: <div>Error</div>
-    },
+      path: '/contact',
+      element: <Contact />
+    }
   ]);
 
   return (
