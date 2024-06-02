@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { login } from '../thunks/authThunk'
+import { login, passRecovery } from '../thunks/authThunk'
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -7,6 +7,7 @@ export const authSlice = createSlice({
     loading: false,
     user: null,
     error: null,
+    passReset: null,
   },
   reducers: {
     signup: (state, { payload }) => {
@@ -21,6 +22,10 @@ export const authSlice = createSlice({
         payload
       }
     },
+    logout: (state) => {
+      state.user = null
+      localStorage.removeItem('tkn')
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -33,6 +38,19 @@ export const authSlice = createSlice({
         state.user = action.payload
       })
       .addCase(login.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+      .addCase(passRecovery.pending, (state) => {
+        state.loading = true
+        state.error = null
+        state.passReset = false
+      })
+      .addCase(passRecovery.fulfilled, (state) => {
+        state.loading = false
+        state.passReset = true
+      })
+      .addCase(passRecovery.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })

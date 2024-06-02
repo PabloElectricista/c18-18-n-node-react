@@ -53,6 +53,9 @@ const Login = () => {
       <div className='form-wrapper'>
         <div>
           <h3 className='form-header'>Agenda Salud</h3>
+          <Link to="/" className='return-link'>
+            <button className='return-button'>&lt;- Volver</button>
+          </Link>
           <p>Inicia Sesion</p>
           <form onSubmit={handleSubmit}>
             <div className='login-wrapper'>
