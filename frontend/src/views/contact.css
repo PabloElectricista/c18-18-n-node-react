@@ -22,6 +22,10 @@
 .contact-backarrow {
   width: 24px;
   height: 24px;
+  cursor: pointer;
+}
+.contact-error {
+  color: red;
 }
 
 .contact-text {

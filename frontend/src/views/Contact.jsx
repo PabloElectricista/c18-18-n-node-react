@@ -1,36 +1,58 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom"
 import { Helmet } from 'react-helmet'
 import './contact.css'
 import { toast } from 'react-toastify'
-import axios from 'axios'
+// import axios from 'axios'
 
 const Contact = () => {
-
+  const navigate = useNavigate();
   const initialState = {
     name: '', email: '', body: ''
   }
   const [message, setMessage] = useState(initialState)
+  const [error, setError] = useState({ email: false, body: false })
 
   const handleChange = ev => {
     setMessage({
       ...message,
       [ev.target.name]: ev.target.value
     })
+    setError({...error, email: false})
   }
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    
-    if(message.email.length === 0 || message.body.length === 0) {
-      toast.error('Debes llenar los campos', {
-        toastId: 'error2',
-        position: 'bottom-left',
-        transition: Bounce,
+    const form = ev.target
+
+    if (message.email.length === 0 || !form.checkValidity()) {
+      setError({
+        ...error,
+        email: true
       })
       return
     }
-    
+    else {
+      setError({
+        ...error,
+        email: false
+      })
+    }
+
+    if (message.body.length === 0) {
+      setError({
+        ...error,
+        body: true
+      })
+      return
+    }
+    else {
+      setError({
+        ...error,
+        body: false
+      })
+    }
+
     try {
       // await axios.post('/mensaje', message)
       toast('mensaje enviado')
@@ -51,6 +73,7 @@ const Contact = () => {
           alt="back arrow navigation"
           src="/back_arrow.svg"
           className="contact-backarrow"
+          onClick={() => navigate(-1)}
         />
         <span className="contact-text">
           Agenda Salud
@@ -100,6 +123,7 @@ const Contact = () => {
               value={message.email}
               onChange={handleChange}
             />
+            {error.email ? <span className='contact-error'>Debe llenar correctamente este campo</span> : <span></span>}
           </div>
           <div className="contact-container6">
             <svg viewBox="0 0 1024 1024" className="contact-icon4">
@@ -113,6 +137,7 @@ const Contact = () => {
               value={message.body}
               onChange={handleChange}
             ></textarea>
+            {error.body ? <span className='contact-error'>Deje su mensaje por favor</span> : <span></span>}
           </div>
           <button type="submit" className="contact-button">
             Enviar consulta
