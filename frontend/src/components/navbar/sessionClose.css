@@ -1,0 +1,116 @@
+.session-close-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 16px;
+  z-index: 100;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.session-close-container1 {
+  width: 508px;
+  height: 189px;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #D9D9D9;
+  position: relative;
+}
+.session-close-close {
+  top: 16px;
+  right: 16px;
+  display: flex;
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(235, 0, 27, 1);
+  border: none;
+  cursor: pointer;
+}
+.session-close-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+.session-close-text {
+  color: rgba(0, 0, 0, 1);
+  width: 284px;
+  height: auto;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.session-close-buttons {
+  gap: 21px;
+  width: 320px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+}
+.session-close-button {
+  gap: 10px;
+  display: flex;
+  padding: 12px 45px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  border-color: rgba(36, 40, 123, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  flex-direction: row;
+  background-color: rgba(36, 40, 123, 1);
+  cursor: pointer;
+}
+.session-close-text2 {
+  color: rgba(255, 255, 255, 1);
+  width: 60px;
+  height: auto;
+  font-size: 13px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.session-close-button1 {
+  gap: 10px;
+  display: flex;
+  padding: 12px 43px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  flex-direction: row;
+  cursor: pointer;
+}
+.session-close-text4 {
+  color: rgba(36, 40, 123, 1);
+  width: 63px;
+  height: auto;
+  font-size: 13px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}

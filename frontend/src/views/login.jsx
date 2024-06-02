@@ -15,7 +15,7 @@ const Login = () => {
   
   useEffect(() => {
     if (auth.user) {
-      navigate("/patient")//navigate(`/${auth.user.role}`)
+      navigate(`/${auth.user.role}`)
     } else if (auth?.error) {
       toast.error(auth.error, {
         toastId: 'error1',

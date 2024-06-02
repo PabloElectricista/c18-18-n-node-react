@@ -1,37 +1,105 @@
-.navbar{
-    /* background-color: #58BACF; color definido por ux */
-    background-color: #1d616171;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    padding: 10px;
+.navbar {
+  /* background-color: #58BACF; color definido por ux */
+  background-color: #1d616171;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }
 
-.nav-links{
-    display: flex;
-    gap: 40px;
-    margin-right: 100px;
-    align-items: center;
+.nav-links {
+  display: flex;
+  gap: 40px;
+  margin-right: 100px;
+  align-items: center;
 }
 
-.nav-link{
-    text-decoration: none;
-    color: #252525;
-    font-weight: bold;
-    font-size: 15px;
-    font-family: "Krona One", sans-serif;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+.nav-link,
+.nav-link-perfil {
+  text-decoration: none;
+  color: #252525;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Krona One", sans-serif;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  padding: 8px;
 }
 
-.nav-link:hover{
-    color: #1d6161d3
+.nav-link:hover,
+.nav-link-perfil:hover {
+  color: #1d6161d3;
+  border: 0.5px #1d6161d3 solid;
 }
 
-.nav-logo{
-    margin-left: 50px;
-    width: 80px;
-    height: 80px;
-    border-radius:50%;
-    object-fit: cover;
+.nav-logo {
+  margin-left: 50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-link-perfil {
+  position: relative;
+}
+
+.nav-link-perfil:hover .navbar-profilemenu-container {
+  display: flex;
+}
+
+.navbar-profilemenu-container:hover .navbar-profilemenu-container {
+  display: flex;
+}
+
+
+.navbar-profilemenu-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  bottom: -136px;
+  left: 0px;
+  width: auto;
+  height: auto;
+  display: none;
+  z-index: 100;
+  position: absolute;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.navbar-profilemenu-item,
+.navbar-profilemenu-close {
+  width: 100%;
+  color: rgb(0, 0, 0);
+  width: auto;
+  height: auto;
+  font-size: 12px;
+  text-align: left;
+  font-family: "Inter";
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  padding: 8px;
+}
+a .navbar-profilemenu-item,
+a .navbar-profilemenu-close {
+  text-decoration: none;
+}
+.navbar-profilemenu-item:hover {
+  background-color: #1d6161d3;
+  color: #fff;
+}
+.navbar-profilemenu-close:hover {
+  color: red;
+}
+
+.navbar-profilemenu-line  {
+  background-color: rgb(0, 0, 0);
+  height: 0.5px;
+  width: 100%;
 }
