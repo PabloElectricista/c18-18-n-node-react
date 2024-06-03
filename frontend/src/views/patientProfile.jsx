@@ -2,7 +2,7 @@
 import './patientProfile.css'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
-import Footer from '../components/footer/footer'
+import Footer from '../components/footer/Footer'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'

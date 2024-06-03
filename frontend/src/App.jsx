@@ -44,16 +44,21 @@ function App() {
           path: '/profile',
           element: <PatientProfile />,
         },
-        {
-          path: '/cartillas',
-          element: <Cartillas />
-        },
+        // {
+        //   path: '/cartillas',
+        //   element: <Cartillas />
+        // },
       ]
     },
     {
       path: '/contact',
       element: <Contact />
-    }
+    },
+    //agrego temporalmente para trabajar sobre esta vista
+            {
+          path: '/cartillas',
+          element: <Cartillas />
+        },
   ]);
 
   return (
