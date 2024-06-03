@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
   const navigate = useNavigate()
-  
+
   useEffect(() => {
     if (auth.user) {
       navigate(`/${auth.user.role}`)

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { login, passRecovery } from '../thunks/authThunk'
+import { login, passRecovery, register } from '../thunks/authThunk'
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -10,9 +10,6 @@ export const authSlice = createSlice({
     passReset: null,
   },
   reducers: {
-    signup: (state, { payload }) => {
-      state.user = payload
-    },
     update: (state, { payload }) => {
       state.user = payload
     },
@@ -41,6 +38,17 @@ export const authSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+      .addCase(register.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(register.fulfilled, (state) => {
+        state.loading = false
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
       .addCase(passRecovery.pending, (state) => {
         state.loading = true
         state.error = null
@@ -58,6 +66,6 @@ export const authSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { signup, update, getScheludes } = authSlice.actions
+export const { update, getScheludes } = authSlice.actions
 
 export default authSlice.reducer
