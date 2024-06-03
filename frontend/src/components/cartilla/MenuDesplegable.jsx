@@ -1,35 +1,44 @@
 import React, { useState } from 'react';
 import "./menudesplegable.css";
+import arrowDown from "../../assets/cartilla/arrow.svg"
 
-const MenuDesplegable = ({ dataDesplegable }) => {
-    const [openMenuId, setOpenMenuId] = useState(null);
+const MenuDesplegable = ({ dataDesplegable, idOpcion, useCredencialSelected,setBusquedaSelected,setDondeAtenderSelected}) => {
+    const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
-    const toggleMenu = (id) => {
-        setOpenMenuId(openMenuId === id ? null : id);
+    const toggleSubMenu = (id) => {
+        setOpenSubMenuId(openSubMenuId === id ? null : id);
     };
+
+    const guardarValor = (opcion) =>{
+        if(idOpcion === 1){
+            useCredencialSelected(opcion)
+        }
+        if(idOpcion === 2){
+            setBusquedaSelected(opcion)
+        }
+        if(idOpcion === 3){
+            setDondeAtenderSelected(opcion)
+        }
+        setOpenSubMenuId(null)
+    }
 
     return (
         <div className='dropdown'>
-            <div className='opcionesButton'>
-                {dataDesplegable.map((p) => (
+            {dataDesplegable.map((submenu) => (
+                <div key={submenu.id} className='submenu'>
                     <button
-                        key={p.id}
                         className='dropbtn'
-                        onClick={() => toggleMenu(p.id)}
+                        onClick={() => toggleSubMenu(submenu.id)}
                     >
-                        {p.menuTitle}
+                        {submenu.menuTitle}
                     </button>
-                ))}
-            </div>
-            {dataDesplegable.map((p) => (
-                <div
-                    key={p.id}
-                    className={`dropdown-content ${openMenuId === p.id ? 'show' : ''}`}
-                >
-                    <div className='opcionesDesplegable'>
-                        {p.opciones.map((opcion, index) => (
-                            <span key={index}>{opcion}</span>
-                        ))}
+                    <img src={arrowDown} alt='arrowDown' className='arrowDown' />
+                    <div className={`dropdown-content ${openSubMenuId === submenu.id ? 'show' : ''}`}>
+                        <div className='opcionesDesplegable'>
+                            {submenu.opciones.map((opcion, index) => (
+                                <button key={index} onClick={()=>guardarValor(opcion)} >{opcion}</button>
+                            ))}
+                        </div>
                     </div>
                 </div>
             ))}
