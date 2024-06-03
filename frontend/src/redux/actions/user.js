@@ -48,9 +48,14 @@ const clinic = {
   phone: 123456789
 }
 export const cargarFake = (role) => (dispatch) => {
-  if (role === 'patient') dispatch(update(patient))
-  if (role === 'clinic') dispatch(update(clinic))
-  
+  if (role === 'patient') {
+    localStorage.setItem('tkn', patient.tkn)
+    dispatch(update(patient))
+  }
+  if (role === 'clinic'){ 
+    localStorage.setItem('tkn', clinic.tkn)
+    dispatch(update(clinic))
+  }
 }
 
 export const updateUser = (user) => (dispatch) => {
