@@ -22,18 +22,19 @@ model Patients {
 }
 
 model Doctors {
-  id           String       @id @default(auto()) @map("_id") @db.ObjectId
-  clinic_id    String       @db.ObjectId
-  clinic       Clinic?      @relation(fields: [clinic_id], references: [id])
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  clinic_id    String         @db.ObjectId
+  clinic       Clinic?        @relation(fields: [clinic_id], references: [id])
   name         String
   last_name    String
-  patient_dni  String       @unique
-  phone        String       @unique
-  email        String       @unique
-  role         Role?        @default(DOCTOR)
+  doctor_dni   String         @unique
+  phone        String         @unique
+  email        String         @unique
+  role         Role?          @default(DOCTOR)
   schedule     Scheduler[]
-  specialty    Specialties? @relation(fields: [specialty_id], references: [id])
-  specialty_id String       @db.ObjectId
+  specialty    Specialties?   @relation(fields: [specialty_id], references: [id])
+  specialty_id String         @db.ObjectId
+  appointments Appointments[]
   created_at   String
 
   @@map("doctor")
@@ -58,17 +59,19 @@ model Specialties {
 }
 
 model Appointments {
-  id               String       @id @default(auto()) @map("_id") @db.ObjectId
-  clinic_id        String
-  doctor_id        String
-  specialty_id     String       @db.ObjectId
-  Specialties      Specialties? @relation(fields: [specialty_id], references: [id])
-  specialties_name String
-  Patients         Patients?    @relation(fields: [patients_id], references: [id])
-  patients_id      String       @db.ObjectId
-  room_number      String
-  status           Status?      @default(RESERVED)
-  reserved_at      String
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  clinic_id    String
+  doctor       Doctors      @relation(fields: [doctor_id], references: [id])
+  doctor_id    String       @db.ObjectId
+  specialty_id String       @db.ObjectId
+  Specialties  Specialties? @relation(fields: [specialty_id], references: [id])
+  Patients     Patients?    @relation(fields: [patients_id], references: [id])
+  patients_id  String       @db.ObjectId
+  room_number  String
+  status       Status?      @default(RESERVED)
+  status_logs  Json
+  created_at   String
+  reserved_at  String
 
   @@map("appointments")
 }
