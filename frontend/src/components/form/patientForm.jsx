@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './patientForm.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { Bounce, toast } from 'react-toastify'
@@ -14,6 +14,18 @@ const PatientRegisterForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const signup = useSelector(state => state.auth)
+
+  useEffect(() => {
+    if (signup.user) {
+      navigate(`/${signup.user.role}`)
+    } else if (signup?.error) {
+      toast.error(signup.error, {
+        toastId: 'error1',
+        position: 'bottom-left',
+        transition: Bounce,
+      })
+    }
+  }, [signup.user, signup.error, navigate])
 
   const handleNumberChange = (e) => {
     const number = e.target.value
@@ -36,7 +48,7 @@ const PatientRegisterForm = () => {
       pass.length === 0
     ) {
       toast.error('Debes llenar los campos', {
-        toastId: 'error1',
+        toastId: 'error2',
         position: 'bottom-left',
         transition: Bounce,
       })
@@ -53,16 +65,6 @@ const PatientRegisterForm = () => {
     }
 
     dispatch(register(credentials))
-      .then(() => {
-        navigate(`/${signup.user.role}`)
-      })
-      .catch((error) => {
-        toast.error(error.message, {
-          toastId: 'error2',
-          position: 'bottom-left',
-          transition: Bounce,
-        })
-      })
   }
 
   return (
