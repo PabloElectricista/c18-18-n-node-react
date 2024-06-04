@@ -1,4 +1,4 @@
-import patientHandler from "../../../utils/intances-usecases.js";
+import { patientHandler } from "../../../utils/intances-usecases.js";
 
 const routes = [
   {
