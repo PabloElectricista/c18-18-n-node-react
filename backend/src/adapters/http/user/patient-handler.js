@@ -3,12 +3,12 @@ export default class PatientHandler {
     this.patientUseCases = patientUseCases;
   }
 
-  findAllPatients = async (req, res) => {
+findAllPatients = async (req, res) => {
     try {
       const [patients, status, err] =
         await this.patientUseCases.findAllPatients();
-      if (err)
-        return res.status(status).send({
+    if (err)
+      return res.status(status).send({
           message: "fail",
           errors: err,
         });
@@ -24,7 +24,28 @@ export default class PatientHandler {
     }
   };
 
-  createNewPatient = async (req, res) => {
+findPatientById = async (req, res) => {
+    try {
+      const {patientid} = req.params; 
+      const [patient, status, err] = await this.patientUseCases.findPatientById(patientid);
+        if (err)
+        return res.status(status).send({
+            message: "fail",
+            errors: err,
+        });
+        return res.status(status).send({
+            message: "success",
+            data: patient,
+        });
+    } catch {
+        return res.status(500).send({
+            message: "There was internal server error",
+            errors: error,
+        });
+    }
+};
+
+createNewPatient = async (req, res) => {
     try {
       const [patient, status, err] =
         await this.patientUseCases.createNewPatient(req.body);
@@ -44,4 +65,49 @@ export default class PatientHandler {
       });
     }
   };
+
+  
+updatePatientById = async (req, res) => {
+  try{
+      const {patientid} = req.params;
+      const [patient, status, err] = await this.patientUseCases.updatePatientById(patientid, req.body);
+      if (err)
+      return res.status(status).send({
+          message: "fail",
+          errors: err,
+      });
+      return res.status(status).send({
+          message: "success",
+          data: patient,
+      });
+  } catch {
+      return res.status(500).send({
+          message: "There was internal server error",
+          errors: error,
+      });
+  }
+};
+
+deletePatientById = async (req, res) => {
+  try{
+      const {patientid} = req.params;
+      const [patient, status, err] = await this.patientUseCases.deletePatientById(patientid);
+      if (err)
+      return res.status(status).send({
+          message: "fail",
+          errors: err,
+      });
+      return res.status(status).send({
+          message: "success",
+          data: patient,
+      });
+  } catch {
+      return res.status(500).send({
+          message: "There was internal server error",
+          errors: error,
+      });
+  }
+
+};
+  
 }
