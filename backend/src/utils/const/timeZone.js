@@ -1,4 +1,4 @@
-export default { opcionesFormato } = {
+const opcionesFormato = {
   year: "2-digit",
   month: "2-digit",
   day: "2-digit",
@@ -8,3 +8,5 @@ export default { opcionesFormato } = {
   hour12: false,
   timeZone: "America/Bogota", //hora central de colombia, luego se cambia a la de preferencia
 };
+
+export default opcionesFormato;
