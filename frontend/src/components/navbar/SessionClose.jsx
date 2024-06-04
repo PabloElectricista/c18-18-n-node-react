@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from 'react-router-dom';
 import './sessionClose.css'
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/slices/authSlices';
 
 const SessionClose = ({ openClose }) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleClose = () => {
     openClose(false);
-    /*
-    Dispatch cerrar sesion
-    */
+    dispatch(logout())
     navigate('/')
   }
   return (
