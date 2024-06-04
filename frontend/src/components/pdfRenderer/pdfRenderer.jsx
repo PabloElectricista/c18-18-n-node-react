@@ -18,11 +18,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 });
+
+// 1 cm = 28.35 pt
 const pdfRenderer = () => {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size={{ width: 300, height: 400 }} style={styles.page}>
         <View style={styles.section}>
           <Text>¡Hola Mundo!</Text>
           <Text>
