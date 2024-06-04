@@ -1,4 +1,4 @@
-export default appointments = {
+const appointments = {
   7: null,
   7.5: null,
   8: null,
@@ -15,3 +15,5 @@ export default appointments = {
   15.5: null,
   16: null,
 };
+
+export default appointments;
