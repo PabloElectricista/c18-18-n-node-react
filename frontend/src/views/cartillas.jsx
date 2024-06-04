@@ -17,7 +17,7 @@ const Cartillas = () => {
             <div className='containerCartilla'>
                 <NavbarCliente className="nav" />
                 <div className='cartillasInt'>
-                    <h1 className='tituloCartilla'>CARTILLA ONLINE</h1>
+                    <h1 className='tituloCartilla animated fadeInDown'>CARTILLA ONLINE</h1>
                     <img src={foto} alt='foto' className='imgCartilla' />
                     <div className='divSwitch'>
                         <SwitchButton />
