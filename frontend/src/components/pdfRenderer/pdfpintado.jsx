@@ -1,10 +1,10 @@
-import PDF from "./pdfRenderer"
+import PdfRenderer from "./pdfRenderer"
 import { PDFDownloadLink } from "@react-pdf/renderer"
 
-const pdfpintado = () => {
+const Pdfpintado = () => {
   return (
     <div>
-      <PDFDownloadLink document={<PDF />} fileName="example.pdf">
+      <PDFDownloadLink document={<PdfRenderer />} fileName="example.pdf">
         {
           ({ loading, url, error, blob }) => loading ? 
           <button>Cargando...</button>
@@ -15,4 +15,4 @@ const pdfpintado = () => {
   )
 }
 
-export default pdfpintado
+export default Pdfpintado;
