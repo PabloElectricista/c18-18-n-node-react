@@ -45,4 +45,21 @@ const updateAppointments = (scheduler, appointmentId, hour, numOfSessions) => {
   return [newScheduler, null];
 };
 
-export default { setAppoinments, updateAppointments };
+const dateFromAndDateToByFilters = (filters) => {
+  let dateFrom;
+  let dateTo;
+  if (filters.date_type) {
+    const today = new Date();
+    dateFrom = setHourToDate(today, 0);
+    dateTo = addDays(today, dateMap[filters.date_type]);
+  } else {
+    dateFrom = filters.date_type;
+    dateTo = filters.date_type;
+  }
+  return [
+    dateFrom.toLocaleString().replace(",", ""),
+    dateTo.toLocaleString().replace(",", ""),
+  ];
+};
+
+export { setAppoinments, updateAppointments, dateFromAndDateToByFilters };
