@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import "./menudesplegable.css";
+import "./menufechahora.css"
+import data from "../../views/cartillafechahoradata.json"
+import { useState } from 'react'
 import arrowDown from "../../assets/cartilla/arrow.svg"
 
-const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setclinica,setespecialidad,setProfesional}) => {
+const MenuFechaHora = () => {
+
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
     const toggleSubMenu = (id) => {
@@ -11,34 +13,27 @@ const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setcl
 
     const guardarValor = (opcion) =>{
         if(openSubMenuId === 1){
-            setLocalidadSelected(opcion)
+            console.log(opcion)
         }
         if(openSubMenuId === 2){
-            setclinica(opcion)
-        }
-        if(openSubMenuId === 3){
-            setespecialidad(opcion)
-        }
-        if(openSubMenuId === 4){
-            setProfesional(opcion)
+            console.log(opcion)
         }
         setOpenSubMenuId(null)
     }
-
     return (
         <div className='dropdown'>
-            {dataDesplegable.map((submenu) => (
-                <div key={submenu.id} className='submenu'>
+            {data.map((f) => (
+                <div key={f.id} className='submenu'>
                     <button
                         className='dropbtn'
-                        onClick={() => toggleSubMenu(submenu.id)}
+                        onClick={() => toggleSubMenu(f.id)}
                     >
-                        {submenu.menuTitle}
+                        {f.menuTitle}
                     </button>
                     <img src={arrowDown} alt='arrowDown' className='arrowDown' />
-                    <div className={`dropdown-content ${openSubMenuId === submenu.id ? 'show' : ''}`}>
+                    <div className={`dropdown-content ${openSubMenuId === f.id ? 'show' : ''}`}>
                         <div className='opcionesDesplegable'>
-                            {submenu.opciones.map((opcion, index) => (
+                            {f.opciones.map((opcion, index) => (
                                 <button key={index} onClick={()=>guardarValor(opcion)} >{opcion}</button>
                             ))}
                         </div>
@@ -46,7 +41,7 @@ const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setcl
                 </div>
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default MenuDesplegable;
+export default MenuFechaHora

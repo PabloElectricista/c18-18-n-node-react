@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 
 import HeaderPatient from '../components/navbar/NavbarCliente'
 import MainPatient from '../components/main/mainpatient'
-import Footer from '../components/footer/footer'
+import Footer from '../components/footer/Footer'
 
 const Patient = () => {
   const navigate = useNavigate()

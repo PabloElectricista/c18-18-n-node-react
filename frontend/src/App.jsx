@@ -64,7 +64,7 @@ function App() {
             {
           path: '/cartillas',
           element: <Cartillas />
-        },
+        }
   ]);
 
   return (

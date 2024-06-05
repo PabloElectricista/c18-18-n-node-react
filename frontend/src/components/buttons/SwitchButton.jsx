@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './switchButton.css'
 
 
-const SwitchButton = () => {
+const SwitchButton = ({text1, text2}) => {
 
     //la logica esta preparada para que cuando ingrese se busque por localidad ya que checkon=false
 
@@ -12,10 +12,10 @@ const SwitchButton = () => {
         const newCheck = !checkOn
         setCheckOn(newCheck);
         if(newCheck){
-            console.log('Buscar por cercania')
+            console.log({text2})
         }
         else{
-            console.log('Buscar por localidad')
+            console.log({text1})
         }
     }
 
@@ -23,8 +23,8 @@ const SwitchButton = () => {
         <div className="toggle-switch">
             <input className="toggle-input" id="toggle" type="checkbox" checked={checkOn} onChange={presionarSwitch} />
             <label className="toggle-label" htmlFor="toggle">
-                <span className='text-on'>Buscar por localidad</span>
-                <span className='text-off'>Buscar por cercanía</span>
+                <span className='text-on'>{text1}</span>
+                <span className='text-off'>{text2}</span>
             </label>
         </div>
 
