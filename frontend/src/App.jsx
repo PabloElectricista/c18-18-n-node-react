@@ -8,6 +8,7 @@ import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';
 import Contact from './views/contact';
+import Register from './views/register';
 
 function App() {
 
@@ -25,6 +26,11 @@ function App() {
     {
       path: '/recover-password',
       element: <PasswordRecovery />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/create-account',
+      element: <Register />,
       errorElement: <div>Error</div>
     },
     {

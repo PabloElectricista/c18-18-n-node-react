@@ -6,14 +6,13 @@ import { useEffect, useState } from 'react';
 
 import { login } from '../redux/thunks/authThunk';
 import { Bounce, toast } from 'react-toastify';
-import SwitchButton from '../components/buttons/SwitchButton';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
   const navigate = useNavigate()
-  
+
   useEffect(() => {
     if (auth.user) {
       navigate(`/${auth.user.role}`)
@@ -58,7 +57,6 @@ const Login = () => {
             <button className='return-button'>&lt;- Volver</button>
           </Link>
           <p>Inicia Sesion</p>
-          <SwitchButton text1="Soy profesional" text2="Soy paciente" />
           <form onSubmit={handleSubmit}>
             <div className='login-wrapper'>
               <label className='login-label' htmlFor='loginEmail'>Email</label>

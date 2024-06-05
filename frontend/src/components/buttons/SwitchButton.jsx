@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './switchButton.css'
+import PropTypes from 'prop-types'
 
-
-const SwitchButton = ({text1, text2}) => {
+const SwitchButton = ({ text1, text2, setIsDoctor, isDoctor }) => {
 
     //la logica esta preparada para que cuando ingrese se busque por localidad ya que checkon=false
 
@@ -10,12 +10,13 @@ const SwitchButton = ({text1, text2}) => {
 
     const presionarSwitch = () =>{
         const newCheck = !checkOn
+        setIsDoctor(!isDoctor)
         setCheckOn(newCheck);
         if(newCheck){
-            console.log({text2})
+            console.log(text2)
         }
         else{
-            console.log({text1})
+            console.log(text1)
         }
     }
 
@@ -32,3 +33,10 @@ const SwitchButton = ({text1, text2}) => {
 }
 
 export default SwitchButton
+
+SwitchButton.propTypes = {
+    text1: PropTypes.string.isRequired,
+    text2: PropTypes.string.isRequired,
+    setIsDoctor: PropTypes.func,
+    isDoctor: PropTypes.bool
+}
