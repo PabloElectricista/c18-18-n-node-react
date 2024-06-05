@@ -86,3 +86,15 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+
+.containerDesplegables{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.opcionesElegidas{
+    display: flex;
+    gap: 40px;
+}
