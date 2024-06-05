@@ -18,10 +18,11 @@ export default class PatientUseCases {
 
 
   createNewPatient = async (newPatientPayload) => {
-    const [patientByEmail] = await this.patientPrismaRepository.findAllPatients(newPatientPayload.email);
+    const [patientByEmail] = await this.patientPrismaRepository.findPatientByEmail(newPatientPayload.email);
         if(patientByEmail) return[null,400,'Already exist email']
-    const [patientById] = await this.userPrismaRepository.findAllPatients(newPatientPayload.patientid);
-        if(patientById) return[null,400,'Already exist id']
+    const [patientByPhone] = await this.patientPrismaRepository.findPatientByPhone(newPatientPayload.phone);
+        if(patientByPhone) return[null,400,'Already exist phone']
+    /*const newPatientBody = {...newPatientPayload}*/
     const [newPatient, err] = await this.patientPrismaRepository.createNewPatient(newPatientPayload);
         if (err) return [null, 404, err];
          return [newPatient, 200, null];
