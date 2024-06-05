@@ -10,15 +10,16 @@
 <a href="https://www.figma.com/design/S8IRQ0yx7Sbzv9NDgaPaVi/NC-AS-Desktop">
   <img src="https://img.shields.io/badge/Figma-darkgreen?style=for-the-badge&logo=figma&logoColor=white" />
 </a>
-<h1>Tecnologías</h1>
-<h3>Frontend</h3>
+
+# Tecnologias
+### Frontend
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/static/v1?style=for-the-badge&message=React&color=222222&logo=React&logoColor=61DAFB&label=)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![AXIOS](https://img.shields.io/badge/AXIOS-%235A29E4?style=for-the-badge&logo=axios)
 
-# Backend
+### Backend
 ![Node.Js](https://img.shields.io/badge/NodeJs-%230D121C?style=for-the-badge&logo=nodedotjs)
 ![Fastify](https://img.shields.io/badge/Fastify-black?style=for-the-badge&logo=fastify)
 ![Prisma](https://img.shields.io/badge/Prisma-black?style=for-the-badge&logo=prisma)
@@ -26,7 +27,7 @@
 ![Jet](https://img.shields.io/badge/Jet-gray?style=for-the-badge)
 ![ValidatorJs](https://img.shields.io/badge/ValidatorJs-gray?style=for-the-badge)
 
-# Base de Datos
+### Base de Datos
 ![MongoDB](https://img.shields.io/badge/MongoDB-white?style=for-the-badge&logo=mongodb&labelColor=black)
 
 
