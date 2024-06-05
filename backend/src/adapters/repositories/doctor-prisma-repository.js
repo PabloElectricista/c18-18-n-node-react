@@ -19,10 +19,10 @@ export default class DoctorPrismaRepository{
     }
 
     
-    async findDoctorById(doctorid) {
+    async findDoctorById(doctorId) {
         try {
             const doctor = await this.prismaClient.doctors.findUnique({
-                where: {id: doctorid},
+                where: {id: doctorId},
             });
             if (!doctor) {
                 return[null, "Doctor not found"];
@@ -51,10 +51,10 @@ export default class DoctorPrismaRepository{
     }
 
 
-    async updateDoctor (doctorid, updateDoctorPayload) {
+    async updateDoctor (doctorId, updateDoctorPayload) {
         try {
             const doctor = await this.prismaClient.doctors.update({
-                where: {id: doctorid},
+                where: {id: doctorId},
                 data: updateDoctorPayload,
             });
             return [doctor, null];
