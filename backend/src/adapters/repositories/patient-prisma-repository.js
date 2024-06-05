@@ -6,12 +6,63 @@ export default class PatientPrismaRepository {
   async findAllPatients() {
     try {
       const patients = await this.prismaClient.patients.findMany({});
-      if (patients.length === 0 || !patients)
-        return [null, "There are not patients fetched"];
+      if (patients.length === 0 || !patients) {
+        return [null, "There are no patients fetched"];
+      }
       return [patients, null];
     } catch (error) {
+      throw new Error( console.error(error)
+
+        `There was an error in patient-prisma-repository.findAllPatients: ${error.message}`
+      );
+    }
+  }
+
+  async findPatientById(patientid) {
+    try {
+      const patient = await this.prismaClient.patients.findUnique({
+        where: { id: patientid },
+      });
+      if (!patient) {
+        return [null, "Patient not found"];
+      }
+      return [patient, null];
+    } catch (error) {
+    
       throw new Error(
-        `there was a error in patient-prisma-repository.findAllPatient ${error.message}`
+        `There was an error in patient-prisma-repository.findPatientById: ${error.message}`
+      );
+    }
+  }
+  async findPatientByEmail(patientEmail) {
+    try {
+      const patient = await this.prismaClient.patients.findUnique({
+        where: { email: patientEmail },
+      });
+      if (!patient) {
+        return [null, "Email not found"];
+      }
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.findPatientByEmail: ${error.message}`
+      );
+    }
+  }
+  async findPatientByPhone(patientPhone) {
+    try {
+      const patient = await this.prismaClient.patients.findUnique({
+        where: { phone: patientPhone },
+      });
+      if (!patient) {
+        return [null, "Phone not found"];
+      }
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.findPatientByPhone: ${error.message}`
       );
     }
   }
@@ -23,8 +74,38 @@ export default class PatientPrismaRepository {
       });
       return [patient, null];
     } catch (error) {
+      console.error(error);
       throw new Error(
-        `there was a error in patient-prisma-repository.createNewPatient ${error.message}`
+        `There was an error in patient-prisma-repository.createNewPatient: ${error.message}`
+      );
+    }
+  }
+
+  async updatePatient(patientid, updatePatientPayload) {
+    try {
+      const patient = await this.prismaClient.patients.update({
+        where: { id: patientid },
+        data: updatePatientPayload,
+      });
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.updatePatient: ${error.message}`
+      );
+    }
+  }
+
+  async deletePatient(patientid) {
+    try {
+      const patient = await this.prismaClient.patients.delete({
+        where: { id: patientid },
+      });
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.deletePatient: ${error.message}`
       );
     }
   }
