@@ -34,7 +34,36 @@ export default class DoctorPrismaRepository{
             );
         }
     }
-
+    async findDoctorByEmail(doctorEmail) {
+        try {
+            const doctor = await this.prismaClient.doctors.findUnique({
+                where: {email: doctorEmail},
+            });
+            if (!doctor) {
+                return[null, "Doctor not found"];
+            }
+            return [doctor, null];
+        } catch (error) {
+            throw new Error(
+                `there was a error in doctor-prisma-repository.findDoctorByEmail ${error.message}`
+            );
+        }
+    }
+    async findDoctorByPhone(doctorPhone) {
+        try {
+            const doctor = await this.prismaClient.doctors.findUnique({
+                where: {phone: doctorPhone},
+            });
+            if (!doctor) {
+                return[null, "Doctor not found"];
+            }
+            return [doctor, null];
+        } catch (error) {
+            throw new Error(
+                `there was a error in doctor-prisma-repository.findDoctorByPhone ${error.message}`
+            );
+        }
+    }
 
 
     async createNewDoctor(newDoctorPayload){
