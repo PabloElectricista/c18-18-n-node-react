@@ -23,8 +23,8 @@ const doctorUseCases = new DoctorUseCases(doctorPrismaRepository);
 const patientHandler = new PatientHandler(patientUseCases);
 const doctorHandler = new Doctorhandler(doctorUseCases);
 
-export {patientHandler};
-export {doctorHandler};
+export {patientHandler,doctorHandler};
+
 
 
 
