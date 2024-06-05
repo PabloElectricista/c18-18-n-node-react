@@ -17,24 +17,24 @@ findDoctorById = async (doctorid) => {
 };
 
 createNewDoctor = async (newDoctorPayload) => {
-    const [doctorByEmail] = await this.doctorPrismaRepository.findAllDoctors(newDoctorPayload.email)
+    const [doctorByEmail] = await this.doctorPrismaRepository.findDoctorByEmail(newDoctorPayload.email)
         if(doctorByEmail) return[null,400,'Already exist email'];
-    const [doctorById] = await this.doctorPrismaRepository.findAllDoctors(newDoctorPayload.doctorid)
-        if(doctorById) return[null,400,'Already exist id'];
+    const [doctorByPhone] = await this.doctorPrismaRepository.findDoctorByPhone(newDoctorPayload.phone)
+        if(doctorByPhone) return[null,400,'Already exist Phone'];
     const [newDoctor, err] = await this.doctorPrismaRepository.createNewDoctor(newDoctorPayload);
         if (err) return [null, 404, err];
          return [newDoctor, 200, null];
 };
 
-updateDoctorById = async (doctorid, updateDoctorPayload) => {
-    const [updatedDoctor, err] = await this.doctorPrismaRepository.updatedDoctor(doctorid, updateDoctorPayload);
+updateDoctorById = async (doctorId, updateDoctorPayload) => {
+    const [updatedDoctor, err] = await this.doctorPrismaRepository.updatedDoctor(doctorId, updateDoctorPayload);
         if (err) return [null, 404, err];
         if (!updatedDoctor) return [null, 'Doctor not updated'];
          return [updatedDoctor, 200, null];
 };
 
-deleteDoctorById = async (doctorid) => {
-    const [deletedDoctor, err] = await this.doctorPrismaRepository.deletedDoctor(doctorid);
+deleteDoctorById = async (doctorId) => {
+    const [deletedDoctor, err] = await this.doctorPrismaRepository.deletedDoctor(doctorId);
         if (err) return [null, 404, err];
         if (!deletedDoctor) return [null, 'Doctor not deleted'];
          return [deletedDoctor, 200, null];
