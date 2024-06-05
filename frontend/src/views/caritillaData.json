@@ -1,59 +1,48 @@
 [
     {
         "id": 1,
-        "title": "¿Cuál es tu credencial?",
-        "desplegable": [
-            {
-                "id": 1,
-                "menuTitle":"Seleccioná",
-                "opciones":["opcionesA","opcionesB","opcionesC"]
-            },
-            {
-                "id": 2,
-                "menuTitle":"subTituloB",
-                "opciones":["opcionesD","opcionesE","opcionesF"]
-            }
-        ]
-    },
-    {
-        "id": 2,
         "title": "¿Qué estás buscando?",
         "desplegable": [
             {
                 "id": 1,
-                "menuTitle":"Tipo de prestador",
-                "opciones":["opcionesA123","opcionesB123","opcionesC123"]
+                "menuTitle": "Localidad",
+                "opciones": [
+                    "Rosario",
+                    "Pavon",
+                    "Colombia",
+                    "Chile",
+                    "Hawai"
+                ]
             },
             {
                 "id": 2,
-                "menuTitle":"Especialidad",
-                "opciones":["opcionesD123","opcionesE123"]
-            },            {
-                "id": 3,
-                "menuTitle":"Nombre del profesional o institución",
-                "opciones":["opcionesD123","opcionesE123"]
-            }
-
-        ]
-    },
-    {
-        "id": 3,
-        "title": "¿En donde te gustaria ser atendido?",
-        "desplegable": [
-            {
-                "id": 1,
-                "menuTitle":"Seleccioná una provincia",
-                "opciones":["opcionesA567","opcionesB567","opcionesC567"]
-            },
-            {
-                "id": 2,
-                "menuTitle":"Seleccioná una localidad",
-                "opciones":["opcionesD567","opcionesE567","opcionesF567"]
+                "menuTitle": "Clinica",
+                "opciones": [
+                    "Clinica 1",
+                    "Clinica 2",
+                    "Clinica 3",
+                    "Clinica 4"
+                ]
             },
             {
                 "id": 3,
-                "menuTitle":"subTituloG",
-                "opciones":["opcionesG","opcionesH","opcionesI"]
+                "menuTitle": "Especializacion",
+                "opciones": [
+                    "Clinico",
+                    "Oculista",
+                    "Dentista",
+                    "Traumatologo"
+                ]
+            },
+            {
+                "id": 4,
+                "menuTitle": "Profesional",
+                "opciones": [
+                    "Dr.Rodriguez",
+                    "Dr.Octopus",
+                    "Dr.Anderson",
+                    "Dr.Rigoberto"
+                ]
             }
         ]
     }
