@@ -59,10 +59,6 @@ function App() {
           path: '/cartillas',
           element: <Cartillas />
         },
-    {
-      path: '/pdf',
-      element: <pdfpintado />,
-    }
   ]);
 
   return (

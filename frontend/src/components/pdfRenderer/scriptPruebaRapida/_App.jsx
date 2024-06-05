@@ -1,9 +1,7 @@
-import Pdfpintado from './components/pdfRenderer/pdfpintado';
+import Pdfpintado from './components/pdfRenderer/pdfPintadoEjemplo';
 
 
 function App() {
-
-
 
   return (
 

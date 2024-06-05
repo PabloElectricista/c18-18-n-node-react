@@ -5,6 +5,7 @@ import React from 'react';
 const paciente = {
   name: "Omar",
   last_name: "Rodriguez",
+  patient_dni: 114560247
 };
 
 const medico = {
@@ -18,12 +19,12 @@ const clinica = {
   room_number: "101",
 }
 
-const fechaDeLaCita = "30-30-2030"; 
+const fechaDeLaCita = "12-12-3012"; 
 
 const fecha = new Date().toLocaleDateString().replace(/\//g, '-');
 const fileName = `${paciente.name}-${paciente.last_name}_${fecha}.pdf`;
 
-const Pdfpintado = () => {
+const PdfPintadoEjemplo = () => {
   return (
     <div>
       <PDFDownloadLink
@@ -44,4 +45,4 @@ const Pdfpintado = () => {
   )
 }
 
-export default Pdfpintado;
+export default PdfPintadoEjemplo;
