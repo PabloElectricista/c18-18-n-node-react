@@ -60,9 +60,11 @@ const DoctorRegisterForm = () => {
     const credentials = {
       name,
       last_name: lastName,
-      patient_dni: pass,
+      doctor_dni: pass,
       phone,
       email,
+      //specialty,
+      //clinic,
       role: 'doctor'
     }
 
