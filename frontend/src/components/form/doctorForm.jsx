@@ -5,9 +5,11 @@ import { Bounce, toast } from 'react-toastify'
 import { register } from '../../redux/thunks/authThunk'
 import { useNavigate } from 'react-router-dom'
 
-const PatientRegisterForm = () => {
+const DoctorRegisterForm = () => {
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [clinic, setClinic] = useState('')
+  const [specialty, setSpecialty] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [pass, setPass] = useState('')
@@ -61,7 +63,7 @@ const PatientRegisterForm = () => {
       patient_dni: pass,
       phone,
       email,
-      role: 'patient'
+      role: 'doctor'
     }
 
     dispatch(register(credentials))
@@ -92,6 +94,39 @@ const PatientRegisterForm = () => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
+          </div>
+          <div className='input-wrapper'>
+            <label className="input-label" htmlFor="formClinic">Clínica *</label>
+            <select 
+              required 
+              className='form-select' 
+              name='formClinic' 
+              id='formClinic'
+              value={clinic}
+              onChange={e => setClinic(e.target.value)}
+            >
+              <option disabled selected value="">Selecciona una opción</option>
+            </select>
+          </div>
+          <div className='input-wrapper'>
+            <label className="input-label" htmlFor="formSpecialty">Especialidad *</label>
+            <select 
+              required 
+              className='form-select' 
+              name='formSpecialty' 
+              id='formSpecialty'
+              value={specialty}
+              onChange={e => setSpecialty(e.target.value)}
+            >
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value='oculista'>Oculista</option>
+              <option value='dentista'>Dentista</option>
+              <option value='traumatologo'>Traumatólogo</option>
+              <option value='cardiologo'>Cardiólogo</option>
+              <option value='ginecologo'>Ginecólogo</option>
+              <option value='pediatra'>Pediatra</option>
+              <option value='nutricionista'>Nutricionista</option>
+            </select>
           </div>
           <div className="input-wrapper">
             <label className="input-label" htmlFor="formEmail">Email *</label>
@@ -140,4 +175,4 @@ const PatientRegisterForm = () => {
   )
 }
 
-export default PatientRegisterForm
+export default DoctorRegisterForm

@@ -24,7 +24,12 @@ export const passRecovery = createAsyncThunk('auth/passRecovery', async (email, 
 
 export const register = createAsyncThunk('auth/register', async(userData, { rejectWithValue }) => {
   try {
-    const user = await axios.post('/register', userData)
+    let user;
+    if (userData?.role === 'patient') {
+      user = await axios.post('/patient', userData)
+    } else if (userData?.role === 'doctor') {
+      user = await axios.post('/doctor', userData)
+    }
     if (user?.id) {
       localStorage.setItem('tkn', user.id)
     }
