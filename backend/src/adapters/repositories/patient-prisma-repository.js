@@ -11,7 +11,8 @@ export default class PatientPrismaRepository {
       }
       return [patients, null];
     } catch (error) {
-      throw new Error(
+      throw new Error( console.error(error)
+
         `There was an error in patient-prisma-repository.findAllPatients: ${error.message}`
       );
     }
@@ -27,9 +28,41 @@ export default class PatientPrismaRepository {
       }
       return [patient, null];
     } catch (error) {
-      console.error(error);
+    
       throw new Error(
         `There was an error in patient-prisma-repository.findPatientById: ${error.message}`
+      );
+    }
+  }
+  async findPatientByEmail(patientEmail) {
+    try {
+      const patient = await this.prismaClient.patients.findUnique({
+        where: { email: patientEmail },
+      });
+      if (!patient) {
+        return [null, "Email not found"];
+      }
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.findPatientByEmail: ${error.message}`
+      );
+    }
+  }
+  async findPatientByPhone(patientPhone) {
+    try {
+      const patient = await this.prismaClient.patients.findUnique({
+        where: { phone: patientPhone },
+      });
+      if (!patient) {
+        return [null, "Phone not found"];
+      }
+      return [patient, null];
+    } catch (error) {
+      console.error(error);
+      throw new Error(
+        `There was an error in patient-prisma-repository.findPatientByPhone: ${error.message}`
       );
     }
   }
