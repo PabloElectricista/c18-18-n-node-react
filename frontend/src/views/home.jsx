@@ -1,7 +1,7 @@
 import './home.css'
-import Footer from '../components/footer/Footer'
 import Navbar from '../components/navbar/Navbar'
 import Main from "../components/main/main"
+import Footer from '../components/footer/Footer'
 
 const Home = () => {
     return (
