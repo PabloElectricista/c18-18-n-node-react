@@ -8,7 +8,7 @@
   <strong>Servicio Health-Tech</strong>. Agenda turnos para nuestra selección de clínicas ubicadas en todo el país.
 </p>
 <a href="https://www.figma.com/design/S8IRQ0yx7Sbzv9NDgaPaVi/NC-AS-Desktop">
-  <img src="https://img.shields.io/badge/Figma-darkgreen?style=for-the-badge&logo=figma&logoColor=white" />
+  <img src="https://img.shields.io/badge/Figma-%232C2C2C?style=for-the-badge&logo=figma&logoColor=white" />
 </a>
 
 # Tecnologias
