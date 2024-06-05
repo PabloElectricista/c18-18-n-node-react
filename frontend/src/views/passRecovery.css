@@ -5,7 +5,7 @@
   100% { transform: rotate(360deg); }
 }
 
-.login {
+.recovery {
   display: grid;
   grid-template-columns: 1fr 65%;
   height: 100vh;
@@ -13,7 +13,7 @@
   overflow-x: hidden;
 }
 
-.login-hero {
+.recovery-hero {
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -55,7 +55,7 @@
   color: white;
 }
 
-.login-wrapper {
+.recovery-wrapper {
   display: inline-block;
   border: 3px solid black;
   border-radius: 25px;
@@ -65,20 +65,27 @@
   margin-top: 15px;
 }
 
-.login-input {
+.recovery-description {
+  max-width: 100%;
+  color: #606060;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.recovery-input {
   outline: none;
   border: none;
   display: block;
   width: 100%;
 }
 
-.login-label {
+.recovery-label {
   display: block;
   font-weight: lighter;
   cursor: text;
 }
 
-.login-button {
+.recovery-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +100,7 @@
   padding: 20px 20px;
 }
 
-.login-loading {
+.recovery-loading {
   background-color: #25287b7f;
 }
 
@@ -105,23 +112,4 @@
   width: 16px;
   height: 16px;
   animation: spin 0.6s linear infinite;
-}
-
-.utilities-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.utilities {
-  font-size: 16px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  color: #606060;
-}
-
-.utilities-account {
-  font-size: 16px;
-  color: #606060;
 }

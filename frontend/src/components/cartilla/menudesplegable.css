@@ -1,57 +1,70 @@
-/* Estilos para el contenedor del menú desplegable */
 .dropdown {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-/* Estilos para el botón del menú */
 .dropbtn {
     background-color: transparent;
-    color:rgba(0, 0, 0, 0.39);
+    color: rgba(0, 0, 0, 0.39);
+    font-family: "Inter", sans-serif;
     padding: 5px;
-    font-size: 16px;
+    font-size: 13px;
     border: none;
     cursor: pointer;
     width: 300px;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.308);
     text-align: start;
+    margin-top: 20px;
 }
 
-/* Contenedor del contenido desplegable (oculto por defecto) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    width: 100%;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
     z-index: 1;
+    margin-bottom: 20px;
+    opacity: 0.7;
 }
 
-/* Estilos para los enlaces del menú desplegable */
-.dropdown-content a {
-    color: black;
+.dropdown-content button {
+    color: rgba(0, 0, 0, 0.5);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    width: 100%;
+    font-size: 13px;
+    text-align: start;
+    border: none;
+    background-color: rgba(219, 219, 219, 0.644);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
 }
 
-/* Estilos para los enlaces del menú cuando se pasa el ratón por encima */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
+.dropdown-content button:hover {
+    background-color: #1d616171;
 }
 
-/* Agrega la clase .show para mostrar el contenido desplegable */
 .show {
-    display: block;
+    max-height:400px;
 }
 
-.opcionesDesplegable{
+.opcionesDesplegable {
     display: flex;
     flex-direction: column;
 }
 
-.opcionesButton{
+.opcionesButton {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.arrowDown{
+    width:10px;
+    opacity: 0.3;
+}
+
+.submenu{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
 }

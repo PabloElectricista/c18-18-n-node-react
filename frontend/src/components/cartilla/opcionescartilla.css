@@ -1,4 +1,9 @@
 .title{
     font-size: 15px;
     font-family: "Inter", sans-serif;
+    color: rgb(61, 60, 60);
+}
+
+.opcionesCartillasContainer{
+    margin-bottom: 50px;
 }
