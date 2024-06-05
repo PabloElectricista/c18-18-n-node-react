@@ -1,4 +1,4 @@
-import Footer from '../components/footer/footer'
+import Footer from '../components/footer/Footer'
 import foto from "../assets/cartilla/foto.png"
 import NavbarCliente from '../components/navbar/NavbarCliente'
 import "./cartillas.css"
