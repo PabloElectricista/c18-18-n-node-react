@@ -17,7 +17,7 @@ const routes = [
     handler: patientHandler.createNewPatient,
   },
   {
-    url: "/doctor/:id",
+    url: "/patient/:id",
      method: "PUT",
      handler: patientHandler.updatePatientById,
  },
