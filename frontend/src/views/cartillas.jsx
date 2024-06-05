@@ -20,7 +20,7 @@ const Cartillas = () => {
                     <h1 className='tituloCartilla animated fadeInDown'>CARTILLA ONLINE</h1>
                     <img src={foto} alt='foto' className='imgCartilla' />
                     <div className='divSwitch'>
-                        <SwitchButton />
+                        <SwitchButton text1="Buscar por localidad" text2="Buscar por cercania" />
                     </div>
                     <div className='desplegables'>
                         {
