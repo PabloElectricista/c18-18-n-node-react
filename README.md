@@ -11,6 +11,18 @@
   <img src="https://img.shields.io/badge/Figma-%232C2C2C?style=for-the-badge&logo=figma&logoColor=white" />
 </a>
 
+# Sobre el proyecto
+
+A medida que la tecnología avanza, queda claro que ciertos servicios han quedado en la deriva, especialmente servicios tan esenciales como la salud.
+
+Es por ello que <strong>Agenda Salud</strong> busca promover el acceso a la salud a través de nuestra plataforma para agendar turnos en cualquier parte
+del país, brindando un servicio rápido, de alta calidad y completamente <strong>gratis</strong> para los pacientes.
+
+Para nuestros profesionales, ofrecemos la oportunidad de brindar un servicio inovador para controlar cada uno de tus turnos y observar como aumenta
+tu productividad como nunca antes!
+
+Explora nuestra plataforma que provee servicios para pacientes, profesionales y hasta clínicas!
+
 # Tecnologias
 ### Frontend
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
