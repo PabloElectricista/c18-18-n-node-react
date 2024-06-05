@@ -2,8 +2,11 @@ import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 const fastify = Fastify({ logger: true });
 
-import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
 import registerRoutes from "../../backend/src/utils/functions/register-routes.js";
+
+import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
+import doctorRoutes from "../../backend/src/adapters/http/user/doctor-route.js";
+
 
 fastify.register(fastifyCors, {
   origin: "*",
@@ -23,7 +26,7 @@ fastify.get("/", (req, reply) => {
   reply.send("WELCOME TO AGENDA SALUD");
 });
 registerRoutes(fastify, patientRoutes);
-
+registerRoutes(fastify, doctorRoutes);
 const start = async () => {
   try {
     await fastify.listen({ port: 3000, host: "localhost" });
