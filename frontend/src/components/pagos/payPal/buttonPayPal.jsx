@@ -1,7 +1,7 @@
 import React from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 
-const PaypalButton = (props) => {
+const ButtonPaypal = (props) => {
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
@@ -29,4 +29,4 @@ const onApprove = async (data, actions) => {
   )
 }
 
-export default PaypalButton;
+export default ButtonPaypal;
