@@ -1,4 +1,5 @@
 import React from "react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 const PaypalButton = (props) => {
   const createOrder = (data, actions) => {
@@ -22,8 +23,9 @@ const onApprove = async (data, actions) => {
 }
 
   return (
-    <div>
-    </div>
+    
+      <PayPalButtons createOrder={ createOrder } onApprove={ onApprove }/>
+    
   )
 }
 
