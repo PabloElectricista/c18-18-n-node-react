@@ -27,7 +27,7 @@
 .tituloCartilla{
     position: absolute;
     top: 30%;
-    left: 50%;
+    left: 35%;
     transform: translate(-50%, -50%);
     color: white;
     font-size: 40px;
@@ -43,4 +43,58 @@
 
 .divSwitch{
     margin: 30px;
+}
+
+/* animacion entrada */
+
+@-webkit-keyframes fadeInDown {
+    from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.containerDesplegables{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.opcionesElegidas{
+    display: flex;
+    gap: 40px;
 }
