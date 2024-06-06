@@ -49,13 +49,13 @@ const PasswordRecovery = () => {
     <section className='recovery'>
       <div className='form-wrapper'>
         <div>
-          <h3 className='form-header'>Agenda Salud</h3>
           <Link to="/login" className='return-link'>
             <button className='return-button'>&lt;- Volver</button>
           </Link>
+          <h3 className='form-header'>Agenda Salud</h3>
           <p>Olvidé mi contraseña</p>
           <p className='recovery-description'>
-            Ingresá el mail asociado a tu cuenta y te <br /> enviaremos tu contraseña por mail
+            Ingresá el mail asociado a tu cuenta y te enviaremos tu contraseña por mail
           </p>
           <form onSubmit={handleSubmit}>
             <div className='recovery-wrapper'>
