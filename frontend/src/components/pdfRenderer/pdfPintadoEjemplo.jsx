@@ -1,4 +1,4 @@
-import PdfRenderer from "./pdfRenderer";
+import PdfRenderer from "./PdfRenderer";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import React from 'react';
 

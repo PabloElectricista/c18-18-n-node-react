@@ -1,4 +1,4 @@
-import Pdfpintado from './components/pdfRenderer/pdfPintadoEjemplo';
+//import Pdfpintado from './components/pdfRenderer/PdfPintadoEjemplo';
 
 
 function App() {
@@ -12,4 +12,4 @@ function App() {
   )
 }
 
-export default App
+//export default App
