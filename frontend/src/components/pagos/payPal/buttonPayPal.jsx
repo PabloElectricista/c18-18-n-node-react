@@ -13,6 +13,14 @@ const PaypalButton = (props) => {
       ]
     })
   };
+
+  // esto podría ir al backend; captura el pago
+const onApprove = async (data, actions) => {
+  const order = await actions.order.capture();
+  console.log("información sobre la order:", order); // esto entrega información sobre lo que se pago
+  //console.log("data:", data); 
+}
+
   return (
     <div>
     </div>
