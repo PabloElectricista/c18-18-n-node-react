@@ -43,4 +43,4 @@ const setHourToDate = (date, hours) => {
   return newDate;
 };
 
-export default { getFormatDate, addHour, addDays, setHourToDate };
+export { getFormatDate, addHour, addDays, setHourToDate };
