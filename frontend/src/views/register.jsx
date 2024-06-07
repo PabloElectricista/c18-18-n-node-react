@@ -1,6 +1,6 @@
 import PatientRegisterForm from '../components/form/patientForm'
 import Navbar from '../components/navbar/Navbar'
-import './register.css'
+import './Register.css'
 import SwitchButton from '../components/buttons/SwitchButton'
 import { useState } from 'react'
 import DoctorRegisterForm from '../components/form/doctorForm'

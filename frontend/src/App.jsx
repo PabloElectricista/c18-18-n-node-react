@@ -3,7 +3,7 @@ import Home from './views/home';
 import Clinic from './views/clinic'
 import Login from './views/login';
 import Patient from './views/patient';
-import Cartillas from './views/cartillas'
+import Cartillas from './views/Cartillas'
 import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';

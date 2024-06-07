@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './passRecovery.css'
+import './PassRecovery.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { passRecovery } from '../redux/thunks/authThunk'
 import { Bounce, toast } from 'react-toastify'

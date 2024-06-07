@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './patient.css'
+import './Patient.css'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet'

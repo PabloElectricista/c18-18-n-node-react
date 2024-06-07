@@ -1,7 +1,7 @@
 import Footer from '../components/footer/footer'
 import foto from "../assets/cartilla/foto.png"
 import NavbarCliente from '../components/navbar/NavbarCliente'
-import "./cartillas.css"
+import "./Cartillas.css"
 import OpcionesCartilla from '../components/cartilla/OpcionesCartilla'
 import dataCartilla from "./caritillaData.json"
 import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'

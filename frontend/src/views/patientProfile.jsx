@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './patientProfile.css'
+import './PatientProfile.css'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Footer from '../components/footer/footer'
