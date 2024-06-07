@@ -1,11 +1,10 @@
-import getFormatDate from "../../utils/functions/date.js";
+import { getFormatDate } from "../../utils/functions/date.js";
 import {
   setAppoinments,
   updateAppointments,
 } from "../../utils/functions/Appointment.js";
 import validateSchedulerQueryParams from "../../utils/functions/query-validation.js";
 import { dateFromAndDateToByFilters } from "../../utils/functions/Appointment.js";
-import appointments from "../../utils/const/scheduler.js";
 export default class SchedulerUseCases {
   constructor(prismaRepository, doctorUseCase) {
     this.prismaRepository = prismaRepository;

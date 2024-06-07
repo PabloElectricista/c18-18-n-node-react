@@ -1,14 +1,15 @@
+import { createNewuPatientValidations } from "../../../utils/functions/input-validations.js";
 export default class PatientHandler {
   constructor(patientUseCases) {
     this.patientUseCases = patientUseCases;
   }
 
-findAllPatients = async (req, res) => {
+  findAllPatients = async (req, res) => {
     try {
       const [patients, status, err] =
         await this.patientUseCases.findAllPatients();
-    if (err)
-      return res.status(status).send({
+      if (err)
+        return res.status(status).send({
           message: "fail",
           errors: err,
         });
@@ -24,29 +25,36 @@ findAllPatients = async (req, res) => {
     }
   };
 
-findPatientById = async (req, res) => {
+  findPatientById = async (req, res) => {
     try {
-      const {patientid} = req.params; 
-      const [patient, status, err] = await this.patientUseCases.findPatientById(patientid);
-        if (err)
+      const [patient, status, err] = await this.patientUseCases.findPatientById(
+        req.params.id
+      );
+      if (err)
         return res.status(status).send({
-            message: "fail",
-            errors: err,
+          message: "fail",
+          errors: err,
         });
-        return res.status(status).send({
-            message: "success",
-            data: patient,
-        });
-    } catch {
-        return res.status(500).send({
-            message: "There was internal server error",
-            errors: error,
-        });
+      return res.status(status).send({
+        message: "success",
+        data: patient,
+      });
+    } catch (error) {
+      return res.status(500).send({
+        message: "There was internal server error",
+        errors: error,
+      });
     }
-};
+  };
 
-createNewPatient = async (req, res) => {
+  createNewPatient = async (req, res) => {
     try {
+      const errors = createNewuPatientValidations(req.body);
+      if (errors)
+        return res.status(400).send({
+          message: "fail",
+          errors,
+        });
       const [patient, status, err] =
         await this.patientUseCases.createNewPatient(req.body);
       if (err)
@@ -66,48 +74,45 @@ createNewPatient = async (req, res) => {
     }
   };
 
-  
-updatePatientById = async (req, res) => {
-  try{
-      const {patientid} = req.params;
-      const [patient, status, err] = await this.patientUseCases.updatePatientById(patientid, req.body);
+  updatePatientById = async (req, res) => {
+    try {
+      const [patient, status, err] =
+        await this.patientUseCases.updatePatientById(req.params.id, req.body);
       if (err)
-      return res.status(status).send({
+        return res.status(status).send({
           message: "fail",
           errors: err,
-      });
+        });
       return res.status(status).send({
-          message: "success",
-          data: patient,
+        message: "success",
+        data: patient,
       });
-  } catch {
+    } catch (error) {
       return res.status(500).send({
-          message: "There was internal server error",
-          errors: error,
+        message: "There was internal server error",
+        errors: error,
       });
-  }
-};
+    }
+  };
 
-deletePatientById = async (req, res) => {
-  try{
-      const {patientid} = req.params;
-      const [patient, status, err] = await this.patientUseCases.deletePatientById(patientid);
+  deletePatientById = async (req, res) => {
+    try {
+      const [patient, status, err] =
+        await this.patientUseCases.deletePatientById(req.params.id);
       if (err)
-      return res.status(status).send({
+        return res.status(status).send({
           message: "fail",
           errors: err,
-      });
+        });
       return res.status(status).send({
-          message: "success",
-          data: patient,
+        message: "success",
+        data: `Patient deleted successfully: ${patient.id}`,
       });
-  } catch {
+    } catch (error) {
       return res.status(500).send({
-          message: "There was internal server error",
-          errors: error,
+        message: "There was internal server error",
+        errors: error,
       });
-  }
-
-};
-  
+    }
+  };
 }

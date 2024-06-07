@@ -2,19 +2,12 @@ import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 const fastify = Fastify({ logger: true });
 
-
-
-
 import registerRoutes from "../src/utils/functions/register-routes.js";
 
 import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
 import appointmentRoutes from "../../backend/src/adapters/http/appointment/appointment-route.js";
 import schedulerRoutes from "../../backend/src/adapters/http/scheduler/scheduler-route.js";
-
-
-import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
 import doctorRoutes from "../../backend/src/adapters/http/user/doctor-route.js";
-
 
 fastify.register(fastifyCors, {
   origin: "*",
@@ -38,7 +31,6 @@ registerRoutes(fastify, patientRoutes);
 registerRoutes(fastify, doctorRoutes);
 registerRoutes(fastify, appointmentRoutes);
 registerRoutes(fastify, schedulerRoutes);
-
 
 const start = async () => {
   try {
