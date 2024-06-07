@@ -1,0 +1,74 @@
+.menu-clinic-container {
+    display: flex;
+    width: 170px;
+    height: auto;
+    box-shadow: 4px 4px 8px 0px #d4d4d4;
+    align-items: flex-start;
+    border-color: #f0f0f0;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: #fff;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    z-index: 1000;
+  }
+  .menu-clinic-text1 {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+    transition: 0.3s;
+    font-family: Mako;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .menu-clinic-text1:hover,
+  .menu-clinic-text2:hover,
+  .menu-clinic-text3:hover,
+  .menu-clinic-text4:hover {
+    background-color: #f0f0f0;
+    cursor: default;
+  }
+  .menu-clinic-text2 {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+    font-family: Mako;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .menu-clinic-text3 {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+    font-family: Mako;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .menu-clinic-text4 {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+    font-family: Mako;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  

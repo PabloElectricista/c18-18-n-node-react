@@ -1,0 +1,75 @@
+.calendar-container {
+  gap: 12px;
+  display: flex;
+  padding: 30px;
+  align-items: flex-start;
+  border-radius: 16px;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322);
+}
+
+.calendar-header {
+  gap: 50px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+
+.calendar-text {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 24px;
+  font-style: Black;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 900;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.calendar-frame9 {
+  gap: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.calendar-button {
+  display: flex;
+  padding: 16px;
+}
+
+.calendar-frame10 {
+  width: 14px;
+  height: 14px;
+}
+
+.calendar-button1 {
+  gap: 10px;
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.calendar-frame101 {
+  width: 14px;
+  height: 14px;
+}
+
+.calendar-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 24px;
+  padding: 0;
+}
+
+
+.calendar-list-item {
+  text-align: center;
+  cursor: default;
+}

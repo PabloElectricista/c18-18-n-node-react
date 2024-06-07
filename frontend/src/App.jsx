@@ -7,8 +7,9 @@ import Cartillas from './views/cartillas'
 import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';
-import Contact from './views/contact';
+import Contact from './views//Contact';
 import Register from './views/register';
+import ClinicProfile from './views/ClinicProfile'
 
 function App() {
 
@@ -50,6 +51,10 @@ function App() {
           path: '/profile',
           element: <PatientProfile />,
         },
+        {
+          path: '/clinic-profile',
+          element: <ClinicProfile />
+        },
         // {
         //   path: '/cartillas',
         //   element: <Cartillas />
@@ -61,6 +66,7 @@ function App() {
       element: <Contact />
     },
     //agrego temporalmente para trabajar sobre esta vista
+    // mover despues a rutas protegidas
             {
           path: '/cartillas',
           element: <Cartillas />

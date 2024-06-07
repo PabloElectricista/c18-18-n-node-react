@@ -18,7 +18,7 @@ const Contact = () => {
       ...message,
       [ev.target.name]: ev.target.value
     })
-    setError({...error, email: false})
+    setError({ ...error, email: false })
   }
 
   const handleSubmit = (ev) => {
