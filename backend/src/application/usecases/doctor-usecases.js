@@ -29,14 +29,14 @@ createNewDoctor = async (newDoctorPayload) => {
 updateDoctorById = async (doctorId, updateDoctorPayload) => {
     const [updatedDoctor, err] = await this.doctorPrismaRepository.updatedDoctor(doctorId, updateDoctorPayload);
         if (err) return [null, 404, err];
-        if (!updatedDoctor) return [null, 'Doctor not updated'];
+        if (!updatedDoctor) return [null, 'Doctor not found'];
          return [updatedDoctor, 200, null];
 };
 
 deleteDoctorById = async (doctorId) => {
     const [deletedDoctor, err] = await this.doctorPrismaRepository.deletedDoctor(doctorId);
         if (err) return [null, 404, err];
-        if (!deletedDoctor) return [null, 'Doctor not deleted'];
+        if (!deletedDoctor) return [null, 'Doctor not found'];
          return [deletedDoctor, 200, null];
 };
 
