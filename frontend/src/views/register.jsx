@@ -1,10 +1,13 @@
-import PatientRegisterForm from '../components/form/patientForm'
-import Navbar from '../components/navbar/Navbar'
-import './Register.css'
-import SwitchButton from '../components/buttons/SwitchButton'
 import { useState } from 'react'
-import DoctorRegisterForm from '../components/form/doctorForm'
 import { Link } from 'react-router-dom'
+
+
+import DoctorRegisterForm from '../components/form/DoctorForm'
+import SwitchButton from '../components/buttons/SwitchButton'
+import Navbar from '../components/navbar/Navbar'
+import PatientRegisterForm from '../components/form/PatientForm'
+
+import './Register.css'
 
 const Register = () => {
   const [isDoctor, setIsDoctor] = useState(false)
