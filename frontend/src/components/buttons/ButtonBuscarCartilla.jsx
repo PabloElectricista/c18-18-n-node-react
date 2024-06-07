@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 //
 
-import "./ButtonBuscarCartilla.css"
+import "./ButtonBuscarCartilla.css";
 
 const ButtonBuscarCartilla = ({info}) => {
 
