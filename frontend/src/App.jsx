@@ -1,14 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './views/home';
-import Clinic from './views/clinic'
-import Login from './views/login';
-import Patient from './views/patient';
-import Cartillas from './views/Cartillas'
-import ProtectedRoutes from './components/protected';
-import PatientProfile from './views/patientProfile';
-import PasswordRecovery from './views/passRecovery';
-import Contact from './views/contact';
-import Register from './views/register';
+//
+import Home from './views/Home';
+import Clinic from './views/Clinic';
+import Login from './views/Login';
+import Patient from './views/Patient';
+import Cartillas from './views/Cartillas';
+import ProtectedRoutes from './components/Protected';
+import PatientProfile from './views/PatientProfile';
+import PasswordRecovery from './views/PassRecovery';
+import Contact from './views/Contact';
+import Register from './views/Register';
 
 function App() {
 
