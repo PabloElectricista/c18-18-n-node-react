@@ -7,7 +7,7 @@ import SchedulerPrismaRepository from "../adapters/repositories/scheduler-prisma
 
 //Usecases
 import PatientUseCases from "../application/usecases/patient-usecases.js";
-import DoctorUseCases from "../application/usecases/doctor-usecases.js"
+import DoctorUseCases from "../application/usecases/doctor-usecases.js";
 import AppointmentUseCases from "../application/usecases/appointment-usecases.js";
 import SchedulerUseCases from "../application/usecases/scheduler-usecases.js";
 
@@ -29,15 +29,17 @@ const schedulerPrismaRepository = new SchedulerPrismaRepository(prisma);
 //Intances-usecases
 const patientUseCases = new PatientUseCases(patientPrismaRepository);
 const doctorUseCases = new DoctorUseCases(doctorPrismaRepository);
+const schedulerUseCases = new SchedulerUseCases(schedulerPrismaRepository);
 const appointmentUseCases = new AppointmentUseCases(
   appointmentsPrismaRepository,
   patientUseCases,
   //clinicUseCases,
-  // doctorUseCases,
+  doctorUseCases,
   //specialtyUseCases,
+  schedulerUseCases,
+  schedulerPrismaRepository,
   builder
 );
-const schedulerUseCases = new SchedulerUseCases(schedulerPrismaRepository);
 
 //Intance-Handler
 const patientHandler = new PatientHandler(patientUseCases);
@@ -45,5 +47,4 @@ const doctorHandler = new Doctorhandler(doctorUseCases);
 const appointmentHandler = new AppointmentHandler(appointmentUseCases);
 const schedulerHandler = new SchedulerHandler(schedulerUseCases);
 
-export { patientHandler, appointmentHandler, schedulerHandler, patientHandler,doctorHandler };
-
+export { patientHandler, appointmentHandler, schedulerHandler, doctorHandler };
