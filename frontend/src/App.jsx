@@ -1,50 +1,75 @@
-import React, { useState } from 'react';
-import ButtonPaypal from './components/pagos/payPal/ButtonPayPal';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './views/home';
+import Clinic from './views/clinic'
+import Login from './views/login';
+import Patient from './views/patient';
+import Cartillas from './views/cartillas'
+import ProtectedRoutes from './components/protected';
+import PatientProfile from './views/patientProfile';
+import PasswordRecovery from './views/passRecovery';
+import Contact from './views/contact';
+import Register from './views/register';
 
 function App() {
-    const [hasDebt, setHasDebt] = useState(false);
-    const [totalValue, setTotalValue] = useState(null);
-    const [invoice, setInvoice] = useState('');
-  
-    const simulateDebt = () => {
-      setHasDebt(true);
-    };
-  
-    const handleRenewSubscription = () => {
-      setTotalValue('7');
-      setInvoice('suscripción');
-    };
-  
-    const handlePaymentSuccess = () => {
-      setHasDebt(false);
-      setTotalValue(null);
-      setInvoice('');
-    };
-  
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-        <div style={{ flex: 1, padding: '10px', textAlign: 'center' }}>
-          <h1>Bienvenido</h1>
-          {!hasDebt && (
-            <button onClick={simulateDebt}>Simular deuda</button>
-          )}
-          {hasDebt && (
-            <div>
-              <h1>Tienes una deuda pendiente</h1>
-              <p>
-                La suscripción tiene un valor de 7 USD/mes. ¿Quieres renovar la suscripción?
-              </p>
-              <button onClick={handleRenewSubscription}>Renovar suscripción</button>
-            </div>
-          )}
-          {totalValue && (
-            <div style={{ marginTop: '20px' }}>
-              <ButtonPaypal totalValue={totalValue} invoice={invoice} SameSite="none" onSuccess={handlePaymentSuccess} />
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
-  
-  export default App;
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/login',
+      element: <Login />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/recover-password',
+      element: <PasswordRecovery />,
+      errorElement: <div>Error</div>
+    },
+    {
+      path: '/create-account',
+      element: <Register />,
+      errorElement: <div>Error</div>
+    },
+    {
+      element: <ProtectedRoutes />,
+      children: [
+        {
+          path: '/patient',
+          element: <Patient />,
+          errorElement: <div>Error</div>
+        },
+        {
+          path: '/clinic',
+          element: <Clinic />,
+          errorElement: <div>Error</div>
+        },
+        {
+          path: '/profile',
+          element: <PatientProfile />,
+        },
+        // {
+        //   path: '/cartillas',
+        //   element: <Cartillas />
+        // },
+      ]
+    },
+    {
+      path: '/contact',
+      element: <Contact />
+    },
+    //agrego temporalmente para trabajar sobre esta vista
+            {
+          path: '/cartillas',
+          element: <Cartillas />
+        }
+  ]);
+
+  return (
+      <RouterProvider router={router} />
+  )
+}
+
+export default App

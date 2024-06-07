@@ -1,4 +1,5 @@
-//import Pdfpintado from './components/pdfRenderer/PdfPintadoEjemplo';
+/*
+import PdfPintadoEjemplo from './components/pdfRenderer/PdfPintadoEjemplo';
 
 
 function App() {
@@ -7,9 +8,11 @@ function App() {
 
     <div className="App">
 
-      <Pdfpintado />
+      <PdfPintadoEjemplo />
     </div>
   )
 }
 
-//export default App
+export default App
+
+*/
