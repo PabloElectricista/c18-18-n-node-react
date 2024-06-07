@@ -1,5 +1,8 @@
 import React from 'react'
-import "./buttonBuscarCartilla.css"
+
+//
+
+import "./ButtonBuscarCartilla.css"
 
 const ButtonBuscarCartilla = ({info}) => {
 
