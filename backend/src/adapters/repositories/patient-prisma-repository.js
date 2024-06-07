@@ -11,8 +11,7 @@ export default class PatientPrismaRepository {
       }
       return [patients, null];
     } catch (error) {
-      throw new Error( console.error(error)
-
+      throw new Error(
         `There was an error in patient-prisma-repository.findAllPatients: ${error.message}`
       );
     }
@@ -20,7 +19,7 @@ export default class PatientPrismaRepository {
 
   async findPatientById(patientid) {
     try {
-      const patient = await this.prismaClient.patients.findUnique({
+      const patient = await this.prismaClient.patients.findFirst({
         where: { id: patientid },
       });
       if (!patient) {
@@ -28,7 +27,6 @@ export default class PatientPrismaRepository {
       }
       return [patient, null];
     } catch (error) {
-    
       throw new Error(
         `There was an error in patient-prisma-repository.findPatientById: ${error.message}`
       );
@@ -44,7 +42,6 @@ export default class PatientPrismaRepository {
       }
       return [patient, null];
     } catch (error) {
-      console.error(error);
       throw new Error(
         `There was an error in patient-prisma-repository.findPatientByEmail: ${error.message}`
       );
@@ -60,7 +57,6 @@ export default class PatientPrismaRepository {
       }
       return [patient, null];
     } catch (error) {
-      console.error(error);
       throw new Error(
         `There was an error in patient-prisma-repository.findPatientByPhone: ${error.message}`
       );
@@ -74,7 +70,6 @@ export default class PatientPrismaRepository {
       });
       return [patient, null];
     } catch (error) {
-      console.error(error);
       throw new Error(
         `There was an error in patient-prisma-repository.createNewPatient: ${error.message}`
       );

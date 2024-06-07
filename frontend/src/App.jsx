@@ -8,6 +8,8 @@ import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';
 import Contact from './views/contact';
+import Register from './views/register';
+import Error from './components/error/error';
 
 function App() {
 
@@ -15,17 +17,22 @@ function App() {
     {
       path: '/',
       element: <Home />,
-      errorElement: <div>Error</div>
+      errorElement: <Error />
     },
     {
       path: '/login',
       element: <Login />,
-      errorElement: <div>Error</div>
+      errorElement: <Error />
     },
     {
       path: '/recover-password',
       element: <PasswordRecovery />,
-      errorElement: <div>Error</div>
+      errorElement: <Error />
+    },
+    {
+      path: '/create-account',
+      element: <Register />,
+      errorElement: <Error />
     },
     {
       element: <ProtectedRoutes />,
@@ -33,12 +40,12 @@ function App() {
         {
           path: '/patient',
           element: <Patient />,
-          errorElement: <div>Error</div>
+          errorElement: <Error />
         },
         {
           path: '/clinic',
           element: <Clinic />,
-          errorElement: <div>Error</div>
+          errorElement: <Error />
         },
         {
           path: '/profile',
@@ -58,7 +65,7 @@ function App() {
             {
           path: '/cartillas',
           element: <Cartillas />
-        },
+        }
   ]);
 
   return (

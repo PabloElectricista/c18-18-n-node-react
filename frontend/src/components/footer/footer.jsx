@@ -1,7 +1,4 @@
 //footer siguiendo la linea de la navbar en cuanto a colores y estilo
-
-
-import React from 'react'
 import LogosFooter from "./LogosFooter"
 import logo from "../../assets/logonew.png"
 import "./footer.css"

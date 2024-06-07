@@ -9,4 +9,4 @@ const opcionesFormato = {
   timeZone: "America/Bogota", //hora central de colombia, luego se cambia a la de preferencia
 };
 
-export default opcionesFormato;
+export default { opcionesFormato };

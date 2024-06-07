@@ -1,3 +1,4 @@
+import { createNewAppointmentValidations } from "../../../utils/functions/input-validations.js";
 export default class AppointmentrHandler {
   constructor(appointmentUseCases) {
     this.usecases = appointmentUseCases;

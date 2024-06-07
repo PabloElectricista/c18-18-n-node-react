@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./menudesplegable.css";
 import arrowDown from "../../assets/cartilla/arrow.svg"
 
-const MenuDesplegable = ({ dataDesplegable, idOpcion, useCredencialSelected,setBusquedaSelected,setDondeAtenderSelected}) => {
+const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setclinica,setespecialidad,setProfesional}) => {
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
     const toggleSubMenu = (id) => {
@@ -10,14 +10,17 @@ const MenuDesplegable = ({ dataDesplegable, idOpcion, useCredencialSelected,setB
     };
 
     const guardarValor = (opcion) =>{
-        if(idOpcion === 1){
-            useCredencialSelected(opcion)
+        if(openSubMenuId === 1){
+            setLocalidadSelected(opcion)
         }
-        if(idOpcion === 2){
-            setBusquedaSelected(opcion)
+        if(openSubMenuId === 2){
+            setclinica(opcion)
         }
-        if(idOpcion === 3){
-            setDondeAtenderSelected(opcion)
+        if(openSubMenuId === 3){
+            setespecialidad(opcion)
+        }
+        if(openSubMenuId === 4){
+            setProfesional(opcion)
         }
         setOpenSubMenuId(null)
     }

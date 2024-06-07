@@ -1,7 +1,7 @@
 import React from 'react'
 import "./opcionElegida.css"
 
-const OpcionElegida = ({opcion, anularOpcion}) => {
+const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
 
     const eliminarOpcion = () =>{
         anularOpcion(null)
@@ -9,7 +9,7 @@ const OpcionElegida = ({opcion, anularOpcion}) => {
 
     return (
         <div className='container'>
-            <span className='texto'>Opcion elegida: {opcion}</span>
+            <span className='texto'>{textOpcion}: {opcion}</span>
             <button onClick={()=>{eliminarOpcion()}} className='buttonCerrar'>X</button>
         </div>
     )
