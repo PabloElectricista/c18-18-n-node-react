@@ -1,8 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react'
-import './Clinic.css'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+
+//
+
+import './Clinic.css';
+
 
 const Clinic = () => {
   const navigate = useNavigate()
