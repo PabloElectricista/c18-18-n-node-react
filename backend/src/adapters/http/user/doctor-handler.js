@@ -49,9 +49,8 @@ export default class Doctorhandler {
 
   createNewDoctor = async (req, res) => {
     try {
-      const [doctor, status, err] = await this.doctorUseCases.createNewDoctor(
-        req.body
-      );
+      const [doctor, token, status, err] =
+        await this.doctorUseCases.createNewDoctor(req.body);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -60,6 +59,7 @@ export default class Doctorhandler {
       return res.status(status).send({
         message: "success",
         data: doctor,
+        token,
       });
     } catch (error) {
       return res.status(500).send({
