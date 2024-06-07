@@ -1,75 +1,54 @@
 /*
 import React, { useState } from 'react';
-import ButtonPaypal from './components/.../ButtonPaypal';
+import ButtonPaypal from './components/pagos/payPal/ButtonPayPal';
 
 function App() {
-  const [totalValue, setTotalValue] = useState(null);
-  const [invoice, setInvoice] = useState('');
-  const [hasDebt, setHasDebt] = useState(false);
-  const [subscriptionValue, setSubscriptionValue] = useState(null);
-
-  const handleSelectService = (value, invoice) => {
-    setTotalValue(value);
-    setInvoice(invoice);
-  };
-
-  const simulateDebt = () => {
-    setHasDebt(true);
-    setSubscriptionValue(7);
-  };
-
-  const handleRenewSubscription = () => {
-    setTotalValue(subscriptionValue);
-    setInvoice('suscripción mensual');
-  };
-
-  return (
-    <div style={{ padding: '20px' }}>
-      <h1>Bienvenido</h1>
-      {!hasDebt ? (
-        <button onClick={simulateDebt}>Simular deuda</button>
-      ) : (
-        <div>
-          <h1>Tienes una deuda pendiente</h1>
-          <text>
-            La suscripción tiene un valor de 7 USD/mes. ¿Quieres renovar la suscripción?
-          </text>
-          <button onClick={handleRenewSubscription}>Renovar suscripción</button>
-          {totalValue && (
+    const [hasDebt, setHasDebt] = useState(false);
+    const [totalValue, setTotalValue] = useState(null);
+    const [invoice, setInvoice] = useState('');
+  
+    const simulateDebt = () => {
+      setHasDebt(true);
+    };
+  
+    const handleRenewSubscription = () => {
+      setTotalValue('7');
+      setInvoice('suscripción');
+    };
+  
+    const handlePaymentSuccess = () => {
+      setHasDebt(false);
+      setTotalValue(null);
+      setInvoice('');
+    };
+  
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+        <div style={{ flex: 1, padding: '10px', textAlign: 'center' }}>
+          <h1>Bienvenido</h1>
+          {!hasDebt && (
+            <button onClick={simulateDebt}>Simular deuda</button>
+          )}
+          {hasDebt && (
             <div>
-              <ButtonPaypal totalValue={totalValue} invoice={invoice} SameSite="none" />
+              <h1>Tienes una deuda pendiente</h1>
+              <p>
+                La suscripción tiene un valor de 7 USD/mes. ¿Quieres renovar la suscripción?
+              </p>
+              <button onClick={handleRenewSubscription}>Renovar suscripción</button>
             </div>
           )}
-        </div>
-      )}
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
-        <div style={{ flex: 1, padding: '10px', borderRight: '1px solid #ccc' }}>
-          <h2>Servicios</h2>
-          <div style={{ marginBottom: '20px' }}>
-            <h3>Consulta Pediátrica</h3>
-            <p>1 USD</p>
-            <button onClick={() => handleSelectService('1', 'consulta pediátrica')}>Seleccionar</button>
-          </div>
-          <div style={{ marginBottom: '20px' }}>
-            <h3>Consulta Cardióloga</h3>
-            <p>2 USD</p>
-            <button onClick={() => handleSelectService('2', 'cardiólogo')}>Seleccionar</button>
-          </div>
-        </div>
-        <div style={{ flex: 1, padding: '10px', textAlign: 'center' }}>
-          <h2>Pago</h2>
-          {totalValue && !hasDebt && (
-            <div>
-              <ButtonPaypal totalValue={totalValue} invoice={invoice} SameSite="none" />
+          {totalValue && (
+            <div style={{ marginTop: '20px' }}>
+              <ButtonPaypal totalValue={totalValue} invoice={invoice} SameSite="none" onSuccess={handlePaymentSuccess} />
             </div>
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;
 */
 
 /*
