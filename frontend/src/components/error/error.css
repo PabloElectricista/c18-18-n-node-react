@@ -1,0 +1,51 @@
+.error-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-container {
+  text-align: left;
+  font-family: Mako;
+}
+
+.error-button {
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-family: Mako;
+  color: white;
+  background-color: #1A73E8;
+  margin-right: 10px;
+}
+
+.error-text {
+  color: gray;
+}
+
+p {
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .error-container {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error-button {
+    width: 50%;
+    margin: 5px 0;
+  }
+}

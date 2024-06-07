@@ -55,7 +55,7 @@ export default class PatientHandler {
           message: "fail",
           errors,
         });
-      const [patient, status, err] =
+      const [patient, token, status, err] =
         await this.patientUseCases.createNewPatient(req.body);
       if (err)
         return res.status(status).send({
@@ -64,9 +64,11 @@ export default class PatientHandler {
         });
       return res.status(status).send({
         message: "success",
+        token,
         data: patient,
       });
     } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,

@@ -1,7 +1,8 @@
 import { getFormatDate } from "../../utils/functions/date.js";
 export default class PatientUseCases {
-  constructor(patientPrismaRepository) {
+  constructor(patientPrismaRepository, tokenUseCases) {
     this.patientPrismaRepository = patientPrismaRepository;
+    this.tokenUseCases = tokenUseCases;
   }
 
   findAllPatients = async () => {
@@ -25,18 +26,27 @@ export default class PatientUseCases {
       await this.patientPrismaRepository.findPatientByEmail(
         newPatientPayload.email
       );
+
     if (patientByEmail) return [null, 400, "Already exist email"];
     const [patientByPhone] =
       await this.patientPrismaRepository.findPatientByPhone(
         newPatientPayload.phone
       );
+
     if (patientByPhone) return [null, 400, "Already exist phone"];
     const newPatientBody = { ...newPatientPayload };
     newPatientBody.created_at = getFormatDate();
+
     const [newPatient, err] =
       await this.patientPrismaRepository.createNewPatient(newPatientBody);
     if (err) return [null, 404, err];
-    return [newPatient, 200, null];
+
+    const [token, tokenError] = await this.tokenUseCases.generateToken(
+      newPatient.id,
+      newPatient.role
+    );
+    if (tokenError) return [null, 400, tokenError];
+    return [newPatient, token, 200, null];
   };
 
   updatePatientById = async (patientid, updatePatientPayload) => {
