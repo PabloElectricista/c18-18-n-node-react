@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 //
 
-import './registerForm.css';
+import './RegisterForm.css';
 
 
 const PatientRegisterForm = () => {

@@ -5,7 +5,7 @@ import { logout } from '../../redux/slices/authSlices';
 
 //
 
-import './sessionClose.css';
+import './SessionClose.css';
 
 
 const SessionClose = ({ openClose }) => {

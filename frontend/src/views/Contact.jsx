@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 //
 
-import './contact.css';
+import './Contact.css';
 
 const Contact = () => {
   const navigate = useNavigate();
