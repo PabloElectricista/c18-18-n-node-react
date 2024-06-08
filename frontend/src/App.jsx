@@ -39,11 +39,11 @@ function App() {
     {
       element: <ProtectedRoutes />,
       children: [
-        {
-          path: '/patient',
-          element: <Patient />,
-          errorElement: <Error />
-        },
+        // {
+        //   path: '/patient',
+        //   element: <Patient />,
+        //   errorElement: <Error />
+        // },
         {
           path: '/clinic',
           element: <Clinic />,
@@ -72,6 +72,10 @@ function App() {
             {
           path: '/cartillas',
           element: <Cartillas />
+        },
+        {
+          path: '/patient',
+          element: <Patient />
         }
   ]);
 
