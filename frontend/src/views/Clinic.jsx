@@ -1,14 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
-import './clinic.css'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+
 import Footer from '../components/footer/Footer'
 import scheludes from './scheludes.json'
 import ClinicTable from '../components/clinicTable/ClinicTable'
 import Calendar from '../components/calendar/Calendar'
 import ListaDePacientes from '../components/listaDePacientes/ListaDePacientes'
 import Agendar from '../components/agendarPacientes/Agendar'
+import './clinic.css'
 
 const Clinic = () => {
   const navigate = useNavigate()

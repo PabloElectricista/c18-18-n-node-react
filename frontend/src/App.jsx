@@ -15,7 +15,7 @@ import Error from './components/error/error';
 import Home from './views/Home';
 import Clinic from './views/Clinic'
 import Login from './views/Login';
-import Patient from './views/Patient';
+import Patient from './views/patient';
 import Cartillas from './views/Cartillas'
 import ProtectedRoutes from './components/Protected';
 import PatientProfile from './views/PatientProfile';
