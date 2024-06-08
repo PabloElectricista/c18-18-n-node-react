@@ -4,7 +4,8 @@ import data from "../../views/cartillaHorariosData.json"
 import { useState } from 'react'
 import arrowDown from "../../assets/cartilla/arrow.svg"
 import HorasDisponibles from "./HorasDisponibles"
-import Calendar from "../calendar/Calendar"
+import OpcionElegida from "./OpcionElegida"
+import CalendarCartillas from "../calendar/CalendarCartillas"
 
 const MenuFechaHora = () => {
 
@@ -12,12 +13,13 @@ const MenuFechaHora = () => {
 
     const [showMenu, setShowMenu] = useState()
     const [showCalendar, setShowCalendar] = useState(false)
-    const [selectedDay, setSelectedDay] = useState(1)
+    const [selectedDay, setSelectedDay] = useState(null)
+    const [ selectedMonth, setSelectedMonth] = useState(0)
+    const [selectedYear,setSelectedYear] = useState(0)
 
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
     const [horaElegida, setHoraElegida] = useState(null)
-    console.log(horaElegida)
 
     const toggleSubMenu = (id) => {
         setOpenSubMenuId(openSubMenuId === id ? null : id);
@@ -26,6 +28,8 @@ const MenuFechaHora = () => {
     const handleCalendar = () => {
         setShowCalendar(showCalendar === true ? null : true)
     }
+
+    console.log(selectedDay)
 
     return (
         <div className='dropdown'>
@@ -41,6 +45,9 @@ const MenuFechaHora = () => {
                         </button>
                         <img src={arrowDown} alt='arrowDown' className='arrowDown' />
                         {
+                            horaElegida ? <OpcionElegida opcion={horaElegida} anularOpcion={setHoraElegida} textOpcion="Hora elegida" /> : null
+                        }
+                        {
                             openSubMenuId === f.id ? <HorasDisponibles setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} /> : null
                         }
                     </div>
@@ -54,12 +61,17 @@ const MenuFechaHora = () => {
                     </button>
                     <img src={arrowDown} alt='arrowDown' className='arrowDown' />
                         {
+                            selectedDay != null ? <OpcionElegida opcion={`${selectedDay}/${selectedMonth + 1}/${selectedYear}`} anularOpcion={setSelectedDay} textOpcion="Dia elegido" /> : null
+                        }
+                        {
                             showCalendar ?
-                            <div className="calendarContainer"> <Calendar
+                            <div className="calendarContainer"> <CalendarCartillas
                                 setShowCalendar={setShowCalendar}
                                 selectedDay={selectedDay}
                                 setSelectedDay={setSelectedDay}
-                            />                    </div> : null
+                                setSelectedMonth={setSelectedMonth}
+                                setSelectedYear={setSelectedYear}
+                            /></div> : null
                         }
                 </div>
             </div>

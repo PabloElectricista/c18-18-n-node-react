@@ -4,7 +4,12 @@ import "./opcionElegida.css"
 const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
 
     const eliminarOpcion = () =>{
-        anularOpcion(null)
+        if(opcion === 1){
+            anularOpcion(1)
+        }
+        else{
+            anularOpcion(null)
+        }
     }
 
     return (
