@@ -1,15 +1,19 @@
-import { useState } from 'react';
-import Footer from '../components/footer/Footer';
-import foto from "../assets/cartilla/foto.png";
-import NavbarCliente from '../components/navbar/NavbarCliente';
-import OpcionesCartilla from '../components/cartilla/OpcionesCartilla';
-import dataCartilla from "./caritillaData.json";
-import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla';
-import OpcionElegida from "../components/cartilla/OpcionElegida";
-import MenuFechaHora from '../components/cartilla/MenuFechaHora';
-import "./cartillas.css";
+import Footer from '../components/footer/Footer'
+import foto from "../assets/cartilla/foto.png"
+import NavbarCliente from '../components/navbar/NavbarCliente'
+import "./cartillas.css"
+import OpcionesCartilla from '../components/cartilla/OpcionesCartilla'
+import dataCartilla from "./cartillaData.json"
+import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
+import { useState } from 'react'
+import OpcionElegida from "../components/cartilla/OpcionElegida"
+import MenuFechaHora from '../components/cartilla/MenuFechaHora'
+import Calendar from '../components/calendar/Calendar'
 
 const Cartillas = () => {
+
+
+
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
 
@@ -51,21 +55,7 @@ const Cartillas = () => {
                                 })
                             }
                         </div>
-                        <div className='opcionesElegidas'>
-                            {
-                                localidadSelected ? (<OpcionElegida opcion={localidadSelected} anularOpcion={setLocalidadSelected} textOpcion="Localidad elegida" />) : null
-                            }
-                            {
-                                clinica ? (<OpcionElegida opcion={clinica} anularOpcion={setclinica} textOpcion="Clinica elegida" />) : null
-                            }
-                            {
-                                especialidad ? (<OpcionElegida opcion={especialidad} anularOpcion={setespecialidad} textOpcion="Especialidad elegida" />) : null
-                            }
-                            {
-                                profesional ? (<OpcionElegida opcion={profesional} anularOpcion={setProfesional} textOpcion="Profesional elegido" />) : null
-                            }
-                        </div>
-                        <div>
+                        <div className='containerFechaHora'>
                             <MenuFechaHora />
                         </div>
                     </div>

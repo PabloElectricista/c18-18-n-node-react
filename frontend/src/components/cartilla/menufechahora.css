@@ -1,5 +1,31 @@
 .dropdown {
     display: flex;
     flex-direction: column;
-    position: relative;
+}
+
+.arrowDown{
+    width:10px;
+    opacity: 0.3;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.39);
+    font-family: "Inter", sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.submenuFechahora{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+}
+
+.calendarContainer{
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
