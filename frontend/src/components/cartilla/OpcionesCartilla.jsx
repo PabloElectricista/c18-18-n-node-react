@@ -30,7 +30,6 @@ const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLoc
 
     return (
         <div className='opcionesCartillasContainer'>
-            <h2 className='title'>{title}</h2>
             <div className='contenedoropcionesdesplegables'>
                 <MenuDesplegable
                     dataDesplegable={dataDesplegable}

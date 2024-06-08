@@ -16,7 +16,7 @@
     font-size: 13px;
     border: none;
     cursor: pointer;
-    width: 300px;
+    max-width: 400px;
     text-align: start;
     margin-top: 20px;
 }
@@ -64,6 +64,18 @@
 }
 
 
-.submenu {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+.hrDesplegable {
+    color: rgba(0, 0, 0, 0.308);
+    opacity: 0.5;
+    max-width: 400px;
+}
+
+@media(max-width:450px){
+    .dropbtn{
+        max-width: 250px;
+    }
+
+    .hrDesplegable{
+        max-width: 250px;
+    }
 }

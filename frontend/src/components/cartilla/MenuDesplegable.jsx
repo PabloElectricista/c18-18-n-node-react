@@ -29,6 +29,7 @@ const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected, setc
 
     return (
             <div className='dropdown'>
+                    <h2 className='title'>¿Qué estás buscando?</h2>
                 {dataDesplegable.map((submenu) => (
                     <div key={submenu.id} className='submenu'>
                         <button
@@ -51,6 +52,7 @@ const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected, setc
                             {submenu.id === 3 && especialidad && <OpcionElegida opcion={especialidad} anularOpcion={setespecialidad} textOpcion="Especialidad elegida" />}
                             {submenu.id === 4 && profesional && <OpcionElegida opcion={profesional} anularOpcion={setProfesional} textOpcion="Profesional elegido" />}
                         </div>
+                        <hr className='hrDesplegable' />
                     </div>
                 ))}
             </div>

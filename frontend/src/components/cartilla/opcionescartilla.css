@@ -6,8 +6,11 @@
 
 .opcionesCartillasContainer{
     margin-bottom: 50px;
+    width: 100%;
 }
 
 .contenedoropcionesdesplegables{
     display: flex;
+    width: 100%;
+    justify-content: center;
 }
