@@ -1,6 +1,10 @@
-.dropdown {
+.dropdownFH{
     display: flex;
     flex-direction: column;
+}
+
+.containerFh{
+    width: 100%;
 }
 
 .arrowDown{
@@ -21,11 +25,24 @@
     margin-top: 20px;
 }
 
-.submenuFechahora{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
-}
-
 .calendarContainer{
     margin-top: 20px;
     margin-bottom: 30px;
+}
+
+
+.hrDesplegable {
+    color: rgba(0, 0, 0, 0.308);
+    opacity: 0.5;
+    max-width: 400px;
+}
+
+@media(max-width:450px){
+    .dropbtn{
+        max-width: 250px;
+    }
+
+    .hrDesplegable{
+        max-width: 250px;
+    }
 }

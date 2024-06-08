@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './calendar.css'
 
-function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay,setSelectedMonth,setSelectedYear }) {
+function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay, setSelectedMonth, setSelectedYear }) {
     const [first, setFirst] = useState(0)
     const [dias, setDias] = useState([])
     const [year, setYear] = useState(2014)
@@ -43,8 +43,8 @@ function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay,setSel
 
     const handleDayClick = value => {
         setSelectedDay(value);
-        setSelectedMonth(month); 
-        setSelectedYear(year);   
+        setSelectedMonth(month);
+        setSelectedYear(year);
         setShowCalendar(prev => !prev)
     }
 
@@ -88,42 +88,46 @@ function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay,setSel
                     </button>
                 </div>
             </div>
-            <ol className='calendar-list'>
-                <li className='calendar-list-heading' key={'lun'}>Lun</li>
-                <li className='calendar-list-heading' key={'mar'}>Mar</li>
-                <li className='calendar-list-heading' key={'mie'}>Mie</li>
-                <li className='calendar-list-heading' key={'jue'}>Jue</li>
-                <li className='calendar-list-heading' key={'vie'}>Vie</li>
-                <li className='calendar-list-heading' key={'sab'}>Sab</li>
-                <li className='calendar-list-heading' key={'dom'}>Dom</li>
-                <li
-                    key={1}
-                    style={{
-                        gridColumnStart: first,
-                        backgroundColor: selectedDay === 1 ? '#45539D' : '#fff',
-                        color: selectedDay === 1 && '#fff'
-                    }}
-                    onClick={() => handleDayClick(1)}
-                    className='calendar-list-item'
-                >
-                    1
-                </li>
-                {
-                    dias && dias.length > 1 ?
-                        dias.slice(1).map(dia => {
-                            return (
-                                <li
-                                    key={dia}
-                                    onClick={() => handleDayClick(dia)}
-                                    className={`calendar-list-item ${selectedDay === dia ? 'selected' : ''}`}
-                                >
-                                    {dia}
-                                </li>
-                            )
-                        })
-                        : null
-                }
-            </ol>
+            <div className='calendarListContainer'>
+                <ol className='calendar-list'>
+                    <li className='calendar-list-heading' key={'lun'}>Lun</li>
+                    <li className='calendar-list-heading' key={'mar'}>Mar</li>
+                    <li className='calendar-list-heading' key={'mie'}>Mie</li>
+                    <li className='calendar-list-heading' key={'jue'}>Jue</li>
+                    <li className='calendar-list-heading' key={'vie'}>Vie</li>
+                    <li className='calendar-list-heading' key={'sab'}>Sab</li>
+                    <li className='calendar-list-heading' key={'dom'}>Dom</li>
+                    <li
+                        key={1}
+                        style={{
+                            gridColumnStart: first,
+                            backgroundColor: selectedDay === 1 ? '#45539D' : '#fff',
+                            color: selectedDay === 1 && '#fff'
+                        }}
+                        onClick={() => handleDayClick(1)}
+                        className='calendar-list-item'
+                    >
+                        1
+                    </li>
+                    {
+                        dias && dias.length > 1 ?
+                            dias.slice(1).map(dia => {
+                                return (
+                                    <li
+                                        key={dia}
+                                        onClick={() => handleDayClick(dia)}
+                                        className={`calendar-list-item ${selectedDay === dia ? 'selected' : ''}`}
+                                    >
+                                        {dia}
+                                    </li>
+                                )
+                            })
+                            : null
+                    }
+                </ol>
+
+            </div>
+
         </div>
     )
 }
