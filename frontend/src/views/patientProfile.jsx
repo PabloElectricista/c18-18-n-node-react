@@ -1,14 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { cargarFake, updateUser } from '../redux/actions/user'
-
-//
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { cargarFake, updateUser } from '../redux/actions/user';
+import Footer from '../components/footer/Footer';
 import Footer from '../components/footer/Footer'
-
 import './PatientProfile.css'
 
 const PatientProfile = () => {

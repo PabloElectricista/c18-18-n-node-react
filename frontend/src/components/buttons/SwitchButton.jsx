@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-
-//
-
-import './SwitchButton.css';
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import './SwitchButton.css'
 
 
 const SwitchButton = ({ text1, text2, setIsDoctor, isDoctor }) => {

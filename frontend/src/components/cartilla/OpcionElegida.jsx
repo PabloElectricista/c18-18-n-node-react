@@ -1,8 +1,5 @@
-import React from 'react';
-
-//
-
-import "./OpcionElegida.css";
+import React from 'react'
+import "./OpcionElegida.css"
 
 const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
 

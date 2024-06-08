@@ -1,13 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
-import { Helmet } from 'react-helmet'
-
-import HeaderPatient from '../components/navbar/NavbarCliente'
-import MainPatient from '../components/main/Mainpatient'
-import Footer from '../components/footer/Footer'
-
-import './Patient.css'
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import HeaderPatient from '../components/navbar/NavbarCliente';
+import MainPatient from '../components/main/Mainpatient';
+import Footer from '../components/footer/Footer';
+import './Patient.css';
 
 const Patient = () => {
   const navigate = useNavigate()

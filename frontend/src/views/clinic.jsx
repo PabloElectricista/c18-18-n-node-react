@@ -2,11 +2,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-
-//
-
-import './Clinic.css';
-
+import './Clinic.css'
 
 const Clinic = () => {
   const navigate = useNavigate()

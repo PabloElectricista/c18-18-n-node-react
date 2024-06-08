@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
-//
-import data from "../../views/cartillafechahoradata.json";
-import arrowDown from "../../assets/cartilla/arrow.svg";
-import "./Menufechahora.css";
+import { useState } from 'react'
+import data from "../../views/cartillafechahoradata.json"
+import arrowDown from "../../assets/cartilla/arrow.svg"
+import "./Menufechahora.css"
 
 const MenuFechaHora = () => {
 
