@@ -1,3 +1,4 @@
+<<<<<<< HEAD:frontend/src/views/cartillas.jsx
 import Footer from '../components/footer/footer'
 import foto from "../assets/cartilla/foto.png"
 import NavbarCliente from '../components/navbar/NavbarCliente'
@@ -9,6 +10,18 @@ import { useState } from 'react'
 import OpcionElegida from "../components/cartilla/OpcionElegida"
 import MenuFechaHora from '../components/cartilla/MenuFechaHora'
 
+=======
+import { useState } from 'react';
+import Footer from '../components/footer/Footer';
+import foto from "../assets/cartilla/foto.png";
+import NavbarCliente from '../components/navbar/NavbarCliente';
+import OpcionesCartilla from '../components/cartilla/OpcionesCartilla';
+import dataCartilla from "./caritillaData.json";
+import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla';
+import OpcionElegida from "../components/cartilla/OpcionElegida";
+import MenuFechaHora from '../components/cartilla/MenuFechaHora';
+import "./cartillas.css";
+>>>>>>> main:frontend/src/views/Cartillas.jsx
 
 const Cartillas = () => {
 

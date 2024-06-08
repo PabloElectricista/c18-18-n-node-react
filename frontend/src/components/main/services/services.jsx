@@ -1,7 +1,6 @@
-import React from 'react'
-import img3 from "../../../assets/main/img3.png"
-import img4 from "../../../assets/main/img4.png"
-import "./services.css"
+import img3 from "../../../assets/main/img3.png";
+import img4 from "../../../assets/main/img4.png";
+import "./services.css";
 
 const Services = () => {
   return (

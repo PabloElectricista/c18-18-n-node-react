@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
-import './passRecovery.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { passRecovery } from '../redux/thunks/authThunk'
-import { Bounce, toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { passRecovery } from '../redux/thunks/authThunk';
+import { Bounce, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import './passRecovery.css';
 
 const PasswordRecovery = () => {
   const [email, setEmail] = useState('')

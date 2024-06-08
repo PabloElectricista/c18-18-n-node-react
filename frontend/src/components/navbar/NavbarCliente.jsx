@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import './navbarcliente.css'
-import { Link, useNavigate } from 'react-router-dom'
-import SessionClose from './SessionClose'
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import SessionClose from './SessionClose';
+import './navbarcliente.css';
 
 const NavbarCliente = () => {
   const navigate = useNavigate()
@@ -10,7 +10,6 @@ const NavbarCliente = () => {
   useEffect(() => {
     setCurrent((window.location.href).split('/')[3])
   }, [])
-
 
   return (
     <div className="navbar">

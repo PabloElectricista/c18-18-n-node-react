@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import "./menufechahora.css"
 import data from "../../views/cartillaHorariosData.json"
+=======
+>>>>>>> main
 import { useState } from 'react'
+import data from "../../views/cartillafechahoradata.json"
 import arrowDown from "../../assets/cartilla/arrow.svg"
+<<<<<<< HEAD
 import HorasDisponibles from "./HorasDisponibles"
 import Calendar from "./Calendar"
+=======
+import "./menufechahora.css"
+>>>>>>> main
 
 const MenuFechaHora = () => {
 

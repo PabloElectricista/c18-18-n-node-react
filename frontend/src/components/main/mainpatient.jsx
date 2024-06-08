@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router-dom'
-import './mainPatient.css'
+import { useNavigate } from 'react-router-dom';
+
+import './mainPatient.css';
 
 const MainPatient = () => {
   const navigate = useNavigate()

@@ -1,4 +1,5 @@
 import { useNavigate, useRouteError } from "react-router-dom"
+
 import "./error.css"
 
 function Error() {

@@ -3,7 +3,7 @@
     justify-content: center;
     gap: 20px;
     align-items: center;
-    background-color: #1d616171;
+    background-color: var(--dl-bgcolor-nav-footer);
     padding: 10px;
     border-radius: 10px;
     max-height: 100px;
