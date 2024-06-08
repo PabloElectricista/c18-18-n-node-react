@@ -1,7 +1,7 @@
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 const fastify = Fastify({ logger: true });
-
+import 'dotenv/config';
 
 
 
@@ -12,8 +12,9 @@ import appointmentRoutes from "../../backend/src/adapters/http/appointment/appoi
 import schedulerRoutes from "../../backend/src/adapters/http/scheduler/scheduler-route.js";
 
 
-import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
+
 import doctorRoutes from "../../backend/src/adapters/http/user/doctor-route.js";
+import clinicRoutes from "../../backend/src/adapters/http/clinic/clinic-route.js";
 
 
 fastify.register(fastifyCors, {
@@ -38,6 +39,7 @@ registerRoutes(fastify, patientRoutes);
 registerRoutes(fastify, doctorRoutes);
 registerRoutes(fastify, appointmentRoutes);
 registerRoutes(fastify, schedulerRoutes);
+registerRoutes(fastify, clinicRoutes);
 
 
 const start = async () => {
