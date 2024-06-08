@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import "./opcionescartilla.css"
-import MenuDesplegable from './MenuDesplegable'
+
+//
+import MenuDesplegable from './MenuDesplegable';
+
+import "./Opcionescartilla.css";
+
 
 
 const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLocalidadSelected,profesional, setProfesional,clinica,especialidad, setespecialidad, setclinica,setObjetoInfoBuscar, objetoInfoBuscar }) => {
