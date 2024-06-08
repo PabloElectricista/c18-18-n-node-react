@@ -4,13 +4,13 @@ import './navbar.css';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 817);
 
     const handleClick = () => setMenuOpen(!menuOpen);
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
+            setIsMobile(window.innerWidth <= 817);
         };
         window.addEventListener('resize', handleResize);
         return () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-           <img
+            <img
                 alt="logo Agenda Salud"
                 src="/logonew.png"
                 className={`nav-logo ${isMobile ? 'small-logo' : ''}`}
