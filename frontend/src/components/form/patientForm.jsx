@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import './registerForm.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { Bounce, toast } from 'react-toastify'
 import { register } from '../../redux/thunks/authThunk'
 import { useNavigate } from 'react-router-dom'
+
+import './RegisterForm.css'
+
 
 const PatientRegisterForm = () => {
   const [name, setName] = useState('')

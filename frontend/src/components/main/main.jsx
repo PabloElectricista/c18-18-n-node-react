@@ -1,7 +1,8 @@
-import './main.css'
-import ButtonAccessPacienteProfesional from '../buttons/ButtonAccessPacienteProfesional'
-import img2 from "../../assets/main/img2.png"
-import Services from './services/services'
+import ButtonAccessPacienteProfesional from '../buttons/ButtonAccessPacienteProfesional';
+import img2 from "../../assets/main/img2.png";
+import Services from './services/Services';
+
+import './Main.css';
 
 const Main = () => {
     return (

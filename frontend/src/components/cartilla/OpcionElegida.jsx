@@ -1,5 +1,6 @@
 import React from 'react'
-import "./opcionElegida.css"
+
+import "./OpcionElegida.css"
 
 const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
 
