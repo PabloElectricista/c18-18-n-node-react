@@ -12,6 +12,7 @@ import Register from './views/Register';
 import Error from './components/error/Error';
 import ClinicProfile from './views/ClinicProfile'
 
+
 function App() {
 
   const router = createBrowserRouter([

@@ -39,6 +39,10 @@ const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLoc
                     setclinica={setclinica}
                     setespecialidad={setespecialidad}
                     setProfesional={setProfesional}
+                    especialidad={especialidad}
+                    profesional={profesional}
+                    localidadSelected={localidadSelected}
+                    clinica={clinica}
                 />
             </div>
         </div>
