@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
-import './passRecovery.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { passRecovery } from '../redux/thunks/authThunk'
-import { Bounce, toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { passRecovery } from '../redux/thunks/authThunk';
+import { Bounce, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import './passRecovery.css';
 
 const PasswordRecovery = () => {
   const [email, setEmail] = useState('')
@@ -49,13 +49,13 @@ const PasswordRecovery = () => {
     <section className='recovery'>
       <div className='form-wrapper'>
         <div>
-          <h3 className='form-header'>Agenda Salud</h3>
           <Link to="/login" className='return-link'>
             <button className='return-button'>&lt;- Volver</button>
           </Link>
+          <h3 className='form-header'>Agenda Salud</h3>
           <p>Olvidé mi contraseña</p>
           <p className='recovery-description'>
-            Ingresá el mail asociado a tu cuenta y te <br /> enviaremos tu contraseña por mail
+            Ingresá el mail asociado a tu cuenta y te enviaremos tu contraseña por mail
           </p>
           <form onSubmit={handleSubmit}>
             <div className='recovery-wrapper'>

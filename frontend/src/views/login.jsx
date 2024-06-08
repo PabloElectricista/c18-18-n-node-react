@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import './login.css'
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
-
 import { login } from '../redux/thunks/authThunk';
 import { Bounce, toast } from 'react-toastify';
+import './login.css';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
@@ -52,10 +51,10 @@ const Login = () => {
     <section className='login'>
       <div className='form-wrapper'>
         <div>
-          <h3 className='form-header'>Agenda Salud</h3>
           <Link to="/" className='return-link'>
             <button className='return-button'>&lt;- Volver</button>
           </Link>
+          <h3 className='form-header'>Agenda Salud</h3>
           <p>Inicia Sesion</p>
           <form onSubmit={handleSubmit}>
             <div className='login-wrapper'>

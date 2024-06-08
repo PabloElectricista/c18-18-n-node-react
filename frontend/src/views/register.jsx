@@ -1,10 +1,10 @@
-import PatientRegisterForm from '../components/form/patientForm'
-import Navbar from '../components/navbar/Navbar'
-import './register.css'
-import SwitchButton from '../components/buttons/SwitchButton'
-import { useState } from 'react'
-import DoctorRegisterForm from '../components/form/doctorForm'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import DoctorRegisterForm from '../components/form/DoctorForm';
+import SwitchButton from '../components/buttons/SwitchButton';
+import PatientRegisterForm from '../components/form/PatientForm';
+import Navbar from '../components/navbar/Navbar';
+import './register.css';
 
 const Register = () => {
   const [isDoctor, setIsDoctor] = useState(false)
