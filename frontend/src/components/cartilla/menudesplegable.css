@@ -42,7 +42,7 @@
 }
 
 .dropdown-content button:hover {
-    background-color: #1d616171;
+    background-color: var(--dl-bgcolor-nav-footer);
 }
 
 .show {

@@ -1,7 +1,7 @@
 .ButtonAcc{
     border-radius: 35px;
     border: none;
-    background-color: #1d616171;
+    background-color: var(--dl-bgcolor-nav-footer);
     padding: 10px;
     width: 200px;
     color: white;

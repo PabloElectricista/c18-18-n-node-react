@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { toast } from 'react-toastify'
 // import axios from 'axios';
-import './Contact.css';
+import './contact.css';
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Contact = () => {
       ...message,
       [ev.target.name]: ev.target.value
     })
-    setError({...error, email: false})
+    setError({ ...error, email: false })
   }
 
   const handleSubmit = (ev) => {

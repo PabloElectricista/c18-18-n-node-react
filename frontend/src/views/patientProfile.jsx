@@ -6,8 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { cargarFake, updateUser } from '../redux/actions/user';
 import Footer from '../components/footer/Footer';
-import Footer from '../components/footer/Footer'
-import './PatientProfile.css'
+import './patientProfile.css'
 
 const PatientProfile = () => {
   const { user } = useSelector(state => state.auth)

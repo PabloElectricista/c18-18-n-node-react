@@ -1,0 +1,440 @@
+.clinic-container {
+    gap: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f3f3f3;
+  }
+  .clinic-header {
+    gap: 59px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    background-color: rgba(36, 40, 123, 0.8999999761581421);
+  }
+  .clinic-links-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+  }
+  .clinic-back-arrow {
+    width: 24px;
+    height: 24px;
+  }
+  .clinic-text {
+    color: rgb(255, 255, 255);
+    height: auto;
+    font-size: 32px;
+    font-style: Bold;
+    font-family: "Inter";
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-scheludes-calendar {
+    gap: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 96px;
+    padding-right: 96px;
+    /* flex-direction: column; */
+    justify-content: center;
+  }
+  .clinic-button {
+    gap: 10px;
+    width: 700px;
+    height: auto;
+    display: flex;
+    padding: 11px;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: center;
+    background-color: rgba(146, 148, 189, 1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    height: auto;
+    font-size: 20px;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-table {
+    gap: 16px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .clinic-title {
+    width: 700px;
+    display: flex;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #9294BD;
+    color: #fff;
+    font-size: 20px;
+    justify-content: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-scheludes {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .clinic-schelude {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .clinic-hour {
+    width: 150px;
+    height: auto;
+    display: flex;
+    padding: 8px;
+    position: relative;
+    align-items: center;
+    flex-shrink: 1;
+    justify-content: center;
+    background-color: rgba(230, 230, 230, 1);
+  }
+  .clinic-text05 {
+    color: rgba(0, 0, 0, 1);
+    width: 48px;
+    height: auto;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 150%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-patient {
+    width: 527px;
+    height: auto;
+    display: flex;
+    padding: 8px;
+    position: relative;
+    align-items: center;
+    flex-shrink: 1;
+    justify-content: center;
+    background-color: rgba(230, 230, 230, 1);
+  }
+  .clinic-text07 {
+    color: rgba(0, 0, 0, 1);
+    width: 169px;
+    height: auto;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 150%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-addsquare {
+    top: 0px;
+    right: 8px;
+    bottom: 0px;
+    height: 18px;
+    margin: auto;
+    position: absolute;
+    width: 18px;
+    cursor: pointer;
+  }
+  .clinic-buttons-container {
+    height: auto;
+    display: grid;
+    column-gap: 96px;
+    grid-row-gap: 48px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .clinic-button1 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-vector {
+    width: 22px;
+    height: 21px;
+  }
+  .clinic-text09 {
+    color: rgba(0, 0, 0, 1);
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-button2 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-vector1 {
+    width: 19px;
+    height: 21px;
+  }
+  .clinic-text11 {
+    color: rgba(0, 0, 0, 1);
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-button3 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-vector2 {
+    width: 19px;
+    height: 21px;
+  }
+  .clinic-text13 {
+    color: rgba(0, 0, 0, 1);
+    width: 113px;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-button4 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-icon {
+    width: 19px;
+    height: 19px;
+  }
+  .clinic-text15 {
+    color: rgba(0, 0, 0, 1);
+    width: 151px;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-button5 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-icon1 {
+    width: 17px;
+    height: 15px;
+  }
+  .clinic-text17 {
+    color: rgba(0, 0, 0, 1);
+    width: 151px;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .clinic-button6 {
+    width: 250px;
+    height: 72px;
+    display: flex;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 4px;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+  }
+  .clinic-icon2 {
+    width: 20px;
+    height: 20px;
+  }
+  .clinic-text19 {
+    color: rgba(0, 0, 0, 1);
+    width: 113px;
+    height: auto;
+    font-size: 20px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  @media(max-width: 1200px) {
+    .clinic-container {
+      gap: 48px;
+    }
+    .clinic-scheludes-calendar {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+  @media(max-width: 991px) {
+    .clinic-container {
+      gap: 24px;
+    }
+    .clinic-scheludes-calendar {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .clinic-buttons-container {
+      column-gap: 48px;
+      grid-row-gap: 24px;
+    }
+  }
+  @media(max-width: 479px) {
+    .clinic-container {
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+    .clinic-links-container {
+      width: 70%;
+    }
+    .clinic-scheludes-calendar {
+      gap: 32px;
+      align-items: center;
+      padding-left: 16px;
+      padding-right: 16px;
+      flex-direction: column;
+    }
+    .clinic-table {
+      width: 100%;
+    }
+    .clinic-title {
+      width: 100%;
+    }
+    .clinic-buttons-container {
+      width: auto;
+      align-items: center;
+      grid-template-columns: 1fr;
+    }
+    .clinic-button1 {
+      width: 350px;
+      border: none;
+    }
+    .clinic-button2 {
+      width: 350px;
+      border: none;
+    }
+    .clinic-button3 {
+      width: 350px;
+      border: none;
+    }
+    .clinic-button4 {
+      width: 350px;
+      border: none;
+    }
+    .clinic-button5 {
+      width: 350px;
+      border: none;
+    }
+    .clinic-button6 {
+      width: 350px;
+      border: none;
+    }
+  }
+  

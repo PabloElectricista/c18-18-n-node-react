@@ -1,6 +1,6 @@
 import { useNavigate, useRouteError } from "react-router-dom"
 
-import "./Error.css"
+import "./error.css"
 
 function Error() {
   const error = useRouteError()

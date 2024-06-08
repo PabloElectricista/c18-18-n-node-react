@@ -3,9 +3,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { cargarFake } from "../../redux/actions/user";
-
-//
-import "./ButtonAccess.css";
+import "./buttonAccess.css";
 
 const ButtonAccessPacienteProfesional = ({ titleButton, redireccionar }) => {
     const navigate = useNavigate()

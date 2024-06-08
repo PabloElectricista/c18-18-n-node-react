@@ -7,18 +7,7 @@ import dataCartilla from "./caritillaData.json";
 import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla';
 import OpcionElegida from "../components/cartilla/OpcionElegida";
 import MenuFechaHora from '../components/cartilla/MenuFechaHora';
-import "./Cartillas.css";
-//
-import Footer from '../components/footer/Footer';
-import foto from "../assets/cartilla/foto.png";
-import NavbarCliente from '../components/navbar/NavbarCliente';
-import OpcionesCartilla from '../components/cartilla/OpcionesCartilla';
-import dataCartilla from "./caritillaData.json";
-import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla';
-import OpcionElegida from "../components/cartilla/OpcionElegida";
-import MenuFechaHora from '../components/cartilla/MenuFechaHora';
-
-import "./Cartillas.css";
+import "./cartillas.css";
 
 const Cartillas = () => {
 

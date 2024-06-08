@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SessionClose from './SessionClose';
-import './Navbarcliente.css';
+import './navbarcliente.css';
 
 const NavbarCliente = () => {
   const navigate = useNavigate()

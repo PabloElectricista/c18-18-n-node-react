@@ -14,7 +14,7 @@
   align-items: center;
   flex-shrink: 0;
   padding-top: 16px;
-  padding-left: var(--dl-space-space-sixunits);
+  padding-left: 96px;
   padding-right: 40px;
   padding-bottom: 16px;
   justify-content: space-between;

@@ -10,6 +10,7 @@ import PasswordRecovery from './views/PassRecovery';
 import Contact from './views/Contact';
 import Register from './views/Register';
 import Error from './components/error/Error';
+import ClinicProfile from './views/ClinicProfile'
 
 function App() {
 
@@ -51,6 +52,10 @@ function App() {
           path: '/profile',
           element: <PatientProfile />,
         },
+        {
+          path: '/clinic-profile',
+          element: <ClinicProfile />
+        },
         // {
         //   path: '/cartillas',
         //   element: <Cartillas />
@@ -62,6 +67,7 @@ function App() {
       element: <Contact />
     },
     //agrego temporalmente para trabajar sobre esta vista
+    // mover despues a rutas protegidas
             {
           path: '/cartillas',
           element: <Cartillas />

@@ -4,7 +4,7 @@ import DoctorRegisterForm from '../components/form/DoctorForm';
 import SwitchButton from '../components/buttons/SwitchButton';
 import PatientRegisterForm from '../components/form/PatientForm';
 import Navbar from '../components/navbar/Navbar';
-import './Register.css';
+import './register.css';
 
 const Register = () => {
   const [isDoctor, setIsDoctor] = useState(false)

@@ -1,6 +1,6 @@
 .footerGral{
     /* background-color: #58BACF; color definido por ux */
-    background-color: #1d616171;
+    background-color: var(--dl-bgcolor-nav-footer);
     padding: 20px;
     display: flex;
     justify-content: space-around;

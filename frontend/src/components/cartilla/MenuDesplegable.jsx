@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import "./Menudesplegable.css";
+import "./menudesplegable.css";
 import arrowDown from "../../assets/cartilla/arrow.svg";
 
 const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setclinica,setespecialidad,setProfesional}) => {

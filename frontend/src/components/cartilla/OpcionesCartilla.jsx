@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react';
 import MenuDesplegable from './MenuDesplegable'
-import "./Opcionescartilla.css"
+import "./opcionescartilla.css"
 
 const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLocalidadSelected,profesional, setProfesional,clinica,especialidad, setespecialidad, setclinica,setObjetoInfoBuscar, objetoInfoBuscar }) => {
 

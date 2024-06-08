@@ -1,6 +1,5 @@
-import React from 'react'
-import "./ButtonBuscarCartilla.css"
-
+/* eslint-disable react/prop-types */
+import "./buttonBuscarCartilla.css"
 
 const ButtonBuscarCartilla = ({info}) => {
 

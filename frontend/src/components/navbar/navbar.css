@@ -1,6 +1,6 @@
 .navbar{
     /* background-color: #58BACF; color definido por ux */
-    background-color: #1d616171;
+    background-color: var(--dl-bgcolor-nav-footer);
     display: flex;
     justify-content: space-between;
     width: 100%;

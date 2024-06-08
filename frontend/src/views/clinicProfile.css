@@ -1,0 +1,210 @@
+.clinic-profile-container {
+  gap: 40px;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.clinic-profile-clinic {
+  gap: 59px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 16px;
+  padding-left: 96px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  background-color: rgba(36, 40, 123, 0.8999999761581421);
+}
+.clinic-profile-links-container {
+  gap: 300px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.clinic-profile-back-arrow {
+  width: 24px;
+  height: 24px;
+}
+.clinic-profile-text {
+  color: rgba(255, 255, 255, 1);
+  width: 156px;
+  height: auto;
+  font-size: 32px;
+  font-style: Bold;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.clinic-profile-form {
+  gap: 34px;
+  width: 670px;
+  max-width: 670px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-user07b {
+  width: 151px;
+  height: 151px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(180deg, rgba(128, 106, 106, 1) 0%, rgba(102, 86, 84, 1) 100%);
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  border-radius: 50%;
+  align-self: center;
+}
+.clinic-profile-photo {
+  width: 121px;
+  height: 135px;
+}
+.clinic-profile-formgroup {
+  gap: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-text02 {
+  color: rgba(0, 0, 0, 1);
+  width: 38px;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.clinic-profile-rectangle536 {
+  width: 670px;
+  max-width: 670px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+.clinic-profile-formgroup1 {
+  gap: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-text04 {
+  color: rgba(0, 0, 0, 1);
+  width: 129px;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.clinic-profile-rectangle5361 {
+  width: 670px;
+  max-width: 670px;
+  padding: 8px 16px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+.clinic-profile-formgroup2 {
+  gap: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-text06 {
+  color: rgba(0, 0, 0, 1);
+  width: 43px;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.clinic-profile-rectangle5362 {
+  width: 670px;
+  max-width: 670px;
+  box-sizing: content-box;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+.clinic-profile-formgroup3 {
+  gap: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-text08 {
+  color: rgba(0, 0, 0, 1);
+  width: 53px;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.clinic-profile-rectangle5363 {
+  width: 670px;
+  max-width: 670px;
+  box-sizing: content-box;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+.clinic-profile-frame6 {
+  gap: 10px;
+  width: 295px;
+  height: auto;
+  display: flex;
+  padding: 17px 122px;
+  align-self: flex-end;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: center;
+  border-color: rgba(36, 40, 123, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: rgba(36, 40, 123, 1);
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 13px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  align-self: center;
+}
