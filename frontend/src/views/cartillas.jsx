@@ -3,7 +3,7 @@ import foto from "../assets/cartilla/foto.png"
 import NavbarCliente from '../components/navbar/NavbarCliente'
 import "./cartillas.css"
 import OpcionesCartilla from '../components/cartilla/OpcionesCartilla'
-import dataCartilla from "./caritillaData.json"
+import dataCartilla from "./cartillaData.json"
 import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
 import { useState } from 'react'
 import OpcionElegida from "../components/cartilla/OpcionElegida"
@@ -52,21 +52,7 @@ const Cartillas = () => {
                                 })
                             }
                         </div>
-                        <div className='opcionesElegidas'>
-                            {
-                                localidadSelected ? (<OpcionElegida opcion={localidadSelected} anularOpcion={setLocalidadSelected} textOpcion="Localidad elegida" />) : null
-                            }
-                            {
-                                clinica ? (<OpcionElegida opcion={clinica} anularOpcion={setclinica} textOpcion="Clinica elegida" />) : null
-                            }
-                            {
-                                especialidad ? (<OpcionElegida opcion={especialidad} anularOpcion={setespecialidad} textOpcion="Especialidad elegida" />) : null
-                            }
-                            {
-                                profesional ? (<OpcionElegida opcion={profesional} anularOpcion={setProfesional} textOpcion="Profesional elegido" />) : null
-                            }
-                        </div>
-                        <div>
+                        <div className='containerFechaHora'>
                             <MenuFechaHora />
                         </div>
                     </div>

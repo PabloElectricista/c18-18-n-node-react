@@ -1,46 +1,40 @@
 import "./menufechahora.css"
-import data from "../../views/cartillafechahoradata.json"
+import data from "../../views/cartillaHorariosData.json"
 import { useState } from 'react'
 import arrowDown from "../../assets/cartilla/arrow.svg"
+import HorasDisponibles from "./HorasDisponibles"
+import Calendar from "./Calendar"
 
 const MenuFechaHora = () => {
 
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
+    const [horaElegida, setHoraElegida] = useState(null)
+    console.log(horaElegida)
+
     const toggleSubMenu = (id) => {
         setOpenSubMenuId(openSubMenuId === id ? null : id);
     };
 
-    const guardarValor = (opcion) =>{
-        if(openSubMenuId === 1){
-            console.log(opcion)
-        }
-        if(openSubMenuId === 2){
-            console.log(opcion)
-        }
-        setOpenSubMenuId(null)
-    }
     return (
-        <div className='dropdown'>
-            {data.map((f) => (
-                <div key={f.id} className='submenu'>
-                    <button
-                        className='dropbtn'
-                        onClick={() => toggleSubMenu(f.id)}
-                    >
-                        {f.menuTitle}
-                    </button>
-                    <img src={arrowDown} alt='arrowDown' className='arrowDown' />
-                    <div className={`dropdown-content ${openSubMenuId === f.id ? 'show' : ''}`}>
-                        <div className='opcionesDesplegable'>
-                            {f.opciones.map((opcion, index) => (
-                                <button key={index} onClick={()=>guardarValor(opcion)} >{opcion}</button>
-                            ))}
-                        </div>
+            <div className='dropdown'>
+            <h2 className='title'>Seleccione día y horario</h2>
+                {data.map((f) => (
+                    <div key={f.id} className='submenu'>
+                        <button
+                            className='dropbtn'
+                            onClick={() => toggleSubMenu(f.id)}
+                        >
+                            {f.menuTitle}
+                        </button>
+                        <img src={arrowDown} alt='arrowDown' className='arrowDown' />
+                        {
+                            openSubMenuId === f.id ? <HorasDisponibles setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} /> : null
+                        }
+                        <Calendar />
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
     )
 }
 

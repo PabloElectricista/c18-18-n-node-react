@@ -7,7 +7,7 @@ import Cartillas from './views/cartillas'
 import ProtectedRoutes from './components/protected';
 import PatientProfile from './views/patientProfile';
 import PasswordRecovery from './views/passRecovery';
-import Contact from './views/contact';
+import Contact from './views/Contact';
 import Register from './views/register';
 import Error from './components/error/error';
 

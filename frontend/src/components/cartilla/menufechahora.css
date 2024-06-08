@@ -1,5 +1,26 @@
 .dropdown {
     display: flex;
     flex-direction: column;
-    position: relative;
+}
+
+.arrowDown{
+    width:10px;
+    opacity: 0.3;
+}
+
+.submenu .dropbtn {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.39);
+    font-family: "Inter", sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.submenu{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
 }
