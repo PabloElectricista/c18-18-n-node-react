@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-import arrowDown from "../../assets/cartilla/arrow.svg"
-
 import "./Menudesplegable.css";
+import arrowDown from "../../assets/cartilla/arrow.svg";
 
 const MenuDesplegable = ({ dataDesplegable, idOpcion, setLocalidadSelected,setclinica,setespecialidad,setProfesional}) => {
     const [openSubMenuId, setOpenSubMenuId] = useState(null);

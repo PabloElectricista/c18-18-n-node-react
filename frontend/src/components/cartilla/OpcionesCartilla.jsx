@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
 import MenuDesplegable from './MenuDesplegable'
-
 import "./Opcionescartilla.css"
 
-
 const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLocalidadSelected,profesional, setProfesional,clinica,especialidad, setespecialidad, setclinica,setObjetoInfoBuscar, objetoInfoBuscar }) => {
-
-
 
     //para mostrar que se captura correctamente cada opcion (podria asignarse un id para facilitar el recurso de dats)
     useEffect(() => {

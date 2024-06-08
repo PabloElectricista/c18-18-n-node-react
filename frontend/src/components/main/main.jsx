@@ -1,7 +1,6 @@
 import ButtonAccessPacienteProfesional from '../buttons/ButtonAccessPacienteProfesional';
 import img2 from "../../assets/main/img2.png";
 import Services from './services/Services';
-
 import './Main.css';
 
 const Main = () => {

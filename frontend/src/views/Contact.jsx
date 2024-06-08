@@ -3,9 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { toast } from 'react-toastify'
 // import axios from 'axios';
-
 import './Contact.css';
-
 
 const Contact = () => {
   const navigate = useNavigate();

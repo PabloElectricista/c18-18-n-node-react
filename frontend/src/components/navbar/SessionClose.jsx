@@ -2,9 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/slices/authSlices';
-
 import './SessionClose.css';
-
 
 const SessionClose = ({ openClose }) => {
   const navigate = useNavigate()
