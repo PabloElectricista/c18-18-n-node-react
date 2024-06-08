@@ -40,15 +40,15 @@
     font-stretch: normal;
     text-decoration: none;
   }
-  .clinic-clinic-main {
+  .clinic-scheludes-calendar {
     gap: 48px;
     width: 100%;
     display: flex;
     align-items: center;
     padding-left: 96px;
     padding-right: 96px;
-    flex-direction: column;
-    justify-content: space-around;
+    /* flex-direction: column; */
+    justify-content: center;
   }
   .clinic-button {
     gap: 10px;
@@ -368,7 +368,7 @@
     .clinic-container {
       gap: 48px;
     }
-    .clinic-clinic-main {
+    .clinic-scheludes-calendar {
       padding-left: 48px;
       padding-right: 48px;
     }
@@ -377,7 +377,7 @@
     .clinic-container {
       gap: 24px;
     }
-    .clinic-clinic-main {
+    .clinic-scheludes-calendar {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -394,7 +394,7 @@
     .clinic-links-container {
       width: 70%;
     }
-    .clinic-clinic-main {
+    .clinic-scheludes-calendar {
       gap: 32px;
       align-items: center;
       padding-left: 16px;

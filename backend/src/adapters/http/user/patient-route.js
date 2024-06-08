@@ -1,5 +1,4 @@
-
-import { patientHandler } from "../../../utils/intances-usecases.js"; 
+import { patientHandler } from "../../../utils/intances-usecases.js";
 
 const routes = [
   {
@@ -11,7 +10,7 @@ const routes = [
     url: "/patient/:id",
     method: "GET",
     handler: patientHandler.findPatientById,
-},
+  },
   {
     url: "/patient",
     method: "POST",
@@ -19,15 +18,14 @@ const routes = [
   },
   {
     url: "/patient/:id",
-     method: "PUT",
-     handler: patientHandler.updatePatientById,
- },
- {
-     url: "/patient/:id",
-     method: "DELETE",
-     handler: patientHandler.deletePatientById,
- },
-  
+    method: "PATCH",
+    handler: patientHandler.updatePatientById,
+  },
+  {
+    url: "/patient/:id",
+    method: "DELETE",
+    handler: patientHandler.deletePatientById,
+  },
 ];
 
 export default routes;

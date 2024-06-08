@@ -5,8 +5,8 @@
   align-items: flex-start;
   border-radius: 16px;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322);
+  background-color: #E6E6E6;
+  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.4);
 }
 
 .calendar-header {
@@ -37,22 +37,17 @@
   align-items: flex-start;
 }
 
-.calendar-button {
-  display: flex;
-  padding: 16px;
-}
 
 .calendar-frame10 {
   width: 14px;
   height: 14px;
 }
 
+.calendar-button,
 .calendar-button1 {
-  gap: 10px;
   display: flex;
-  padding: 16px;
-  align-items: flex-start;
-  flex-direction: row;
+  justify-content: center;
+  padding: 8px;
 }
 
 .calendar-frame101 {
@@ -64,12 +59,37 @@
   list-style: none;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 24px;
   padding: 0;
+
 }
 
+
+.calendar-list li {
+  padding: 4px 8px;
+  text-align: center;
+}
 
 .calendar-list-item {
-  text-align: center;
-  cursor: default;
+  cursor: pointer;
+  border: 2px solid #D5D4DF;
+  padding: 5px 10px;
+  background-color: #fff;
 }
+
+.calendar-list-item.selected {
+  background-color: #45539D;
+  color: #fff;
+}
+
+.calendar-list-item:not(.selected):hover {
+  background-color: #8493db;
+  color: #000;
+}
+
+
+.calendar-list-heading {
+  background-color: #9294BD;
+  margin-bottom: 8px;
+}
+
+

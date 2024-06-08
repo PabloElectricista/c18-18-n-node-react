@@ -24,6 +24,10 @@
     display: block;
 }
 
+.divButtonBuscar{
+    margin-top: 40px;
+}
+
 .tituloCartilla{
     position: absolute;
     top: 30%;
@@ -41,60 +45,11 @@
     gap: 50px;
 }
 
-.divSwitch{
-    margin: 30px;
-}
-
-/* animacion entrada */
-
-@-webkit-keyframes fadeInDown {
-    from {
-            opacity: 0;
-            -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0);
-    }
-
-    to {
-            opacity: 1;
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-            opacity: 0;
-            -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0);
-    }
-
-    to {
-            opacity: 1;
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    }
-}
-
-.fadeInDown {
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
-}
-
-.animated {
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
 
 .containerDesplegables{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 50px;
     gap: 50px;
-}
-
-.opcionesElegidas{
-    display: flex;
-    gap: 40px;
+    width: 100%;
 }

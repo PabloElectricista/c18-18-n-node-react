@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './clinicTable.css'
 import Menu from '../clinicScheludeMenu/Menu'
 

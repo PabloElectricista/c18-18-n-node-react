@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import "./opcionescartilla.css"
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react';
 import MenuDesplegable from './MenuDesplegable'
-
+import "./opcionescartilla.css"
 
 const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLocalidadSelected,profesional, setProfesional,clinica,especialidad, setespecialidad, setclinica,setObjetoInfoBuscar, objetoInfoBuscar }) => {
-
-
 
     //para mostrar que se captura correctamente cada opcion (podria asignarse un id para facilitar el recurso de dats)
     useEffect(() => {
@@ -41,6 +39,10 @@ const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLoc
                     setclinica={setclinica}
                     setespecialidad={setespecialidad}
                     setProfesional={setProfesional}
+                    especialidad={especialidad}
+                    profesional={profesional}
+                    localidadSelected={localidadSelected}
+                    clinica={clinica}
                 />
             </div>
         </div>

@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
 import './calendar.css'
 
-function Calendar({setShowCalendar}) {
+function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
   const [first, setFirst] = useState(0)
   const [dias, setDias] = useState([])
   const [year, setYear] = useState(2014)
@@ -26,6 +28,9 @@ function Calendar({setShowCalendar}) {
     const date = new Date()
     const currentYear = date.getFullYear()
     const currentMonth = date.getMonth()
+    const dateArray = date.toString().split(' ')
+    const currentDay = Number(dateArray[2])
+    setSelectedDay(currentDay)
     setYear(currentYear)
     setMonth(currentMonth)
   }, [])
@@ -39,7 +44,7 @@ function Calendar({setShowCalendar}) {
   }, [month, year])
 
   const handleDayClick = value => {
-    console.log(value);
+    setSelectedDay(value);
     setShowCalendar(prev => !prev)
   }
 
@@ -85,15 +90,19 @@ function Calendar({setShowCalendar}) {
       </div>
       <ol className='calendar-list'>
         <li className='calendar-list-heading' key={'lun'}>Lun</li>
-        <li key={'mar'}>Mar</li>
-        <li key={'mie'}>Mie</li>
-        <li key={'jue'}>Jue</li>
-        <li key={'vie'}>Vie</li>
-        <li key={'sab'}>Sab</li>
-        <li key={'dom'}>Dom</li>
+        <li className='calendar-list-heading' key={'mar'}>Mar</li>
+        <li className='calendar-list-heading' key={'mie'}>Mie</li>
+        <li className='calendar-list-heading' key={'jue'}>Jue</li>
+        <li className='calendar-list-heading' key={'vie'}>Vie</li>
+        <li className='calendar-list-heading' key={'sab'}>Sab</li>
+        <li className='calendar-list-heading' key={'dom'}>Dom</li>
         <li
           key={1}
-          style={{ gridColumnStart: first }}
+          style={{
+            gridColumnStart: first,
+            backgroundColor: selectedDay === 1 ? '#45539D' : '#fff',
+            color: selectedDay === 1 && '#fff'
+          }}
           onClick={() => handleDayClick(1)}
           className='calendar-list-item'
         >
@@ -107,6 +116,7 @@ function Calendar({setShowCalendar}) {
                   key={dia}
                   onClick={() => handleDayClick(dia)}
                   className='calendar-list-item'
+                  style={{ backgroundColor: selectedDay === dia ? '#45539D' : '#fff', color: selectedDay === dia && '#fff' }}
                 >
                   {dia}
                 </li>

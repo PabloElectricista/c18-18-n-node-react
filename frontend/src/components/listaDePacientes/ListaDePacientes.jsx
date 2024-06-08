@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './listaDePacientes.css'
 import { pacientes } from "./lista";
 
@@ -24,7 +25,7 @@ export default function ListaDePacientes({ setShow }) {
           {
             pacientes && pacientes.length > 0 ?
               pacientes.map((paciente, index) => (
-                <tr>
+                <tr key={index}>
                   <td>{index}</td>
                   <td>{paciente.nombre}</td>
                   <td>{paciente.apellido}</td>
