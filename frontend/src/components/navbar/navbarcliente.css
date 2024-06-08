@@ -108,13 +108,20 @@ a .navbar-profilemenu-close {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
   top: 101px;
   /* ajustar según diseño */
   width: 100%;
   background-color: #1d6161d3;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
+}
+
+.nav-links-mobile .nav-link{
+  color: rgba(204, 198, 198, 0.781);
+}
+
+.nav-links-mobile .nav-link-perfil{
+  color: rgba(204, 198, 198, 0.781);
 }
 
 .hamburger {
@@ -136,4 +143,6 @@ a .navbar-profilemenu-close {
   .hamburger {
     display: block;
   }
+
+
 }

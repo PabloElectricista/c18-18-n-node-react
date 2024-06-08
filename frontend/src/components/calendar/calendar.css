@@ -60,7 +60,9 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   padding: 0;
+
 }
+
 
 .calendar-list li {
   padding: 4px 8px;
@@ -68,11 +70,26 @@
 }
 
 .calendar-list-item {
-  cursor: default;
+  cursor: pointer;
   border: 2px solid #D5D4DF;
+  padding: 5px 10px;
+  background-color: #fff;
 }
+
+.calendar-list-item.selected {
+  background-color: #45539D;
+  color: #fff;
+}
+
+.calendar-list-item:not(.selected):hover {
+  background-color: #8493db;
+  color: #000;
+}
+
 
 .calendar-list-heading {
   background-color: #9294BD;
   margin-bottom: 8px;
 }
+
+

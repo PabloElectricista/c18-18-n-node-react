@@ -115,8 +115,7 @@ function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay,setSel
                                 <li
                                     key={dia}
                                     onClick={() => handleDayClick(dia)}
-                                    className='calendar-list-item'
-                                    style={{ backgroundColor: selectedDay === dia ? '#45539D' : '#fff', color: selectedDay === dia && '#fff' }}
+                                    className={`calendar-list-item ${selectedDay === dia ? 'selected' : ''}`}
                                 >
                                     {dia}
                                 </li>
