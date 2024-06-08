@@ -14,6 +14,7 @@ const Clinic = () => {
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState()
   const [showCalendar, setShowCalendar] = useState(false)
+  const [selectedDay, setSelectedDay] = useState(1)
   const buttoninitialState = {
     index: true,
     listado: false,
@@ -71,34 +72,25 @@ const Clinic = () => {
           </span>
         </div>
       </div>
-      <div className="clinic-clinic-main">
-        {
-          !showCalendar ?
-            <button
-              type="button"
-              className="clinic-button"
-              onClick={() => setShowCalendar(true)}
-            >
-              Ver Calendario
-            </button>
-            :
-            null
-        }
-        {
-          showCalendar ?
-            <Calendar setShowCalendar={setShowCalendar} />
-            :
-            <ClinicTable
-              handleMenuItem={handleMenuItem}
-              showMenu={showMenu}
-              scheludes={scheludes}
-              handleOpenMenu={handleOpenMenu} />
-        }
+      <div className="clinic-scheludes-calendar">
+        <ClinicTable
+          handleMenuItem={handleMenuItem}
+          showMenu={showMenu}
+          scheludes={scheludes}
+          handleOpenMenu={handleOpenMenu}
+        />
+
+        <Calendar
+          setShowCalendar={setShowCalendar}
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
+        />
+
       </div>
       {
         showButtons.index &&
         <div className="clinic-buttons-container">
-          <button type="button" className="clinic-button1" onClick={()=> handleButtonsClick('agendar')}>
+          <button type="button" className="clinic-button1" onClick={() => handleButtonsClick('agendar')}>
             <img
               alt="agendar icon"
               src="agendar_icon.svg"
@@ -108,7 +100,7 @@ const Clinic = () => {
               Agendar turnos
             </span>
           </button>
-          <button type="button" className="clinic-button2" onClick={()=> handleButtonsClick('listado')}>
+          <button type="button" className="clinic-button2" onClick={() => handleButtonsClick('listado')}>
             <img
               alt="listado icon"
               src="listado_icon.svg"
@@ -166,7 +158,7 @@ const Clinic = () => {
       }
       {
         showButtons.agendar &&
-        <Agendar setShow={handleButtonsClick}  />
+        <Agendar setShow={handleButtonsClick} />
       }
       <Footer />
     </div>
