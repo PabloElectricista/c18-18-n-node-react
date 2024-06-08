@@ -1,7 +1,8 @@
 //footer siguiendo la linea de la navbar en cuanto a colores y estilo
-import LogosFooter from "./LogosFooter"
-import logo from "../../assets/logonew.png"
-import "./footer.css"
+import LogosFooter from "./LogosFooter";
+import logo from "../../assets/logonew.png";
+
+import "./Footer.css";
 
 const Footer = () => {
     return (

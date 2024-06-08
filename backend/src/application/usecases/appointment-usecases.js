@@ -1,5 +1,5 @@
 import validateAppointmentsByUser from "../../utils/functions/appointment-validation.js";
-import getFormatDate from "../../utils/functions/date.js";
+import { getFormatDate } from "../../utils/functions/date.js";
 export default class AppointmentUseCases {
   constructor(
     appointmentsPrismaRepository,
@@ -7,6 +7,8 @@ export default class AppointmentUseCases {
     clinicUseCases,
     doctorUseCases,
     specialtyUseCases,
+    schedulerUseCases,
+    schedulerPrismaRepository,
     builder
   ) {
     this.appointmentsPrismaRepository = appointmentsPrismaRepository;
@@ -14,6 +16,8 @@ export default class AppointmentUseCases {
     this.clinicUseCases = clinicUseCases;
     this.doctorUseCases = doctorUseCases;
     this.specialtyUseCases = specialtyUseCases;
+    this.schedulerUseCases = schedulerUseCases;
+    this.schedulerPrismaRepository = schedulerPrismaRepository;
     this.builder = builder;
   }
   findAllAppointments = async () => {
@@ -127,7 +131,7 @@ export default class AppointmentUseCases {
     if (err) return [null, 500, err];
 
     //caso de uso de scheduler para update cuando se cree una cita
-    /*const [, , schedulerErr] = await this.schedulerUseCases.updateScheduler(
+    const [, , schedulerErr] = await this.schedulerUseCases.updateScheduler(
       schedulerId,
       appointment
     );
@@ -135,7 +139,7 @@ export default class AppointmentUseCases {
     if (schedulerErr) {
       await this.deleteAppointment(appointment.id);
       return [null, 400, schedulerErr];
-    }*/
+    }
     return [appointment, 200, null];
   };
 

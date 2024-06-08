@@ -1,11 +1,13 @@
+import { getSchedulerByDateValidations } from "../../../utils/functions/input-validations.js";
 export default class SchedulerHandler {
   constructor(schedulerUsecases) {
-    this.usecases = schedulerUsecases;
+    this.schedulerUsecases = schedulerUsecases;
   }
 
   findAllSchedulers = async (req, res) => {
     try {
-      const [schedulers, status, err] = await this.usecases.findAllSchedulers();
+      const [schedulers, status, err] =
+        await this.schedulerUsecases.findAllSchedulers();
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -43,7 +45,7 @@ export default class SchedulerHandler {
           errors: queryError,
         });
       const [schedulers, status, err] =
-        await this.usecases.findSchedulersByFilters(req.query);
+        await this.schedulerUsecases.findSchedulersByFilters(req.query);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -64,9 +66,8 @@ export default class SchedulerHandler {
 
   findSchedulerById = async (req, res) => {
     try {
-      const [schedulerId, status, err] = await this.usecases.findSchedulerById(
-        req.params.id
-      );
+      const [schedulerId, status, err] =
+        await this.schedulerUsecases.findSchedulerById(req.params.id);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -88,7 +89,7 @@ export default class SchedulerHandler {
   createNewScheduler = async (req, res) => {
     try {
       const [schedulerPayload, status, err] =
-        await this.usecases.createNewScheduler(req.body);
+        await this.schedulerUsecases.createNewScheduler(req.body);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -109,7 +110,7 @@ export default class SchedulerHandler {
   updateScheduler = async (req, res) => {
     try {
       const [updateScheduler, status, err] =
-        await this.usecases.updateScheduler(req.params.id, req.body);
+        await this.schedulerUsecases.updateScheduler(req.params.id, req.body);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -131,7 +132,7 @@ export default class SchedulerHandler {
   deleteScheduler = async (req, res) => {
     try {
       const [deleteScheduler, status, err] =
-        await this.usecases.deleteScheduler(req.params.id);
+        await this.schedulerUsecases.deleteScheduler(req.params.id);
       if (err)
         return res.status(status).send({
           message: "fail",

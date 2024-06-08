@@ -1,6 +1,7 @@
+import React from 'react';
 import PdfRenderer from "./PdfRenderer";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import React from 'react';
+
 
 const paciente = {
   name: "Omar",

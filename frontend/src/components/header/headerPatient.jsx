@@ -1,4 +1,4 @@
-import './headerPatient.css'
+import './HeaderPatient.css'
 
 const HeaderPatient = () => {
   return (
