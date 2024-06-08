@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import DoctorRegisterForm from '../components/form/DoctorForm';
 import SwitchButton from '../components/buttons/SwitchButton';
 import PatientRegisterForm from '../components/form/PatientForm';
 import Navbar from '../components/navbar/Navbar';
+
 import './register.css';
 
 const Register = () => {
