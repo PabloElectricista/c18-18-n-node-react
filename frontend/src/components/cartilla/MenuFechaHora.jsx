@@ -1,19 +1,18 @@
-<<<<<<< HEAD
+
 import "./menufechahora.css"
 import data from "../../views/cartillaHorariosData.json"
-=======
->>>>>>> main
 import { useState } from 'react'
-import data from "../../views/cartillafechahoradata.json"
 import arrowDown from "../../assets/cartilla/arrow.svg"
-<<<<<<< HEAD
 import HorasDisponibles from "./HorasDisponibles"
-import Calendar from "./Calendar"
-=======
-import "./menufechahora.css"
->>>>>>> main
+import Calendar from "../calendar/Calendar"
 
 const MenuFechaHora = () => {
+
+    //calendar
+
+    const [showMenu, setShowMenu] = useState()
+    const [showCalendar, setShowCalendar] = useState(false)
+    const [selectedDay, setSelectedDay] = useState(1)
 
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
@@ -24,13 +23,18 @@ const MenuFechaHora = () => {
         setOpenSubMenuId(openSubMenuId === id ? null : id);
     };
 
+    const handleCalendar = () => {
+        setShowCalendar(showCalendar === true ? null : true)
+    }
+
     return (
-            <div className='dropdown'>
+        <div className='dropdown'>
             <h2 className='title'>Seleccione día y horario</h2>
+            <div>
                 {data.map((f) => (
-                    <div key={f.id} className='submenu'>
+                    <div key={f.id} className='submenuFechahora'>
                         <button
-                            className='dropbtn'
+                            className='dropbtn fechahora'
                             onClick={() => toggleSubMenu(f.id)}
                         >
                             {f.menuTitle}
@@ -39,10 +43,28 @@ const MenuFechaHora = () => {
                         {
                             openSubMenuId === f.id ? <HorasDisponibles setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} /> : null
                         }
-                        <Calendar />
                     </div>
                 ))}
+                <div className='submenuFechahora'>
+                    <button
+                        className='dropbtn fechahora'
+                        onClick={() => handleCalendar()}
+                    >
+                        Día
+                    </button>
+                    <img src={arrowDown} alt='arrowDown' className='arrowDown' />
+                        {
+                            showCalendar ?
+                            <div className="calendarContainer"> <Calendar
+                                setShowCalendar={setShowCalendar}
+                                selectedDay={selectedDay}
+                                setSelectedDay={setSelectedDay}
+                            />                    </div> : null
+                        }
+                </div>
             </div>
+
+        </div>
     )
 }
 

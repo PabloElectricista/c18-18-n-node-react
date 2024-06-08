@@ -8,7 +8,7 @@
     opacity: 0.3;
 }
 
-.submenu .dropbtn {
+.dropbtn {
     background-color: transparent;
     color: rgba(0, 0, 0, 0.39);
     font-family: "Inter", sans-serif;
@@ -21,6 +21,11 @@
     margin-top: 20px;
 }
 
-.submenu{
+.submenuFechahora{
     border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+}
+
+.calendarContainer{
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
