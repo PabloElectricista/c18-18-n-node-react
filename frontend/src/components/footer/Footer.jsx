@@ -7,9 +7,9 @@ const DesktopFooter = () => {
   return (
     <div className='footerGral'>
       <img src={logo} alt='logoOrganizacion' className='logo' />
-      <LogosFooter />
-      <div className='divHoraFooter'>
-        <p className='pFooter'>© All rights reserved.</p>
+      <div className='textIconos'>
+        <p className='pFooter'>Visita nuestras redes</p>
+        <LogosFooter />
       </div>
     </div>
   );
@@ -19,9 +19,10 @@ const MobileFooter = () => {
   return (
     <div className='footerGralMobile'>
       <img src={logo} alt='logoOrganizacion' className='logoMobile' />
-      <LogosFooter />
-      <div className='divHoraFooterMobile'>
-        <p className='pFooter'>© All rights reserved.</p>
+      <div className='textIconosMobile'>
+        <p className='pFooter'>Visita nuestras redes</p>
+        <LogosFooter />
+
       </div>
     </div>
   );
