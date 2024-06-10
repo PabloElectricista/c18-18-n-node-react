@@ -19,11 +19,7 @@ const MobileFooter = () => {
   return (
     <div className='footerGralMobile'>
       <img src={logo} alt='logoOrganizacion' className='logoMobile' />
-      <div className='textIconosMobile'>
-        <p className='pFooter'>Visita nuestras redes</p>
-        <LogosFooter />
-
-      </div>
+      <LogosFooter />
     </div>
   );
 };
