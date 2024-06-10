@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_29_2)">
+<path d="M24 0H0V24H24V0Z" fill="url(#pattern0_29_2)"/>
+</g>
+<defs>
+<pattern id="pattern0_29_2" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_29_2" transform="scale(0.0416667)"/>
+</pattern>
+<clipPath id="clip0_29_2">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+<image id="image0_29_2" width="24" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADlSURBVEhL7dSxDsFAHMfxSxiE1WaxGLyAxWrA5B0kErtVJCaP4WEMJotRiDB5ADPf/8VJe+21vZTo4Jd80t79r/9/0qRV/xQqQ1zxyEl6DBDJJ5obF0Riinnj7JM0oPG6Zon3gCp2KOlVerwHTCH7I71KT6YBPUywwAmyv8ccY3ThSqYBHdxg9oKOaMMVcy4Su9DCGWZfbFFHUuw+78QVNjD7Yo20xPXRsQtl3HHADPLxyMdoEjzvug/FLsh7XqKiV0rVsEJTr8LnXfehOAue+d2Ar//s5BcrhbgHfEiPPv4pRJR6AsOBoTGdqgxoAAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

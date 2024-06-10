@@ -1,43 +1,32 @@
-table,
-th,
-td {
+.listaMain-table,
+.listaMain-th,
+.listaMain-td {
   border: 0.5px solid #000;
   border-collapse: collapse;
 }
 
-th,
-td {
+.listaMain-th,
+.listaMain-td {
   padding: 8px 48px;
 }
 
-tbody tr:nth-child(even) {
+.listaMain-tbody tr:nth-child(even) {
   background-color: #c9c9c9;
 }
 
-tbody tr:nth-child(even) {
+.listaMain-tbody tr:nth-child(even) {
   background-color: #E6E6E6;
 }
 
 thead tr {
   background-color: #9294BD;
 }
-.lista-heading {
+.listaMain-heading {
   display: flex;
   justify-content: space-between;
   padding: 8px 16px;
 }
-.listado-button-close {
-  color: red;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.listado-icon-close {
-  width: 16px;
-  height: 16px;
-}
-
-.listado-title {
+.listaMain-title {
   color: #000;
   font-size: 20px;
   justify-content: center;
@@ -46,4 +35,11 @@ thead tr {
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
+}
+
+.listaMain-reportar-button {
+  color: red;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

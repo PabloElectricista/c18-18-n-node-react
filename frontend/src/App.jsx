@@ -11,6 +11,11 @@ import Contact from './views/Contact';
 import Register from './views/Register';
 import Error from './components/error/Error';
 import ClinicProfile from './views/ClinicProfile'
+import Membresia from './views/Membresia';
+import Ayuda from './views/Ayuda';
+import Novedades from './views/Novedades';
+import ListaDePacientes from './views/ListaDePacientes';
+import AgendarPaciente from './views/AgendarPaciente';
 
 
 function App() {
@@ -57,6 +62,26 @@ function App() {
           path: '/clinic-profile',
           element: <ClinicProfile />
         },
+        {
+          path: '/membership',
+          element: <Membresia />
+        },
+        {
+          path: '/ayuda',
+          element: <Ayuda />
+        },
+        {
+          path: '/novedades',
+          element: <Novedades />
+        },
+        {
+          path: '/lista-pacientes',
+          element: <ListaDePacientes />
+        }, 
+        {
+          path: '/agendar-paciente',
+          element: <AgendarPaciente />
+        }
         // {
         //   path: '/cartillas',
         //   element: <Cartillas />
@@ -69,18 +94,18 @@ function App() {
     },
     //agrego temporalmente para trabajar sobre esta vista
     // mover despues a rutas protegidas
-            {
-          path: '/cartillas',
-          element: <Cartillas />
-        },
-        {
-          path: '/patient',
-          element: <Patient />
-        }
+    {
+      path: '/cartillas',
+      element: <Cartillas />
+    },
+    {
+      path: '/patient',
+      element: <Patient />
+    }
   ]);
 
   return (
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   )
 }
 
