@@ -1,7 +1,7 @@
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 322px;
+    width: 300px;
     height: 42px;
     margin: 10px;
 }
@@ -14,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 322px;
+    width: 300px;
     height: 42px;
     background-color: #929292;
     border-radius: 20px;
@@ -53,11 +53,11 @@
 }
 
 .toggle-switch .text-on {
-    left: 20px;
+    left: 40px;
 }
 
 .toggle-switch .text-off {
-    right: 20px;
+    right: 30px;
 }
 
 .toggle-switch.light .toggle-label {

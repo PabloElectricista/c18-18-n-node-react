@@ -20,11 +20,13 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <img
-                alt="logo Agenda Salud"
-                src="/logonew.png"
-                className={`nav-logo ${isMobile ? 'small-logo' : ''}`}
-            />
+            <Link to="/">
+                <img
+                    alt="logo Agenda Salud"
+                    src="/logonew.png"
+                    className={`nav-logo ${isMobile ? 'small-logo' : ''}`}
+                />
+            </Link>
             {isMobile ? (
                 <button className="hamburger" onClick={handleClick}>
                     {menuOpen ? '✖' : '☰'}

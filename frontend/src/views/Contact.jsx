@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 import { toast } from 'react-toastify'
 // import axios from 'axios';
 import './contact.css';
+import Footer from '../components/footer/Footer';
+import NavbarCliente from '../components/navbar/NavbarCliente';
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -68,23 +70,12 @@ const Contact = () => {
         <title>Contact - AgendaSalud</title>
         <meta property="og:title" content="Contact - AgendaSalud" />
       </Helmet>
-      <div className="contact-header">
-        <img
-          alt="back arrow navigation"
-          src="/back_arrow.svg"
-          className="contact-backarrow"
-          onClick={() => navigate(-1)}
-        />
-        <span className="contact-text">
-          Agenda Salud
-        </span>
-      </div>
+      <NavbarCliente />
       <div className="contact-container1">
-        <span className="contact-titulo">Contáctenos:</span>
         <div className="contact-personalizada">
-          <span className="contact-titulo1">
-            Para asistencia personalizada:
-          </span>
+          <h1 className="contact-titulo1">
+            Para asistencia personalizada
+          </h1>
           <div className="contact-container2">
             <span className="contact-email">
               <span className="contact-text4">
@@ -144,6 +135,7 @@ const Contact = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   )
 }

@@ -39,3 +39,15 @@
 .pFooter{
     color: #2c3e50;
 }
+
+@media(max-width:570px){
+    .logo{
+        display: none;
+    }
+    .pFooter{
+        display: none;
+    }
+    .footerGral{
+        justify-content: center;
+    }
+}

@@ -32,11 +32,14 @@ const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="navbar">
+      <Link to="/">
       <img
         alt="logo Agenda Salud"
         src="/logonew.png"
         className="nav-logo"
       />
+      </Link>
+
       {
         isMobile ?(
           <button className="hamburger" onClick={handleClick}>
