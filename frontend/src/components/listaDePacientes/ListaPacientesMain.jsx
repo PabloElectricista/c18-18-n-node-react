@@ -5,9 +5,6 @@ import { pacientes } from "./lista";
 export default function ListaPacientesMain() {
   return (
     <div className="listaMain-container">
-      <div className="listaMain-heading">
-        <span className='listaMain-title'>Lista de pacientes</span>
-      </div>
       <table className='listaMain-table'>
         <thead>
           <tr>

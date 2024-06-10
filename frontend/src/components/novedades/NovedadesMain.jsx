@@ -1,6 +1,6 @@
 import './novedadesMain.css'
-/* 
 import { notificaciones } from './data'
+/* 
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from 'react'
