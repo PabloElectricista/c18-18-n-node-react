@@ -22,8 +22,16 @@ const createNewAppointmentRules = {
   duration: "|integer|min:1|max:1",
   reserved_at: "date",
 };
+
+// validacion de clinica franco
+const createNewClinicRules = {
+  name_clinic: "string|between:3,20|required",
+  room_number: "string|between:2,5|required",
+};
+
 export {
   createNewPatientRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
+  createNewClinicRules, // validacion de clinica franco
 };
