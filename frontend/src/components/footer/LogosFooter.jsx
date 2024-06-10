@@ -17,4 +17,16 @@ const LogosFooter = () => {
     )
 }
 
-export default LogosFooter
+const LogosFooterMobile = () => {
+    return (
+        <div className="logosFooterMobile">
+            <img className="logoFooter" src={facebookLogo} alt="logoFacebook" />
+            <img className="logoFooter" src={instagramLogo} alt="logoInstagram" />
+            <img className="logoFooter" src={twitterLogo} alt="logoTwitter" />
+            <img className="logoFooter" src={telegramLogo} alt="logoTelegram" />
+            <img className="logoFooter" src={linkedinLogo} alt="logoLinkedin" />
+        </div>
+    )
+}
+
+export { LogosFooter, LogosFooterMobile }

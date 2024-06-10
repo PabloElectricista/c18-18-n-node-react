@@ -60,5 +60,11 @@
     border-radius: 50%;
     object-fit: cover;
   }
+
+  .logosFooterMobile {
+    display: flex;
+    gap: 18px;
+}
+
   
   

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LogosFooter from "./LogosFooter";
+import { LogosFooter, LogosFooterMobile } from "./LogosFooter";
 import logo from "../../assets/logonew.png";
 import "./footer.css";
 
@@ -19,7 +19,7 @@ const MobileFooter = () => {
   return (
     <div className='footerGralMobile'>
       <img src={logo} alt='logoOrganizacion' className='logoMobile' />
-      <LogosFooter />
+      <LogosFooterMobile />
     </div>
   );
 };
