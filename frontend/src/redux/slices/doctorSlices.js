@@ -1,14 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getAllClinics, getAllSpecialties, getAllDoctors } from '../thunks/doctorThunk'
+import { 
+  getAllClinics, 
+  getAllSpecialties, 
+  getAllDoctors, 
+  getClinicById, 
+  getSpecialtyById,
+  getDoctorById
+} from '../thunks/doctorThunk'
 
 export const doctorSlice = createSlice({
   name: 'doctor',
   initialState: {
     loading: false,
     error: null,
+
     clinics: [],
+    clinic: null,
+
     specialties: [],
+    specialty: null,
+
     doctors: [],
+    doctor: null
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -25,6 +38,22 @@ export const doctorSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+
+
+      .addCase(getClinicById.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(getClinicById.fulfilled, (state, action) => {
+        state.loading = false
+        state.clinic = action.payload
+      })
+      .addCase(getClinicById.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
       .addCase(getAllSpecialties.pending, (state) => {
         state.loading = true
         state.error = null
@@ -37,6 +66,22 @@ export const doctorSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+
+
+      .addCase(getSpecialtyById.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(getSpecialtyById.fulfilled, (state, action) => {
+        state.loading = false
+        state.clinic = action.payload
+      })
+      .addCase(getSpecialtyById.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
       .addCase(getAllDoctors.pending, (state) => {
         state.loading = true
         state.error = null
@@ -46,6 +91,20 @@ export const doctorSlice = createSlice({
         state.clinics = action.payload
       })
       .addCase(getAllDoctors.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(getDoctorById.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(getDoctorById.fulfilled, (state, action) => {
+        state.loading = false
+        state.clinic = action.payload
+      })
+      .addCase(getDoctorById.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })
