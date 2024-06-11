@@ -14,7 +14,7 @@ const routes = [
   {
     url: "/clinic",
     method: "POST",
-    handler: clinicHandler.createClinic,
+    handler: clinicHandler.createNewClinic,//function editada franco
   },
   {
     url: "/clinic/:id",

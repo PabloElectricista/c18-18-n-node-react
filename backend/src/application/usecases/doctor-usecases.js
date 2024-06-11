@@ -28,10 +28,11 @@ export default class DoctorUseCases {
       newDoctorPayload.phone
     );
     if (doctorByPhone) return [null, 400, "Already exist Phone"];
+    const newDoctorBody = { ...newDoctorPayload };
+    newDoctorBody.created_at = getFormatDate();
 
-    const [newDoctor, err] = await this.doctorPrismaRepository.createNewDoctor(
-      newDoctorPayload
-    );
+    const [newDoctor, err] = 
+    await this.doctorPrismaRepository.createNewDoctor (newDoctorBody);
     if (err) return [null, 404, err];
 
     const [token, tokenError] = await this.tokenUseCases.generateToken(

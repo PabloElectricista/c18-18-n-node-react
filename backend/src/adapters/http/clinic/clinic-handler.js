@@ -1,3 +1,5 @@
+import { createNewClinicValidations } from "../../../utils/functions/input-validations.js";
+
 export default class ClinicHandler {
     constructor(clinicUseCases) {
       this.clinicUseCases = clinicUseCases;
@@ -45,9 +47,14 @@ export default class ClinicHandler {
         });
       }
     };
-    createClinic = async (req, res) => {
-      try {
-        const [clinic, status, err] = await this.clinicUseCases.createNewClinic(
+    createNewClinic = async (req, res) => {
+      try {const errors = createNewClinicValidations(req.body);
+        if (errors)
+          return res.status(400).send({
+            message: "fail",
+            errors,
+          });
+        const [clinic, token ,status, err] = await this.clinicUseCases.createNewClinic(
           req.body
         );
         if (err)
@@ -57,6 +64,7 @@ export default class ClinicHandler {
           });
         return res.status(status).send({
           message: "success",
+          token: token,
           data: clinic,
         });
       } catch (error) {

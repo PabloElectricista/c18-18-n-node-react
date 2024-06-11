@@ -1,10 +1,11 @@
 .containerHoras{
-    width: 500px;
+    max-width: 410px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px;
+    justify-content: center;
 }
 
 .horas{
@@ -25,4 +26,16 @@
 
 .horas:hover{
     background-color: #1d616171;
+}
+
+
+@media(max-width:450px){
+    .containerHoras{
+        max-width: 250px;
+    }
+
+    .horas{
+        width: 70px;
+        font-size: 12px;
+    }
 }

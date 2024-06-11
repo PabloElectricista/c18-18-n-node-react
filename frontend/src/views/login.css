@@ -125,3 +125,26 @@
   font-size: 16px;
   color: #606060;
 }
+
+@media only screen and (max-width: 768px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-hero {
+    display: none;
+  }
+
+  .return-link {
+    width: 100%;
+    height: 100%;
+  }
+
+  .return-button {
+    width: 35%;
+    padding: 10px 10px;
+  }
+}

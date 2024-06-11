@@ -9,7 +9,7 @@
 }
 
 p {
-  text-align: center;
+  text-align: center !important;
   width: 100%;
   font-family: Mako;
   font-size: 18px;
@@ -31,4 +31,12 @@ p {
   background-color: #25287B;
   color: white;
   margin-top: 20px
+}
+
+@media only screen and (max-width: 768px) {
+  .return-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

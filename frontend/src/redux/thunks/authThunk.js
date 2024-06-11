@@ -4,8 +4,8 @@ import axios from "axios"
 export const login = createAsyncThunk('auth/login', async (credentials, { rejectWithValue }) => {
   try {
     const { data } = await axios.post('/login', credentials)
-    if (data?.id) {
-      localStorage.setItem('tkn', data.id)
+    if (data?.token) {
+      localStorage.setItem('tkn', data.token)
     }
     return data
   } catch (err) {
@@ -24,16 +24,11 @@ export const passRecovery = createAsyncThunk('auth/passRecovery', async (email, 
 
 export const register = createAsyncThunk('auth/register', async(userData, { rejectWithValue }) => {
   try {
-    let user;
-    if (userData?.role === 'patient') {
-      user = await axios.post('/patient', userData)
-    } else if (userData?.role === 'doctor') {
-      user = await axios.post('/doctor', userData)
+    const { data } = await axios.post(`/${userData.role === 'patient' ? 'patient' : 'doctor'}`, userData);
+    if (data?.token) {
+      localStorage.setItem('tkn', data.token)
     }
-    if (user?.id) {
-      localStorage.setItem('tkn', user.id)
-    }
-    return user
+    return data
   } catch(err) {
     return rejectWithValue(err.message)
   }

@@ -32,11 +32,11 @@ const MenuFechaHora = () => {
     console.log(selectedDay)
 
     return (
-        <div className='dropdown'>
+        <div className='dropdownFH'>
             <h2 className='title'>Seleccione día y horario</h2>
-            <div>
+            <div className="containerFh">
                 {data.map((f) => (
-                    <div key={f.id} className='submenuFechahora'>
+                    <div key={f.id}>
                         <button
                             className='dropbtn fechahora'
                             onClick={() => toggleSubMenu(f.id)}
@@ -50,6 +50,7 @@ const MenuFechaHora = () => {
                         {
                             openSubMenuId === f.id ? <HorasDisponibles setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} /> : null
                         }
+                        <hr className='hrDesplegable' />
                     </div>
                 ))}
                 <div className='submenuFechahora'>
@@ -73,6 +74,7 @@ const MenuFechaHora = () => {
                                 setSelectedYear={setSelectedYear}
                             /></div> : null
                         }
+                    <hr className='hrDesplegable' />
                 </div>
             </div>
 

@@ -21,8 +21,10 @@ import PatientHandler from "../adapters/http/user/patient-handler.js";
 import Doctorhandler from "../adapters/http/user/doctor-handler.js";
 import AppointmentHandler from "../adapters/http/appointment/appointment-handler.js";
 import SchedulerHandler from "../adapters/http/scheduler/scheduler-handler.js";
+import SpecialtyHandler from "../adapters/http/specialty/specialty-handler.js";
 import ClinicHandler from "../adapters/http/clinic/clinic-handler.js";
-import SpecialtyHandler from "../adapters/http/user/specialty-handler.js";
+
+
 
 //builder
 import builder from "../application/builder/index.js";

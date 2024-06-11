@@ -6,14 +6,9 @@ import OpcionesCartilla from '../components/cartilla/OpcionesCartilla'
 import dataCartilla from "./cartillaData.json"
 import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
 import { useState } from 'react'
-import OpcionElegida from "../components/cartilla/OpcionElegida"
 import MenuFechaHora from '../components/cartilla/MenuFechaHora'
-import Calendar from '../components/calendar/Calendar'
 
 const Cartillas = () => {
-
-
-
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
 

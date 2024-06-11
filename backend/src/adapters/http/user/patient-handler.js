@@ -1,4 +1,4 @@
-import { createNewuPatientValidations } from "../../../utils/functions/input-validations.js";
+import { createNewPatientValidations } from "../../../utils/functions/input-validations.js";
 export default class PatientHandler {
   constructor(patientUseCases) {
     this.patientUseCases = patientUseCases;
@@ -49,7 +49,7 @@ export default class PatientHandler {
 
   createNewPatient = async (req, res) => {
     try {
-      const errors = createNewuPatientValidations(req.body);
+      const errors = createNewPatientValidations(req.body);
       if (errors)
         return res.status(400).send({
           message: "fail",
