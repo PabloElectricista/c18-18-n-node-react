@@ -1,7 +1,14 @@
 import React from "react";
 import "./patientRecordsTable.css";
 
-const PatientRecordsTable = ({ paciente }) => {
+const PatientRecordsTable = ({ nombre, DNI, historialCitas }) => {
+  // Construimos el objeto paciente internamente
+  const paciente = {
+    nombre,
+    DNI,
+    historialCitas
+  };
+
   return (
     <div className="historial-container">
       <h2>{`Historial de Citas de ${paciente.nombre} (DNI: ${paciente.DNI})`}</h2>
@@ -25,7 +32,7 @@ const PatientRecordsTable = ({ paciente }) => {
               <td>{cita.clinica}</td>
               <td>{cita.sala}</td>
               <td>
-                <button>imprimir</button>
+                <button>Imprimir</button>
                 <button>Eliminar</button>
               </td>
             </tr>
