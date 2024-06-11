@@ -10,6 +10,7 @@ import MenuFechaHora from '../components/cartilla/MenuFechaHora'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllClinics, getAllSpecialties, getAllDoctors } from '../redux/thunks/doctorThunk'
 import MenuDesplagableNew from '../components/cartilla/MenuDesplagableNew'
+import OpcionElegida from '../components/cartilla/OpcionElegida'
 
 const Cartillas = () => {
 
@@ -21,11 +22,11 @@ const Cartillas = () => {
     const loading = useSelector(state => state.doctor.loading);
     const error = useSelector(state => state.doctor.error);
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllClinics())
         dispatch(getAllSpecialties())
         dispatch(getAllDoctors())
-    },[dispatch])
+    }, [dispatch])
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
 
@@ -69,11 +70,14 @@ const Cartillas = () => {
                                 })
                             }
                         </div> */}
-                        <div>
-                            <h2>¿Qué estás buscando?</h2>
-                            <MenuDesplagableNew data={dataClinics} titleButton="Clinica" dataOpcion="name_clinic" saveData={setclinica} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
-                            <MenuDesplagableNew data={dataSpecialties} titleButton="Especialidad" dataOpcion="name" saveData={setespecialidad} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
-                            <MenuDesplagableNew data={dataDoctor} titleButton="Profesional" dataOpcion="last_name" dataOpcion2="name" saveData={setProfesional} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                        <div className='desplegables'>
+                            <div>
+                                <h2 className='title'>¿Qué estás buscando?</h2>
+                                <MenuDesplagableNew data={dataClinics} titleButton="Clinica" dataOpcion="name_clinic" saveData={setclinica} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                                {/* <OpcionElegida textOpcion="Clinica elegida" opcion={clinica} anularOpcion={setclinica} /> */}
+                                <MenuDesplagableNew data={dataSpecialties} titleButton="Especialidad" dataOpcion="name" saveData={setespecialidad} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                                <MenuDesplagableNew data={dataDoctor} titleButton="Profesional" dataOpcion="last_name" dataOpcion2="name" saveData={setProfesional} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                            </div>
                         </div>
                         <div className='containerFechaHora'>
                             <MenuFechaHora />
