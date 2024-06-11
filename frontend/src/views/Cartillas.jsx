@@ -5,10 +5,27 @@ import "./cartillas.css"
 import OpcionesCartilla from '../components/cartilla/OpcionesCartilla'
 import dataCartilla from "./cartillaData.json"
 import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuFechaHora from '../components/cartilla/MenuFechaHora'
+import { useDispatch, useSelector } from "react-redux";
+import { getAllClinics, getAllSpecialties, getAllDoctors } from '../redux/thunks/doctorThunk'
+import MenuDesplagableNew from '../components/cartilla/MenuDesplagableNew'
 
 const Cartillas = () => {
+
+    //pruebas redux
+    const dispatch = useDispatch()
+    const dataClinics = useSelector(state => state.doctor.clinics)
+    const dataSpecialties = useSelector(state => state.doctor.specialties)
+    const dataDoctor = useSelector(state => state.doctor.doctors)
+    const loading = useSelector(state => state.doctor.loading);
+    const error = useSelector(state => state.doctor.error);
+
+    useEffect(()=>{
+        dispatch(getAllClinics())
+        dispatch(getAllSpecialties())
+        dispatch(getAllDoctors())
+    },[dispatch])
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
 
@@ -18,6 +35,8 @@ const Cartillas = () => {
     const [especialidad, setespecialidad] = useState(null)
     const [profesional, setProfesional] = useState(null)
 
+    const [openDesplegable, setOpenDesplegable] = useState(null)
+
     return (
         <>
             <div className='containerCartilla'>
@@ -26,7 +45,7 @@ const Cartillas = () => {
                     <h1 className='tituloCartilla animated fadeInDown'>CARTILLA ONLINE</h1>
                     <img src={foto} alt='foto' className='imgCartilla' />
                     <div className='containerDesplegables'>
-                        <div className='desplegables'>
+                        {/* <div className='desplegables'>
                             {
                                 dataCartilla.map((p) => {
                                     return (<OpcionesCartilla
@@ -49,6 +68,12 @@ const Cartillas = () => {
                                     />)
                                 })
                             }
+                        </div> */}
+                        <div>
+                            <h2>¿Qué estás buscando?</h2>
+                            <MenuDesplagableNew data={dataClinics} titleButton="Clinica" dataOpcion="name_clinic" saveData={setclinica} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                            <MenuDesplagableNew data={dataSpecialties} titleButton="Especialidad" dataOpcion="name" saveData={setespecialidad} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
+                            <MenuDesplagableNew data={dataDoctor} titleButton="Profesional" dataOpcion="last_name" dataOpcion2="name" saveData={setProfesional} openDes={openDesplegable} openDesFunc={setOpenDesplegable} />
                         </div>
                         <div className='containerFechaHora'>
                             <MenuFechaHora />

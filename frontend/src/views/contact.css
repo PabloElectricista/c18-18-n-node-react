@@ -49,11 +49,15 @@
   gap: 32px;
   flex: 0 0 auto;
   width: 100%;
-  height: auto;
   display: flex;
   padding: 32px;
   align-items: center;
   flex-direction: column;
+  overflow: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
 

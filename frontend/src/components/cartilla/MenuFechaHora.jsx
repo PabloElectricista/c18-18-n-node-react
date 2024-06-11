@@ -29,8 +29,6 @@ const MenuFechaHora = () => {
         setShowCalendar(showCalendar === true ? null : true)
     }
 
-    console.log(selectedDay)
-
     return (
         <div className='dropdownFH'>
             <h2 className='title'>Seleccione día y horario</h2>
