@@ -1,5 +1,48 @@
-.dropdown {
+.dropdownFH{
     display: flex;
     flex-direction: column;
-    position: relative;
+}
+
+.containerFh{
+    width: 100%;
+}
+
+.arrowDown{
+    width:10px;
+    opacity: 0.3;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.39);
+    font-family: "Inter", sans-serif;
+    padding: 5px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.calendarContainer{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+.hrDesplegable {
+    color: rgba(0, 0, 0, 0.308);
+    opacity: 0.5;
+    max-width: 400px;
+}
+
+@media(max-width:450px){
+    .dropbtn{
+        max-width: 250px;
+    }
+
+    .hrDesplegable{
+        max-width: 250px;
+    }
 }

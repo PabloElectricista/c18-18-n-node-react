@@ -1,41 +1,64 @@
-.footerGral{
-    /* background-color: #58BACF; color definido por ux */
-    background-color: #1d616171;
-    padding: 20px;
+/* Estilos para pantallas grandes */
+.footerGral {
+    background-color: var(--dl-bgcolor-nav-footer);
+    padding: 4px;
     display: flex;
     justify-content: space-around;
+    align-items: center; /* Alinea los elementos hijos verticalmente en el centro */
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.logo{
+.logo {
     margin-left: 50px;
-    width: 80px;
-    height: 80px;
-    border-radius:50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     object-fit: cover;
 }
 
-.logosFooter{
+.logosFooter {
     display: flex;
     gap: 15px;
 }
 
-.logoFooter{
+.logoFooter {
     width: 20px;
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     cursor: pointer;
 }
 
-.logoFooter:hover{
+.logoFooter:hover {
     transform: scale(1.4);
 }
 
-.divHoraFooter{
+.textIconos {
     display: flex;
     align-items: center;
+    gap: 70px; /*  acá separación entre elementos*/
 }
 
-.pFooter{
+.pFooter {
     color: #2c3e50;
 }
+  
+  /* Estilos para pantallas pequeñas */
+  .footerGralMobile {
+    background-color: var(--dl-bgcolor-nav-footer);
+    padding: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logoMobile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  

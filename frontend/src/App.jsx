@@ -1,15 +1,17 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './views/home';
-import Clinic from './views/clinic'
-import Login from './views/login';
-import Patient from './views/patient';
-import Cartillas from './views/cartillas'
-import ProtectedRoutes from './components/protected';
-import PatientProfile from './views/patientProfile';
-import PasswordRecovery from './views/passRecovery';
-import Contact from './views/contact';
-import Register from './views/register';
-import Error from './components/error/error';
+import Home from './views/Home';
+import Clinic from './views/Clinic'
+import Login from './views/Login';
+import Patient from './views/Patient';
+import Cartillas from './views/Cartillas'
+import ProtectedRoutes from './components/Protected';
+import PatientProfile from './views/PatientProfile';
+import PasswordRecovery from './views/PassRecovery';
+import Contact from './views/Contact';
+import Register from './views/Register';
+import Error from './components/error/Error';
+import ClinicProfile from './views/ClinicProfile'
+
 
 function App() {
 
@@ -37,11 +39,11 @@ function App() {
     {
       element: <ProtectedRoutes />,
       children: [
-        {
-          path: '/patient',
-          element: <Patient />,
-          errorElement: <Error />
-        },
+        // {
+        //   path: '/patient',
+        //   element: <Patient />,
+        //   errorElement: <Error />
+        // },
         {
           path: '/clinic',
           element: <Clinic />,
@@ -50,6 +52,10 @@ function App() {
         {
           path: '/profile',
           element: <PatientProfile />,
+        },
+        {
+          path: '/clinic-profile',
+          element: <ClinicProfile />
         },
         // {
         //   path: '/cartillas',
@@ -62,9 +68,14 @@ function App() {
       element: <Contact />
     },
     //agrego temporalmente para trabajar sobre esta vista
+    // mover despues a rutas protegidas
             {
           path: '/cartillas',
           element: <Cartillas />
+        },
+        {
+          path: '/patient',
+          element: <Patient />
         }
   ]);
 

@@ -67,4 +67,15 @@ const customMessagesSpecialty = {
 };
 
 
-export { customMessagesPatient, customMessagesAppointment, customMessagesDoctor, customMessagesSpecialty };
+// validacion de clinica franco
+const customMessagesClinic = {
+  "required.name_clinic": "El campo es obligatorio.",
+  "string.name_clinic": "El campo deben ser letras",
+  "between.name_clinic": "El campo debe tener mínimo 3 y máximo 20 caracteres",
+  "required.room_number": "El campo es obligatorio.",
+  "string.room_number": "El campo deben ser letras",
+  "between.room_number": "El campo debe tener mínimo 2 y máximo 5 caracteres",
+};
+
+export { customMessagesPatient, customMessagesAppointment, customMessagesClinic,  customMessagesSpecialty };
+
