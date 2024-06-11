@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import './ayuda.css'
 import Footer from '../components/footer/Footer'
+import AyudaMain from '../components/ayudaMain/AyudaMain'
 
 export default function Ayuda() {
   return (
@@ -24,6 +25,7 @@ export default function Ayuda() {
           </span>
         </div>
       </div>
+      <AyudaMain />
       <Footer />
     </div>
   )

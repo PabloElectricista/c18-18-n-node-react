@@ -27,7 +27,7 @@ const Agendar = () => {
     setData(initialState)
     toast.info('Pacienteagendado correctamente')
     // try {
-    //   await axios('/agendar paciente')
+    //   await axios.update('/doctor/id, {data}')
     //   toast.info('Pacienteagendado correctamente')
     // } catch (error) {
     //   toast.error(error.message)

@@ -1,0 +1,169 @@
+.clinic-profile-form {
+  gap: 34px;
+  width: 716px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #E6E6E6;
+  padding: 8px;
+  border-radius: 8px;
+}
+.clinic-profile-user {
+  width: 151px;
+  height: 151px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(180deg, rgba(128, 106, 106, 1) 0%, rgba(102, 86, 84, 1) 100%);
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  border-radius: 50%;
+  align-self: center;
+}
+.clinic-profile-photo {
+  width: 121px;
+  height: 135px;
+}
+.clinic-profile-formgroup {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-formgroup1 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-formgroup2 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-formgroup3 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.clinic-profile-text02 {
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  background-color: #9294BD;
+  padding: 8px 16px;
+}
+.clinic-profile-text04 {
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  background-color: #9294BD;
+  padding: 8px 16px;
+}
+.clinic-profile-text06 {
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  background-color: #9294BD;
+  padding: 8px 16px;
+}
+.clinic-profile-text08 {
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  background-color: #9294BD;
+  padding: 8px 16px;
+}
+.clinic-profile-submit {
+  gap: 10px;
+  width: 295px;
+  height: auto;
+  display: flex;
+  padding: 17px 122px;
+  align-self: flex-end;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: center;
+  border-color: rgba(36, 40, 123, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: rgba(36, 40, 123, 1);
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 13px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  align-self: center;
+}
+
+.clinic-profile-input1 {
+  width: 700px;
+  padding: 8px 16px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.clinic-profile-input2 {
+  width: 700px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+
+.clinic-profile-input3 {
+  width: 700px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}
+
+@media (max-width: 700px) {
+  .clinic-profile-input
+  .clinic-profile-input1,
+  .clinic-profile-input2,
+  .clinic-profile-input3,
+  .clinic-profile-form {
+    width: 100%;
+  }
+}
