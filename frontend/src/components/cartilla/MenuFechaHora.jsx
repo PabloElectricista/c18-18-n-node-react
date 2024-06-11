@@ -1,13 +1,29 @@
 
 import "./menufechahora.css"
-import data from "../../views/cartillaHorariosData.json"
-import { useState } from 'react'
+// import data from "../../views/cartillaHorariosData.json"
+import { useEffect, useState } from 'react'
 import arrowDown from "../../assets/cartilla/arrow.svg"
 import HorasDisponibles from "./HorasDisponibles"
 import OpcionElegida from "./OpcionElegida"
 import CalendarCartillas from "../calendar/CalendarCartillas"
 
-const MenuFechaHora = () => {
+const MenuFechaHora = ({dataSchedulers}) => {
+
+    const [horariosDisponibles, setHorariosDisponibles] = useState([])
+
+    const idBusqueda = "666698b2f8f9b0e0fc0bcf3e"
+
+    const getHorariosById = (id) =>{
+        let testHorariosID = dataSchedulers.filter((d)=> d.doctor_id === id)
+        return testHorariosID
+    }
+
+    useEffect(()=>{
+        const horarios = getHorariosById(idBusqueda)
+        setHorariosDisponibles(horarios)
+    },[idBusqueda, dataSchedulers])
+
+    console.log(horariosDisponibles)
 
     //calendar
 
@@ -33,13 +49,13 @@ const MenuFechaHora = () => {
         <div className='dropdownFH'>
             <h2 className='title'>Seleccione día y horario</h2>
             <div className="containerFh">
-                {data.map((f) => (
+                {horariosDisponibles.map((f) => (
                     <div key={f.id}>
                         <button
                             className='dropbtn fechahora'
                             onClick={() => toggleSubMenu(f.id)}
                         >
-                            {f.menuTitle}
+                            Horario
                         </button>
                         <img src={arrowDown} alt='arrowDown' className='arrowDown' />
                         {

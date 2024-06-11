@@ -102,7 +102,6 @@ export const doctorSlice = createSlice({
       })
       .addCase(getDoctorById.fulfilled, (state, action) => {
         state.loading = false
-        state.doctors = action.payload
         state.doctor = action.payload
       })
       .addCase(getDoctorById.rejected, (state, action) => {

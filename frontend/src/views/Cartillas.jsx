@@ -8,7 +8,8 @@ import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
 import { useEffect, useState } from 'react'
 import MenuFechaHora from '../components/cartilla/MenuFechaHora'
 import { useDispatch, useSelector } from "react-redux";
-import { getAllClinics, getAllSpecialties, getAllDoctors } from '../redux/thunks/doctorThunk'
+import { getAllClinics, getAllSpecialties, getAllDoctors ,getDoctorById, getSpecialtyById } from '../redux/thunks/doctorThunk'
+import { getAllSchedulers, getSchedulerById } from '../redux/thunks/schedulerThunk'
 import MenuDesplagableNew from '../components/cartilla/MenuDesplagableNew'
 import OpcionElegida from '../components/cartilla/OpcionElegida'
 
@@ -16,16 +17,24 @@ const Cartillas = () => {
 
     //pruebas redux
     const dispatch = useDispatch()
+    const dataSchedulers = useSelector(state => state.scheduler.schedulers)
     const dataClinics = useSelector(state => state.doctor.clinics)
     const dataSpecialties = useSelector(state => state.doctor.specialties)
     const dataDoctor = useSelector(state => state.doctor.doctors)
     const loading = useSelector(state => state.doctor.loading);
     const error = useSelector(state => state.doctor.error);
+    const doctorById = useSelector(state => state.doctor.doctor)
+    const specialtyById = useSelector(state => state.doctor.specialty)
+    const idBusqueda = "666698b2f8f9b0e0fc0bcf3e"
+    const idSpecialty = "66638e67bc1ad3436bd4e82a"
 
     useEffect(() => {
         dispatch(getAllClinics())
         dispatch(getAllSpecialties())
         dispatch(getAllDoctors())
+        dispatch(getAllSchedulers())
+        dispatch(getDoctorById(idBusqueda))
+        dispatch(getSpecialtyById())
     }, [dispatch])
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
@@ -80,7 +89,7 @@ const Cartillas = () => {
                             </div>
                         </div>
                         <div className='containerFechaHora'>
-                            <MenuFechaHora />
+                            <MenuFechaHora dataSchedulers={dataSchedulers} />
                         </div>
                     </div>
                 </div>
