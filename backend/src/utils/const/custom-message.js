@@ -17,6 +17,28 @@ const customMessagesPatient = {
   "email.email": "El campo no es una dirección de correo electrónico válida.",
 };
 
+const customMessagesDoctor = {
+  "required.clinic_id": "El campo es obligatorio.",
+  "string.clinic_id": "El campo deben ser letras",
+  "size.clinic_id": "El campo debe ser de máximo de 24 caracteres",
+  "required.name": "El campo es obligatorio.",
+  "string.name": "El campo deben ser letras",
+  "between.name": "El campo debe tener mínimo 3 y máximo 15 caracteres",
+  "string.last_name": "El campo  deben ser letras",
+  "between.last_name": "El campo debe tener mínimo 3 y máximo 20 caracteres",
+  "required.dni": "El campo es obligatorio",
+  "string.dni": "El campo deben ser letras",
+  "size.dni": "El campo debe ser de máximo de 10 dígitos",
+  "required.phone_number": "El campo es obligatorio.",
+  "string.phone_number": "El campo el numero debe ir entre comillas dobles",
+  "size.phone": "El campo debe ser de máximo de 10 dígitos",
+  "required.email": "El campo es obligatorio",
+  "email.email": "El campo no es una dirección de correo electrónico válida.",
+  "required.specialty_id": "El campo es obligatorio",
+  "string.specialty_id": "El campo deben ser letras",
+  "size.specialty_id": "El campo debe ser de máximo de 24 caracteres",
+};
+
 const customMessagesAppointment = {
   "required.patient_id": "El campo es obligatorio.",
   "string.patient_id": "El campo deben ser letras",
@@ -38,4 +60,11 @@ const customMessagesAppointment = {
     'El campo debe ser en formato fecha y hora "mm/dd/aa hh:mm:ss"',
 };
 
-export { customMessagesPatient, customMessagesAppointment };
+const customMessagesSpecialty = {
+  "required.name": "El campo es obligatorio.",
+  "string.name": "El campo deben ser letras",
+  "between.name": "El campo debe tener mínimo 3 y máximo 25 caracteres",
+};
+
+
+export { customMessagesPatient, customMessagesAppointment, customMessagesDoctor, customMessagesSpecialty };
