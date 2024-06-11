@@ -60,7 +60,7 @@ export const doctorSlice = createSlice({
       })
       .addCase(getAllSpecialties.fulfilled, (state, action) => {
         state.loading = false
-        state.clinics = action.payload
+        state.specialties = action.payload
       })
       .addCase(getAllSpecialties.rejected, (state, action) => {
         state.loading = false
@@ -74,7 +74,7 @@ export const doctorSlice = createSlice({
       })
       .addCase(getSpecialtyById.fulfilled, (state, action) => {
         state.loading = false
-        state.clinic = action.payload
+        state.specialty = action.payload
       })
       .addCase(getSpecialtyById.rejected, (state, action) => {
         state.loading = false
@@ -88,7 +88,7 @@ export const doctorSlice = createSlice({
       })
       .addCase(getAllDoctors.fulfilled, (state, action) => {
         state.loading = false
-        state.clinics = action.payload
+        state.doctors = action.payload
       })
       .addCase(getAllDoctors.rejected, (state, action) => {
         state.loading = false
@@ -102,7 +102,7 @@ export const doctorSlice = createSlice({
       })
       .addCase(getDoctorById.fulfilled, (state, action) => {
         state.loading = false
-        state.clinic = action.payload
+        state.doctor = action.payload
       })
       .addCase(getDoctorById.rejected, (state, action) => {
         state.loading = false
