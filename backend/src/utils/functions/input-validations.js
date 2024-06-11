@@ -3,14 +3,19 @@ import Validator from "validatorjs";
 //imports input-rules
 import {
   createNewPatientRules,
+  createNewDoctorRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
+  createNewSpecialtyRules,
+
 } from "../const/input-rules.js";
 
 //imports custom-message
 import {
   customMessagesPatient,
+  customMessagesDoctor,
   customMessagesAppointment,
+  customMessagesSpecialty,
 } from "../const/custom-message.js";
 
 const createNewuPatientValidations = (newUserPayload) => {
@@ -18,6 +23,17 @@ const createNewuPatientValidations = (newUserPayload) => {
     newUserPayload,
     createNewPatientRules,
     customMessagesPatient
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const createNewDoctorValidations = (newUserPayload) => {
+  const validation = new Validator(
+    newUserPayload,
+    createNewDoctorRules,
+    customMessagesDoctor
   );
   const errors = validation.errors.all();
   if (validation.fails()) return errors;
@@ -42,8 +58,21 @@ const createNewAppointmentValidations = (appointmentPayload) => {
   return null;
 };
 
+const createNewSpecialtyValidations = (SpecialtyPayload) => {
+  const validation = new Validator(
+    SpecialtyPayload,
+    createNewSpecialtyRules,
+    customMessagesSpecialty
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
 export {
   createNewuPatientValidations,
+  createNewDoctorValidations,
   getSchedulerByDateValidations,
   createNewAppointmentValidations,
+  createNewSpecialtyValidations,
 };
