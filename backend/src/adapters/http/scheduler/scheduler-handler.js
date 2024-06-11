@@ -96,7 +96,7 @@ export default class SchedulerHandler {
           errors: err,
         });
       return res.status(status).send({
-        message: "succes",
+        message: "success",
         data: schedulerPayload,
       });
     } catch (error) {

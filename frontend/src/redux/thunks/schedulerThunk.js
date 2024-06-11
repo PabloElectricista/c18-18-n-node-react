@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-export const getAllClinics = createAsyncThunk(
-  'doctor/getAllClinics', 
-  async (_, { rejectWithValue }) => {
+export const getAllSchedulers = createAsyncThunk(
+  'scheduler/getAllSchedulers',
+  async(_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/clinic')
+      const response = await axios.get('/scheduler')
       if (response.data.message === 'success') {
         return response.data.data
       } else {
@@ -17,11 +17,11 @@ export const getAllClinics = createAsyncThunk(
   }
 )
 
-export const getClinicById = createAsyncThunk(
-  'doctor/getClinicById', 
-  async (id, { rejectWithValue }) => {
+export const getSchedulerById = createAsyncThunk(
+  'scheduler/getSchedulerById',
+  async(id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/clinic/${id}`)
+      const response = await axios.get(`/scheduler/${id}`)
       if (response.data.message === 'success') {
         return response.data.data
       } else {
@@ -33,11 +33,16 @@ export const getClinicById = createAsyncThunk(
   }
 )
 
-export const getAllSpecialties = createAsyncThunk(
-  'doctor/getAllSpecialties',
-  async (_, { rejectWithValue }) => {
+export const getSchedulersByDate = createAsyncThunk(
+  'scheduler/getSchedulersByDate',
+  async(dateData, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/specialty')
+      const params = {
+        date_type: dateData.type,
+        date_from: dateData.from,
+        date_to: dateData.to,
+      }
+      const response = await axios.get('/scheduler-date', { params })
       if (response.data.message === 'success') {
         return response.data.data
       } else {
@@ -49,11 +54,11 @@ export const getAllSpecialties = createAsyncThunk(
   }
 )
 
-export const getSpecialtyById = createAsyncThunk(
-  'doctor/getSpecialtyById', 
-  async (id, { rejectWithValue }) => {
+export const createScheduler = createAsyncThunk(
+  'scheduler/createScheduler',
+  async(schedulerData, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/specialty/${id}`)
+      const response = await axios.post('/scheduler', schedulerData)
       if (response.data.message === 'success') {
         return response.data.data
       } else {
@@ -65,11 +70,11 @@ export const getSpecialtyById = createAsyncThunk(
   }
 )
 
-export const getAllDoctors = createAsyncThunk(
-  'doctor/getAllDoctors',
-  async (_, { rejectWithValue }) => {
+export const updateScheduler = createAsyncThunk(
+  'scheduler/updateScheduler',
+  async(id, schedulerData, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/doctor')
+      const response = await axios.patch(`/scheduler/${id}`, schedulerData)
       if (response.data.message === 'success') {
         return response.data.data
       } else {
@@ -81,11 +86,11 @@ export const getAllDoctors = createAsyncThunk(
   }
 )
 
-export const getDoctorById = createAsyncThunk(
-  'doctor/getDoctorById',
-  async (id, { rejectWithValue }) => {
+export const deleteScheduler = createAsyncThunk(
+  'scheduler/deleteScheduler',
+  async(id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/doctor/${id}`)
+      const response = await axios.delete(`/scheduler/${id}`)
       if (response.data.message === 'success') {
         return response.data.data
       } else {
