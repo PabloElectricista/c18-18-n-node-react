@@ -1,28 +1,48 @@
 class FindAllAppointmentBuilder {
-  constructor(recordAppointment) {
+  constructor(recordAppointment, allClinic) {
     this.appointment = {};
     this.recordAppointment = recordAppointment;
+    this.allClinic = allClinic || [];
   }
   build = () => {
     this.setId();
     this.setName();
     this.setLastName();
+    this.setDoctorName();
+    this.setDoctorLastName();
     this.setSpecialty();
+    this.setRoomNumber();
     this.setStatus();
     this.setStatusDate();
     this.setStatusLog();
     this.setDuration();
     this.setReservedAt();
-    this.setDeleteAt();
     this.setCreatedAt();
 
     return this.appointment;
   };
   setId = () => (this.appointment.id = this.recordAppointment.id);
   setName = () =>
-    (this.appointment.user_name = this.recordAppointment.user.name);
+    (this.appointment.patient_name = this.recordAppointment.Patient.name);
   setLastName = () =>
-    (this.appointment.user_last_name = this.recordAppointment.user.last_name);
+    (this.appointment.patient_last_name =
+      this.recordAppointment.Patient.last_name);
+  setDoctorName = () =>
+    (this.appointment.doctor_name = this.recordAppointment.doctor.name);
+  setDoctorLastName = () =>
+    (this.appointment.doctor_last_name =
+      this.recordAppointment.doctor.last_name);
+  setSpecialty = () =>
+    (this.appointment.specialty_name = this.recordAppointment.Specialties.name);
+  setRoomNumber = () => {
+    const roomClinic = this.allClinic.find(
+      (clinic) => clinic.id === this.recordAppointment.clinic_id
+    );
+    this.appointment.room_number = roomClinic
+      ? roomClinic.room_number
+      : this.recordAppointment.roomClinic;
+  };
+
   setStatus = () => (this.appointment.status = this.recordAppointment.status);
   setStatusDate = () =>
     (this.appointment.status_date = this.recordAppointment.status_date);
@@ -36,9 +56,10 @@ class FindAllAppointmentBuilder {
     (this.appointment.created_at = this.recordAppointment.created_at);
 }
 
-const buildRecordAppointment = (recordAppointment) => {
+const buildRecordAppointment = (recordAppointment, allClinic) => {
   const recordAppointmentBuilder = new FindAllAppointmentBuilder(
-    recordAppointment
+    recordAppointment,
+    allClinic
   );
   return recordAppointmentBuilder.build();
 };
