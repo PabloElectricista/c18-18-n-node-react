@@ -221,28 +221,6 @@
   padding: 0.5rem 1rem;
 }
 
-<<<<<<< HEAD
-
-@media(max-width:850px){
-
-  .contact-container2{
-    width: 500px;
-  }
-  .contact-container3{
-    width: 500px;
-  }
-}
-
-@media(max-width:520px){
-
-  .contact-container2{
-    width: 350px;
-  }
-  .contact-container3{
-    width: 350px;
-  }
-}
-=======
 /* Estilos adicionales para pantallas pequeñas */
 @media (max-width: 768px) {
   .contact-container-mobile {
@@ -355,4 +333,3 @@
     height: 24px; /* Ajusta el tamaño de la altura del ícono */
   }
 }
->>>>>>> 888eb18cdd9c7cf5f6924bbfd682a9642ab743ce
