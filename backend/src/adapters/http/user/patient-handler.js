@@ -117,7 +117,7 @@ export default class PatientHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `Patient deleted successfully: ${patient.id}`,
+        data: `Patient deleted successfully with Id:${patient.id}`,
       });
     } catch (error) {
       return res.status(500).send({

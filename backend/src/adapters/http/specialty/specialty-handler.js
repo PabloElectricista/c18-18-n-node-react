@@ -120,7 +120,7 @@ export default class SpecialtyHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: specialty,
+        data: `Specialty deleted successfully with Id:${specialty.id}`,
       });
     } catch (error) {
       return res.status(500).send({

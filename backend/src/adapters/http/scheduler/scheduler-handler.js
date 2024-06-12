@@ -140,7 +140,7 @@ export default class SchedulerHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `deleted Scheduler with ID: ${deleteScheduler.id}`,
+        data: `Schedulers deleted successfully with Id:${deleteScheduler.id}`,
       });
     } catch (error) {
       console.log(error);

@@ -122,7 +122,7 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `Doctor deleted successfully: ${doctor.id}`,
+        data: `Doctor deleted successfully with Id:${doctor.id}`,
       });
     } catch (error) {
       console.log(error);
