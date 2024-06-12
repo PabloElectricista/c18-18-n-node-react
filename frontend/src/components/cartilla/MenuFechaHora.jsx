@@ -7,7 +7,7 @@ import HorasDisponibles from "./HorasDisponibles"
 import OpcionElegida from "./OpcionElegida"
 import CalendarCartillas from "../calendar/CalendarCartillas"
 
-const MenuFechaHora = ({ dataSchedulers }) => {
+const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaElegida }) => {
 
     const [horariosDisponibles, setHorariosDisponibles] = useState([])
 
@@ -29,12 +29,16 @@ const MenuFechaHora = ({ dataSchedulers }) => {
     const [showMenu, setShowMenu] = useState()
     const [showCalendar, setShowCalendar] = useState(false)
     const [selectedDay, setSelectedDay] = useState(null)
-    const [selectedMonth, setSelectedMonth] = useState(0)
-    const [selectedYear, setSelectedYear] = useState(0)
+    const [selectedMonth, setSelectedMonth] = useState(null)
+    const [selectedYear, setSelectedYear] = useState(null)
 
-    
-    const [horaElegida, setHoraElegida] = useState(null)
-    
+    useEffect(()=>{
+        const formatDate = () =>{
+            return `${selectedDay}/${selectedMonth}/${selectedYear}`
+        }
+        setFechaElegida(formatDate)
+    },[selectedDay])
+
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
     const toggleSubMenu = () => {

@@ -41,7 +41,8 @@ const Cartillas = () => {
     const [clinica, setclinica] = useState(null)
     const [especialidad, setespecialidad] = useState(null)
     const [profesional, setProfesional] = useState(null)
-
+    const [fechaElegida,  setFechaElegida] = useState(null)
+    const [horaElegida, setHoraElegida] = useState(null)
 
     //estos son estados para renderizar el componente opcion elegida
     const [nameClinic, setNameClinic] = useState(null)
@@ -90,12 +91,12 @@ const Cartillas = () => {
                         </div>
                         <div className='containerFechaHora'>
                             {/* componente para la fecha y la hora */}
-                            <MenuFechaHora dataSchedulers={dataSchedulers} />
+                            <MenuFechaHora dataSchedulers={dataSchedulers} horaElegida={horaElegida} setHoraElegida={setHoraElegida} setFechaElegida={setFechaElegida}/>
                         </div>
                     </div>
                 </div>
                 <div className='divButtonBuscar'>
-                    <ButtonBuscarCartilla info={objetoInfoBuscar} />
+                    <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida}  />
                 </div>
                 <Footer />
             </div>
