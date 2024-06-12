@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import './membresia.css'
 import Footer from '../components/footer/Footer'
+import MembresiaMain from '../components/membresia/MembresiaMain'
 
 export default function Membresia() {
   return (
@@ -24,6 +25,7 @@ export default function Membresia() {
           </span>
         </div>
       </div>
+      <MembresiaMain/>
       <Footer />
     </div>
   )
