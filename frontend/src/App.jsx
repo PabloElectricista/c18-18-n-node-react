@@ -57,6 +57,10 @@ function App() {
           path: '/clinic-profile',
           element: <ClinicProfile />
         },
+        {
+          path: '/my-appointments',
+          element: <MyAppointments />
+        }
         // {
         //   path: '/cartillas',
         //   element: <Cartillas />
