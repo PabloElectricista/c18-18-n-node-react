@@ -100,7 +100,7 @@ export default class AppointmentrHandler {
           errors: err,
         });
       return res.status(status).send({
-        message: "succes",
+        message: "success",
         data: appointmentPayload,
       });
     } catch (error) {
@@ -150,7 +150,7 @@ export default class AppointmentrHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `deleted appointment Details with ID: ${deleteAppointment.id}`,
+        data: `Appointment deleted successfully with Id:${deleteAppointment.id}`,
       });
     } catch (error) {
       console.log(error);

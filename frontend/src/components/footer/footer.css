@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* Alinea los elementos hijos verticalmente en el centro */
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
@@ -43,6 +42,20 @@
 .pFooter {
     color: #2c3e50;
 }
+
+
+/* Estilos para pantallas pequeñas */
+.footerGralMobile {
+    background-color: var(--dl-bgcolor-nav-footer);
+    padding: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 
 /* Estilos para pantallas pequeñas */
