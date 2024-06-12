@@ -62,6 +62,7 @@ export default class Doctorhandler {
         token,
       });
     } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -106,7 +107,8 @@ export default class Doctorhandler {
         message: "success",
         data: `Doctor deleted successfully: ${doctor.id}`,
       });
-    } catch {
+    } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
