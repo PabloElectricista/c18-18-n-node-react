@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-//import { fetchAppointments } from "../redux/appointmentsSlice"; // acción para obtener dataCitas
+//import { fetchAppointments } from "../../redux/slices/appointmentsSlice"; // acción para obtener dataCitas
 import PatientRecordsTable from "./PatientRecordsTable";
 
 const ExamplePatientRecordsTable = () => {
