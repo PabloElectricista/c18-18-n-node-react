@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchAppointments } from "../../redux/slices/appointmentsSlices"; // acción para obtener dataCitas
-import PatientRecordsTable from "./PatientRecordsTable";
+import { fetchAppointments } from "../redux/slices/appointmentsSlices"; // acción para obtener dataCitas
+import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
 
 const MyAppointments = () => {
  
