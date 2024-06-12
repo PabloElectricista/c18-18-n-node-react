@@ -100,7 +100,7 @@ export default class AppointmentrHandler {
           errors: err,
         });
       return res.status(status).send({
-        message: "succes",
+        message: "success",
         data: appointmentPayload,
       });
     } catch (error) {
