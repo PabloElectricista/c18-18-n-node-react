@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-//import { fetchAppointments } from "../../redux/slices/appointmentsSlice"; // acción para obtener dataCitas
+import { fetchAppointments } from "../../redux/slices/appointmentsSlices"; // acción para obtener dataCitas
 import PatientRecordsTable from "./PatientRecordsTable";
 
 const ExamplePatientRecordsTable = () => {
  
- // const dispatch = useDispatch();
+const dispatch = useDispatch();
 
   // se monta el componente y ejecuta la función
   
-  /*
+  
   useEffect(() => {
     dispatch(fetchAppointments());
   }, [dispatch]);
-*/
+
   // Obtén las dataCitas del store: acá ya no estoy tan seguro
  
- // const dataCitas = useSelector((state) => state.appointments);
+  const dataCitas = useSelector((state) => state.appointments);
 
   // con dataCitas hacer dinámica la constante citasPciente
 

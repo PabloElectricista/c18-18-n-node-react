@@ -1,18 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-//import { deleteAppointment } from "../../redux/slices/appointmentsSlice"; // Importa la acción para eliminar cita
+import { deleteAppointment } from "../../redux/slices/appointmentsSlices"; // Importa la acción para eliminar cita
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfRenderer from "../pdfRenderer/PdfRenderer";
 import "./patientRecordsTable.css";
 
 const PatientRecordsTable = ({ citasPaciente }) => {
- /*
+ 
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     dispatch(deleteAppointment(id)); // Llama a la acción deleteAppointment con el ID de la cita
   };
-*/
+
   const fecha = new Date().toLocaleDateString().replace(/\//g, '-');
 
   return (
