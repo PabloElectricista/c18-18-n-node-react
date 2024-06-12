@@ -18,9 +18,6 @@ const customMessagesPatient = {
 };
 
 const customMessagesAppointment = {
-  "required.patient_id": "El campo es obligatorio.",
-  "string.patient_id": "El campo deben ser letras",
-  "size.patient_id": "El campo debe ser de máximo de 24 caracteres",
   "required.clinic_id": "El campo es obligatorio",
   "string.clinic_id": "El campo deben ser letras",
   "size.clinic_id": "El campo debe ser de máximo de 24 caracteres",
@@ -48,4 +45,8 @@ const customMessagesClinic = {
   "between.room_number": "El campo debe tener mínimo 2 y máximo 5 caracteres",
 };
 
-export { customMessagesPatient, customMessagesAppointment, customMessagesClinic };
+export {
+  customMessagesPatient,
+  customMessagesAppointment,
+  customMessagesClinic,
+};
