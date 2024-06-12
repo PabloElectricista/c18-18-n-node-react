@@ -3,63 +3,103 @@ import PatientRecordsTable from "./PatientRecordsTable";
 
 const ExamplePatientRecordsTable = () => {
   // example data
-  const nombre = "Juan Pérez";
-  const DNI = "12345678";
-  const historialCitas = [
-    {
-      medico: "Dr. García",
-      especialidad: "Cardiología",
-      fecha: "2024-01-10",
-      clinica: "Clínica Santa María",
-      sala: "1"
+  const paciente = {
+    paciente: {
+      name: "Omar",
+      last_name: "Rodriguez",
+      patient_dni: 114560247
     },
-    {
-      medico: "Dra. Fernández",
-      especialidad: "Dermatología",
-      fecha: "2024-02-15",
-      clinica: "Clínica San José",
-      sala: "3"
-    },
-    {
-      medico: "Dr. López",
-      especialidad: "Pediatría",
-      fecha: "2024-03-20",
-      clinica: "Clínica La Paz",
-      sala: "5"
-    },
-    {
-      medico: "Dra. Martínez",
-      especialidad: "Ginecología",
-      fecha: "2024-04-10",
-      clinica: "Clínica Central",
-      sala: "2"
-    },
-    {
-      medico: "Dr. Ruiz",
-      especialidad: "Traumatología",
-      fecha: "2024-05-05",
-      clinica: "Clínica Santa Clara",
-      sala: "4"
-    },
-    {
-      medico: "Dra. Ramírez",
-      especialidad: "Neurología",
-      fecha: "2024-06-25",
-      clinica: "Clínica San Pedro",
-      sala: "6"
-    },
-    {
-      medico: "Dr. Jiménez",
-      especialidad: "Oncología",
-      fecha: "2024-07-30",
-      clinica: "Clínica General",
-      sala: "7"
-    }
-  ];
+    historialCitas: [
+      {
+        medico: {
+          name: "Michaela",
+          last_name: "Quinn",
+          specialty: "Medicina general",
+        },
+        clinica: {
+          name_clinic: "Clínica Sandia",
+          room_number: "101",
+        },
+        fechaDeLaCita: "12-12-3012",
+      },
+      {
+        medico: {
+          name: "Gregory",
+          last_name: "House",
+          specialty: "Diagnóstico",
+        },
+        clinica: {
+          name_clinic: "Clínica San Jorge",
+          room_number: "202",
+        },
+        fechaDeLaCita: "15-01-3013",
+      },
+      {
+        medico: {
+          name: "Meredith",
+          last_name: "Grey",
+          specialty: "Cirugía General",
+        },
+        clinica: {
+          name_clinic: "Clínica Central",
+          room_number: "303",
+        },
+        fechaDeLaCita: "20-02-3013",
+      },
+      {
+        medico: {
+          name: "John",
+          last_name: "Watson",
+          specialty: "Medicina Interna",
+        },
+        clinica: {
+          name_clinic: "Clínica Santa Clara",
+          room_number: "404",
+        },
+        fechaDeLaCita: "25-03-3013",
+      },
+      {
+        medico: {
+          name: "Dana",
+          last_name: "Scully",
+          specialty: "Patología",
+        },
+        clinica: {
+          name_clinic: "Clínica Buenaventura",
+          room_number: "505",
+        },
+        fechaDeLaCita: "30-04-3013",
+      },
+      {
+        medico: {
+          name: "Derek",
+          last_name: "Shepherd",
+          specialty: "Neurocirugía",
+        },
+        clinica: {
+          name_clinic: "Clínica La Esperanza",
+          room_number: "606",
+        },
+        fechaDeLaCita: "05-05-3013",
+      },
+      {
+        medico: {
+          name: "Allison",
+          last_name: "Cameron",
+          specialty: "Inmunología",
+        },
+        clinica: {
+          name_clinic: "Clínica San Rafael",
+          room_number: "707",
+        },
+        fechaDeLaCita: "10-06-3013",
+      }
+    ]
+  };
 
   return (
     <div>
-      <PatientRecordsTable nombre={nombre} DNI={DNI} historialCitas={historialCitas} />
+      <PatientRecordsTable paciente={paciente} />
     </div>
   );
 };
