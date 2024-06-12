@@ -33,6 +33,54 @@ export const getClinicById = createAsyncThunk(
   }
 )
 
+export const createClinic = createAsyncThunk(
+  'doctor/createClinic', 
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post('/clinic', data)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const updateClinic = createAsyncThunk(
+  'doctor/updateClinic', 
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const response = await axios.patch(`/clinic/${id}`, data)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const deleteClinic = createAsyncThunk(
+  'doctor/deleteClinic', 
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`/clinic/${id}`)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
 export const getAllSpecialties = createAsyncThunk(
   'doctor/getAllSpecialties',
   async (_, { rejectWithValue }) => {
@@ -54,6 +102,54 @@ export const getSpecialtyById = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(`/specialty/${id}`)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const createSpecialty = createAsyncThunk(
+  'doctor/createSpecialty',
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post('/specialty', data)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const updateSpecialty = createAsyncThunk(
+  'doctor/updateSpecialty', 
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const response = await axios.patch(`/specialty/${id}`, data)
+      if (response.data.message === 'success') {
+        return response.data.data
+      } else {
+        return rejectWithValue(response.data.errors)
+      }
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const deleteSpecialty = createAsyncThunk(
+  'doctor/deleteSpecialty', 
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`/specialty/${id}`)
       if (response.data.message === 'success') {
         return response.data.data
       } else {
