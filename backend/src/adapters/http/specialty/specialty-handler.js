@@ -1,3 +1,5 @@
+import { createNewSpecialtyValidations } from "../../../utils/functions/input-validations.js";
+
 export default class SpecialtyHandler {
     constructor(specialtyUseCases) {
       this.specialtyUseCases = specialtyUseCases;
@@ -47,6 +49,12 @@ export default class SpecialtyHandler {
   
     createNewSpecialty = async (req, res) => {
       try {
+        const errors = createNewSpecialtyValidations(req.body);
+        if (errors)
+        return res.status(400).send({
+          message: "fail",
+          errors,
+        });
         const [specialty, status, err] = await this.specialtyUseCases.createNewSpecialty(req.body);
         if (err)
           return res.status(status).send({

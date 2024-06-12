@@ -29,7 +29,7 @@ export default class DoctorUseCases {
       newDoctorPayload.phone
     );
     if (doctorByPhone) return [null, 400, "Already exist Phone"];
-
+ 
     const newDoctorBody = { ...newDoctorPayload };
     newDoctorBody.created_at = getFormatDate();
 

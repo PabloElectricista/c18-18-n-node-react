@@ -1,3 +1,5 @@
+import { createNewDoctorValidations } from "../../../utils/functions/input-validations.js";
+
 export default class Doctorhandler {
   constructor(doctorUseCases) {
     this.doctorUseCases = doctorUseCases;
@@ -49,6 +51,12 @@ export default class Doctorhandler {
 
   createNewDoctor = async (req, res) => {
     try {
+      const errors = createNewDoctorValidations(req.body);
+      if (errors)
+      return res.status(400).send({
+        message: "fail",
+        errors: errors,
+      });
       const [doctor, token, status, err] =
         await this.doctorUseCases.createNewDoctor(req.body);
       if (err)
