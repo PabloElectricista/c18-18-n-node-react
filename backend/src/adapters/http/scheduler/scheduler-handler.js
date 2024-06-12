@@ -97,7 +97,7 @@ export default class SchedulerHandler {
         });
       return res.status(status).send({
         message: "succes",
-        data: schedulerPayload,
+        data: `The schedulers for the ${schedulerPayload.count} registered doctors are now ready!`,
       });
     } catch (error) {
       console.log(error);

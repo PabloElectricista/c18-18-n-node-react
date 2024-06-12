@@ -14,11 +14,11 @@ const routes = [
   {
     url: "/clinic",
     method: "POST",
-    handler: clinicHandler.createNewClinic,//function editada franco
+    handler: clinicHandler.createNewClinic, //function editada franco
   },
   {
     url: "/clinic/:id",
-    method: "PUT",
+    method: "PATCH",
     handler: clinicHandler.updateClinic,
   },
   {

@@ -29,7 +29,6 @@ const createNewAppointmentRules = {
   clinic_id: "string|hex|size:24|required",
   doctor_id: "string|hex|size:24|required",
   specialty_id: "string|hex|size:24|required",
-  patient_id: "string|hex|size:24|required",
   duration: "|integer|min:1|max:1",
   reserved_at: "date",
 

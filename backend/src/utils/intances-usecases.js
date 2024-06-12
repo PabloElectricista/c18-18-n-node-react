@@ -42,28 +42,36 @@ const specialtyPrismaRepository = new SpecialtyPrismaRepository(prisma);
 
 //Intances-usecases
 const tokenUseCases = new TokenUseCases(jwt);
-const patientUseCases = new PatientUseCases(patientPrismaRepository);
-const doctorUseCases = new DoctorUseCases(doctorPrismaRepository);
-const schedulerUseCases = new SchedulerUseCases(schedulerPrismaRepository);
+const patientUseCases = new PatientUseCases(
+  patientPrismaRepository,
+  tokenUseCases
+);
+const doctorUseCases = new DoctorUseCases(
+  doctorPrismaRepository,
+  tokenUseCases
+);
+const schedulerUseCases = new SchedulerUseCases(
+  schedulerPrismaRepository,
+  doctorUseCases
+);
+const clinicUseCases = new ClinicUseCases(clinicPrismaRepository);
+const specialtyUseCases = new SpecialtyUseCases(specialtyPrismaRepository);
 const appointmentUseCases = new AppointmentUseCases(
   appointmentsPrismaRepository,
   patientUseCases,
-  //clinicUseCases,
+  clinicUseCases,
   doctorUseCases,
-  //specialtyUseCases,
+  specialtyUseCases,
   schedulerUseCases,
   schedulerPrismaRepository,
   builder
 );
-const clinicUseCases = new ClinicUseCases(clinicPrismaRepository);
-const specialtyUseCases = new SpecialtyUseCases(specialtyPrismaRepository);
 //instace-middleware
 const tokenMiddleware = new TokenMiddleware(tokenUseCases);
 
-
 //Intance-Handler
-const patientHandler = new PatientHandler(patientUseCases, tokenUseCases);
-const doctorHandler = new Doctorhandler(doctorUseCases, tokenUseCases);
+const patientHandler = new PatientHandler(patientUseCases);
+const doctorHandler = new Doctorhandler(doctorUseCases);
 const appointmentHandler = new AppointmentHandler(appointmentUseCases);
 const schedulerHandler = new SchedulerHandler(schedulerUseCases);
 const clinicHandler = new ClinicHandler(clinicUseCases);
@@ -78,4 +86,3 @@ export {
   clinicHandler,
   tokenMiddleware,
 };
-

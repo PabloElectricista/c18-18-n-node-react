@@ -25,7 +25,7 @@ export default class TokenUseCases {
     try {
       if (!token) return [null, 401, "Token not provided"];
 
-      const decodedToken = this.decodedToken(token);
+      const decodedToken = this.jwt.verify(token, process.env.JWT_SECRET_KEY);
 
       const isAuthorized = verifyScopesByRole(decodedToken.role, roles);
       if (!isAuthorized) return [null, 403, "Unauthorized"];
