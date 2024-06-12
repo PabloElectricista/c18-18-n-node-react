@@ -21,44 +21,63 @@ export default class AppointmentUseCases {
     this.builder = builder;
   }
   findAllAppointments = async () => {
-    const [appointments, err] =
-      await this.appointmentsPrismaRepository.findAllAppointments();
-    if (err) return [null, 404, err];
+    const [appointmentsData, clinicData] = await Promise.all([
+      this.appointmentsPrismaRepository.findAllAppointments(),
+      this.clinicUseCases.findAllClinics(),
+    ]);
+
+    const [appointments, appointmentError] = appointmentsData;
+    const [clinic, , clinicError] = clinicData;
+
+    if (appointmentError) return [null, 404, appointmentError];
+    if (clinicError) return [null, 404, clinicError];
+
     const buildedAppointments = appointments.map((appointment) => {
-      return this.builder.buildRecordAppointment(appointment);
+      return this.builder.buildRecordAppointment(appointment, clinic);
     });
     return [buildedAppointments, 200, null];
   };
   findAppointmentById = async (appointmentId) => {
-    const [appointment, err] =
-      await this.appointmentsPrismaRepository.findAppointmentById(
-        appointmentId
-      );
-    if (err) return [null, 404, err];
+    const [appointmentsData, clinicData] = await Promise.all([
+      this.appointmentsPrismaRepository.findAppointmentById(appointmentId),
+      this.clinicUseCases.findAllClinics(),
+    ]);
 
-    const buildedAppointment = this.builder.buildRecordAppointment(appointment);
-    if (err) return [null, 404, err];
+    const [appointment, appointmentError] = appointmentsData;
+    const [clinic, , clinicError] = clinicData;
+
+    if (appointmentError) return [null, 404, appointmentError];
+    if (clinicError) return [null, 404, clinicError];
+
+    const buildedAppointment = this.builder.buildRecordAppointment(
+      appointment,
+      clinic
+    );
 
     return [buildedAppointment, 200, null];
   };
   findAppointmentByUser = async (decodedToken) => {
     const userId = decodedToken;
-    const [appointment, err] =
-      await this.appointmentsPrismaRepository.findAppointmentById(userId);
-    if (err) return [null, 404, err];
+    const [appointmentsData, clinicData] = await Promise.all([
+      this.appointmentsPrismaRepository.findAppointmentByUser(userId),
+      this.clinicUseCases.findAllClinics(),
+    ]);
+    const [appointment, appointmentError] = appointmentsData;
+    const [clinic, , clinicError] = clinicData;
+
+    if (appointmentError) return [null, 404, appointmentError];
+    if (clinicError) return [null, 404, clinicError];
 
     const buildedAppointmentByUser = appointment.map((appointment) => {
-      return this.builder.buildRecordAppointment(appointment);
+      return this.builder.buildRecordAppointment(appointment, clinic);
     });
 
-    if (err) return [null, 404, err];
     return [buildedAppointmentByUser, 200, null];
   };
   createNewAppointment = async (appointmentPayload, decodedToken) => {
     const { userId } = decodedToken;
     const {
       scheduler_id: schedulerId,
-      patient_id: patientId,
       clinic_id: clinicId,
       doctor_id: doctorId,
       specialty_id: specialtyId,
@@ -71,17 +90,17 @@ export default class AppointmentUseCases {
       specialtyData,
       AppointmentData,
     ] = await Promise.all([
-      this.patientUseCases.findUserById(patientId),
+      this.patientUseCases.findPatientById(userId),
       this.clinicUseCases.findClinicById(clinicId),
       this.doctorUseCases.findDoctorById(doctorId),
       this.specialtyUseCases.findSpecialtyById(specialtyId),
       this.appointmentsPrismaRepository.findAppointmentByUser(userId),
     ]);
     const [appointmentsRecord, appointmentErr] = AppointmentData;
-    const [, patientErr] = patientData;
-    const [, clinicErr] = clinicData;
-    const [, doctorErr] = doctorData;
-    const [, specialtyErr] = specialtyData;
+    const [, , patientErr] = patientData;
+    const [, , clinicErr] = clinicData;
+    const [, , doctorErr] = doctorData;
+    const [, , specialtyErr] = specialtyData;
 
     if (patientErr) return [null, 404, patientErr];
     if (clinicErr) return [null, 404, clinicErr];
@@ -109,7 +128,9 @@ export default class AppointmentUseCases {
 
     const newAppointment = {
       ...appointmentPayload,
-      patient_id: patientId,
+      patient_id: userId,
+      room_number: clinicData[0] ? clinicData[0].room_number : null,
+      status_date: getFormatDate(),
       created_at: getFormatDate(),
       status: "RESERVED",
     };
@@ -145,7 +166,9 @@ export default class AppointmentUseCases {
 
   updateAppointment = async (appointmentId, appointmentPayload) => {
     const [recordAppointment, err] =
-      await this.prismaRepository.findAppointmentById(appointmentId);
+      await this.appointmentsPrismaRepository.findAppointmentById(
+        appointmentId
+      );
 
     if (err) return [null, 404, err];
 
@@ -179,26 +202,22 @@ export default class AppointmentUseCases {
       await this.schedulerPrismaRepository.findAllSchedulers();
     if (schedulersErr) return [null, 404, schedulersErr];
 
-    const [newScheduler, ifSchedulerFinded] = deletedAppointmentInScheduler(
-      schedulers,
-      appointmentId
-    );
+    const [newScheduler, ifSchedulerFinded] =
+      this.deletedAppointmentInScheduler(schedulers, appointmentId);
 
     if (!ifSchedulerFinded || !newScheduler)
       return [null, 400, "scheduler dont exist"];
 
-    const [, softDeleteAppointmentData] = await Promise.all([
+    const [, deleteAppointmentData] = await Promise.all([
       this.schedulerPrismaRepository.updateScheduler(newScheduler.id, {
         appointments: newScheduler.appointments,
       }),
-      this.prismaRepository.deleteAppointment(appointmentId, {
-        deleted_at: getFormatDate(),
-      }),
+      this.appointmentsPrismaRepository.deleteAppointment(appointmentId),
     ]);
-    const [softDeleteAppointment, softDeleteErr] = softDeleteAppointmentData;
-    if (softDeleteErr) return [null, 404, softDeleteErr];
+    const [deleteAppointment, deleteErr] = deleteAppointmentData;
+    if (deleteErr) return [null, 404, deleteErr];
 
-    return [softDeleteAppointment, 200, null];
+    return [deleteAppointment, 200, null];
   };
 
   deletedAppointmentInScheduler = (schedulers, appointmentId) => {

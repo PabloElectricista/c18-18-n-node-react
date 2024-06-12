@@ -7,7 +7,7 @@ const routes = [
     handler: doctorHandler.findAllDoctors,
   },
   {
-    url: "/doctor/id",
+    url: "/doctor/:id",
     method: "GET",
     handler: doctorHandler.findDoctorById,
   },

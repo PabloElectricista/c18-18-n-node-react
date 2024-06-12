@@ -1,3 +1,4 @@
+/* Estilos originales para pantallas grandes */
 .contact-container {
   width: 100%;
   display: flex;
@@ -27,6 +28,7 @@
   height: 24px;
   cursor: pointer;
 }
+
 .contact-error {
   color: red;
 }
@@ -219,6 +221,7 @@
   padding: 0.5rem 1rem;
 }
 
+<<<<<<< HEAD
 
 @media(max-width:850px){
 
@@ -239,3 +242,117 @@
     width: 350px;
   }
 }
+=======
+/* Estilos adicionales para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contact-container-mobile {
+    padding: 20px;
+    background: #f5f5f5;
+  }
+
+  .contact-header-mobile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-backarrow-mobile {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .contact-text-mobile {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .contact-container1-mobile {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .contact-titulo-mobile {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .contact-personalizada-mobile {
+    margin-bottom: 20px;
+  }
+
+  .contact-titulo1-mobile {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .contact-container2-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-email-mobile,
+  .contact-phone-mobile {
+    margin-bottom: 10px;
+  }
+
+  .contact-text4-mobile {
+    font-weight: bold;
+  }
+
+  .contact-text5-mobile {
+    color: #0066cc;
+  }
+
+  .contact-container3-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-container4-mobile,
+  .contact-container5-mobile,
+  .contact-container6-mobile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  .contact-textinput-mobile,
+  .contact-textinput1-mobile,
+  .contact-textarea-mobile {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+  }
+
+  .contact-button-mobile {
+    padding: 10px 20px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+  }
+
+  .contact-error-mobile {
+    color: red;
+    font-size: 12px; /* Aumenta el tamaño de la fuente */
+  }
+
+  /* Ajuste del tamaño de los iconos en versión móvil */
+  .contact-icon-mobile,
+  .contact-icon2-mobile,
+  .contact-icon4-mobile {
+    width: 24px;  /* Ajusta el tamaño del ancho del ícono */
+    height: 24px; /* Ajusta el tamaño de la altura del ícono */
+  }
+}
+>>>>>>> 888eb18cdd9c7cf5f6924bbfd682a9642ab743ce

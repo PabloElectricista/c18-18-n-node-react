@@ -1,18 +1,17 @@
 import {
-  createNewDoctorValidations,
+  createNewSpecialtyValidations,
   updateDoctorValidations,
 } from "../../../utils/functions/input-validations.js";
 
-export default class Doctorhandler {
-  constructor(doctorUseCases) {
-    this.doctorUseCases = doctorUseCases;
+export default class SpecialtyHandler {
+  constructor(specialtyUseCases) {
+    this.specialtyUseCases = specialtyUseCases;
   }
 
-  findAllDoctors = async (req, res) => {
+  findAllSpecialties = async (req, res) => {
     try {
-      const [doctors, status, err] = await this.doctorUseCases.findAllDoctors(
-        req.body
-      );
+      const [specialties, status, err] =
+        await this.specialtyUseCases.findAllSpecialties();
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -20,7 +19,7 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: doctors,
+        data: specialties,
       });
     } catch (error) {
       return res.status(500).send({
@@ -30,11 +29,10 @@ export default class Doctorhandler {
     }
   };
 
-  findDoctorById = async (req, res) => {
+  findSpecialtyById = async (req, res) => {
     try {
-      const [doctor, status, err] = await this.doctorUseCases.findDoctorById(
-        req.params.id
-      );
+      const [specialty, status, err] =
+        await this.specialtyUseCases.findSpecialtyById(req.params.id);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -42,9 +40,9 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: doctor,
+        data: specialty,
       });
-    } catch {
+    } catch (error) {
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -52,16 +50,16 @@ export default class Doctorhandler {
     }
   };
 
-  createNewDoctor = async (req, res) => {
+  createNewSpecialty = async (req, res) => {
     try {
-      const errors = createNewDoctorValidations(req.body);
+      const errors = createNewSpecialtyValidations(req.body);
       if (errors)
         return res.status(400).send({
           message: "fail",
-          errors: errors,
+          errors,
         });
-      const [doctor, token, status, err] =
-        await this.doctorUseCases.createNewDoctor(req.body);
+      const [specialty, status, err] =
+        await this.specialtyUseCases.createNewSpecialty(req.body);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -69,11 +67,10 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: doctor,
-        token,
+        data: specialty,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -81,18 +78,19 @@ export default class Doctorhandler {
     }
   };
 
-  updateDoctorById = async (req, res) => {
+  updateSpecialtyById = async (req, res) => {
     try {
       const errors = updateDoctorValidations(req.body);
       if (errors)
         return res.status(400).send({
           message: "fail",
-          errors: errors,
+          errors,
         });
-      const [user, status, err] = await this.doctorUseCases.updateDoctorById(
-        req.params.id,
-        req.body
-      );
+      const [specialty, status, err] =
+        await this.specialtyUseCases.updateSpecialtyById(
+          req.params.id,
+          req.body
+        );
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -100,9 +98,9 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: user,
+        data: specialty,
       });
-    } catch {
+    } catch (error) {
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -110,11 +108,11 @@ export default class Doctorhandler {
     }
   };
 
-  deleteDoctorById = async (req, res) => {
+  deleteSpecialtyById = async (req, res) => {
     try {
-      const [doctor, status, err] = await this.doctorUseCases.deleteDoctorById(
-        req.params.id
-      );
+      const { specialtyId } = req.params;
+      const [specialty, status, err] =
+        await this.specialtyUseCases.deleteSpecialtyById(specialtyId);
       if (err)
         return res.status(status).send({
           message: "fail",
@@ -122,10 +120,9 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `Doctor deleted successfully with Id:${doctor.id}`,
+        data: `Specialty deleted successfully with Id:${specialty.id}`,
       });
     } catch (error) {
-      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
