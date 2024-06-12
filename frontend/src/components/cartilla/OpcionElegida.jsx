@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./opcionElegida.css"
 
-const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
+const OpcionElegida = ({opcion, anularOpcion, textOpcion, dataAdicional}) => {
 
     const eliminarOpcion = () =>{
         if(opcion){
@@ -14,7 +14,7 @@ const OpcionElegida = ({opcion, anularOpcion, textOpcion}) => {
 
     return (
         <div className='container'>
-            <span className='texto'>{textOpcion}: {opcion}</span>
+            <span className='texto'>{textOpcion}: {opcion}{dataAdicional}</span>
             <button onClick={()=>{eliminarOpcion()}} className='buttonCerrar'>X</button>
         </div>
     )
