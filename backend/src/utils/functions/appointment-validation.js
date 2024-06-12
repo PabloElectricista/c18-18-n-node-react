@@ -16,4 +16,4 @@ const validateAppointmentsByUser = (
   return false;
 };
 
-export default { validateAppointmentsByUser };
+export default validateAppointmentsByUser;
