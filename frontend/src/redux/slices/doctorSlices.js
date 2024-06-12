@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { 
-  getAllClinics, 
-  getAllSpecialties, 
-  getAllDoctors, 
-  getClinicById, 
+  getAllSpecialties,
   getSpecialtyById,
-  getDoctorById
+  createSpecialty,
+  updateSpecialty,
+  deleteSpecialty,
+
+  getAllClinics,
+  getClinicById, 
+  createClinic,
+  updateClinic,
+  deleteClinic,
+
+  getAllDoctors,
+  getDoctorById,
 } from '../thunks/doctorThunk'
 
 export const doctorSlice = createSlice({
@@ -54,6 +62,48 @@ export const doctorSlice = createSlice({
       })
 
 
+      .addCase(createClinic.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(createClinic.fulfilled, (state, action) => {
+        state.loading = false
+        state.clinic = action.payload 
+      })
+      .addCase(createClinic.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(updateClinic.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(updateClinic.fulfilled, (state, action) => {
+        state.loading = false
+        state.clinic = action.payload 
+      })
+      .addCase(updateClinic.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(deleteClinic.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(deleteClinic.fulfilled, (state) => {
+        state.loading = false
+        state.clinic = null
+      })
+      .addCase(deleteClinic.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
       .addCase(getAllSpecialties.pending, (state) => {
         state.loading = true
         state.error = null
@@ -77,6 +127,48 @@ export const doctorSlice = createSlice({
         state.specialty = action.payload
       })
       .addCase(getSpecialtyById.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(createSpecialty.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(createSpecialty.fulfilled, (state, action) => {
+        state.loading = false
+        state.specialty = action.payload
+      })
+      .addCase(createSpecialty.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(updateSpecialty.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(updateSpecialty.fulfilled, (state, action) => {
+        state.loading = false
+        state.specialty = action.payload
+      })
+      .addCase(updateSpecialty.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+
+      .addCase(deleteSpecialty.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(deleteSpecialty.fulfilled, (state) => {
+        state.loading = false
+        state.specialty = null
+      })
+      .addCase(deleteSpecialty.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })
