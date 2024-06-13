@@ -11,6 +11,8 @@ import appointmentRoutes from "../../backend/src/adapters/http/appointment/appoi
 import schedulerRoutes from "../../backend/src/adapters/http/scheduler/scheduler-route.js";
 import clinicRoutes from "../../backend/src/adapters/http/clinic/clinic-route.js";
 import specialtyRoutes from "../../backend/src/adapters/http/user/specialty-route.js";
+import authRoutes from "../../backend/src/adapters/http/auth/auth-route.js";
+
 
 
 
@@ -38,6 +40,7 @@ registerRoutes(fastify, appointmentRoutes);
 registerRoutes(fastify, schedulerRoutes);
 registerRoutes(fastify, clinicRoutes);
 registerRoutes(fastify, specialtyRoutes);
+registerRoutes(fastify, authRoutes);
 
 
 const start = async () => {
