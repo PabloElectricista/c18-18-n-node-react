@@ -36,7 +36,7 @@ const updateDoctorRules = {
   doctor_dni: "string|size:8",
   gender: "string|min:5|max:9",
   phone: "string|size:10",
-  email: "required|email",
+  email: "email",
   specialty_id: "string|hex|size:24",
 };
 
@@ -56,7 +56,6 @@ const createNewAppointmentRules = {
 
 const createNewSpecialtyRules = {
   name: "string|between:3, 25|required",
-  description: "string|between:3, 25|required",
 };
 
 const updateSpecialtyRules = {

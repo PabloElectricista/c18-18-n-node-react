@@ -29,7 +29,7 @@ export default class DoctorUseCases {
       newDoctorPayload.phone
     );
     if (doctorByPhone) return [null, 400, "Already exist Phone"];
- 
+
     const newDoctorBody = { ...newDoctorPayload };
     newDoctorBody.created_at = getFormatDate();
 
@@ -48,11 +48,10 @@ export default class DoctorUseCases {
   };
 
   updateDoctorById = async (doctorId, updateDoctorPayload) => {
-    const [updatedDoctor, err] =
-      await this.doctorPrismaRepository.updatedDoctor(
-        doctorId,
-        updateDoctorPayload
-      );
+    const [updatedDoctor, err] = await this.doctorPrismaRepository.updateDoctor(
+      doctorId,
+      updateDoctorPayload
+    );
     if (err) return [null, 404, err];
     if (!updatedDoctor) return [null, "Doctor not updated"];
     return [updatedDoctor, 200, null];
