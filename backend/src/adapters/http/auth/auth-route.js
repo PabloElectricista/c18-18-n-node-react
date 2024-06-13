@@ -1,13 +1,12 @@
+import { authHandler } from "../../../utils/intances-usecases.js";
 
-const routes =[
+const routes = [
+  {
+    url: "/auth/recovery-password",
+    method: "POST",
+    preHandler: [],
+    handler: authHandler.recoveryPassword,
+  },
+];
 
-    {
-        url:'/api/register',
-        method: 'POST',
-        preHandler:[],
-        handler:userHandler.register,
-    },
-    {
-
-    }
-]
+export default routes;
