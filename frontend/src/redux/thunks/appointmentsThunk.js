@@ -57,6 +57,9 @@ export const createNewAppointment = createAsyncThunk(
   'appointments/createNewAppointment',
   async ({ token, data }, { rejectWithValue }) => {
     try {
+      console.log("testest")
+      console.log(token)
+      console.log(data)
       const response = await axios.post('/appointments', data, {
         headers: {
           Authorization: `Bearer ${token}`,
