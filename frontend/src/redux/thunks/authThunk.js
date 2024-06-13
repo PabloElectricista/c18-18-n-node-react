@@ -29,7 +29,6 @@ export const passRecovery = createAsyncThunk('auth/passRecovery', async (email, 
 
 export const register = createAsyncThunk('auth/register', async(userData, { rejectWithValue }) => {
   try {
-    console.log(userData)
     const { role, ...payload } = userData
     const { data } = await axios.post(`/${role}`, payload);
     if (data?.token) {
