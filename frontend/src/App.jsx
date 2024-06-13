@@ -11,6 +11,7 @@ import Contact from './views/Contact';
 import Register from './views/Register';
 import Error from './components/error/Error';
 import ClinicProfile from './views/ClinicProfile'
+import MyAppointments from './views/MyAppointments'
 
 
 function App() {
@@ -57,6 +58,10 @@ function App() {
           path: '/clinic-profile',
           element: <ClinicProfile />
         },
+        {
+          path: '/my-appointments',
+          element: <MyAppointments />
+        }
         // {
         //   path: '/cartillas',
         //   element: <Cartillas />
