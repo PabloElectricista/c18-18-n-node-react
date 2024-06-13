@@ -4,7 +4,7 @@ const routes = [
   {
     url: "/auth/login",
     method: "POST",
-    handler: authHandler.loginPatient,
+    handler: authHandler.loginUser,
   },
   {
     url: "/auth/recovery-password",
