@@ -37,7 +37,7 @@ export const getAppointmentByUser = createAsyncThunk(
   'appointments/getAppointmentByUser',
   async (token, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/appointments/user', {
+      const response = await axios.get('/appointments/patient', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

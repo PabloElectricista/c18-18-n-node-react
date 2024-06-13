@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAppointments } from "../redux/thunks/appointmentsThunk";
+import { getAppointmentByUser } from "../redux/thunks/appointmentsThunk";
 //import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
 
 const MyAppointments = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllAppointments());
+    dispatch(getAppointmentByUser());
   }, [dispatch]);
 
   const dataCitas = useSelector((state) => state.appointments.appointments);
