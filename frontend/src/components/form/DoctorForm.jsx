@@ -14,6 +14,7 @@ const DoctorRegisterForm = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [pass, setPass] = useState('')
+  const [gender, setGender] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const signup = useSelector(state => state.auth)
@@ -48,7 +49,8 @@ const DoctorRegisterForm = () => {
       lastName.length === 0 ||
       email.length === 0 ||
       phone.length === 0 ||
-      pass.length === 0
+      pass.length === 0 ||
+      gender.length === 0
     ) {
       toast.error('Debes llenar los campos', {
         toastId: 'error2',
@@ -62,6 +64,7 @@ const DoctorRegisterForm = () => {
       name,
       last_name: lastName,
       doctor_dni: pass,
+      gender,
       phone,
       email,
       //specialty,
@@ -97,6 +100,22 @@ const DoctorRegisterForm = () => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
+          </div>
+          <div className='input-wrapper'>
+            <label className="input-label" htmlFor="formGender">Género *</label>
+            <select 
+              required 
+              className='form-select' 
+              name='formGender' 
+              id='formGender'
+              value={gender}
+              onChange={e => setGender(e.target.value)}
+            >
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value='Masculino'>Masculino</option>
+              <option value='Femenino'>Femenino</option>
+              <option value='Otro'>Otro</option>
+            </select>
           </div>
           <div className='input-wrapper'>
             <label className="input-label" htmlFor="formClinic">Clínica *</label>
