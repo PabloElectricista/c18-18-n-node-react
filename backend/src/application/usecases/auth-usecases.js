@@ -1,14 +1,13 @@
 import nodemailer from "nodemailer";
 export default class AuthUseCases {
-    constructor(patientPrismaRepository, tokenUseCases) {
-      this.patientPrismaRepository = patientPrismaRepository;
-      this.tokenUseCases = tokenUseCases;
-    }
+  constructor(patientPrismaRepository, tokenUseCases) {
+    this.patientPrismaRepository = patientPrismaRepository;
+    this.tokenUseCases = tokenUseCases;
+  }
 
-   recoveryPassword = async (email) => {
-    const [patientEmail, error] = await this.patientPrismaRepository.findPatientByEmail(
-      email
-    );
+  recoveryPassword = async (email) => {
+    const [patientEmail, error] =
+      await this.patientPrismaRepository.findPatientByEmail(email);
     if (error) return [null, 404, error];
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com", //configuracion para usar gmail
@@ -32,27 +31,29 @@ export default class AuthUseCases {
         html: `
         <p>Hemos recibido una solicitud para recuperar tu contraseña.</p>
         <p>su contraseña es: ${patientEmail.phone}.</p>
-        <p>Tu grupo de Agenda Salud</p>`, 
+        <p>Tu grupo de Agenda Salud</p>`,
       });
     } catch (error) {
       return res.status(400).json({
         message: "Error al enviar el email",
       });
     }
-  return [patientEmail, 200, null];
+    return [patientEmail, 200, null];
   };
-  
-loginPatient = async (loginPatient) => {
- const [patient, error] = await this.patientPrismaRepository.findPatientByEmail(loginPatient.email);
- if (error) return [null, 404, error];
- 
- if (patient.phone !== loginPatient.phone)
- return [ null, 400, "contraseña no coincide con el usuario"];
- 
- const [token, errors] = await this.tokenUseCases.generateToken(patient.id, patient.role);
- if (errors) return [null, 400, errors];
- return [token, patient, 200, null];
-    }  
- 
-}
 
+  loginPatient = async (loginPatient) => {
+    const [patient, error] =
+      await this.patientPrismaRepository.findPatientByEmail(loginPatient.email);
+    if (error) return [null, 404, error];
+
+    if (patient.phone !== loginPatient.phone)
+      return [null, 400, "contraseña no coincide con el usuario"];
+
+    const [token, errors] = await this.tokenUseCases.generateToken(
+      patient.id,
+      patient.role
+    );
+    if (errors) return [null, 400, errors];
+    return [token, patient, 200, null];
+  };
+}
