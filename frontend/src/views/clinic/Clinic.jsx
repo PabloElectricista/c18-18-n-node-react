@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
-import Footer from '../components/footer/Footer'
+import Footer from '../../components/footer/Footer'
 import scheludes from './scheludes.json'
-import ClinicTable from '../components/clinicTable/ClinicTable'
-import Calendar from '../components/calendar/Calendar'
+import ClinicTable from '../../components/clinicTable/ClinicTable'
+import Calendar from '../../components/calendar/Calendar'
 import './clinic.css'
+import { toast } from 'react-toastify'
 
 const Clinic = () => {
   const navigate = useNavigate()
@@ -30,7 +31,8 @@ const Clinic = () => {
   }
 
   const handleMenuItem = (hour, item) => {
-    console.log(item)
+    toast(item)
+    toast(hour)
     setShowMenu({
       ...showMenu,
       [hour]: false
@@ -91,7 +93,7 @@ const Clinic = () => {
             Listado de pacientes
           </span>
         </button>
-        <button type="button" className="clinic-button3" onClick={() => navigate('/novedades')} >
+        <button type="button" className="clinic-button3" onClick={() => navigate('/novedades-clinico')} >
           <img
             alt="novedades icon"
             src="novedades_icon.svg"

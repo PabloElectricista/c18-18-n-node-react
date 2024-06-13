@@ -1,11 +1,11 @@
-.novedades-container {
+.novedadesClinico-container {
   gap: 40px;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.novedades-links-container {
+.novedadesClinico-links-container {
   gap: 300px;
   width: 50%;
   display: flex;
@@ -13,11 +13,11 @@
   flex-shrink: 0;
   justify-content: center;
 }
-.novedades-back-arrow {
+.novedadesClinico-back-arrow {
   width: 24px;
   height: 24px;
 }
-.novedades-text {
+.novedadesClinico-text {
   color: rgba(255, 255, 255, 1);
   width: 156px;
   height: auto;
@@ -29,7 +29,7 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.novedades-header {
+.novedadesClinico-header {
   gap: 59px;
   width: 100%;
   height: auto;

@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import './listaDePacientes.css'
-import Footer from '../components/footer/Footer'
-import ListaPacientesMain from "../components/listaDePacientes/ListaPacientesMain";
+import Footer from '../../components/footer/Footer'
+import ListaPacientesMain from "../../components/listaDePacientes/ListaPacientesMain";
 
 export default function ListaDePacientes() {
   return (

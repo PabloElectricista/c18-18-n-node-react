@@ -2,8 +2,8 @@
 import './clinicProfile.css'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
-import Footer from '../components/footer/Footer'
-import ClinicProfileMain from '../components/clinicProfileMain/ClinicProfileMain'
+import Footer from '../../components/footer/Footer'
+import ClinicProfileMain from '../../components/clinicProfileMain/ClinicProfileMain'
 
 const ClinicProfile = () => {
   

@@ -1,0 +1,101 @@
+.pago-seleccion-main-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 32px;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f3f3f3;
+}
+.pago-seleccion-main-container1 {
+  flex: 0 0 auto;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  flex-direction: column;
+  background-color: #e6e6e6;
+}
+.pago-seleccion-main-text {
+  fill: #fff;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #9294BD;
+  font-size: 20px;
+}
+.pago-seleccion-main-container2 {
+  gap: 16px;
+  width: 250px;
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.pago-seleccion-main-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  padding-right: 16px;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.pago-seleccion-main-text1 {
+  font-size: 20px;
+}
+.pago-seleccion-main-image {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.pago-seleccion-main-container4 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.pago-seleccion-main-text2 {
+  font-size: 20px;
+}
+.pago-seleccion-main-image1 {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.pago-seleccion-main-container5 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.pago-seleccion-main-text3 {
+  font-size: 20px;
+}
+.pago-seleccion-main-image2 {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.pago-seleccion-main-cancelar {
+  color: red;
+  border: none;
+  background-color: transparent;
+  align-self: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}

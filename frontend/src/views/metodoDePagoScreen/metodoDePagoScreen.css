@@ -1,4 +1,4 @@
-.ayuda-container {
+.metodoScreen-container {
   gap: 40px;
   width: 100%;
   display: flex;
@@ -6,32 +6,30 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #f3f3f3;
 }
-.ayuda-links-container {
+.metodoScreen-links-container {
   gap: 300px;
-  width: 50%;
   display: flex;
   align-items: center;
   flex-shrink: 0;
   justify-content: center;
 }
-.ayuda-back-arrow {
+.metodoScreen-back-arrow {
   width: 24px;
   height: 24px;
 }
-.ayuda-text {
+.metodoScreen-text {
   color: rgba(255, 255, 255, 1);
-  width: 156px;
   height: auto;
   font-size: 32px;
-  font-style: Bold;
   font-family: Inter;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
-.ayuda-header {
+.metodoScreen-header {
   gap: 59px;
   width: 100%;
   height: auto;
