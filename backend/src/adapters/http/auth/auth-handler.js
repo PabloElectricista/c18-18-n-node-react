@@ -5,6 +5,34 @@ export default  class AuthHandler {
   }
 
   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+  
   loginPatient = async (req, res) => {
     try {
       const errors = loginPatientValidations(req.body);

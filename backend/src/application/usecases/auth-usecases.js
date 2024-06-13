@@ -4,6 +4,44 @@ export default class AuthUseCases {
       this.tokenUseCases = tokenUseCases;
     }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 loginPatient = async (loginPatient) => {
  const [patient, error] = await this.patientPrismaRepository.findPatientByEmail(loginPatient.email);
  if (error) return [null, 404, error];
