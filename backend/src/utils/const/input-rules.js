@@ -70,16 +70,15 @@ const createNewClinicRules = {
 
 const recoveryPasswordRules = {
   email: "required|email",
-}; 
+};
 const updateClinicRules = {
   name_clinic: "string|between:3,20",
   room_number: "string|between:2,5",
 };
 
-const loginPatientRules = {
+const loginUserRules = {
   email: "email|required",
   phone: "string|size:10|required",
-
 };
 
 export {
@@ -87,9 +86,9 @@ export {
   createNewDoctorRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
-  recoveryPasswordRules, 
+  recoveryPasswordRules,
   createNewSpecialtyRules,
-  loginPatientRules,
+  loginUserRules,
   createNewClinicRules,
   updatePatientRules,
   updateDoctorRules,

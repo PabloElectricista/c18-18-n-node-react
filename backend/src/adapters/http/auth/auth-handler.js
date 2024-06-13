@@ -1,5 +1,5 @@
 import {
-  loginPatientValidations,
+  loginUserValidations,
   emailValidations,
 } from "../../../utils/functions/input-validations.js";
 export default class AuthHandler {
@@ -36,17 +36,18 @@ export default class AuthHandler {
       });
     }
   };
-  loginPatient = async (req, res) => {
+  loginUser = async (req, res) => {
     try {
-      const errors = loginPatientValidations(req.body);
+      const errors = loginUserValidations(req.body);
       if (errors) {
         return res.status(400).send({
           message: "fail",
           errors,
         });
       }
-      const [token, patient, status, err] =
-        await this.authUseCases.loginPatient(req.body);
+      const [token, user, status, err] = await this.authUseCases.loginUser(
+        req.body
+      );
       if (err) {
         return res.status(status).send({
           message: "fail",
@@ -55,7 +56,7 @@ export default class AuthHandler {
       }
       return res.status(status).send({
         token,
-        data: patient,
+        data: user,
         message: "success",
       });
     } catch (error) {
