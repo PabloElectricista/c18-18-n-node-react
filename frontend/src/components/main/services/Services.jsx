@@ -27,7 +27,7 @@ const Services = () => {
     </div>
   );
 
- 
+
   const MobileServices = (
     <div className='containerServicesMobile'>
       <div className='bloqueServicesMobile'>
@@ -60,7 +60,7 @@ const Services = () => {
     };
   }, []);
 
- 
+
 
   // Contenido según pantalla
   return isMobile ? MobileServices : DesktopServices;

@@ -7,6 +7,15 @@ const getFormatDate = () => {
   return fechaFormateadaConEspacios;
 };
 
+const generateDateRange = (days, dates) => {
+  const today = new Date();
+  for (let i = 0; i <= days; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + 1);
+    dates.push(date);
+  }
+};
+
 const addHour = (originalDate, hoursToAdd) => {
   if (!(originalDate instanceof Date)) {
     throw new Error("El primer argumento debe ser una instancia de Date.");
@@ -43,4 +52,4 @@ const setHourToDate = (date, hours) => {
   return newDate;
 };
 
-export { getFormatDate, addHour, addDays, setHourToDate };
+export { getFormatDate, addHour, addDays, setHourToDate, generateDateRange };

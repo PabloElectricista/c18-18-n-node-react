@@ -1,4 +1,7 @@
-import { appointmentHandler } from "../../../utils/intances-usecases.js";
+import {
+  appointmentHandler,
+  tokenMiddleware,
+} from "../../../utils/intances-usecases.js";
 
 const routes = [
   {
@@ -12,13 +15,15 @@ const routes = [
     handler: appointmentHandler.findAppointmentById,
   },
   {
-    url: "/appointments/user",
+    url: "/appointments/patient",
     method: "GET",
+    preHandler: [tokenMiddleware.verifyPatientToken],
     handler: appointmentHandler.findAppointmentByUser,
   },
   {
     url: "/appointments",
     method: "POST",
+    preHandler: [tokenMiddleware.verifyPatientToken],
     handler: appointmentHandler.createNewAppointment,
   },
   {

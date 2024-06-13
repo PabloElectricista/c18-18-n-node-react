@@ -32,7 +32,7 @@ const PdfPintadoEjemplo = () => {
         document={<PdfRenderer
           paciente={paciente}
           medico={medico}
-          clinica={clinica}
+          clínica={clinica}
           fechaCita={fechaDeLaCita}
         />}
         fileName={fileName}

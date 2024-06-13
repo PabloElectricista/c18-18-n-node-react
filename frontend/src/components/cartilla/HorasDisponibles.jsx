@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import horasCartillas from "../../views/cartillaHorariosData.json"
 import "./horasdisponibles.css"
 
-const HorasDisponibles = ({setHoraElegida , setOpenSubMenuId}) => {
+const HorasDisponibles = ({ setHoraElegida, setOpenSubMenuId, horariosDisponibles }) => {
 
-    const opciones = horasCartillas.length > 0 ? horasCartillas[0].opciones : [];
+    const [opcionesData, setOpcionesData] = useState([])
+    useEffect(() => {
+        const appointments = horariosDisponibles[0].appointments
+        setOpcionesData(Object.entries(appointments))
+    }, [horariosDisponibles])
 
     const handleHour = (h) =>{
         setHoraElegida(h)
@@ -13,11 +17,15 @@ const HorasDisponibles = ({setHoraElegida , setOpenSubMenuId}) => {
 
     return (
         <div className='containerHoras'>
-            {
-                opciones.map((h, index) => (
-                    <button key={index} className='horas' onClick={()=>handleHour(h)}>{h}</button>
-                ))
-            }
+            {opcionesData.map(([hour, value], index) => (
+                <button
+                    key={index}
+                    className={value === null ? "horas" : "horasElegidas"}
+                    onClick={()=>{handleHour(hour)}}
+                >
+                    {hour} hs
+                </button>
+            ))}
         </div>
     )
 }

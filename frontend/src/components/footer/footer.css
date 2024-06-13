@@ -4,7 +4,7 @@
     padding: 4px;
     display: flex;
     justify-content: space-around;
-    align-items: center; /* Alinea los elementos hijos verticalmente en el centro */
+    align-items: center;
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
@@ -35,15 +35,17 @@
 .textIconos {
     display: flex;
     align-items: center;
-    gap: 70px; /*  acá separación entre elementos*/
+    gap: 70px;
+    /*  acá separación entre elementos*/
 }
 
 .pFooter {
     color: #2c3e50;
 }
-  
-  /* Estilos para pantallas pequeñas */
-  .footerGralMobile {
+
+
+/* Estilos para pantallas pequeñas */
+.footerGralMobile {
     background-color: var(--dl-bgcolor-nav-footer);
     padding: 4px;
     display: flex;
@@ -52,13 +54,25 @@
     gap: 60px;
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .logoMobile {
+}
+
+
+
+/* Estilos para pantallas pequeñas */
+.footerGralMobile {
+    background-color: var(--dl-bgcolor-nav-footer);
+    padding: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logoMobile {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
-  }
-  
-  
+}
