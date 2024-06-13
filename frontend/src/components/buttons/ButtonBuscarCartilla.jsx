@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaElegida, fechaElegida }) => {
 
 
-    let JWT_SECRET_KEY="thisismysecretkeytotheproject"
+    let token = localStorage.getItem('tkn')
+    console.log(token)
     const dispatch = useDispatch()
     const [horaFinal, setHoraFinal] = useState()
     const [date, setDate] = useState()
@@ -50,7 +51,7 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
             console.log("FALTAN ELEGIR VARIABLES");
         } else {
             console.log(appointmentData);
-            dispatch(createNewAppointment(JWT_SECRET_KEY,appointmentData))
+            dispatch(createNewAppointment({token,data: appointmentData}))
         }
     };
 
