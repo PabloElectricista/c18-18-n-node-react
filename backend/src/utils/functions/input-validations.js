@@ -22,7 +22,7 @@ import {
 
 } from "../const/custom-message.js";
 
-const createNewPatientValidations = (newUserPayload) => {
+export const createNewPatientValidations = (newUserPayload) => {
   const validation = new Validator(
     newUserPayload,
     createNewPatientRules,
@@ -33,7 +33,7 @@ const createNewPatientValidations = (newUserPayload) => {
   return null;
 };
 
-const createNewDoctorValidations = (newUserPayload) => {
+export const createNewDoctorValidations = (newUserPayload) => {
   const validation = new Validator(
     newUserPayload,
     createNewDoctorRules,
@@ -44,14 +44,14 @@ const createNewDoctorValidations = (newUserPayload) => {
   return null;
 };
 
-const getSchedulerByDateValidations = (filters) => {
+export const getSchedulerByDateValidations = (filters) => {
   const validation = new Validator(filters, getSchedulerByDateRules);
   const errors = validation.errors.all();
   if (validation.fails()) return errors;
   return null;
 };
 
-const createNewAppointmentValidations = (appointmentPayload) => {
+export const createNewAppointmentValidations = (appointmentPayload) => {
   const validation = new Validator(
     appointmentPayload,
     createNewAppointmentRules,
@@ -63,7 +63,7 @@ const createNewAppointmentValidations = (appointmentPayload) => {
 };
 
 
-const createNewSpecialtyValidations = (SpecialtyPayload) => {
+export const createNewSpecialtyValidations = (SpecialtyPayload) => {
   const validation = new Validator(
     SpecialtyPayload,
     createNewSpecialtyRules,
@@ -71,7 +71,7 @@ const createNewSpecialtyValidations = (SpecialtyPayload) => {
     );
 
 // funcion validacion franco
-const createNewClinicValidations = (newClinicPayload) => {
+export const createNewClinicValidations = (newClinicPayload) => {
   const validation = new Validator(
     newClinicPayload,
     createNewClinicRules,
@@ -83,11 +83,11 @@ const createNewClinicValidations = (newClinicPayload) => {
   return null;
 };
 
-export {
-  createNewuPatientValidations,
-  createNewDoctorValidations,
-  createNewAppointmentValidations,
-  createNewSpecialtyValidations,
-  getSchedulerByDateValidations,
-  createNewClinicValidations,
-};
+// export {
+//   createNewuPatientValidations,
+//   createNewDoctorValidations,
+//   createNewAppointmentValidations,
+//   createNewSpecialtyValidations,
+//   getSchedulerByDateValidations,
+//   createNewClinicValidations,
+// };

@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #f3f3f3;
 }
 .ayuda-links-container {
   gap: 300px;
