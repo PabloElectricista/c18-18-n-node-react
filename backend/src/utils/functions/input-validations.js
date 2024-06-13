@@ -8,7 +8,7 @@ import {
   createNewAppointmentRules,
   createNewSpecialtyRules,
   createNewClinicRules, 
-  // validacion de clinica franco
+  loginPatientRules,
 } from "../const/input-rules.js";
 //imports custom-message
 
@@ -18,7 +18,7 @@ import {
   customMessagesAppointment,
   customMessagesSpecialty,
   customMessagesClinic,
-  // validacion de clinica franco
+  customMessagesLoginPatient,
 
 } from "../const/custom-message.js";
 
@@ -69,8 +69,11 @@ const createNewSpecialtyValidations = (SpecialtyPayload) => {
     createNewSpecialtyRules,
     customMessagesSpecialty
     );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
 
-// funcion validacion franco
 const createNewClinicValidations = (newClinicPayload) => {
   const validation = new Validator(
     newClinicPayload,
@@ -83,11 +86,24 @@ const createNewClinicValidations = (newClinicPayload) => {
   return null;
 };
 
+const loginPatientValidations = (loginPatientPayload) => {
+  const validation = new Validator(
+    loginPatientPayload,
+    loginPatientRules,
+    customMessagesLoginPatient,
+
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
 export {
-  createNewuPatientValidations,
+  createNewPatientValidations,
   createNewDoctorValidations,
   createNewAppointmentValidations,
   createNewSpecialtyValidations,
   getSchedulerByDateValidations,
   createNewClinicValidations,
+  loginPatientValidations,
 };
