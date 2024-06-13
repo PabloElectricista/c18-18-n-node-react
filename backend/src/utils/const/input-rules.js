@@ -67,6 +67,9 @@ const createNewClinicRules = {
   room_number: "string|between:2,5|required",
 };
 
+const recoveryPasswordRules = {
+  email: "required|email",
+}; 
 const updateClinicRules = {
   name_clinic: "string|between:3,20",
   room_number: "string|between:2,5",
@@ -77,6 +80,7 @@ export {
   createNewDoctorRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
+  recoveryPasswordRules, 
   createNewSpecialtyRules,
   createNewClinicRules,
   updatePatientRules,
