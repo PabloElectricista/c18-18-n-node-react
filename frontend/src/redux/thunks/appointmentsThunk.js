@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
+import { application } from "express"
 
 export const getAllAppointments = createAsyncThunk(
   'appointments/getAllAppointments',
@@ -57,12 +58,11 @@ export const createNewAppointment = createAsyncThunk(
   'appointments/createNewAppointment',
   async ({ token, data }, { rejectWithValue }) => {
     try {
-      console.log("testest")
-      console.log(token)
       console.log(data)
+      console.log(token)
       const response = await axios.post('/appointments', data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          "Authorization": `Bearer ${token}`,
         },
       })
       if (response.data.message === 'success') {

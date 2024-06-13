@@ -49,8 +49,7 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
         if (!clinica || !especialidad || !profesional || !horaElegida || !fechaElegida) {
             console.log("FALTAN ELEGIR VARIABLES");
         } else {
-            console.log(appointmentData);
-            dispatch(createNewAppointment(token,appointmentData))
+            dispatch(createNewAppointment({token,data: appointmentData}))
         }
     };
 
