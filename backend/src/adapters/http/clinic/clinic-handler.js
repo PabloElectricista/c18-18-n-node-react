@@ -1,4 +1,7 @@
-import { createNewClinicValidations } from "../../../utils/functions/input-validations.js";
+import {
+  createNewClinicValidations,
+  updateDoctorValidations,
+} from "../../../utils/functions/input-validations.js";
 
 export default class ClinicHandler {
   constructor(clinicUseCases) {
@@ -77,6 +80,12 @@ export default class ClinicHandler {
 
   updateClinic = async (req, res) => {
     try {
+      const errors = updateDoctorValidations(req.body);
+      if (errors)
+        return res.status(400).send({
+          message: "fail",
+          errors,
+        });
       const [clinic, status, err] = await this.clinicUseCases.updateClinic(
         req.params.id,
         req.body
@@ -110,7 +119,7 @@ export default class ClinicHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: clinic,
+        data: `clinic deleted successfully with Id:${clinic.id}`,
       });
     } catch (error) {
       console.log(error);

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteAppointment } from "../../redux/slices/appointmentsSlices"; // Importa la acción para eliminar cita
+import { deleteAppointment } from "../../redux/thunks/appointmentsThunk"; // Importa la acción para eliminar cita
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfRenderer from "../pdfRenderer/PdfRenderer";
 import "./patientRecordsTable.css";

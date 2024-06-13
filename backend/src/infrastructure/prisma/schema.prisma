@@ -13,6 +13,7 @@ model Patients {
   last_name    String
   patient_dni  String         @unique
   age          Int
+  gender       String
   phone        String         @unique
   email        String         @unique
   role         Role?          @default(PATIENT)
@@ -29,6 +30,7 @@ model Doctors {
   name         String
   last_name    String
   doctor_dni   String         @unique
+  gender       String
   phone        String         @unique
   email        String         @unique
   role         Role?          @default(DOCTOR)
