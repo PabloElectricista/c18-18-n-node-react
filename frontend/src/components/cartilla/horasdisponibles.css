@@ -16,17 +16,33 @@
     height: 20px;
     padding: 20px;
     border: 2px solid black;
-    background-color: #f8f5f5;
+    background-color: #5faf90;
     cursor: pointer;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     border-radius: 5px;
     font-family: "Inter", sans-serif;
     font-weight: bold;
 }
-
 .horas:hover{
-    background-color: #1d616171;
+    background-color: #24646471;
 }
+
+.horasElegidas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: #404140;
+    color: white;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+}
+
 
 
 @media(max-width:450px){
