@@ -102,7 +102,8 @@ export default class Doctorhandler {
         message: "success",
         data: user,
       });
-    } catch {
+    } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
