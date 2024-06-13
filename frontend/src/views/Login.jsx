@@ -7,7 +7,7 @@ import { Bounce, toast } from 'react-toastify';
 import './login.css';
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' })
+  const [credentials, setCredentials] = useState({ email: '', phone: '' })
   const dispatch = useDispatch()
   const auth = useSelector(state => state.auth)
   const navigate = useNavigate()
@@ -35,7 +35,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if(credentials.email.length === 0 || credentials.password.length === 0) {
+    if(credentials.email.length === 0 || credentials.phone.length === 0) {
       toast.error('Debes llenar los campos', {
         toastId: 'error2',
         position: 'bottom-left',
@@ -75,10 +75,10 @@ const Login = () => {
               <input
                 className='login-input'
                 type='password'
-                name='password'
+                name='phone'
                 id='loginPass'
-                value={credentials.password}
-                placeholder='Ingresá tu contraseña'
+                value={credentials.phone}
+                placeholder='Ingresá tu teléfono'
                 onChange={handleChange}
               />
             </div>

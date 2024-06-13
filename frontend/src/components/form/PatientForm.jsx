@@ -12,11 +12,13 @@ const PatientRegisterForm = () => {
   const [phone, setPhone] = useState('')
   const [pass, setPass] = useState('')
   const [gender, setGender] = useState('')
+  const [age, setAge] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const signup = useSelector(state => state.auth)
 
   useEffect(() => {
+    console.log(signup.user)
     if (signup.user) {
       navigate(`/${signup.user.role}`)
     } else if (signup?.error) {
@@ -33,8 +35,10 @@ const PatientRegisterForm = () => {
     if (Number(number) || number === '') {
       if (e.target.name === 'formPass') {
         setPass(number)
-      } else {
+      } else if (e.target.name === 'formPhone') {
         setPhone(number)
+      } else if (number <= 120) {
+        setAge(number)
       }
     }
   }
@@ -61,6 +65,7 @@ const PatientRegisterForm = () => {
       name,
       last_name: lastName,
       patient_dni: pass,
+      age: parseInt(age, 10),
       gender,
       phone,
       email,
@@ -111,6 +116,19 @@ const PatientRegisterForm = () => {
               <option value='Femenino'>Femenino</option>
               <option value='Otro'>Otro</option>
             </select>
+          </div>
+          <div className="input-wrapper">
+            <label className="input-label" htmlFor="formAge">Edad *</label>
+            <input
+              className="form-input"
+              type='text'
+              name="formAge"
+              id="formAge"
+              max="120"
+              min="0"
+              value={age}
+              onChange={(e) => handleNumberChange(e)}
+            />
           </div>
           <div className="input-wrapper">
             <label className="input-label" htmlFor="formEmail">Email *</label>
