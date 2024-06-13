@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 const fastify = Fastify({ logger: true });
 
-import 'dotenv/config';
+
 
 import registerRoutes from "../src/utils/functions/register-routes.js";
 import patientRoutes from "../../backend/src/adapters/http/user/patient-route.js";
@@ -11,6 +12,7 @@ import appointmentRoutes from "../../backend/src/adapters/http/appointment/appoi
 import schedulerRoutes from "../../backend/src/adapters/http/scheduler/scheduler-route.js";
 import specialtyRoutes from "../../backend/src/adapters/http/specialty/specialty-route.js";
 import clinicRoutes from "../../backend/src/adapters/http/clinic/clinic-route.js";
+import authRoutes from "../../backend/src/adapters/http/auth/auth-route.js";
 
 
 
@@ -38,6 +40,7 @@ registerRoutes(fastify, appointmentRoutes);
 registerRoutes(fastify, schedulerRoutes);
 registerRoutes(fastify, clinicRoutes);
 registerRoutes(fastify, specialtyRoutes);
+registerRoutes(fastify, authRoutes);
 
 
 const start = async () => {
