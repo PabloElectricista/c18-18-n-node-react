@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import './calendar.css'
 
-function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay, setSelectedMonth, setSelectedYear }) {
+function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay, setSelectedMonth, setSelectedYear, selectedMonth }) {
+
     const [first, setFirst] = useState(0)
     const [dias, setDias] = useState([])
-    const [year, setYear] = useState(2014)
-    const [month, setMonth] = useState(6)
+    const [year, setYear] = useState(2024)
+    const [month, setMonth] = useState(0)
     const diasObj = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 }
     const mesesArray = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     const getFirst = () => {
@@ -41,11 +42,13 @@ function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay, setSe
         setDias(arrayDeDias)
     }, [month, year])
 
+
     const handleDayClick = value => {
         setSelectedDay(value);
         setSelectedMonth(month);
         setSelectedYear(year);
         setShowCalendar(prev => !prev)
+
     }
 
     const handleChengeMonth = (side) => {
@@ -125,9 +128,7 @@ function CalendarCartillas({ setShowCalendar, selectedDay, setSelectedDay, setSe
                             : null
                     }
                 </ol>
-
             </div>
-
         </div>
     )
 }

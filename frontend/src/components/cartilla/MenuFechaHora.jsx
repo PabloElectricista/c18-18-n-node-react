@@ -9,6 +9,8 @@ import CalendarCartillas from "../calendar/CalendarCartillas"
 
 const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaElegida }) => {
 
+
+    const date = new Date()
     const [horariosDisponibles, setHorariosDisponibles] = useState([])
 
     const idBusqueda = "666698b2f8f9b0e0fc0bcf3e"
@@ -29,12 +31,12 @@ const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaEl
     const [showMenu, setShowMenu] = useState()
     const [showCalendar, setShowCalendar] = useState(false)
     const [selectedDay, setSelectedDay] = useState(null)
-    const [selectedMonth, setSelectedMonth] = useState(null)
-    const [selectedYear, setSelectedYear] = useState(null)
+    const [selectedMonth, setSelectedMonth] = useState(date.getMonth())
+    const [selectedYear, setSelectedYear] = useState(date.getFullYear())
 
     useEffect(()=>{
         const formatDate = () =>{
-            return `${selectedDay}/${selectedMonth}/${selectedYear}`
+            return `${selectedMonth}/${selectedDay}/${selectedYear}`
         }
         setFechaElegida(formatDate)
     },[selectedDay])
@@ -86,6 +88,8 @@ const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaEl
                             <div className="calendarContainer"> <CalendarCartillas
                                 setShowCalendar={setShowCalendar}
                                 selectedDay={selectedDay}
+                                selectedMonth={selectedMonth}
+                                selectedYear={selectedYear}
                                 setSelectedDay={setSelectedDay}
                                 setSelectedMonth={setSelectedMonth}
                                 setSelectedYear={setSelectedYear}
