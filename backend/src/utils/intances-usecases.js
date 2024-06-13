@@ -15,8 +15,7 @@ import SchedulerUseCases from "../application/usecases/scheduler-usecases.js";
 import ClinicUseCases from "../application/usecases/clinic-usecases.js";
 import SpecialtyUseCases from "../application/usecases/specialties-usecases.js";
 import TokenUseCases from "../application/usecases/token-usecases.js";
-import AuthUseCases from "../application/usecases/auth-usecases.js"; 
-
+import AuthUseCases from "../application/usecases/auth-usecases.js";
 
 //Handlers
 import PatientHandler from "../adapters/http/user/patient-handler.js";
@@ -26,7 +25,6 @@ import SchedulerHandler from "../adapters/http/scheduler/scheduler-handler.js";
 import SpecialtyHandler from "../adapters/http/specialty/specialty-handler.js";
 import ClinicHandler from "../adapters/http/clinic/clinic-handler.js";
 import AuthHandler from "../adapters/http/auth/auth-handler.js";
-
 
 //builder
 import builder from "../application/builder/index.js";
@@ -68,7 +66,7 @@ const appointmentUseCases = new AppointmentUseCases(
   schedulerPrismaRepository,
   builder
 );
-const authUseCases = new AuthUseCases(patientPrismaRepository); 
+const authUseCases = new AuthUseCases(patientPrismaRepository);
 
 //instace-middleware
 const tokenMiddleware = new TokenMiddleware(tokenUseCases);
@@ -91,5 +89,4 @@ export {
   authHandler,
   clinicHandler,
   tokenMiddleware,
-  authHandler,
 };
