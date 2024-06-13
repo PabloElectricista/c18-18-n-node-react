@@ -38,11 +38,19 @@ const createNewAppointmentRules = {
 
 const createNewSpecialtyRules = {
   name: "string|between:3, 25|required",
+  description: "string|between:3, 25|required",
+};
 
 // validacion de clinica franco
 const createNewClinicRules = {
   name_clinic: "string|between:3,20|required",
   room_number: "string|between:2,5|required",
+
+};
+
+const loginPatientRules = {
+  email: "email|required",
+  phone: "string|size:10|required",
 
 };
 
@@ -52,6 +60,6 @@ export {
   getSchedulerByDateRules,
   createNewAppointmentRules,
   createNewSpecialtyRules,
-  createNewClinicRules, // validacion de clinica franco
-
+  createNewClinicRules, 
+  loginPatientRules,
 };
