@@ -113,6 +113,14 @@ const customMessagesClinic = {
   "between.room_number": "El campo debe tener mínimo 2 y máximo 5 caracteres",
 };
 
+const customMessagesLoginPatient = {
+  "required.email": "El campo es obligatorio.",
+  "email.email":  "El campo no es una dirección de correo electrónico válida",
+  "required.phone_number": "El campo es obligatorio.",
+  "string.phone_number": "El campo el numero debe ir entre comillas dobles",
+  "size.phone": "El campo debe ser de máximo de 10 dígitos",
+};
+
 const customMessageEmail = {
   "required.email": "El campo es obligatorio",
   "email.email": "El campo no es una dirección de correo electrónico válida.",
@@ -136,5 +144,7 @@ export {
   customMessagesUpdateSpecialty,
   customMessagesUpdateClinic,
   customMessageEmail,
+  customMessagesLoginPatient
 };
+
 

@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
-
 export default class AuthUseCases {
-  constructor(patientPrismaRepository) {
-    this.patientPrismaRepository = patientPrismaRepository;
-  }
+    constructor(patientPrismaRepository, tokenUseCases) {
+      this.patientPrismaRepository = patientPrismaRepository;
+      this.tokenUseCases = tokenUseCases;
+    }
 
-  recoveryPassword = async (email) => {
+   recoveryPassword = async (email) => {
     const [patientEmail, error] = await this.patientPrismaRepository.findPatientByEmail(
       email
     );
@@ -41,4 +41,18 @@ export default class AuthUseCases {
     }
   return [patientEmail, 200, null];
   };
+  
+loginPatient = async (loginPatient) => {
+ const [patient, error] = await this.patientPrismaRepository.findPatientByEmail(loginPatient.email);
+ if (error) return [null, 404, error];
+ 
+ if (patient.phone !== loginPatient.phone)
+ return [ null, 400, "contraseña no coincide con el usuario"];
+ 
+ const [token, errors] = await this.tokenUseCases.generateToken(patient.id, patient.role);
+ if (errors) return [null, 400, errors];
+ return [token, patient, 200, null];
+    }  
+ 
 }
+

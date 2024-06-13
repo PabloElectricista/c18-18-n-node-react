@@ -17,6 +17,7 @@ import SpecialtyUseCases from "../application/usecases/specialties-usecases.js";
 import TokenUseCases from "../application/usecases/token-usecases.js";
 import AuthUseCases from "../application/usecases/auth-usecases.js"; 
 
+
 //Handlers
 import PatientHandler from "../adapters/http/user/patient-handler.js";
 import Doctorhandler from "../adapters/http/user/doctor-handler.js";
@@ -87,6 +88,7 @@ export {
   schedulerHandler,
   doctorHandler,
   specialtyHandler,
+  authHandler,
   clinicHandler,
   tokenMiddleware,
   authHandler,

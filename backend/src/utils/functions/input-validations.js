@@ -8,12 +8,12 @@ import {
   createNewAppointmentRules,
   recoveryPasswordRules,
   createNewSpecialtyRules,
+  loginPatientRules,
   createNewClinicRules,
   updatePatientRules,
   updateDoctorRules,
   updateSpecialtyRules,
   updateClinicRules,
-
 } from "../const/input-rules.js";
 
 //imports custom-message
@@ -24,11 +24,11 @@ import {
   customMessageEmail,
   customMessagesSpecialty,
   customMessagesClinic,
+  customMessagesLoginPatient,
   customMessagesUpdatePatient,
   customMessagesUpdateDoctor,
   customMessagesUpdateSpecialty,
   customMessagesUpdateClinic,
-
 } from "../const/custom-message.js";
 
 const createNewPatientValidations = (newUserPayload) => {
@@ -149,6 +149,18 @@ const createNewUpdateClinicValidations = (newClinicPayload) => {
   return null;
 };
 
+const loginPatientValidations = (loginPatientPayload) => {
+  const validation = new Validator(
+    loginPatientPayload,
+    loginPatientRules,
+    customMessagesLoginPatient,
+
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
 export {
   createNewPatientValidations,
   createNewDoctorValidations,
@@ -156,9 +168,11 @@ export {
   createNewSpecialtyValidations,
   getSchedulerByDateValidations,
   createNewClinicValidations,
+  loginPatientValidations,
   emailValidations,
   updatePatientValidations,
   updateDoctorValidations,
   updateSpecialtyValidations,
   createNewUpdateClinicValidations,
+
 };

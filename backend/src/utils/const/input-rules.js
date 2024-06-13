@@ -56,6 +56,7 @@ const createNewAppointmentRules = {
 
 const createNewSpecialtyRules = {
   name: "string|between:3, 25|required",
+  description: "string|between:3, 25|required",
 };
 
 const updateSpecialtyRules = {
@@ -75,6 +76,12 @@ const updateClinicRules = {
   room_number: "string|between:2,5",
 };
 
+const loginPatientRules = {
+  email: "email|required",
+  phone: "string|size:10|required",
+
+};
+
 export {
   createNewPatientRules,
   createNewDoctorRules,
@@ -82,6 +89,7 @@ export {
   createNewAppointmentRules,
   recoveryPasswordRules, 
   createNewSpecialtyRules,
+  loginPatientRules,
   createNewClinicRules,
   updatePatientRules,
   updateDoctorRules,
