@@ -5,9 +5,6 @@ export default function Menu({ handleMenu, patient }) {
   }
   return (
     <div className="menu-clinic-container">
-      <span className="menu-clinic-text2" id="historial" onClick={handleMenuItem}>
-        Ver historial clínico
-      </span>
       <span className="menu-clinic-text3" id="ausente" onClick={handleMenuItem}>
         Marcar como ausente
       </span>

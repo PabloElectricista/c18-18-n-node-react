@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import Temp from './Temp'
 import './membresiaMain.css'
+import { useNavigate } from 'react-router-dom'
 const payments = {
   proximoPago: '1.000',
   vencimiento: '05/07/2024',
@@ -10,13 +9,10 @@ const payments = {
 }
 
 const MembresiaMain = () => {
-
-  const [show, setShow] = useState(false)
+  const navigate = useNavigate()
+  
   return (
     <div className="membresiaMain-container">
-      {
-        show && <Temp setShow={setShow} />
-      }
       <div className="membresiaMain-container1">
         <div className="membresiaMain-container2">
           <span className="membresiaMain-text">Su próximo pago</span>
@@ -36,7 +32,7 @@ const MembresiaMain = () => {
           </div>
           <button
             type="button"
-            className="membresiaMain-button" onClick={() => setShow(true)}
+            className="membresiaMain-button" onClick={() => navigate('/metodo-de-pago-screen')}
           >
             <span className="membresiaMain-text07">
               pagar ahora

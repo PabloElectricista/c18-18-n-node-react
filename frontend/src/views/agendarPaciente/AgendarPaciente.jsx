@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import './agendarPaciente.css'
-import Footer from '../components/footer/Footer'
-import Agendar from '../components/agendarPacientes/Agendar'
+import Footer from '../../components/footer/Footer'
+import Agendar from '../../components/agendarPacientes/Agendar'
 
 export default function AgendarPaciente() {
   return (

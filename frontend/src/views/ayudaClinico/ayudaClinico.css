@@ -1,11 +1,14 @@
-.novedades-container {
+.ayudaClinico-container {
   gap: 40px;
   width: 100%;
   display: flex;
+  min-height: 100vh;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: #f3f3f3;
 }
-.novedades-links-container {
+.ayudaClinico-links-container {
   gap: 300px;
   width: 50%;
   display: flex;
@@ -13,11 +16,11 @@
   flex-shrink: 0;
   justify-content: center;
 }
-.novedades-back-arrow {
+.ayudaClinico-back-arrow {
   width: 24px;
   height: 24px;
 }
-.novedades-text {
+.ayudaClinico-text {
   color: rgba(255, 255, 255, 1);
   width: 156px;
   height: auto;
@@ -29,7 +32,7 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.novedades-header {
+.ayudaClinico-header {
   gap: 59px;
   width: 100%;
   height: auto;
