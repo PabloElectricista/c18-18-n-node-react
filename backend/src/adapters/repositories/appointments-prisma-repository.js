@@ -9,7 +9,7 @@ export default class AppointmentPrismaRepository {
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
 
@@ -29,7 +29,7 @@ export default class AppointmentPrismaRepository {
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
       if (!appointment) return [null, `Appointment not found`];
@@ -43,11 +43,11 @@ export default class AppointmentPrismaRepository {
   async findAppointmentByUser(userId) {
     try {
       const userInAppointment = await this.prismaClient.appointments.findMany({
-        where: { user_id: userId },
+        where: { patient_id: userId },
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
       if (!userInAppointment || userInAppointment.length === 0)
@@ -84,11 +84,10 @@ export default class AppointmentPrismaRepository {
       );
     }
   }
-  async deleteAppointment(appointmentId, payloadAppointment) {
+  async deleteAppointment(appointmentId) {
     try {
-      const deleteAppointment = await this.prismaClient.appointments.update({
+      const deleteAppointment = await this.prismaClient.appointments.delete({
         where: { id: appointmentId },
-        data: payloadAppointment,
       });
       return [deleteAppointment, null];
     } catch (error) {
