@@ -66,7 +66,11 @@ const appointmentUseCases = new AppointmentUseCases(
   schedulerPrismaRepository,
   builder
 );
-const authUseCases = new AuthUseCases(patientPrismaRepository);
+const authUseCases = new AuthUseCases(
+  patientPrismaRepository,
+  doctorPrismaRepository,
+  tokenUseCases
+);
 
 //instace-middleware
 const tokenMiddleware = new TokenMiddleware(tokenUseCases);
