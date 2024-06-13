@@ -1,4 +1,7 @@
-import { getFormatDate } from "../../utils/functions/date.js";
+import {
+  getFormatDate,
+  generateDateRange,
+} from "../../utils/functions/date.js";
 import {
   setAppoinments,
   updateAppointments,
@@ -35,15 +38,23 @@ export default class SchedulerUseCases {
     return [scheduler, 200, null];
   };
 
-  createNewScheduler = async (schedulerPayload = {}) => {
-    const [doctors, doctorErr] = await this.doctorUseCase.findAllDoctor();
+  createNewScheduler = async (schedulerPayload = {}, days = 7) => {
+    const [doctors, , doctorErr] = await this.doctorUseCase.findAllDoctors();
     if (doctorErr) return [null, 404, doctorErr];
 
-    const newSchedulers = doctors.map((doctor) => ({
-      doctor_id: doctor.id,
-      appointments: setAppoinments(schedulerPayload),
-      created_at: getFormatDate(),
-    }));
+    const dates = [];
+    generateDateRange(days, dates);
+    const newSchedulers = [];
+
+    dates.forEach((date) => {
+      doctors.forEach((doctor) => {
+        newSchedulers.push({
+          doctor_id: doctor.id,
+          ...setAppoinments(schedulerPayload),
+          created_at: getFormatDate(),
+        });
+      });
+    });
 
     const [scheduler, err] = await this.prismaRepository.createNewScheduler(
       newSchedulers
@@ -52,7 +63,7 @@ export default class SchedulerUseCases {
     return [scheduler, 200, null];
   };
 
-  updateScheduler = async (schedulerId, appointment, userId) => {
+  updateScheduler = async (schedulerId, appointment) => {
     const [scheduler, errScheduler] =
       await this.prismaRepository.findSchedulerById(schedulerId);
     if (errScheduler) return [null, 404, errScheduler];

@@ -6,20 +6,29 @@ import {
   createNewDoctorRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
+  recoveryPasswordRules,
   createNewSpecialtyRules,
-  createNewClinicRules, 
-  // validacion de clinica franco
+  loginUserRules,
+  createNewClinicRules,
+  updatePatientRules,
+  updateDoctorRules,
+  updateSpecialtyRules,
+  updateClinicRules,
 } from "../const/input-rules.js";
-//imports custom-message
 
+//imports custom-message
 import {
   customMessagesPatient,
   customMessagesDoctor,
   customMessagesAppointment,
+  customMessageEmail,
   customMessagesSpecialty,
   customMessagesClinic,
-  // validacion de clinica franco
-
+  customMessagesLoginUser,
+  customMessagesUpdatePatient,
+  customMessagesUpdateDoctor,
+  customMessagesUpdateSpecialty,
+  customMessagesUpdateClinic,
 } from "../const/custom-message.js";
 
 export const createNewPatientValidations = (newUserPayload) => {
@@ -33,7 +42,18 @@ export const createNewPatientValidations = (newUserPayload) => {
   return null;
 };
 
-export const createNewDoctorValidations = (newUserPayload) => {
+const updatePatientValidations = (newUserPayload) => {
+  const validation = new Validator(
+    newUserPayload,
+    updatePatientRules,
+    customMessagesUpdatePatient
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const createNewDoctorValidations = (newUserPayload) => {
   const validation = new Validator(
     newUserPayload,
     createNewDoctorRules,
@@ -44,7 +64,18 @@ export const createNewDoctorValidations = (newUserPayload) => {
   return null;
 };
 
-export const getSchedulerByDateValidations = (filters) => {
+const updateDoctorValidations = (newUserPayload) => {
+  const validation = new Validator(
+    newUserPayload,
+    updateDoctorRules,
+    customMessagesUpdateDoctor
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const getSchedulerByDateValidations = (filters) => {
   const validation = new Validator(filters, getSchedulerByDateRules);
   const errors = validation.errors.all();
   if (validation.fails()) return errors;
@@ -62,32 +93,83 @@ export const createNewAppointmentValidations = (appointmentPayload) => {
   return null;
 };
 
-
-export const createNewSpecialtyValidations = (SpecialtyPayload) => {
+const createNewSpecialtyValidations = (SpecialtyPayload) => {
   const validation = new Validator(
     SpecialtyPayload,
     createNewSpecialtyRules,
     customMessagesSpecialty
-    );
-
-// funcion validacion franco
-export const createNewClinicValidations = (newClinicPayload) => {
-  const validation = new Validator(
-    newClinicPayload,
-    createNewClinicRules,
-    customMessagesClinic
-
   );
   const errors = validation.errors.all();
   if (validation.fails()) return errors;
   return null;
 };
 
-// export {
-//   createNewuPatientValidations,
-//   createNewDoctorValidations,
-//   createNewAppointmentValidations,
-//   createNewSpecialtyValidations,
-//   getSchedulerByDateValidations,
-//   createNewClinicValidations,
-// };
+const updateSpecialtyValidations = (SpecialtyPayload) => {
+  const validation = new Validator(
+    SpecialtyPayload,
+    updateSpecialtyRules,
+    customMessagesUpdateSpecialty
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const createNewClinicValidations = (newClinicPayload) => {
+  const validation = new Validator(
+    newClinicPayload,
+    createNewClinicRules,
+    customMessagesClinic
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const emailValidations = (emailPayload) => {
+  const validation = new Validator(
+    emailPayload,
+    recoveryPasswordRules,
+    customMessageEmail
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const createNewUpdateClinicValidations = (newClinicPayload) => {
+  const validation = new Validator(
+    newClinicPayload,
+    updateClinicRules,
+    customMessagesUpdateClinic
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+const loginUserValidations = (loginUserPayload) => {
+  const validation = new Validator(
+    loginUserPayload,
+    loginUserRules,
+    customMessagesLoginUser
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
+export {
+  createNewPatientValidations,
+  createNewDoctorValidations,
+  createNewAppointmentValidations,
+  createNewSpecialtyValidations,
+  getSchedulerByDateValidations,
+  createNewClinicValidations,
+  loginUserValidations,
+  emailValidations,
+  updatePatientValidations,
+  updateDoctorValidations,
+  updateSpecialtyValidations,
+  createNewUpdateClinicValidations,
+};

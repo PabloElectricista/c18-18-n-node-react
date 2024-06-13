@@ -5,6 +5,10 @@
     align-items: center;
     flex-direction: column;
     background-color: #f3f3f3;
+    overflow: auto;
+    overflow-x: hidden;
+    margin: 0px auto;
+    padding: 0px auto;
   }
   .clinic-header {
     gap: 59px;
@@ -50,6 +54,12 @@
     /* flex-direction: column; */
     justify-content: center;
   }
+
+  @media(max-width:1120px){
+    .clinic-scheludes-calendar{
+      flex-direction: column;
+    }
+  }
   .clinic-button {
     gap: 10px;
     width: 700px;
@@ -93,6 +103,14 @@
     line-height: normal;
     font-stretch: normal;
     text-decoration: none;
+  }
+    @media(max-width:724px){
+    .clinic-table{
+      width: 450px;
+    }
+    .clinic-title{
+      width: 450px;
+    }
   }
   .clinic-scheludes {
     width: 100%;
@@ -167,12 +185,20 @@
     cursor: pointer;
   }
   .clinic-buttons-container {
-    height: auto;
-    display: grid;
-    column-gap: 96px;
-    grid-row-gap: 48px;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    width: 1000px;
   }
+
+  @media(max-width:1030px){
+    .clinic-buttons-container{
+      width: 800px;
+      justify-content: space-evenly;
+    }
+  }
+
   .clinic-button1 {
     width: 250px;
     height: 72px;
@@ -374,19 +400,12 @@
     }
   }
   @media(max-width: 991px) {
-    .clinic-container {
-      gap: 24px;
-    }
     .clinic-scheludes-calendar {
       padding-left: 24px;
       padding-right: 24px;
     }
-    .clinic-buttons-container {
-      column-gap: 48px;
-      grid-row-gap: 24px;
-    }
   }
-  @media(max-width: 479px) {
+  @media(max-width: 650px) {
     .clinic-container {
       gap: 32px;
       padding-bottom: 32px;

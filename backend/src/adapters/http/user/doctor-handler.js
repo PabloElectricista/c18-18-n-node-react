@@ -1,4 +1,7 @@
-import { createNewDoctorValidations } from "../../../utils/functions/input-validations.js";
+import {
+  createNewDoctorValidations,
+  updateDoctorValidations,
+} from "../../../utils/functions/input-validations.js";
 
 export default class Doctorhandler {
   constructor(doctorUseCases) {
@@ -53,10 +56,10 @@ export default class Doctorhandler {
     try {
       const errors = createNewDoctorValidations(req.body);
       if (errors)
-      return res.status(400).send({
-        message: "fail",
-        errors: errors,
-      });
+        return res.status(400).send({
+          message: "fail",
+          errors: errors,
+        });
       const [doctor, token, status, err] =
         await this.doctorUseCases.createNewDoctor(req.body);
       if (err)
@@ -70,7 +73,7 @@ export default class Doctorhandler {
         token,
       });
     } catch (error) {
-      console.error(error)
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -80,6 +83,12 @@ export default class Doctorhandler {
 
   updateDoctorById = async (req, res) => {
     try {
+      const errors = updateDoctorValidations(req.body);
+      if (errors)
+        return res.status(400).send({
+          message: "fail",
+          errors: errors,
+        });
       const [user, status, err] = await this.doctorUseCases.updateDoctorById(
         req.params.id,
         req.body
@@ -93,7 +102,8 @@ export default class Doctorhandler {
         message: "success",
         data: user,
       });
-    } catch {
+    } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,
@@ -113,9 +123,10 @@ export default class Doctorhandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `Doctor deleted successfully: ${doctor.id}`,
+        data: `Doctor deleted successfully with Id:${doctor.id}`,
       });
-    } catch {
+    } catch (error) {
+      console.log(error);
       return res.status(500).send({
         message: "There was internal server error",
         errors: error,

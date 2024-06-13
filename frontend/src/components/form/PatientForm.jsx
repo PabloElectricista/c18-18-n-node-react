@@ -11,11 +11,14 @@ const PatientRegisterForm = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [pass, setPass] = useState('')
+  const [gender, setGender] = useState('')
+  const [age, setAge] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const signup = useSelector(state => state.auth)
 
   useEffect(() => {
+    console.log(signup.user)
     if (signup.user) {
       navigate(`/${signup.user.role}`)
     } else if (signup?.error) {
@@ -32,8 +35,10 @@ const PatientRegisterForm = () => {
     if (Number(number) || number === '') {
       if (e.target.name === 'formPass') {
         setPass(number)
-      } else {
+      } else if (e.target.name === 'formPhone') {
         setPhone(number)
+      } else if (number <= 120) {
+        setAge(number)
       }
     }
   }
@@ -45,7 +50,8 @@ const PatientRegisterForm = () => {
       lastName.length === 0 ||
       email.length === 0 ||
       phone.length === 0 ||
-      pass.length === 0
+      pass.length === 0 ||
+      gender.length === 0
     ) {
       toast.error('Debes llenar los campos', {
         toastId: 'error2',
@@ -59,6 +65,8 @@ const PatientRegisterForm = () => {
       name,
       last_name: lastName,
       patient_dni: pass,
+      age: parseInt(age, 10),
+      gender,
       phone,
       email,
       role: 'patient'
@@ -91,6 +99,35 @@ const PatientRegisterForm = () => {
               id="formLastName"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          <div className='input-wrapper'>
+            <label className="input-label" htmlFor="formGender">Género *</label>
+            <select 
+              required 
+              className='form-select' 
+              name='formGender' 
+              id='formGender'
+              value={gender}
+              onChange={e => setGender(e.target.value)}
+            >
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value='Masculino'>Masculino</option>
+              <option value='Femenino'>Femenino</option>
+              <option value='Otro'>Otro</option>
+            </select>
+          </div>
+          <div className="input-wrapper">
+            <label className="input-label" htmlFor="formAge">Edad *</label>
+            <input
+              className="form-input"
+              type='text'
+              name="formAge"
+              id="formAge"
+              max="120"
+              min="0"
+              value={age}
+              onChange={(e) => handleNumberChange(e)}
             />
           </div>
           <div className="input-wrapper">
