@@ -1,20 +1,37 @@
-module.exports = class AuthHandler {
-  constructor() {}
+import { loginPatientValidations } from "../../../utils/functions/input-validations.js";
+export default  class AuthHandler {
+  constructor(authUseCases) {
+    this.authUseCases= authUseCases;
+  }
 
-  register = async (req, res) => {
+  
+  loginPatient = async (req, res) => {
     try {
-      const errors = registerValidation(req.body);
-      if (errors)
+      const errors = loginPatientValidations(req.body);
+      if (errors) {
         return res.status(400).send({
           message: "fail",
           errors,
         });
-      const [user, status, err] = await this.usecases.register(req.body);
-      if (err) return err;
+      }
+      const [token, patient, status, err] = await this.authUseCases.loginPatient(req.body);
+      if (err) {
+        return res.status(status).send({
+          message: "fail",
+          errors: err,
+        });
+      }
       return res.status(status).send({
-        data: user,
+        token,
+        data: patient,
         message: "success",
       });
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send({
+        message: "fail",
+        errors: "Internal server error",
+      });
+    }
   };
 };
