@@ -1,7 +1,7 @@
 const createNewPatientRules = {
   name: "string|between:3,15|required",
   last_name: "string|between:3,20",
-  patient_dni: "string|size:10|required",
+  patient_dni: "string|size:8|required",
   age: "integer",
   gender: "string|min:5|max:9|required",
   phone: "string|size:10|required",
@@ -11,7 +11,7 @@ const createNewPatientRules = {
 const updatePatientRules = {
   name: "string|between:3,15",
   last_name: "string|between:3,20",
-  patient_dni: "string|size:10",
+  patient_dni: "string|size:8",
   age: "integer",
   gender: "string|min:5|max:9",
   phone: "string|size:10",
@@ -22,7 +22,7 @@ const createNewDoctorRules = {
   clinic_id: "string|hex|size:24|required",
   name: "string|between:3, 15|required",
   last_name: "string|between:3, 20",
-  doctor_dni: "string|size:10|required",
+  doctor_dni: "string|size:8|required",
   gender: "string|min:5|max:9|required",
   phone: "string|size:10|required",
   email: "required|email",
@@ -33,7 +33,7 @@ const updateDoctorRules = {
   clinic_id: "string|hex|size:24",
   name: "string|between:3, 15",
   last_name: "string|between:3, 20",
-  doctor_dni: "string|size:10",
+  doctor_dni: "string|size:8",
   gender: "string|min:5|max:9",
   phone: "string|size:10",
   email: "required|email",
@@ -64,7 +64,7 @@ const updateSpecialtyRules = {
 };
 
 const createNewClinicRules = {
-  name_clinic: "string|between:3,20|required",
+  name_clinic: "string|between:3,35|required",
   room_number: "string|between:2,5|required",
 };
 
@@ -72,7 +72,7 @@ const recoveryPasswordRules = {
   email: "required|email",
 };
 const updateClinicRules = {
-  name_clinic: "string|between:3,20",
+  name_clinic: "string|between:3,35",
   room_number: "string|between:2,5",
 };
 
