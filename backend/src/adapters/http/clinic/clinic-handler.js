@@ -119,5 +119,7 @@ export default class ClinicHandler {
         });
       }
     };
+  
+  
   }
   

@@ -66,8 +66,8 @@ model Appointments {
   doctor_id    String       @db.ObjectId
   specialty_id String       @db.ObjectId
   Specialties  Specialties? @relation(fields: [specialty_id], references: [id])
-  Patients     Patients?    @relation(fields: [patients_id], references: [id])
-  patients_id  String       @db.ObjectId
+  Patient     Patients?    @relation(fields: [patient_id], references: [id])
+  patient_id  String       @db.ObjectId
   room_number  String
   status       Status?      @default(RESERVED)
   status_logs  Json

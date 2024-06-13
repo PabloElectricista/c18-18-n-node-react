@@ -9,7 +9,7 @@ export default class AppointmentPrismaRepository {
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
 
@@ -29,7 +29,7 @@ export default class AppointmentPrismaRepository {
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
       if (!appointment) return [null, `Appointment not found`];
@@ -47,7 +47,7 @@ export default class AppointmentPrismaRepository {
         include: {
           doctor: true,
           Specialties: true,
-          Patients: true,
+          Patient: true,
         },
       });
       if (!userInAppointment || userInAppointment.length === 0)

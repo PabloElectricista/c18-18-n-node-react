@@ -48,4 +48,9 @@ const customMessagesClinic = {
   "between.room_number": "El campo debe tener mínimo 2 y máximo 5 caracteres",
 };
 
-export { customMessagesPatient, customMessagesAppointment, customMessagesClinic };
+const customMessageEmail = {
+  "required.email": "El campo es obligatorio",
+  "email.email": "El campo no es una dirección de correo electrónico válida.",
+};
+
+export { customMessagesPatient, customMessagesAppointment, customMessagesClinic, customMessageEmail };

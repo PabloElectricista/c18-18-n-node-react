@@ -23,15 +23,20 @@ const createNewAppointmentRules = {
   reserved_at: "date",
 };
 
-// validacion de clinica franco
+
 const createNewClinicRules = {
   name_clinic: "string|between:3,20|required",
   room_number: "string|between:2,5|required",
 };
 
+const recoveryPasswordRules = {
+  email: "required|email",
+}; 
+
 export {
   createNewPatientRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
-  createNewClinicRules, // validacion de clinica franco
+  createNewClinicRules, 
+  recoveryPasswordRules, 
 };

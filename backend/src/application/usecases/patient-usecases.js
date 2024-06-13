@@ -21,6 +21,15 @@ export default class PatientUseCases {
     return [patient, 200, null];
   };
 
+  findPatientByEmail = async (patientEmail) => {
+    const [patient, err] = await this.patientPrismaRepository.findPatientByEmail(
+      patientEmail
+    );
+    if (err) return [null, 404, err];
+    if (!patient) return [null, 404, "email not found"];
+    return [patient, 200, null];
+  };
+
   createNewPatient = async (newPatientPayload) => {
     const [patientByEmail] =
       await this.patientPrismaRepository.findPatientByEmail(

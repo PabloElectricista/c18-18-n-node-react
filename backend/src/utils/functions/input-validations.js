@@ -5,14 +5,16 @@ import {
   createNewPatientRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
-  createNewClinicRules, // validacion de clinica franco
+  createNewClinicRules,
+  recoveryPasswordRules,
 } from "../const/input-rules.js";
 
 //imports custom-message
 import {
   customMessagesPatient,
   customMessagesAppointment,
-  customMessagesClinic, // validacion de clinica franco
+  customMessagesClinic,
+  customMessageEmail,
 } from "../const/custom-message.js";
 
 const createNewPatientValidations = (newUserPayload) => {
@@ -56,9 +58,21 @@ const createNewClinicValidations = (newClinicPayload) => {
   return null;
 };
 
+const emailValidations = (emailPayload) => {
+  const validation = new Validator(
+    emailPayload,
+    recoveryPasswordRules,
+    customMessageEmail
+  );
+  const errors = validation.errors.all();
+  if (validation.fails()) return errors;
+  return null;
+};
+
 export {
   createNewPatientValidations,
   getSchedulerByDateValidations,
   createNewAppointmentValidations,
   createNewClinicValidations,
+  emailValidations,
 };
