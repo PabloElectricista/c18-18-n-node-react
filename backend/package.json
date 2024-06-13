@@ -21,6 +21,7 @@
     "dotenv": "^16.4.5",
     "fastify": "^4.27.0",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.13",
     "prisma": "^5.14.0",
     "validatorjs": "^3.22.1"
   },

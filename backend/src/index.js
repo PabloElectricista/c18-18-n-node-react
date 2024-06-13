@@ -14,8 +14,6 @@ import specialtyRoutes from "../../backend/src/adapters/http/specialty/specialty
 import clinicRoutes from "../../backend/src/adapters/http/clinic/clinic-route.js";
 import authRoutes from "../../backend/src/adapters/http/auth/auth-route.js";
 
-
-
 fastify.register(fastifyCors, {
   origin: "*",
   allowedHeaders: [

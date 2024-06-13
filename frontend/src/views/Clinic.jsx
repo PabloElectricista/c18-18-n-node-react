@@ -10,6 +10,7 @@ import Calendar from '../components/calendar/Calendar'
 import ListaDePacientes from '../components/listaDePacientes/ListaDePacientes'
 import Agendar from '../components/agendarPacientes/Agendar'
 import './clinic.css'
+import NavbarCliente from '../components/navbar/NavbarCliente'
 
 const Clinic = () => {
   const navigate = useNavigate()
@@ -57,22 +58,7 @@ const Clinic = () => {
 
   return (
     <div className="clinic-container">
-      <Helmet>
-        <title>Clínica - AgendaSalud</title>
-        <meta property="og:title" content="Clinic - AgendaSalud" />
-      </Helmet>
-      <div className="clinic-header">
-        <div className="clinic-links-container">
-          <img
-            alt="logo Agenda Salud"
-            src="/logonew.png"
-            className="nav-logo"
-          />
-          <span className="clinic-text">
-            Agenda Salud
-          </span>
-        </div>
-      </div>
+      <NavbarCliente />
       <div className="clinic-scheludes-calendar">
         <ClinicTable
           handleMenuItem={handleMenuItem}
@@ -80,7 +66,6 @@ const Clinic = () => {
           scheludes={scheludes}
           handleOpenMenu={handleOpenMenu}
         />
-
         <Calendar
           setShowCalendar={setShowCalendar}
           selectedDay={selectedDay}
