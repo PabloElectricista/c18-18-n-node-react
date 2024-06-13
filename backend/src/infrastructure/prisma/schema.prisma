@@ -13,6 +13,7 @@ model Patients {
   last_name    String
   patient_dni  String         @unique
   age          Int
+  gender       String
   phone        String         @unique
   email        String         @unique
   role         Role?          @default(PATIENT)
@@ -29,6 +30,7 @@ model Doctors {
   name         String
   last_name    String
   doctor_dni   String         @unique
+  gender       String
   phone        String         @unique
   email        String         @unique
   role         Role?          @default(DOCTOR)
@@ -66,14 +68,16 @@ model Appointments {
   doctor_id    String       @db.ObjectId
   specialty_id String       @db.ObjectId
   Specialties  Specialties? @relation(fields: [specialty_id], references: [id])
-  Patient     Patients?    @relation(fields: [patient_id], references: [id])
-  patient_id  String       @db.ObjectId
-  room_number  String
+  Patient      Patients?    @relation(fields: [patient_id], references: [id])
+  patient_id   String       @db.ObjectId
+  room_number  String?
   status       Status?      @default(RESERVED)
+  status_date  String
   status_logs  Json
   duration     Int?         @default(1)
   reserved_at  String
   created_at   String
+  deleted_at   String?
 
   @@map("appointments")
 }

@@ -18,7 +18,7 @@ const routes = [
   },
   {
     url: "/clinic/:id",
-    method: "PUT",
+    method: "PATCH",
     handler: clinicHandler.updateClinic,
   },
   {

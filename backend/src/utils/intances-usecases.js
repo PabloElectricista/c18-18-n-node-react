@@ -22,9 +22,10 @@ import PatientHandler from "../adapters/http/user/patient-handler.js";
 import Doctorhandler from "../adapters/http/user/doctor-handler.js";
 import AppointmentHandler from "../adapters/http/appointment/appointment-handler.js";
 import SchedulerHandler from "../adapters/http/scheduler/scheduler-handler.js";
+import SpecialtyHandler from "../adapters/http/specialty/specialty-handler.js";
 import ClinicHandler from "../adapters/http/clinic/clinic-handler.js";
-import SpecialtyHandler from "../adapters/http/user/specialty-handler.js";
 import AuthHandler from "../adapters/http/auth/auth-handler.js";
+
 
 //builder
 import builder from "../application/builder/index.js";
@@ -42,9 +43,18 @@ const specialtyPrismaRepository = new SpecialtyPrismaRepository(prisma);
 
 //Intances-usecases
 const tokenUseCases = new TokenUseCases(jwt);
-const patientUseCases = new PatientUseCases(patientPrismaRepository);
-const doctorUseCases = new DoctorUseCases(doctorPrismaRepository);
-const schedulerUseCases = new SchedulerUseCases(schedulerPrismaRepository);
+const patientUseCases = new PatientUseCases(
+  patientPrismaRepository,
+  tokenUseCases
+);
+const doctorUseCases = new DoctorUseCases(
+  doctorPrismaRepository,
+  tokenUseCases
+);
+const schedulerUseCases = new SchedulerUseCases(
+  schedulerPrismaRepository,
+  doctorUseCases
+);
 const clinicUseCases = new ClinicUseCases(clinicPrismaRepository);
 const specialtyUseCases = new SpecialtyUseCases(specialtyPrismaRepository);
 const appointmentUseCases = new AppointmentUseCases(
@@ -58,13 +68,13 @@ const appointmentUseCases = new AppointmentUseCases(
   builder
 );
 const authUseCases = new AuthUseCases(patientPrismaRepository); 
+
 //instace-middleware
 const tokenMiddleware = new TokenMiddleware(tokenUseCases);
 
-
 //Intance-Handler
-const patientHandler = new PatientHandler(patientUseCases, tokenUseCases);
-const doctorHandler = new Doctorhandler(doctorUseCases, tokenUseCases);
+const patientHandler = new PatientHandler(patientUseCases);
+const doctorHandler = new Doctorhandler(doctorUseCases);
 const appointmentHandler = new AppointmentHandler(appointmentUseCases);
 const schedulerHandler = new SchedulerHandler(schedulerUseCases);
 const clinicHandler = new ClinicHandler(clinicUseCases);

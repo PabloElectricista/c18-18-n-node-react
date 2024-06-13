@@ -9,7 +9,7 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
-axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.baseURL = 'http://localhost:4000/api/';
 
 const initialOptions = {
   clientId: "test",

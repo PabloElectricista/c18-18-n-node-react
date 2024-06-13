@@ -7,20 +7,21 @@ const setAppoinments = (schedulerPayload) => {
 
 const updateAppointments = (scheduler, appointmentId, hour, numOfSessions) => {
   const newScheduler = { ...scheduler };
+  delete newScheduler.id;
 
   const parseDate = new Date(hour);
   let hourByDate = parseDate.getHours();
   const minutesByDate = parseDate.getMinutes();
   hourByDate += minutesByDate === 30 ? 0.5 : 0;
 
-  const allowHours = Object.keys(newScheduler).map(Number);
+  const allowHours = Object.keys(newScheduler.appointments);
 
   // Contador para verificar cuántas citas tiene el usuario en este día
   let userDailyAppointments = 0;
 
   // Verifica si el usuario ya tiene citas en este día
-  for (let key in newScheduler) {
-    if (newScheduler[key] === appointmentId) {
+  for (let hour in newScheduler.appointments) {
+    if (newScheduler.appointments[hour] === appointmentId) {
       userDailyAppointments += 0.5;
     }
   }
@@ -31,14 +32,17 @@ const updateAppointments = (scheduler, appointmentId, hour, numOfSessions) => {
   }
 
   for (let i = 0; i < numOfSessions; i++) {
-    if (!allowHours.includes(hourByDate) || newScheduler[hourByDate]) {
+    if (
+      !allowHours.includes(`${hourByDate}`) ||
+      newScheduler.appointments[`${hourByDate}`]
+    ) {
       return [
         null,
         "Horario de reserva no disponible, esta hora no está habilitada o ya está ocupada.",
       ];
     }
 
-    newScheduler[hourByDate] = appointmentId;
+    newScheduler.appointments[hourByDate] = appointmentId;
     hourByDate += 0.5;
   }
 

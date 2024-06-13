@@ -2,9 +2,12 @@
 .contact-container {
   width: 100%;
   display: flex;
-  min-height: 100vh;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+  margin: 0px auto;
+  padding: 0px auto;
+  overflow: auto;
 }
 
 .contact-header {
@@ -48,55 +51,51 @@
   gap: 32px;
   flex: 0 0 auto;
   width: 100%;
-  height: auto;
   display: flex;
   padding: 32px;
   align-items: center;
   flex-direction: column;
+  overflow: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
-.contact-titulo {
-  color: rgba(0, 0, 0, 1);
-  width: 108px;
-  height: auto;
-  font-size: 16px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Inter;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
+
+.hrContact{
+  color: rgba(0, 0, 0, 0.308);
+  opacity: 0.5;
+  max-width: 400px;
 }
 
 .contact-personalizada {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 1;
   gap: 16px;
 }
 
 .contact-titulo1 {
   color: rgba(0, 0, 0, 1);
-  font-size: 14px;
+  font-size: 16px;
   font-style: Regular;
-  text-align: left;
+  text-align: center;
   font-family: Inter;
-  font-weight: 400;
+  font-weight: bold;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 
 .contact-container2 {
-  gap: 23px;
-  top: 39px;
-  left: 0px;
+  width: 760px;
+  padding: 30px;
   display: flex;
-  padding: 20px 289px;
   overflow: hidden;
   align-items: center;
+  gap: 20px;
   border-radius: 20px;
   flex-direction: column;
   background-color: rgba(217, 217, 217, 1);

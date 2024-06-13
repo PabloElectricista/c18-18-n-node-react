@@ -1,4 +1,7 @@
-import { createNewPatientValidations } from "../../../utils/functions/input-validations.js";
+import {
+  createNewPatientValidations,
+  updatePatientValidations,
+} from "../../../utils/functions/input-validations.js";
 export default class PatientHandler {
   constructor(patientUseCases) {
     this.patientUseCases = patientUseCases;
@@ -78,6 +81,12 @@ export default class PatientHandler {
 
   updatePatientById = async (req, res) => {
     try {
+      const errors = updatePatientValidations(req.body);
+      if (errors)
+        return res.status(400).send({
+          message: "fail",
+          errors,
+        });
       const [patient, status, err] =
         await this.patientUseCases.updatePatientById(req.params.id, req.body);
       if (err)
@@ -108,7 +117,7 @@ export default class PatientHandler {
         });
       return res.status(status).send({
         message: "success",
-        data: `Patient deleted successfully: ${patient.id}`,
+        data: `Patient deleted successfully with Id:${patient.id}`,
       });
     } catch (error) {
       return res.status(500).send({

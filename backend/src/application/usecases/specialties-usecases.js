@@ -1,3 +1,5 @@
+import { getFormatDate } from "../../utils/functions/date.js";
+
 export default class SpecialtyUseCases {
     constructor(specialtyPrismaRepository) {
       this.specialtyPrismaRepository = specialtyPrismaRepository;

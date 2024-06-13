@@ -3,9 +3,41 @@ const createNewPatientRules = {
   last_name: "string|between:3,20",
   patient_dni: "string|size:10|required",
   age: "integer",
+  gender: "string|min:5|max:9|required",
   phone: "string|size:10|required",
-  gender: "string|min:5|max:9",
   email: "required|email",
+};
+
+const updatePatientRules = {
+  name: "string|between:3,15",
+  last_name: "string|between:3,20",
+  patient_dni: "string|size:10",
+  age: "integer",
+  gender: "string|min:5|max:9",
+  phone: "string|size:10",
+  email: "email",
+};
+
+const createNewDoctorRules = {
+  clinic_id: "string|hex|size:24|required",
+  name: "string|between:3, 15|required",
+  last_name: "string|between:3, 20",
+  doctor_dni: "string|size:10|required",
+  gender: "string|min:5|max:9|required",
+  phone: "string|size:10|required",
+  email: "required|email",
+  specialty_id: "string|hex|size:24|required",
+};
+
+const updateDoctorRules = {
+  clinic_id: "string|hex|size:24",
+  name: "string|between:3, 15",
+  last_name: "string|between:3, 20",
+  doctor_dni: "string|size:10",
+  gender: "string|min:5|max:9",
+  phone: "string|size:10",
+  email: "required|email",
+  specialty_id: "string|hex|size:24",
 };
 
 const getSchedulerByDateRules = {
@@ -18,11 +50,17 @@ const createNewAppointmentRules = {
   clinic_id: "string|hex|size:24|required",
   doctor_id: "string|hex|size:24|required",
   specialty_id: "string|hex|size:24|required",
-  patient_id: "string|hex|size:24|required",
   duration: "|integer|min:1|max:1",
   reserved_at: "date",
 };
 
+const createNewSpecialtyRules = {
+  name: "string|between:3, 25|required",
+};
+
+const updateSpecialtyRules = {
+  name: "string|between:3, 25",
+};
 
 const createNewClinicRules = {
   name_clinic: "string|between:3,20|required",
@@ -32,11 +70,21 @@ const createNewClinicRules = {
 const recoveryPasswordRules = {
   email: "required|email",
 }; 
+const updateClinicRules = {
+  name_clinic: "string|between:3,20",
+  room_number: "string|between:2,5",
+};
 
 export {
   createNewPatientRules,
+  createNewDoctorRules,
   getSchedulerByDateRules,
   createNewAppointmentRules,
-  createNewClinicRules, 
   recoveryPasswordRules, 
+  createNewSpecialtyRules,
+  createNewClinicRules,
+  updatePatientRules,
+  updateDoctorRules,
+  updateSpecialtyRules,
+  updateClinicRules,
 };

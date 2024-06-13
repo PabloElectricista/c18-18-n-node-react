@@ -27,7 +27,6 @@ const OpcionesCartilla = ({ title, dataDesplegable, id, localidadSelected,setLoc
         }))
     }, [especialidad])
 
-
     return (
         <div className='opcionesCartillasContainer'>
             <div className='contenedoropcionesdesplegables'>
