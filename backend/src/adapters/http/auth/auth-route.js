@@ -1,13 +1,12 @@
 
+import { authHandler } from "../../../utils/intances-usecases.js"
 const routes =[
 
     {
-        url:'/api/register',
+        url:'/auth/login',
         method: 'POST',
-        preHandler:[],
-        handler:userHandler.register,
-    },
-    {
-
+        handler: authHandler.loginPatient,
     }
 ]
+
+export default routes
