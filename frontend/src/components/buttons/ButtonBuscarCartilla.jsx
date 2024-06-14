@@ -12,6 +12,7 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
     const [horaFinal, setHoraFinal] = useState()
     const [date, setDate] = useState()
     const [appointmentData, setAppointmentData] = useState({})
+    const [varIncompletas, setVarIncompletas] = useState(false)
 
     useEffect(() => {
         const handleNumber = (horaElegida) => {
@@ -25,16 +26,17 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
             }
         }
         setHoraFinal(handleNumber(horaElegida))
-    }, [horaElegida ,fechaElegida])
+    }, [horaElegida, fechaElegida])
 
     useEffect(() => {
-        if(fechaElegida != null){
+        if (fechaElegida != null) {
             setDate(`${fechaElegida} ${horaFinal}`)
         }
     }, [horaFinal, fechaElegida])
 
     useEffect(() => {
         if (clinica && especialidad && profesional && horaElegida && fechaElegida) {
+            setVarIncompletas(false)
             setAppointmentData({
                 clinic_id: clinica,
                 doctor_id: profesional,
@@ -43,20 +45,32 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
             })
         }
 
-    }, [horaElegida ,clinica ,especialidad ,profesional ,fechaElegida,date])
+    }, [horaElegida, clinica, especialidad, profesional, fechaElegida, date])
+
+    useEffect(()=>{
+        setTimeout(() => {
+            setVarIncompletas(false)
+        }, 4000);
+    },[varIncompletas])
 
     const mostrarValores = () => {
         if (!clinica || !especialidad || !profesional || !horaElegida || !fechaElegida) {
-            console.log("FALTAN ELEGIR VARIABLES");
+            setVarIncompletas(true)
         } else {
             console.log(appointmentData);
-            dispatch(createNewAppointment({token,data: appointmentData}))
+            dispatch(createNewAppointment({ token, data: appointmentData }))
         }
     };
 
     return (
         <>
-            <button className='buttonBuscar' onClick={() => mostrarValores()} >Buscar</button>
+            <div className="buttonAndSpan">
+                {
+                    varIncompletas ? <span className="spanVariables">AUN FALTA COMPLETAR CAMPOS PARA CONTINUAR</span> : null
+                }
+                <button className='buttonBuscar' onClick={() => mostrarValores()} >Buscar</button>
+            </div>
+
         </>
     )
 }
