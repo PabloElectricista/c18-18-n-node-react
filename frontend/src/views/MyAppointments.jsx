@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAppointmentByUser } from "../redux/thunks/appointmentsThunk";
-// import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
+import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
 
 const MyAppointments = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,9 @@ const MyAppointments = () => {
   const token = localStorage.getItem('tkn')
 
   useEffect(() => {
-    dispatch(getAppointmentByUser(token));
+    if (token) {
+      dispatch(getAppointmentByUser(token));
+    }
   }, [dispatch, token]);
 
   if (loading) {
@@ -25,13 +27,13 @@ const MyAppointments = () => {
     return <div>Error: {error}</div>;
   }
 
+  console.log("soy datacitas: ", dataCitas.appointments);
+
   return (
     <div>
-      <h1>My Appointments</h1>
+      <h1>Mis citas</h1>
       <div>
-        {dataCitas.appointments.map(cita => (
-          <div key={cita.id}>{cita.patient_name}</div>
-        ))}
+        <PatientRecordsTable citasPaciente={dataCitas.appointments} />
       </div>
     </div>
   );
