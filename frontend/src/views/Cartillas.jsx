@@ -10,6 +10,9 @@ import { getAllClinics, getAllSpecialties, getAllDoctors, getDoctorById, getSpec
 import { getAllSchedulers } from '../redux/thunks/schedulerThunk'
 import MenuDesplagableNew from '../components/cartilla/MenuDesplagableNew'
 
+import PdfRenderer from "../components/pdfRenderer/PdfRenderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+
 const Cartillas = () => {
 
     //pruebas redux
@@ -60,18 +63,42 @@ const Cartillas = () => {
 
     //validaciones post filtros
 
-    useEffect(()=>{
-        if(clinica===undefined){
+    useEffect(() => {
+        if (clinica === undefined) {
             setProfesional(null)
             setespecialidad(null)
         }
-    },[clinica])
+    }, [clinica])
 
-    useEffect(()=>{
-        if(especialidad===undefined){
+    useEffect(() => {
+        if (especialidad === undefined) {
             setProfesional(null)
         }
-    },[especialidad])
+    }, [especialidad])
+
+    //pdf
+
+    const pacientePDF = {
+        name: "Agustin",
+        last_name: "Hahn",
+        patient_dni: 1145602459
+      };
+
+    const medicoPDF = {
+        name: nameProfesional,
+        last_name: lastnameProfesional,
+        specialty: nameSpecialty,
+    };
+
+    const clinicaPDF = {
+        name_clinic: nameClinic,
+        room_number: "C10",
+    }
+
+    const fechaDeLaCitaPDF = `${fechaElegida} ${horaElegida}`;
+
+    const fecha = new Date().toLocaleDateString().replace(/\//g, '-');
+    const fileName = `${pacientePDF.name}-${pacientePDF.last_name}_${fecha}.pdf`;
 
     return (
         <>
@@ -121,7 +148,22 @@ const Cartillas = () => {
                 </div>
                 <div className='divButtonBuscar'>
                     <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida} />
+                    <PDFDownloadLink
+                            document={<PdfRenderer
+                                pacientePDF={pacientePDF}
+                                medicoPDF={medicoPDF}
+                                clinicaPDF={clinicaPDF}
+                                fechaCitaPDF={fechaDeLaCitaPDF}
+                            />}
+                            fileName={fileName}
+                        >
+                            {({ loading }) => loading ?
+                                <button>Cargando...</button> :
+                                <button>Descargar</button>
+                            }
+                        </PDFDownloadLink>
                 </div>
+                
                 <Footer />
             </div>
         </>

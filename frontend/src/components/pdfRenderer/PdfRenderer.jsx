@@ -44,8 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// 1 cm = 28.35 pt
-const PdfRenderer = ({ paciente, medico, clinica, fechaCita }) => {
+const PdfRenderer = ({ pacientePDF, medicoPDF, clinicaPDF, fechaCitaPDF }) => {
   return (
     <Document>
       <Page size={{ width: 480, height: 480 }} style={styles.page}>
@@ -53,15 +52,15 @@ const PdfRenderer = ({ paciente, medico, clinica, fechaCita }) => {
           <Text style={[styles.text, styles.centered]}>Agenda Salud</Text>
           <Image style={styles.image} src="https://res.cloudinary.com/dqh2illb5/image/upload/v1717548343/login/logo_mdd2jm.png" />
           <View style={styles.divider} />
-          <Text style={styles.text}>Nombre: {paciente.name} {paciente.last_name}</Text>
-          <Text style={styles.text}>DNI: {paciente.patient_dni}</Text>
+          <Text style={styles.text}>Nombre: {pacientePDF.name} {pacientePDF.last_name}</Text>
+          <Text style={styles.text}>DNI: {pacientePDF.patient_dni}</Text>
           <View style={styles.divider} />
-          <Text style={styles.boldText}>Clínica: {clinica.name_clinic}</Text>
-          <Text style={styles.boldText}>Sala: {clinica.room_number}</Text>
-          <Text style={styles.boldText}>Fecha de la Cita: {fechaCita}</Text>
+          <Text style={styles.boldText}>Clínica: {clinicaPDF.name_clinic}</Text>
+          <Text style={styles.boldText}>Sala: {clinicaPDF.room_number}</Text>
+          <Text style={styles.boldText}>Fecha de la Cita: {fechaCitaPDF}</Text>
           <View style={styles.divider} />
-          <Text style={styles.text}>Médico: {medico.name} {medico.last_name}</Text>
-          <Text style={styles.text}>Especialidad: {medico.specialty}</Text>
+          <Text style={styles.text}>Médico: {medicoPDF.name} {medicoPDF.last_name}</Text>
+          <Text style={styles.text}>Especialidad: {medicoPDF.specialty}</Text>
         </View>
       </Page>
     </Document>
@@ -69,3 +68,4 @@ const PdfRenderer = ({ paciente, medico, clinica, fechaCita }) => {
 }
 
 export default PdfRenderer;
+

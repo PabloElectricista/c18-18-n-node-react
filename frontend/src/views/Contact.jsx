@@ -80,10 +80,18 @@ const Contact = () => {
       </Helmet>
       <NavbarCliente />
       <div className="contact-container1">
-        <div className="contact-personalizada">
+        <div className='contact-header-title'>
+          <img
+            alt="back arrow navigation"
+            src="/left-arrow.png"
+            onClick={() => navigate(-1)}
+            style={{ cursor: 'pointer' }}
+          />
           <h1 className="contact-titulo1">
             Para asistencia personalizada
           </h1>
+        </div>
+        <div className="contact-personalizada">
           <div className="contact-container2">
             <span className="contact-email">
               <span className="contact-text4">
