@@ -32,7 +32,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
               <td>{cita.reserved_at}</td>
               <td>{`${cita.doctor_name} ${cita.doctor_last_name}`}</td>
               <td>{cita.specialty_name}</td>
-              <td>{cita.clinica ? cita.clinica.name_clinic : "No disponible"}</td>
+              <td>{cita.name_clinic || "No disponible"}</td>
               <td>{cita.room_number}</td>
               <td>
                 <PDFDownloadLink
