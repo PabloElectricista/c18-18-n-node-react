@@ -1,0 +1,45 @@
+.metodoScreen-container {
+  gap: 40px;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f3f3f3;
+}
+.metodoScreen-links-container {
+  gap: 300px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.metodoScreen-back-arrow {
+  width: 24px;
+  height: 24px;
+}
+.metodoScreen-text {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.metodoScreen-header {
+  gap: 59px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 16px;
+  padding-left: 96px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  background-color: rgba(36, 40, 123, 0.8999999761581421);
+}

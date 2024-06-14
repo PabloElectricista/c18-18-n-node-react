@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './views/Home';
-import Clinic from './views/Clinic'
+import Clinic from './views/clinic/Clinic'
 import Login from './views/Login';
 import Patient from './views/Patient';
 import Cartillas from './views/Cartillas'
@@ -10,8 +10,14 @@ import PasswordRecovery from './views/PassRecovery';
 import Contact from './views/Contact';
 import Register from './views/Register';
 import Error from './components/error/Error';
-import ClinicProfile from './views/ClinicProfile'
 import MyAppointments from './views/MyAppointments'
+import ClinicProfile from './views/clinicProfile/ClinicProfile'
+import Membresia from './views/membresia/Membresia';
+import AyudaClinico from './views/ayudaClinico/AyudaClinico';
+import NovedadesClinico from './views/novedadesClinico/NovedadesClinico';
+import ListaDePacientes from './views/listaDePacientes/ListaDePacientes';
+import AgendarPaciente from './views/agendarPaciente/AgendarPaciente';
+import MetodoDePagoScreen from './views/metodoDePagoScreen/MetodoDePagoScreen';
 
 
 function App() {
@@ -61,6 +67,30 @@ function App() {
         {
           path: '/my-appointments',
           element: <MyAppointments />
+        },
+        {
+          path: '/membership',
+          element: <Membresia />
+        },
+        {
+          path: '/ayuda',
+          element: <AyudaClinico />
+        },
+        {
+          path: '/novedades-clinico',
+          element: <NovedadesClinico />
+        },
+        {
+          path: '/lista-pacientes',
+          element: <ListaDePacientes />
+        },
+        {
+          path: '/agendar-paciente',
+          element: <AgendarPaciente />
+        },
+        {
+          path: '/metodo-de-pago-screen',
+          element: <MetodoDePagoScreen />
         }
         // {
         //   path: '/cartillas',
@@ -85,7 +115,7 @@ function App() {
   ]);
 
   return (
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   )
 }
 

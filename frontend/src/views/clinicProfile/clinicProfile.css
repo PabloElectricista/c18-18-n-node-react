@@ -1,0 +1,56 @@
+.clinic-profile-container {
+  gap: 40px;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f3f3f3;
+}
+.clinic-profile-clinic {
+  gap: 59px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 16px;
+  padding-left: 96px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  background-color: rgba(36, 40, 123, 0.8999999761581421);
+}
+.clinic-profile-links-container {
+  gap: 300px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.clinic-profile-back-arrow {
+  width: 24px;
+  height: 24px;
+}
+.clinic-profile-text {
+  color: rgba(255, 255, 255, 1);
+  width: 156px;
+  height: auto;
+  font-size: 32px;
+  font-style: Bold;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+.clinic-profile-input {
+  width: 700px;
+  border-color: rgba(124, 124, 124, 0.6000000238418579);
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 16px;
+}

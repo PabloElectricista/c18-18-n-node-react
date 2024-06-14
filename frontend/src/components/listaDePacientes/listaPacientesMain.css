@@ -1,0 +1,57 @@
+.listaMain-container {
+  background-color: #f3f3f3;
+}
+
+.listaMain-table,
+.listaMain-th,
+.listaMain-td {
+  border: 0.5px solid #000;
+  border-collapse: collapse;
+}
+
+.listaMain-th,
+.listaMain-td {
+  padding: 8px 24px;
+}
+
+.listaMain-tbody tr:nth-child(even) {
+  background-color: #c9c9c9;
+}
+
+.listaMain-tbody tr:nth-child(even) {
+  background-color: #E6E6E6;
+}
+
+thead tr {
+  background-color: #9294BD;
+}
+.listaMain-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+.listaMain-title {
+  color: #000;
+  font-size: 20px;
+  justify-content: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.listaMain-button-reportar {
+  color: red;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.listaMain-button-agendar {
+  border: none;
+  background-color: transparent;
+  color: #24287b;
+  cursor: pointer;
+  margin-right: 8px;
+}

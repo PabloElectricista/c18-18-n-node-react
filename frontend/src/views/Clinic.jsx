@@ -58,6 +58,10 @@ const Clinic = () => {
 
   return (
     <div className="clinic-container">
+      <Helmet>
+        <title>Clínica - AgendaSalud</title>
+        <meta property="og:title" content="Clinic - AgendaSalud" />
+      </Helmet>
       <NavbarCliente />
       <div className="clinic-scheludes-calendar">
         <ClinicTable

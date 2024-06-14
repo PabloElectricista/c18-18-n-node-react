@@ -5,6 +5,7 @@
   position: relative;
   align-items: flex-start;
   flex-direction: column;
+  background-color: #f0f0f0;
 }
 
 .agendar-title {

@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './agendar.css'
 import { toast } from "react-toastify";
+// import axios from 'axios'
 
-const Agendar = ({ setShow }) => {
+const Agendar = () => {
   const initialState = {
     nombre: '',
     apellido: '',
@@ -20,23 +21,23 @@ const Agendar = ({ setShow }) => {
     })
   }
 
-  const handleSubmit = ev => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault()
     console.table(data)
     setData(initialState)
-    toast('agendado correctamente')
+    toast.info('Pacienteagendado correctamente')
+    // try {
+    //   await axios.update('/doctor/id, {data}')
+    //   toast.info('Pacienteagendado correctamente')
+    // } catch (error) {
+    //   toast.error(error.message)
+    // }
   }
 
   return (
     <div className="agendar-container">
-      <div className="agendar-title">
-        <span className="agendar-text">Alta de turnos:</span>
-        <button type="button" className="agendar-button">
-          <span className="agendar-text01" onClick={() => setShow('index')}>cerrar</span>
-        </button>
-      </div>
       <div className="agendar-header">
-        <span className="agendar-text02">Datos paciente</span>
+        <span className="agendar-text02">Datos, Fecha y Hora</span>
       </div>
       <form className="agendar-container01" onSubmit={handleSubmit}>
         <div className="agendar-container02">
