@@ -104,14 +104,14 @@ function App() {
     },
     //agrego temporalmente para trabajar sobre esta vista
     // mover despues a rutas protegidas
-    {
-      path: '/cartillas',
-      element: <Cartillas />
-    },
-    {
-      path: '/patient',
-      element: <Patient />
-    }
+        {
+          path: '/cartillas',
+          element: <Cartillas />
+        },
+        {
+          path: '/patient',
+          element: <Patient />
+        }
   ]);
 
   return (

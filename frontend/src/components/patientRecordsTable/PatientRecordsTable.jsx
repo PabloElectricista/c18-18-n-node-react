@@ -1,23 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteAppointment } from "../../redux/thunks/appointmentsThunk"; // Importa la acción para eliminar cita
+import { deleteAppointment } from "../../redux/thunks/appointmentsThunk";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfRenderer from "../pdfRenderer/PdfRenderer";
 import "./patientRecordsTable.css";
 
 const PatientRecordsTable = ({ citasPaciente }) => {
- 
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(deleteAppointment(id)); // Llama a la acción deleteAppointment con el ID de la cita
+    dispatch(deleteAppointment(id));
   };
-
-  const fecha = new Date().toLocaleDateString().replace(/\//g, '-');
 
   return (
     <div className="historial-container">
-      <h2>{`Historial de Citas de ${citasPaciente.paciente.name} ${citasPaciente.paciente.last_name} DNI: ${citasPaciente.paciente.patient_dni}`}</h2>
+      <h2>Mis citas</h2>
       <table className="historial-tabla">
         <thead>
           <tr>
@@ -30,32 +27,43 @@ const PatientRecordsTable = ({ citasPaciente }) => {
           </tr>
         </thead>
         <tbody>
-          {citasPaciente.historialCitas.map((cita, index) => (
+          {citasPaciente.map((cita, index) => (
             <tr key={index}>
-              <td>{cita.fechaDeLaCita}</td>
-              <td>{`${cita.medico.name} ${cita.medico.last_name}`}</td>
-              <td>{cita.medico.specialty}</td>
-              <td>{cita.clinica.name_clinic}</td>
-              <td>{cita.clinica.room_number}</td>
+              <td>{cita.reserved_at}</td>
+              <td>{`${cita.doctor_name} ${cita.doctor_last_name}`}</td>
+              <td>{cita.specialty_name}</td>
+              <td>{cita.name_clinic || "No disponible"}</td>
+              <td>{cita.room_number}</td>
               <td>
                 <PDFDownloadLink
                   document={
                     <PdfRenderer
-                      paciente={citasPaciente.paciente}
-                      medico={cita.medico}
-                      clinica={cita.clinica}
-                      fechaCita={cita.fechaDeLaCita}
+                      pacientePDF={{
+                        name: cita.patient_name,
+                        last_name: cita.patient_last_name,
+                        patient_dni: cita.patient_dni || "N/A",
+                      }}
+                      medicoPDF={{
+                        name: cita.doctor_name,
+                        last_name: cita.doctor_last_name,
+                        specialty: cita.specialty_name,
+                      }}
+                      clinicaPDF={{
+                        name_clinic: cita.name_clinic || "No disponible",
+                        room_number: cita.room_number,
+                      }}
+                      fechaCitaPDF={cita.reserved_at}
                     />
                   }
-                  fileName={`${citasPaciente.paciente.name}-${citasPaciente.paciente.last_name}_${cita.fechaDeLaCita.replace(/\//g, '-')}.pdf`}
+                  fileName={`${cita.patient_name}-${cita.patient_last_name}_${cita.reserved_at.replace(/\//g, '-')}.pdf`}
                 >
                   {({ loading }) => loading ? (
-                    <button>Cargando...</button>
+                    <button className="btn">Cargando...</button>
                   ) : (
-                    <button>Descargar</button>
+                    <button className="btn">Descargar</button>
                   )}
                 </PDFDownloadLink>
-                <button onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
+                <button className="btn" onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
               </td>
             </tr>
           ))}

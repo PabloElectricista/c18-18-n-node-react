@@ -29,6 +29,12 @@
   cursor: pointer;
 }
 
+.contact-header-title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .contact-error {
   color: red;
 }
@@ -87,6 +93,8 @@
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
+  flex: 1;
+  margin: 0;
 }
 
 .contact-container2 {

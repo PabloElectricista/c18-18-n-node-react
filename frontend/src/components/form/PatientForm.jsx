@@ -108,10 +108,11 @@ const PatientRegisterForm = () => {
               className='form-select' 
               name='formGender' 
               id='formGender'
+              defaultValue=''
               value={gender}
               onChange={e => setGender(e.target.value)}
             >
-              <option disabled selected value="">Selecciona una opción</option>
+              <option disabled value="">Selecciona una opción</option>
               <option value='Masculino'>Masculino</option>
               <option value='Femenino'>Femenino</option>
               <option value='Otro'>Otro</option>
