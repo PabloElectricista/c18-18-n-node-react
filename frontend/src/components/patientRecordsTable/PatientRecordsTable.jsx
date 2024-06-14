@@ -49,7 +49,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                         specialty: cita.specialty_name,
                       }}
                       clinicaPDF={{
-                        name_clinic: cita.clinica || "No disponible",
+                        name_clinic: cita.name_clinic || "No disponible",
                         room_number: cita.room_number,
                       }}
                       fechaCitaPDF={cita.reserved_at}
