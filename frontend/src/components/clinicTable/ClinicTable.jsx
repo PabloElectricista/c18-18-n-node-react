@@ -27,7 +27,7 @@ export default function ClinicTable({handleMenuItem, showMenu, scheludes, handle
                                         className="clinic-addsquare"
                                         onClick={() => handleOpenMenu(hour)}
                                     />
-                                    {showMenu && showMenu[hour] && <Menu handleMenu={handleMenuItem} patient={hour} />}
+                                    {showMenu && showMenu[hour] && <Menu handleMenu={handleMenuItem} patient={hour} isAvailable={patient === 'disponible'}/>}
                                 </div>
                             </div>
                         )

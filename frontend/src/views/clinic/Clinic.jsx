@@ -9,19 +9,60 @@ import ClinicTable from '../../components/clinicTable/ClinicTable'
 import Calendar from '../../components/calendar/Calendar'
 import './clinic.css'
 import { toast } from 'react-toastify'
+import { updateUser } from '../../redux/actions/user'
+import { useDispatch, useSelector } from "react-redux";
+import { getUserScheludes } from '../../utils/user/getAppointments'
+import { placeAppointment } from '../../redux/slices/pabloSlices'
 
 const Clinic = () => {
+  const dispatch = useDispatch()
+  const { user } = useSelector(state => state.auth)
+  const { appointment } = useSelector(state => state.pablo)
+
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState()
   const [showCalendar, setShowCalendar] = useState(false)
   const [selectedDay, setSelectedDay] = useState(1)
-  
+  const [appointments, setAppointments] = useState(scheludes)
+
   useEffect(() => {
+    if (!user) dispatch(updateUser())
     const tkn = localStorage.getItem('tkn')
     if (!tkn) navigate('/login')
     const aux = scheludes.map(({ hour }) => { return { [hour]: false } })
     setShowMenu(aux);
+    getUserScheludes({ doctor_name: 'Martin', doctor_last_name: 'Gamboa', day: '06/13/2024' })
+      .then(data => {
+        console.log(data);
+        let temp = [...scheludes]
+        data.forEach(({ hour, patient_name, patient_last_name }) => {
+          for (const schelude of temp) {
+            if (schelude.hour === hour) {
+              schelude.patient = `${patient_name} ${patient_last_name}`
+              break
+            }
+          }
+        });
+        setAppointments(temp)
+      })
   }, [])
+
+  const [count, setCount] = useState(1)
+  useEffect(() => {
+    console.log(count);
+    setCount(prev => prev + 1)
+    console.log(user);
+    if (user && user.id) {
+      let aux = {}
+      if (appointment && Object.keys(appointment).length > 0) {
+        aux = { ...appointment }
+      }
+      aux.clinic_id = user.clinic_id
+      aux.specialty_id = user.specialty_id
+      aux.doctor_id = user.id
+      dispatch(placeAppointment(aux))
+    }
+  }, [user])
 
   const handleOpenMenu = hour => {
     setShowMenu({
@@ -31,8 +72,8 @@ const Clinic = () => {
   }
 
   const handleMenuItem = (hour, item) => {
-    toast(item)
-    toast(hour)
+    if (item === 'agendar')
+      toast(hour)
     setShowMenu({
       ...showMenu,
       [hour]: false
@@ -61,7 +102,7 @@ const Clinic = () => {
         <ClinicTable
           handleMenuItem={handleMenuItem}
           showMenu={showMenu}
-          scheludes={scheludes}
+          scheludes={appointments}
           handleOpenMenu={handleOpenMenu}
         />
 

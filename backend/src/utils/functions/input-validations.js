@@ -31,7 +31,7 @@ import {
   customMessagesUpdateClinic,
 } from "../const/custom-message.js";
 
-export const createNewPatientValidations = (newUserPayload) => {
+const createNewPatientValidations = (newUserPayload) => {
   const validation = new Validator(
     newUserPayload,
     createNewPatientRules,
@@ -82,7 +82,7 @@ const getSchedulerByDateValidations = (filters) => {
   return null;
 };
 
-export const createNewAppointmentValidations = (appointmentPayload) => {
+const createNewAppointmentValidations = (appointmentPayload) => {
   const validation = new Validator(
     appointmentPayload,
     createNewAppointmentRules,

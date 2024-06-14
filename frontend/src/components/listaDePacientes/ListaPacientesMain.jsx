@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import './listaPacientesMain.css'
 import { pacientes } from "./lista";
+import { Link } from 'react-router-dom';
 
 export default function ListaPacientesMain() {
   return (
@@ -12,8 +13,8 @@ export default function ListaPacientesMain() {
             <th className='listaMain-th'>Nombre/s</th>
             <th className='listaMain-th'>Apellido</th>
             <th className='listaMain-th'>Telefono</th>
-            <th className='listaMain-th'>Email</th>
-            <th className='listaMain-th'></th>
+            <th className='listaMain-th'>DNI</th>
+            <th className='listaMain-th'>contactar</th>
           </tr>
         </thead>
         <tbody className='listaMain-tbody'>
@@ -22,11 +23,11 @@ export default function ListaPacientesMain() {
               pacientes.map((paciente, index) => (
                 <tr key={index}>
                   <td className='listaMain-td'>{index}</td>
-                  <td className='listaMain-td'>{paciente.nombre}</td>
-                  <td className='listaMain-td'>{paciente.apellido}</td>
-                  <td className='listaMain-td'>{paciente.telefono}</td>
-                  <td className='listaMain-td'>{paciente.email}</td>
-                  <td className='listaMain-td'><button className='listaMain-reportar-button'>Reportar</button></td>
+                  <td className='listaMain-td'>{paciente.name}</td>
+                  <td className='listaMain-td'>{paciente.last_name}</td>
+                  <td className='listaMain-td'>{paciente.phone}</td>
+                  <td className='listaMain-td'>{paciente.patient_dni}</td>
+                  <td className='listaMain-td'><Link to={`mailto:${paciente.email}`}>correo</Link></td>
                 </tr>
               ))
               :
