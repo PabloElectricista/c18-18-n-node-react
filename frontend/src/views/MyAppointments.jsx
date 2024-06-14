@@ -1,19 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAppointmentByUser } from "../redux/thunks/appointmentsThunk";
-//import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
+// import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
 
 const MyAppointments = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAppointmentByUser());
-  }, [dispatch]);
-
-  const dataCitas = useSelector((state) => state.appointments.appointments);
+  const token = useSelector((state) => state.auth.token);
+  const dataCitas = useSelector((state) => state.appointments);
   const loading = useSelector((state) => state.appointments.loading);
   const error = useSelector((state) => state.appointments.error);
 
+  useEffect(() => {
+    if (token) {
+      dispatch(getAppointmentByUser(token));
+    }
+  }, [dispatch, token]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
   //la data que debería llegar es más o menos esta:
   const data =
   {
@@ -38,11 +48,11 @@ const MyAppointments = () => {
   };
 
 
-console.log("soy la dataCitas[0]", dataCitas[0]);
+console.log("soy la dataCitas", dataCitas);
 
   return (
     <div>
-
+      <h1>My Appointments</h1>
     </div>
   );
 };
