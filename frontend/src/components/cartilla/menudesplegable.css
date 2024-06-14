@@ -31,18 +31,20 @@
     opacity: 0.7;
 }
 
-.dropdown-content button {
-    color: rgba(0, 0, 0, 0.5);
+.dropdown-content button{
+    color: rgb(77, 74, 74);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     width: 100%;
-    font-size: 13px;
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
     text-align: start;
     border: none;
-    background-color: rgba(219, 219, 219, 0.644);
+    background-color: rgba(234, 237, 240, 0.993);
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
 }
+
 
 .dropdown-content button:hover {
     background-color: var(--dl-bgcolor-nav-footer);
@@ -63,6 +65,10 @@
     gap: 10px;
 }
 
+.buttonMenuDesplegable{
+    background-color: rgb(26, 22, 22);
+    color: red;
+}
 
 .hrDesplegable {
     color: rgba(0, 0, 0, 0.308);

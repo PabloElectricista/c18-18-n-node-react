@@ -8,7 +8,6 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
 
 
     let token = localStorage.getItem('tkn')
-    console.log(token)
     const dispatch = useDispatch()
     const [horaFinal, setHoraFinal] = useState()
     const [date, setDate] = useState()

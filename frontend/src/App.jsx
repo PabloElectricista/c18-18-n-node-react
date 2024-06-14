@@ -74,7 +74,7 @@ function App() {
     },
     //agrego temporalmente para trabajar sobre esta vista
     // mover despues a rutas protegidas
-            {
+        {
           path: '/cartillas',
           element: <Cartillas />
         },
