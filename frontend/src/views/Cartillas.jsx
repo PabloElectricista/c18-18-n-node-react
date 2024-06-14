@@ -41,7 +41,7 @@ const Cartillas = () => {
     const [clinica, setclinica] = useState(null)
     const [especialidad, setespecialidad] = useState(null)
     const [profesional, setProfesional] = useState(null)
-    const [fechaElegida,  setFechaElegida] = useState(null)
+    const [fechaElegida, setFechaElegida] = useState(null)
     const [horaElegida, setHoraElegida] = useState(null)
 
     //estos son estados para renderizar el componente opcion elegida
@@ -49,6 +49,29 @@ const Cartillas = () => {
     const [nameSpecialty, setNameSpecialty] = useState(null)
     const [nameProfesional, setNameProfesional] = useState(null)
     const [lastnameProfesional, setLastnameProfesional] = useState(null)
+
+
+    //filtros
+
+    let dataDoctorFiltered = dataDoctor.filter((d) => { return d.clinic_id === clinica })
+    const dataSpecialtyFiltered = dataSpecialties.filter(specialty =>
+        dataDoctorFiltered.some(doctor => doctor.specialty_id === specialty.id)
+    );
+
+    //validaciones post filtros
+
+    useEffect(()=>{
+        if(clinica===undefined){
+            setProfesional(null)
+            setespecialidad(null)
+        }
+    },[clinica])
+
+    useEffect(()=>{
+        if(especialidad===undefined){
+            setProfesional(null)
+        }
+    },[especialidad])
 
     return (
         <>
@@ -61,42 +84,43 @@ const Cartillas = () => {
                         <div className='desplegables'>
                             <div>
                                 {/* aqui se renderiza cada componente desplegable llevando y trayendo la data y variables necesarias */}
-                                <h2 className='title'>¿Qué estás buscando?</h2> 
-                                <MenuDesplagableNew 
-                                data={dataClinics} 
-                                titleButton="Clinica" 
-                                dataOpcion="name_clinic" 
-                                dataElegida={clinica} 
-                                saveData={setclinica}
-                                mostrarOpcion={nameClinic} 
-                                setNameClinic={setNameClinic} />
-                                <MenuDesplagableNew 
-                                data={dataSpecialties} 
-                                titleButton="Especialidad" 
-                                dataOpcion="name" 
-                                dataElegida={especialidad} 
-                                saveData={setespecialidad}
-                                mostrarOpcion={nameSpecialty}
-                                setNameSpecialty={setNameSpecialty} />
-                                <MenuDesplagableNew 
-                                data={dataDoctor} 
-                                titleButton="Profesional" 
-                                dataOpcion="last_name" 
-                                dataElegida={profesional} 
-                                dataOpcion2="name" 
-                                saveData={setProfesional}
-                                setNameProfesional={setNameProfesional}
-                                mostrarOpcion={nameProfesional}  />
+                                <h2 className='title'>¿Qué estás buscando?</h2>
+                                <MenuDesplagableNew
+                                    data={dataClinics}
+                                    titleButton="Clinica"
+                                    dataOpcion="name_clinic"
+                                    dataElegida={clinica}
+                                    saveData={setclinica}
+                                    mostrarOpcion={nameClinic}
+                                    setNameClinic={setNameClinic} />
+                                <MenuDesplagableNew
+                                    data={dataSpecialtyFiltered}
+                                    titleButton="Especialidad"
+                                    dataOpcion="name"
+                                    dataElegida={especialidad}
+                                    infoClinica={clinica}
+                                    saveData={setespecialidad}
+                                    mostrarOpcion={nameSpecialty}
+                                    setNameSpecialty={setNameSpecialty} />
+                                <MenuDesplagableNew
+                                    data={dataDoctorFiltered}
+                                    titleButton="Profesional"
+                                    dataOpcion="last_name"
+                                    dataElegida={profesional}
+                                    dataOpcion2="name"
+                                    saveData={setProfesional}
+                                    setNameProfesional={setNameProfesional}
+                                    mostrarOpcion={nameProfesional} />
                             </div>
                         </div>
                         <div className='containerFechaHora'>
                             {/* componente para la fecha y la hora */}
-                            <MenuFechaHora dataSchedulers={dataSchedulers} horaElegida={horaElegida} setHoraElegida={setHoraElegida} setFechaElegida={setFechaElegida}/>
+                            <MenuFechaHora dataSchedulers={dataSchedulers} horaElegida={horaElegida} profesional={profesional} setHoraElegida={setHoraElegida} setFechaElegida={setFechaElegida} />
                         </div>
                     </div>
                 </div>
                 <div className='divButtonBuscar'>
-                    <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida}  />
+                    <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida} />
                 </div>
                 <Footer />
             </div>
