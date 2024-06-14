@@ -6,11 +6,13 @@ class FindAllAppointmentBuilder {
   }
   build = () => {
     this.setId();
-    this.setName();
-    this.setLastName();
+    this.setNamePatient();
+    this.setLastNamePatient();
+    this.setPatientDni();
     this.setDoctorName();
     this.setDoctorLastName();
     this.setSpecialty();
+    this.setNameClinic();
     this.setRoomNumber();
     this.setStatus();
     this.setStatusDate();
@@ -22,11 +24,13 @@ class FindAllAppointmentBuilder {
     return this.appointment;
   };
   setId = () => (this.appointment.id = this.recordAppointment.id);
-  setName = () =>
+  setNamePatient = () =>
     (this.appointment.patient_name = this.recordAppointment.Patient.name);
-  setLastName = () =>
+  setLastNamePatient = () =>
     (this.appointment.patient_last_name =
       this.recordAppointment.Patient.last_name);
+  setPatientDni = () =>
+    (this.appointment.patient_dni = this.recordAppointment.Patient.patient_dni);
   setDoctorName = () =>
     (this.appointment.doctor_name = this.recordAppointment.doctor.name);
   setDoctorLastName = () =>
@@ -34,6 +38,14 @@ class FindAllAppointmentBuilder {
       this.recordAppointment.doctor.last_name);
   setSpecialty = () =>
     (this.appointment.specialty_name = this.recordAppointment.Specialties.name);
+  setNameClinic = () => {
+    const nameClinic = this.allClinic.find(
+      (clinic) => clinic.id === this.recordAppointment.clinic_id
+    );
+    this.appointment.name_clinic = nameClinic
+      ? nameClinic.name_clinic
+      : this.recordAppointment.nameClinic;
+  };
   setRoomNumber = () => {
     const roomClinic = this.allClinic.find(
       (clinic) => clinic.id === this.recordAppointment.clinic_id
