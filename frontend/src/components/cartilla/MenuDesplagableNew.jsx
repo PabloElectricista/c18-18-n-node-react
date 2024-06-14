@@ -3,14 +3,14 @@ import "./menudesplegable.css";
 import arrowDown from "../../assets/cartilla/arrow.svg"
 import OpcionElegida from './OpcionElegida';
 
-const MenuDesplagableNew = ({ data, titleButton, dataOpcion, dataOpcion2, dataElegida, saveData,setNameClinic,setNameSpecialty,setNameProfesional ,mostrarOpcion}) => {
+const MenuDesplagableNew = ({ data, titleButton, dataOpcion, dataOpcion2, dataElegida, saveData,setNameClinic,setNameSpecialty,setNameProfesional ,mostrarOpcion, infoClinica}) => {
 
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
     const toggleSubMenu = () => {
-        setOpenSubMenuId(openSubMenuId === null ? true : null);
+            setOpenSubMenuId(openSubMenuId === null ? true : null);
     };
-
+    
 
 // esta funcion recibe el valor del id que se haya elegido en cada desplegable para gestionar con la bd
 //por otra parte, guarda data necesaria para el rendering
@@ -29,7 +29,6 @@ const MenuDesplagableNew = ({ data, titleButton, dataOpcion, dataOpcion2, dataEl
         }
         setOpenSubMenuId(null)
     }
-
 
     return (
         <div className='dropdown'>
@@ -50,6 +49,9 @@ const MenuDesplagableNew = ({ data, titleButton, dataOpcion, dataOpcion2, dataEl
                                 {opcion[dataOpcion]} {dataOpcion2 && opcion[dataOpcion2] && `${opcion[dataOpcion2]}`}
                             </button>
                         ))}
+                        {
+                            data.length === 0 ? <button className='buttonMenuDesplegable'>Actualmente no hay {titleButton} disponible</button>: null
+                        }
                     </div>
                 </div>
                 {
