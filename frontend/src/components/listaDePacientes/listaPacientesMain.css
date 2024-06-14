@@ -41,9 +41,17 @@ thead tr {
   text-decoration: none;
 }
 
-.listaMain-reportar-button {
+.listaMain-button-reportar {
   color: red;
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.listaMain-button-agendar {
+  border: none;
+  background-color: transparent;
+  color: #24287b;
+  cursor: pointer;
+  margin-right: 8px;
 }
