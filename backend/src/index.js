@@ -44,7 +44,7 @@ registerRoutes(fastify, authRoutes);
 const start = async () => {
   try {
     const port = process.env.PORT || 3000
-    await fastify.listen({ port, host: "localhost" });
+    await fastify.listen({ port });
     console.log({port})
   } catch (err) {
     fastify.log.error(err);
