@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAppointmentByUser } from "../redux/thunks/appointmentsThunk";
 import PatientRecordsTable from "../components/patientRecordsTable/PatientRecordsTable";
 
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
+
 const MyAppointments = () => {
   const dispatch = useDispatch();
 
@@ -27,14 +30,15 @@ const MyAppointments = () => {
     return <div>Error: {error}</div>;
   }
 
-  console.log("soy datacitas: ", dataCitas.appointments);
+ //console.log("soy datacitas: ", dataCitas.appointments);
 
   return (
     <div>
-      <h1>Mis citas</h1>
+      <Navbar />
       <div>
         <PatientRecordsTable citasPaciente={dataCitas.appointments} />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -14,7 +14,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
 
   return (
     <div className="historial-container">
-      <h2>Historial de Citas</h2>
+      <h2>Mis citas</h2>
       <table className="historial-tabla">
         <thead>
           <tr>
@@ -41,7 +41,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                       pacientePDF={{
                         name: cita.patient_name,
                         last_name: cita.patient_last_name,
-                        patient_dni: cita.patient_dni || "N/A", // Asegúrate de que patient_dni está disponible
+                        patient_dni: cita.patient_dni || "N/A",
                       }}
                       medicoPDF={{
                         name: cita.doctor_name,
@@ -58,12 +58,12 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                   fileName={`${cita.patient_name}-${cita.patient_last_name}_${cita.reserved_at.replace(/\//g, '-')}.pdf`}
                 >
                   {({ loading }) => loading ? (
-                    <button>Cargando...</button>
+                    <button className="btn">Cargando...</button>
                   ) : (
-                    <button>Descargar</button>
+                    <button className="btn">Descargar</button>
                   )}
                 </PDFDownloadLink>
-                <button onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
+                <button className="btn" onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
               </td>
             </tr>
           ))}
