@@ -1,0 +1,46 @@
+[
+  {
+    "hour": "7:00",
+    "patient": "disponible"
+  },
+  {
+    "hour": "7:30",
+    "patient": "disponible"
+  },
+  {
+    "hour": "8:00",
+    "patient": "disponible"
+  },
+  {
+    "hour": "8:30",
+    "patient": "disponible"
+  },
+  {
+    "hour": "9:00",
+    "patient": "disponible"
+  },
+  {
+    "hour": "9:30",
+    "patient": "disponible"
+  },
+  {
+    "hour": "10:00",
+    "patient": "disponible"
+  },
+  {
+    "hour": "10:30",
+    "patient": "disponible"
+  },
+  {
+    "hour": "11:00",
+    "patient": "disponible"
+  },
+  {
+    "hour": "11:30",
+    "patient": "disponible"
+  },
+  {
+    "hour": "12:00",
+    "patient": "disponible"
+  }
+]

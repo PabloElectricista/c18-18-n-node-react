@@ -3,11 +3,13 @@ import { update, getScheludes } from '../slices/authSlices.js'
 
 export const getUserScheludes = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.post(`/user/scheludes/${id}`, {
+    const { data } = await axios(`/appointments`, {
       Headers: {
-        credentials: localStorage.getItem('tkn')
+        "Content-Type": "application/json",
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY3MzZhNDk5NjdiNTIyNTdiMDc4YWQiLCJyb2xlIjoiUEFUSUVOVCIsImlhdCI6MTcxODA0MDIyOCwiZXhwIjoxNzIzMjI0MjI4fQ.s4XxAGKNmT4zdQY0tHg43RfzZPjDgVBKQrOu6wU3NSE'
       }
     })
+    console.log(data.data);
     dispatch(getScheludes(data))
   } catch (error) {
     console.log(error);
@@ -39,12 +41,17 @@ export const cargarFake = (role) => (dispatch) => {
     localStorage.setItem('tkn', patient.tkn)
     dispatch(update(patient))
   }
-  if (role === 'clinic'){ 
+  if (role === 'clinic') {
     localStorage.setItem('tkn', clinic.tkn)
     dispatch(update(clinic))
   }
 }
 
-export const updateUser = (user) => (dispatch) => {
-  dispatch(update(user))
+export const updateUser = () => async (dispatch) => {
+  try {
+    const { data } = await axios('/doctor/666698b2f8f9b0e0fc0bcf3e')
+    dispatch(update(data.data))
+  } catch (error) {
+    console.error(error);
+  }
 }
