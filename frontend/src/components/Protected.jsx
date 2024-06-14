@@ -1,7 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { isExpired } from "react-jwt"
 
 const ProtectedRoutes = () => {
-	const localStorageToken = localStorage.getItem("tkn");
+	let localStorageToken = localStorage.getItem("tkn");
+  const isMyTokenExpired = isExpired(localStorageToken);
+
+	if(isMyTokenExpired) {
+		localStorage.removeItem('tkn')
+		localStorageToken = null
+	}
 
 	return localStorageToken ? <Outlet /> : <Navigate to="/login"  replace />;
 };
