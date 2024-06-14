@@ -6,7 +6,7 @@ import ButtonBuscarCartilla from '../components/buttons/ButtonBuscarCartilla'
 import { useEffect, useState } from 'react'
 import MenuFechaHora from '../components/cartilla/MenuFechaHora'
 import { useDispatch, useSelector } from "react-redux";
-import { getAllClinics, getAllSpecialties, getAllDoctors, getDoctorById, getSpecialtyById } from '../redux/thunks/doctorThunk'
+import { getAllClinics, getAllSpecialties, getAllDoctors, getDoctorById, getSpecialtyById, getClinicById } from '../redux/thunks/doctorThunk'
 import { getAllSchedulers } from '../redux/thunks/schedulerThunk'
 import MenuDesplagableNew from '../components/cartilla/MenuDesplagableNew'
 
@@ -23,18 +23,15 @@ const Cartillas = () => {
     const dataDoctor = useSelector(state => state.doctor.doctors)
     const loading = useSelector(state => state.doctor.loading);
     const error = useSelector(state => state.doctor.error);
-    const doctorById = useSelector(state => state.doctor.doctor)
-    const specialtyById = useSelector(state => state.doctor.specialty)
-    const idBusqueda = "666698b2f8f9b0e0fc0bcf3e"
-    const idSpecialty = "66638e67bc1ad3436bd4e82a"
+    const clinicById = useSelector(state => state.doctor.clinic)
+    const appointments = useSelector(state => state.appointments)
+    const patient = useSelector(state => state.auth)
 
     useEffect(() => {
         dispatch(getAllClinics())
         dispatch(getAllSpecialties())
         dispatch(getAllDoctors())
         dispatch(getAllSchedulers())
-        dispatch(getDoctorById(idBusqueda))
-        dispatch(getSpecialtyById())
     }, [dispatch])
 
     const [objetoInfoBuscar, setObjetoInfoBuscar] = useState({})
@@ -68,37 +65,17 @@ const Cartillas = () => {
             setProfesional(null)
             setespecialidad(null)
         }
-    }, [clinica])
+
+        if (clinica) {
+            dispatch(getClinicById(clinica))
+        }
+    }, [dispatch, clinica])
 
     useEffect(() => {
         if (especialidad === undefined) {
             setProfesional(null)
         }
     }, [especialidad])
-
-    //pdf
-
-    const pacientePDF = {
-        name: "Agustin",
-        last_name: "Hahn",
-        patient_dni: 1145602459
-      };
-
-    const medicoPDF = {
-        name: nameProfesional,
-        last_name: lastnameProfesional,
-        specialty: nameSpecialty,
-    };
-
-    const clinicaPDF = {
-        name_clinic: nameClinic,
-        room_number: "C10",
-    }
-
-    const fechaDeLaCitaPDF = `${fechaElegida} ${horaElegida}`;
-
-    const fecha = new Date().toLocaleDateString().replace(/\//g, '-');
-    const fileName = `${pacientePDF.name}-${pacientePDF.last_name}_${fecha}.pdf`;
 
     return (
         <>
@@ -148,20 +125,6 @@ const Cartillas = () => {
                 </div>
                 <div className='divButtonBuscar'>
                     <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida} />
-                    <PDFDownloadLink
-                            document={<PdfRenderer
-                                pacientePDF={pacientePDF}
-                                medicoPDF={medicoPDF}
-                                clinicaPDF={clinicaPDF}
-                                fechaCitaPDF={fechaDeLaCitaPDF}
-                            />}
-                            fileName={fileName}
-                        >
-                            {({ loading }) => loading ?
-                                <button>Cargando...</button> :
-                                <button>Descargar</button>
-                            }
-                        </PDFDownloadLink>
                 </div>
                 
                 <Footer />
