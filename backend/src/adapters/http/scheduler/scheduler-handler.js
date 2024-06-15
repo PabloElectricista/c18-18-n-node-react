@@ -86,6 +86,28 @@ export default class SchedulerHandler {
     }
   };
 
+  findSchedulerByDoctor = async (req, res) => {
+    try {
+      const [schedulerId, status, err] =
+        await this.schedulerUsecases.findSchedulerByDoctor(req.params.id);
+      if (err)
+        return res.status(status).send({
+          message: "fail",
+          errors: err,
+        });
+      return res.status(status).send({
+        message: "success",
+        data: schedulerId,
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send({
+        message: "There was internal server error",
+        errors: error,
+      });
+    }
+  };
+
   createNewScheduler = async (req, res) => {
     try {
       const [schedulerPayload, status, err] =

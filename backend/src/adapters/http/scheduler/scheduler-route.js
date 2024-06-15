@@ -17,6 +17,11 @@ const routes = [
     handler: schedulerHandler.findSchedulerById,
   },
   {
+    url: "/scheduler/doctor/:id",
+    method: "GET",
+    handler: schedulerHandler.findSchedulerByDoctor,
+  },
+  {
     url: "/scheduler",
     method: "POST",
     handler: schedulerHandler.createNewScheduler,

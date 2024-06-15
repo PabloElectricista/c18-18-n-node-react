@@ -38,7 +38,15 @@ export default class SchedulerUseCases {
     return [scheduler, 200, null];
   };
 
-  createNewScheduler = async (schedulerPayload = {}, days = 7) => {
+  findSchedulerByDoctor = async (doctorId) => {
+    const [scheduler, err] = await this.prismaRepository.findSchedulerByDoctor(
+      doctorId
+    );
+    if (err) return [null, 404, err];
+    return [scheduler, 200, null];
+  };
+
+  createNewScheduler = async (schedulerPayload = {}, days = 3) => {
     const [doctors, , doctorErr] = await this.doctorUseCase.findAllDoctors();
     if (doctorErr) return [null, 404, doctorErr];
 
@@ -51,7 +59,7 @@ export default class SchedulerUseCases {
         newSchedulers.push({
           doctor_id: doctor.id,
           ...setAppoinments(schedulerPayload),
-          created_at: getFormatDate(),
+          created_at: getFormatDate(date),
         });
       });
     });
