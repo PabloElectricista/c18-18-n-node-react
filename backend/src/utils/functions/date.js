@@ -1,7 +1,7 @@
 import timeZone from "../const/timeZone.js";
 
-const getFormatDate = () => {
-  const fechaActual = new Date();
+const getFormatDate = (date) => {
+  const fechaActual = date ? new Date(date) : new Date();
   const formatoFechaHora = fechaActual.toLocaleString("es-ES", timeZone);
   const fechaFormateadaConEspacios = formatoFechaHora.replace(",", "");
   return fechaFormateadaConEspacios;
@@ -11,7 +11,7 @@ const generateDateRange = (days, dates) => {
   const today = new Date();
   for (let i = 0; i <= days; i++) {
     const date = new Date(today);
-    date.setDate(today.getDate() + 1);
+    date.setDate(today.getDate() + i);
     dates.push(date);
   }
 };
