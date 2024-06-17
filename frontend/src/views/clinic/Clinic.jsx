@@ -24,6 +24,7 @@ const Clinic = () => {
   const [showCalendar, setShowCalendar] = useState(false)
   const [selectedDay, setSelectedDay] = useState(1)
   const [appointments, setAppointments] = useState(scheludes)
+  const [date, setDate] = useState({ day: 1, month: 1, year: 2024 })
 
   useEffect(() => {
     if (!user) dispatch(updateUser())
@@ -34,18 +35,25 @@ const Clinic = () => {
     getUserScheludes({ doctor_name: 'Martin', doctor_last_name: 'Gamboa', day: '06/13/2024' })
       .then(data => {
         console.log(data);
-        let temp = [...scheludes]
-        data.forEach(({ hour, patient_name, patient_last_name }) => {
-          for (const schelude of temp) {
-            if (schelude.hour === hour) {
-              schelude.patient = `${patient_name} ${patient_last_name}`
-              break
-            }
-          }
-        });
-        setAppointments(temp)
+        // let temp = [...scheludes]
+        // data.forEach(({ hour, patient_name, patient_last_name }) => {
+        //   for (const schelude of temp) {
+        //     if (schelude.hour === hour) {
+        //       schelude.patient = `${patient_name} ${patient_last_name}`
+        //       break
+        //     }
+        //   }
+        // });
+        // setAppointments(temp)
       })
   }, [])
+
+  const handleDate = (key, value) => {
+    setDate({
+      ...date,
+      [key]: value
+    })
+  }
 
   const [count, setCount] = useState(1)
   useEffect(() => {
@@ -64,6 +72,23 @@ const Clinic = () => {
     }
   }, [user])
 
+
+  useEffect(() => {
+    console.log(date);
+    //   const dia = numToString(date.day)
+    //   const mes = numToString(date.month)
+    //   console.log(`${dia}/${mes}/${date.month}`);
+    //   // let aux = {}
+    //   // if (appointment && Object.keys(appointment).length > 0) {
+    //   //   aux = { ...appointment }
+    //   // }
+    //   // aux.clinic_id = user.clinic_id
+    //   // aux.specialty_id = user.specialty_id
+    //   // aux.doctor_id = user.id
+    //   // dispatch(placeAppointment(aux))
+  }, [date])
+
+
   const handleOpenMenu = hour => {
     setShowMenu({
       ...showMenu,
@@ -73,7 +98,7 @@ const Clinic = () => {
 
   const handleMenuItem = (hour, item) => {
     if (item === 'agendar')
-      toast(hour)
+      toast(hour + ' & ' + selectedDay)
     setShowMenu({
       ...showMenu,
       [hour]: false
@@ -110,6 +135,8 @@ const Clinic = () => {
           setShowCalendar={setShowCalendar}
           selectedDay={selectedDay}
           setSelectedDay={setSelectedDay}
+          dateState={date}
+          changeDate={setDate}
         />
 
       </div>
@@ -144,16 +171,6 @@ const Clinic = () => {
             Novedades
           </span>
         </button>
-        <button type="button" className="clinic-button4" onClick={() => navigate('/ayuda')} >
-          <img
-            alt="ayuda icon"
-            src="ayuda_icon.svg"
-            className="clinic-icon"
-          />
-          <span className="clinic-text47">
-            Ayuda
-          </span>
-        </button>
         <button type="button" className="clinic-button5" onClick={() => navigate('/membership')} >
           <img
             alt="membresía icon"
@@ -172,6 +189,19 @@ const Clinic = () => {
           />
           <span className="clinic-text51">
             Mi perfil
+          </span>
+        </button>
+        <button type="button" className="clinic-button4" onClick={() => navigate('/')} >
+          {/* <img
+            alt="ayuda icon"
+            src="/exit_icon.svg"
+            className="clinic-icon"
+          /> */}
+          <svg viewBox="0 0 1024 1024" className="clinic-icon">
+            <path d="M768 640v-128h-320v-128h320v-128l192 192zM704 576v256h-320v192l-384-192v-832h704v320h-64v-256h-512l256 128v576h256v-192z"></path>
+          </svg>
+          <span className="clinic-text47">
+            Salir
           </span>
         </button>
       </div>

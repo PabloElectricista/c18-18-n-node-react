@@ -24,6 +24,17 @@ function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
     return (new Date(year, month + 1, 0)).getDate()
   }
 
+  const numToString = num => {
+    if(num > 9) return num.toString()
+    else return 0 + num.toString()
+  }
+
+  useEffect(() => {
+    const dia = numToString(selectedDay)
+    const mes = numToString(month)
+    console.log(`${dia}/${mes}/${year}`);
+  }, [selectedDay])
+
   useEffect(() => {
     const date = new Date()
     const currentYear = date.getFullYear()

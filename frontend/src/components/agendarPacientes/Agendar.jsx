@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './agendar.css'
 import { toast } from "react-toastify";
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 // import axios from 'axios'
 
 const Agendar = () => {
+  const { appointment } = useSelector(state => state.pablo)
   const initialState = {
     nombre: '',
     apellido: '',
@@ -13,6 +16,19 @@ const Agendar = () => {
     observaciones: ''
   }
   const [data, setData] = useState(initialState)
+  useEffect(() => {
+    if (appointment && Object.keys(appointment).length > 0) {
+      const first = appointment.patient_name
+      const last = appointment.patient_last_name
+      const dni = appointment.patient_dni
+      setData({
+        ...data,
+        nombre: first ? first : '',
+        apellido: last ? last : '',
+        dni: dni ? dni : ''
+      })
+    }
+  }, [])
 
   const handleChange = ev => {
     setData({
@@ -23,15 +39,27 @@ const Agendar = () => {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault()
-    console.table(data)
+    if (!data) return
+    let aux = { ...data }
+    aux.clinic_id = appointment.clinic_id
+    aux.doctor_id = appointment.doctor_id
+    aux.specialty_id = appointment.specialty_id
     setData(initialState)
     toast.info('Pacienteagendado correctamente')
-    // try {
-    //   await axios.update('/doctor/id, {data}')
-    //   toast.info('Pacienteagendado correctamente')
-    // } catch (error) {
-    //   toast.error(error.message)
-    // }
+    try {
+      console.log(aux);
+      const res = await axios.post('/appointments', { aux },
+        {
+          headers: {
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjY3MzZhNDk5NjdiNTIyNTdiMDc4YWQiLCJyb2xlIjoiUEFUSUVOVCIsImlhdCI6MTcxODA0MDIyOCwiZXhwIjoxNzIzMjI0MjI4fQ.s4XxAGKNmT4zdQY0tHg43RfzZPjDgVBKQrOu6wU3NSE'
+          }
+        }
+      )
+      console.log(res);
+      toast.info('Pacienteagendado correctamente')
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
 
   return (
@@ -70,8 +98,7 @@ const Agendar = () => {
               <span className="agendar-text05">DNI</span>
             </div>
             <input
-              type="number"
-              min={8000000} max={99000000}
+              type="text"
               className="agendar-textinput2"
               onChange={handleChange}
               value={data.dni}
