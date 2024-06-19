@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import './calendar.css'
 
-function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
+function Calendar({ setShowCalendar, changeDate, dateState }) {
   const [first, setFirst] = useState(0)
   const [dias, setDias] = useState([])
   const [year, setYear] = useState(2014)
@@ -24,26 +24,15 @@ function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
     return (new Date(year, month + 1, 0)).getDate()
   }
 
-  const numToString = num => {
-    if(num > 9) return num.toString()
-    else return 0 + num.toString()
-  }
-
-  useEffect(() => {
-    const dia = numToString(selectedDay)
-    const mes = numToString(month)
-    console.log(`${dia}/${mes}/${year}`);
-  }, [selectedDay])
-
   useEffect(() => {
     const date = new Date()
     const currentYear = date.getFullYear()
     const currentMonth = date.getMonth()
     const dateArray = date.toString().split(' ')
     const currentDay = Number(dateArray[2])
-    setSelectedDay(currentDay)
-    setYear(currentYear)
-    setMonth(currentMonth)
+    changeDate('day', currentDay)
+    changeDate('month', currentMonth)
+    changeDate('year', currentYear)
   }, [])
 
   useEffect(() => {
@@ -55,7 +44,7 @@ function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
   }, [month, year])
 
   const handleDayClick = value => {
-    setSelectedDay(value);
+    changeDate('day', value);
     setShowCalendar(prev => !prev)
   }
 
@@ -111,8 +100,8 @@ function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
           key={1}
           style={{
             gridColumnStart: first,
-            backgroundColor: selectedDay === 1 ? '#45539D' : '#fff',
-            color: selectedDay === 1 && '#fff'
+            backgroundColor: dateState.day === 1 ? '#45539D' : '#fff',
+            color: dateState.day === 1 && '#fff'
           }}
           onClick={() => handleDayClick(1)}
           className='calendar-list-item'
@@ -121,15 +110,15 @@ function Calendar({ setShowCalendar, selectedDay, setSelectedDay }) {
         </li>
         {
           dias && dias.length > 1 ?
-            dias.slice(1).map(dia => {
+            dias.slice(1).map(day => {
               return (
                 <li
-                  key={dia}
-                  onClick={() => handleDayClick(dia)}
+                  key={day}
+                  onClick={() => handleDayClick(day)}
                   className='calendar-list-item'
-                  style={{ backgroundColor: selectedDay === dia ? '#45539D' : '#fff', color: selectedDay === dia && '#fff' }}
+                  style={{ backgroundColor: dateState.day === day ? '#45539D' : '#fff', color: dateState.day === day && '#fff' }}
                 >
-                  {dia}
+                  {day}
                 </li>
               )
             })

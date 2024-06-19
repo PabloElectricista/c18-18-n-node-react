@@ -1,18 +1,31 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+/*  CSS  */
+import './clinic.css'
+
+/* Componentes */
+import Footer from '../../components/footer/Footer'
+import Calendar from '../../components/calendar/Calendar'
+import ClinicTable from '../../components/clinicTable/ClinicTable'
+
+/*  React hooks */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
-import Footer from '../../components/footer/Footer'
-import scheludes from './scheludes.json'
-import ClinicTable from '../../components/clinicTable/ClinicTable'
-import Calendar from '../../components/calendar/Calendar'
-import './clinic.css'
-import { toast } from 'react-toastify'
-import { updateUser } from '../../redux/actions/user'
-import { useDispatch, useSelector } from "react-redux";
-import { getUserScheludes } from '../../utils/user/getAppointments'
+/* Redux */
 import { placeAppointment } from '../../redux/slices/pabloSlices'
+import { useDispatch, useSelector } from "react-redux";
+import { updateUser } from '../../redux/actions/user'
+
+/* Custom hooks */
+import { getUserScheludes } from '../../utils/user/getAppointments'
+import { current } from '../../utils/user/getDate'
+
+/* initialState */
+import scheludes from './scheludes.json'
+
+/* Alertas */
+import { toast } from 'react-toastify'
 
 const Clinic = () => {
   const dispatch = useDispatch()
@@ -22,19 +35,17 @@ const Clinic = () => {
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState()
   const [showCalendar, setShowCalendar] = useState(false)
-  const [selectedDay, setSelectedDay] = useState(1)
   const [appointments, setAppointments] = useState(scheludes)
-  const [date, setDate] = useState({ day: 1, month: 1, year: 2024 })
+  const [date, setDate] = useState(current())
+  const [agregado, setAgregado] = useState(false)
 
   useEffect(() => {
     if (!user) dispatch(updateUser())
-    const tkn = localStorage.getItem('tkn')
-    if (!tkn) navigate('/login')
     const aux = scheludes.map(({ hour }) => { return { [hour]: false } })
     setShowMenu(aux);
-    getUserScheludes({ doctor_name: 'Martin', doctor_last_name: 'Gamboa', day: '06/13/2024' })
+    getUserScheludes({ doctor_name: 'Martin', doctor_last_name: 'Gamboa', day: '06/13/2024', doctor_id: '666699bc7c3930c134785ae1' })
       .then(data => {
-        console.log(data);
+        // console.log(data);
         // let temp = [...scheludes]
         // data.forEach(({ hour, patient_name, patient_last_name }) => {
         //   for (const schelude of temp) {
@@ -57,9 +68,9 @@ const Clinic = () => {
 
   const [count, setCount] = useState(1)
   useEffect(() => {
-    console.log(count);
+    // console.log(count);
     setCount(prev => prev + 1)
-    console.log(user);
+    // console.log(user);
     if (user && user.id) {
       let aux = {}
       if (appointment && Object.keys(appointment).length > 0) {
@@ -72,20 +83,21 @@ const Clinic = () => {
     }
   }, [user])
 
+  const numToString = num => {
+    if (num > 9) return num.toString()
+    else return 0 + num.toString()
+  }
 
   useEffect(() => {
-    console.log(date);
-    //   const dia = numToString(date.day)
-    //   const mes = numToString(date.month)
-    //   console.log(`${dia}/${mes}/${date.month}`);
-    //   // let aux = {}
-    //   // if (appointment && Object.keys(appointment).length > 0) {
-    //   //   aux = { ...appointment }
-    //   // }
-    //   // aux.clinic_id = user.clinic_id
-    //   // aux.specialty_id = user.specialty_id
-    //   // aux.doctor_id = user.id
-    //   // dispatch(placeAppointment(aux))
+    const dia = numToString(date.day)
+    const mes = numToString(date.month)
+    let aux = {}
+    if (appointment && Object.keys(appointment).length > 0) {
+      aux = { ...appointment }
+    }
+    aux.reserved_at = `${date.year}-${mes}-${dia} ${date.hour}`
+    dispatch(placeAppointment(aux))
+    agregado && navigate('/lista-pacientes')
   }, [date])
 
 
@@ -96,13 +108,21 @@ const Clinic = () => {
     })
   }
 
-  const handleMenuItem = (hour, item) => {
-    if (item === 'agendar')
-      toast(hour + ' & ' + selectedDay)
+  const handleMenuItem = (time, item) => {
+    let hour 
+    if(time.length > 4) hour = time
+    else hour = 0 + time
     setShowMenu({
       ...showMenu,
-      [hour]: false
+      [time]: false
     })
+    if (item === 'agendar') {
+      setDate({
+        ...date,
+        hour
+      })
+      setAgregado(true)
+    }
   }
 
   return (
@@ -133,12 +153,9 @@ const Clinic = () => {
 
         <Calendar
           setShowCalendar={setShowCalendar}
-          selectedDay={selectedDay}
-          setSelectedDay={setSelectedDay}
           dateState={date}
-          changeDate={setDate}
+          changeDate={handleDate}
         />
-
       </div>
       <div className="clinic-buttons-container">
         <button type="button" className="clinic-button1" onClick={() => navigate('/agendar-paciente')}>

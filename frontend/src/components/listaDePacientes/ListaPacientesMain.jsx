@@ -34,7 +34,7 @@ export default function ListaPacientesMain() {
     toast.warning('paciente reportado')
   }
 
-  const handleAgendar = ({ patient_name, patient_last_name, patient_dni }) => {
+  const handleAgendar = ({ patient_name, patient_last_name, patient_dni, patient_id }) => {
     let aux = {}
     if (appointment && Object.keys(appointment).length > 0) {
       aux = { ...appointment }
@@ -42,6 +42,7 @@ export default function ListaPacientesMain() {
     aux.patient_name = patient_name
     aux.patient_last_name = patient_last_name
     aux.patient_dni = patient_dni
+    aux.patient_id = patient_id
     dispatch(placeAppointment(aux))
     navigate('/agendar-paciente')
   }
@@ -73,7 +74,7 @@ export default function ListaPacientesMain() {
                   <td className='listaMain-td'><Link to={`mailto:${paciente.email}`}>correo</Link></td>
                   <td className='listaMain-td'>
                     <button className='listaMain-button-agendar' onClick={() => handleAgendar({
-                      patient_name: paciente.name, patient_last_name: paciente.last_name, patient_dni: paciente.patient_dni
+                      patient_name: paciente.name, patient_last_name: paciente.last_name, patient_dni: paciente.patient_dni, patient_id: paciente.id
                     })}>agendar</button>
                     <button className='listaMain-button-reportar' onClick={handleReport}>reportar</button>
                   </td>
