@@ -43,6 +43,7 @@ const Cartillas = () => {
     const [profesional, setProfesional] = useState(null)
     const [fechaElegida, setFechaElegida] = useState(null)
     const [horaElegida, setHoraElegida] = useState(null)
+    const [scheduler, setScheduler] = useState(null)
 
     //estos son estados para renderizar el componente opcion elegida
     const [nameClinic, setNameClinic] = useState(null)
@@ -54,11 +55,10 @@ const Cartillas = () => {
     //filtros
 
     let dataDoctorFiltered = dataDoctor.filter((d) => { return d.clinic_id === clinica })
-    const dataSpecialtyFiltered = dataSpecialties.filter(specialty =>
+    let dataSpecialtyFiltered = dataSpecialties.filter(specialty =>
         dataDoctorFiltered.some(doctor => doctor.specialty_id === specialty.id)
     );
 
-    //validaciones post filtros
 
     useEffect(() => {
         if (clinica === undefined) {
@@ -119,12 +119,12 @@ const Cartillas = () => {
                         </div>
                         <div className='containerFechaHora'>
                             {/* componente para la fecha y la hora */}
-                            <MenuFechaHora dataSchedulers={dataSchedulers} horaElegida={horaElegida} profesional={profesional} setHoraElegida={setHoraElegida} setFechaElegida={setFechaElegida} />
+                            <MenuFechaHora dataSchedulers={dataSchedulers} setScheduler={setScheduler} horaElegida={horaElegida} profesional={profesional} setHoraElegida={setHoraElegida} setFechaElegida={setFechaElegida} />
                         </div>
                     </div>
                 </div>
                 <div className='divButtonBuscar'>
-                    <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida} />
+                    <ButtonBuscarCartilla info={objetoInfoBuscar} clinica={clinica} scheduler={scheduler} especialidad={especialidad} profesional={profesional} horaElegida={horaElegida} fechaElegida={fechaElegida} />
                 </div>
                 
                 <Footer />

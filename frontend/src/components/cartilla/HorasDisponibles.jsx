@@ -2,13 +2,33 @@ import React, { useEffect, useState } from 'react'
 import horasCartillas from "../../views/cartillaHorariosData.json"
 import "./horasdisponibles.css"
 
-const HorasDisponibles = ({ setHoraElegida, setOpenSubMenuId, horariosDisponibles }) => {
+const HorasDisponibles = ({ setHoraElegida, setOpenSubMenuId, horariosDisponibles, fechaParaHoras, setScheduler }) => {
 
+    const [schedulersCorregidos, setSchedulersCorregidos] = useState(null)
     const [opcionesData, setOpcionesData] = useState([])
     useEffect(() => {
-        const appointments = horariosDisponibles[0].appointments
-        setOpcionesData(Object.entries(appointments))
+        const refactorDia = horariosDisponibles.map(h => {
+            const [date] = h.created_at.split(' ');
+            return {
+                ...h,
+                created_at: date,
+            };
+        });
+        setSchedulersCorregidos(refactorDia)
     }, [horariosDisponibles])
+
+    useEffect(() => {
+        if (!schedulersCorregidos) return;
+        let dataHorarios = schedulersCorregidos.filter((d) => d.created_at === fechaParaHoras);
+        setScheduler(dataHorarios[0].id)
+        if (dataHorarios.length > 0) {
+            const appointments = dataHorarios[0].appointments;
+            setOpcionesData(Object.entries(appointments));
+        } else {
+            setOpcionesData([]); // Manejo de caso cuando no hay coincidencias
+        }
+    }, [schedulersCorregidos, fechaParaHoras]);
+
 
     const handleHour = (h) => {
         setHoraElegida(h)
