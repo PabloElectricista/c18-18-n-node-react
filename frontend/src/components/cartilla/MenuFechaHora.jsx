@@ -7,10 +7,11 @@ import HorasDisponibles from "./HorasDisponibles"
 import OpcionElegida from "./OpcionElegida"
 import CalendarCartillas from "../calendar/CalendarCartillas"
 
-const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaElegida,profesional }) => {
+const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaElegida,profesional , setScheduler}) => {
     const date = new Date()
     const [horariosDisponibles, setHorariosDisponibles] = useState([])
 
+    const [fechaParaHoras, setFechaParaHoras] = useState(null)
 
     const getHorariosById = (id) => {
         let testHorariosID = dataSchedulers.filter((d) => d.doctor_id === id)
@@ -37,6 +38,15 @@ const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaEl
         }
         setFechaElegida(formatDate)
     },[selectedDay])
+
+    useEffect(()=>{
+        const formatDate = () =>{
+            return `${selectedDay}/${selectedMonth + 1}/${selectedYear}`
+        }
+        setFechaParaHoras(formatDate)
+    },[selectedDay])
+    
+
 
     const [openSubMenuId, setOpenSubMenuId] = useState(null);
 
@@ -90,12 +100,11 @@ const MenuFechaHora = ({ dataSchedulers ,horaElegida, setHoraElegida, setFechaEl
                         horaElegida ? <OpcionElegida opcion={horaElegida} anularOpcion={setHoraElegida} textOpcion="Hora elegida" dataAdicional="hs" /> : null
                     }
                     {
-                        openSubMenuId && horariosDisponibles.length>0 ? <HorasDisponibles setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} horariosDisponibles={horariosDisponibles} /> : null
+                        selectedDay && horariosDisponibles.length>0 && !horaElegida ? <HorasDisponibles  setScheduler={setScheduler} fechaParaHoras={fechaParaHoras} setHoraElegida={setHoraElegida} setOpenSubMenuId={setOpenSubMenuId} horariosDisponibles={horariosDisponibles} /> : null
                     }
                     <hr className='hrDesplegable' />
                 </div>
             </div>
-
         </div>
     )
 }

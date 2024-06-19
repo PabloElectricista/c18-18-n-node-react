@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { createNewAppointment } from "../../redux/thunks/appointmentsThunk";
 import { useEffect, useState } from "react";
 import { Bounce, toast } from 'react-toastify';
+import { useNavigate, Link } from "react-router-dom";
 
-const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaElegida, fechaElegida }) => {
+const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaElegida, fechaElegida, scheduler }) => {
 
-
+    const navigate = useNavigate()
     let token = localStorage.getItem('tkn')
     const dispatch = useDispatch()
     const [horaFinal, setHoraFinal] = useState()
@@ -18,11 +19,8 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
 
     useEffect(() => {
         const handleNumber = (horaElegida) => {
-            if (Number.isInteger(horaElegida)) {
-                return `${horaElegida}:00:00`
-            }
-            else {
-                return `${horaElegida}:30:00`
+            if (horaElegida) {
+                return `${horaElegida}:00`
             }
         }
         setHoraFinal(handleNumber(horaElegida))
@@ -38,6 +36,7 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
         if (clinica && especialidad && profesional && horaElegida && fechaElegida) {
             setVarIncompletas(false)
             setAppointmentData({
+                scheduler_id: scheduler,
                 clinic_id: clinica,
                 doctor_id: profesional,
                 specialty_id: especialidad,
@@ -59,18 +58,17 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
         } else {
             console.log(appointmentData);
             dispatch(createNewAppointment({ token, data: appointmentData }))
-        }
-    };
-
-    useEffect(() => {
-        if (appointments.appointment) {
             toast.success('Listo! Verifica tus turnos', {
                 toastId: 'success1',
                 position: 'bottom-left',
                 transition: Bounce,
+                autoClose: 1500,
+                onClose:()=>{
+                    navigate('/my-appointments')
+                }
             })
         }
-    }, [appointments.appointment])
+    };
 
     return (
         <>
@@ -78,9 +76,8 @@ const ButtonBuscarCartilla = ({ info, clinica, especialidad, profesional, horaEl
                 {
                     varIncompletas ? <span className="spanVariables">AUN FALTA COMPLETAR CAMPOS PARA CONTINUAR</span> : null
                 }
-                <button className='buttonBuscar' onClick={() => mostrarValores()} >Agendar</button>
+                    <button className='buttonBuscar' onClick={()=>mostrarValores()}>Agendar</button>
             </div>
-
         </>
     )
 }
