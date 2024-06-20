@@ -83,8 +83,6 @@ const PatientRecordsTable = ({ citasPaciente }) => {
           ))}
         </tbody>
       </table>
-      {loading && <div>Eliminando cita...</div>}
-      {error && <div>Error al eliminar cita: {error}</div>}
     </div>
   );
 };
