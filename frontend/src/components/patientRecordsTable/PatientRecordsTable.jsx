@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { deleteAppointment } from "../../redux/thunks/appointmentsThunk";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfRenderer from "../pdfRenderer/PdfRenderer";
@@ -8,9 +8,24 @@ import "./patientRecordsTable.css";
 const PatientRecordsTable = ({ citasPaciente }) => {
   const dispatch = useDispatch();
 
+  const loading = useSelector((state) => state.deleteAppointment.loading);
+  const error = useSelector((state) => state.deleteAppointment.error);
+
   const handleDelete = (id) => {
-    dispatch(deleteAppointment(id));
+    if(id) {
+      dispatch(deleteAppointment(id))  
+    }
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+  
+    if (error) {
+      return <div>Error: {error}</div>;
+    }
   };
+
+
+
 
   return (
     <div className="historial-container">
