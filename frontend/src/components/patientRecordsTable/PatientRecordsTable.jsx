@@ -13,11 +13,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
   const error = useSelector((state) => state.appointments.error);
 
   const handleDelete = async (id) => {
-    try {
-      await dispatch(deleteAppointment(id));
-    } catch (err) {
-      console.error(err);
-    }
+     dispatch(deleteAppointment(id));
   };
 
   return (
@@ -74,7 +70,7 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                 <button 
                   className="btn" 
                   onClick={() => handleDelete(cita.id)}
-                  disabled={!estadoButton || loading}
+                  disabled={!estadoButton}
                 >
                   {estadoButton ? 'Eliminar cita' : 'Eliminando...'}
                 </button>
