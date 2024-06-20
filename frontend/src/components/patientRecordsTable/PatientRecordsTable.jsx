@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteAppointment } from "../../redux/thunks/appointmentsThunk";
 import { PDFDownloadLink } from "@react-pdf/renderer";
@@ -7,25 +7,23 @@ import "./patientRecordsTable.css";
 
 const PatientRecordsTable = ({ citasPaciente }) => {
   const dispatch = useDispatch();
+  const [loadingIds, setLoadingIds] = useState([]);
 
-  const loading = useSelector((state) => state.deleteAppointment.loading);
-  const error = useSelector((state) => state.deleteAppointment.error);
+  const loading = useSelector((state) => state.appointments.loading);
+  const error = useSelector((state) => state.appointments.error);
 
-  const handleDelete = (id) => {
-    if(id) {
-      dispatch(deleteAppointment(id))  
-    }
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-  
-    if (error) {
-      return <div>Error: {error}</div>;
+  const handleDelete = async (id) => {
+    if (id) {
+      setLoadingIds((prev) => [...prev, id]);
+      try {
+        await dispatch(deleteAppointment(id)).unwrap();
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoadingIds((prev) => prev.filter((loadingId) => loadingId !== id));
+      }
     }
   };
-
-
-
 
   return (
     <div className="historial-container">
@@ -78,7 +76,13 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                     <button className="btn">Descargar</button>
                   )}
                 </PDFDownloadLink>
-                <button className="btn" onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
+                <button 
+                  className="btn" 
+                  onClick={() => handleDelete(cita.id)}
+                  disabled={loadingIds.includes(cita.id)}
+                >
+                  {loadingIds.includes(cita.id) ? 'Eliminando...' : 'Eliminar cita'}
+                </button>
               </td>
             </tr>
           ))}
