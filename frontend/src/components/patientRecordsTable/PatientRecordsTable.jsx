@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteAppointment } from "../../redux/thunks/appointmentsThunk";
 import { PDFDownloadLink } from "@react-pdf/renderer";
@@ -7,21 +7,16 @@ import "./patientRecordsTable.css";
 
 const PatientRecordsTable = ({ citasPaciente }) => {
   const dispatch = useDispatch();
-  const [loadingIds, setLoadingIds] = useState([]);
-
+  const [estadoButton, setEstadoButton] = useState(true);
+  
   const loading = useSelector((state) => state.appointments.loading);
   const error = useSelector((state) => state.appointments.error);
 
   const handleDelete = async (id) => {
-    if (id) {
-      setLoadingIds((prev) => [...prev, id]);
-      try {
-        await dispatch(deleteAppointment(id)).unwrap();
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingIds((prev) => prev.filter((loadingId) => loadingId !== id));
-      }
+    try {
+      await dispatch(deleteAppointment(id));
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -79,15 +74,17 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                 <button 
                   className="btn" 
                   onClick={() => handleDelete(cita.id)}
-                  disabled={loadingIds.includes(cita.id)}
+                  disabled={!estadoButton || loading}
                 >
-                  {loadingIds.includes(cita.id) ? 'Eliminando...' : 'Eliminar cita'}
+                  {estadoButton ? 'Eliminar cita' : 'Eliminando...'}
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {loading && <div>Eliminando cita...</div>}
+      {error && <div>Error al eliminar cita: {error}</div>}
     </div>
   );
 };
