@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { deleteAppointment } from "../../redux/thunks/appointmentsThunk";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PdfRenderer from "../pdfRenderer/PdfRenderer";
@@ -7,9 +7,13 @@ import "./patientRecordsTable.css";
 
 const PatientRecordsTable = ({ citasPaciente }) => {
   const dispatch = useDispatch();
+  const [estadoButton, setEstadoButton] = useState(true);
+  
+  const loading = useSelector((state) => state.appointments.loading);
+  const error = useSelector((state) => state.appointments.error);
 
   const handleDelete = (id) => {
-    dispatch(deleteAppointment(id));
+     dispatch(deleteAppointment(id));
   };
 
   return (
@@ -63,7 +67,13 @@ const PatientRecordsTable = ({ citasPaciente }) => {
                     <button className="btn">Descargar</button>
                   )}
                 </PDFDownloadLink>
-                <button className="btn" onClick={() => handleDelete(cita.id)}>Eliminar cita</button>
+                <button 
+                  className="btn" 
+                  onClick={() => handleDelete(cita.id)}
+                  disabled={!estadoButton}
+                >
+                  {estadoButton ? 'Eliminar cita' : ''}
+                </button>
               </td>
             </tr>
           ))}
