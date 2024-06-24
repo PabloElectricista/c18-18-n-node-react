@@ -33,13 +33,26 @@ const MyAppointments = () => {
  //console.log("soy datacitas: ", dataCitas.appointments);
 
   return (
-    <div>
-      <Navbar />
-      <div>
-        <PatientRecordsTable citasPaciente={dataCitas.appointments} />
+    <>
+      <div className="navbar">
+        <Navbar />
       </div>
-      <Footer />
-    </div>
+      <div className="content">
+        <div className="PatientRecordsTable">
+          <PatientRecordsTable citasPaciente={dataCitas.appointments} />
+        </div>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '5px', marginBottom: '0px' }}>
+          <img 
+            src="https://res.cloudinary.com/dqh2illb5/image/upload/v1719199733/medicine/pexels-pavel-danilyuk-7108344_r8ehv2.jpg" 
+            alt="imagen de utensilios medicos" 
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </>
   );
 };
 

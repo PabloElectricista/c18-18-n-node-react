@@ -1,0 +1,40 @@
+/* styles.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  
+  .navbar {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .PatientRecordsTable {
+    flex: 1;
+    overflow: auto;
+    width: 100%;
+  }
+  
+  .footer {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
